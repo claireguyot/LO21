@@ -11816,10 +11816,10 @@
 							"containerExtending": false,
 							"left": 1758.66162109375,
 							"top": 392,
-							"width": 162.33837890625,
-							"height": 155,
+							"width": 226.33837890625,
+							"height": 441,
 							"autoResize": false,
-							"text": "Cell** : pas de constructeur de recopie car le voisinage ne changera pas quelque soit la grille donc ça n'a pas d'intérêt : utiliser un pointeur sur vector<Cell*> car plus pratique à créer et pour ajouter les voisins",
+							"text": "Cell** : pas de constructeur de recopie car le voisinage ne changera pas quelque soit la grille donc ça n'a pas d'intérêt : utiliser un vector<Cell*> car plus pratique à créer et pour ajouter les voisins              /!\\ On ne pourra pas utiliser un pointeur sur un vector<Cell*> qui aura la même valeur pour les Cell de grille Etat différentes à la même position car: si on supprime une grille Etat on perd le tableau des voisins pour tous les Etats  : on aura donc un coût mémoire plus important, on peut donc remplacer ça par un calcul des voisins à chaque transition (en utilisant toujours le DP Strategy qu'on a créé pour le calcul des voisins Problème on augmente énormément le coût en temps: => préférable d'augmenter le coût mémoire car le nombre de grille Etat stocké dans le Simulateur sera très faible (2 par défaut et on peut imposer un maximum",
 							"wordWrap": true
 						},
 						{
@@ -11844,7 +11844,7 @@
 								"$ref": "AAAAAAFir+kOmQqLX4Y="
 							},
 							"lineStyle": 1,
-							"points": "1690:452;1758:460"
+							"points": "1679:493;1758:542"
 						},
 						{
 							"_type": "UMLNoteView",
