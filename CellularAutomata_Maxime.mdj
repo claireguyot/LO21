@@ -5829,7 +5829,7 @@
 									"model": {
 										"$ref": "AAAAAAFir95XH/jpVEs="
 									},
-									"visible": false,
+									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
 									"fillColor": "#ffffff",
@@ -5838,9 +5838,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 1234,
+									"left": 1224,
 									"top": 331,
-									"width": 0,
+									"width": 21.68359375,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 0.5235987755982988,
@@ -5850,6 +5850,7 @@
 									},
 									"edgePosition": 0,
 									"underline": false,
+									"text": "0..1",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5,
 									"wordWrap": false
@@ -13554,6 +13555,7 @@
 								"visibility": "public",
 								"navigable": true,
 								"aggregation": "none",
+								"multiplicity": "0..1",
 								"isReadOnly": false,
 								"isOrdered": false,
 								"isUnique": false,
