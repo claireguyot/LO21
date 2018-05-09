@@ -2,19 +2,19 @@
 
 using namespace std;
 
-int Cell::SetX(int x)
+void Cell::SetX(int x)
 {
     m_x = x;
 }
-int Cell::SetY(int y)
+void Cell::SetY(int y)
 {
     m_y = y;
 }
-int Cell::SetEtat(int etat)
+void Cell::SetEtat(int etat)
 {
     m_etat = etat;
 }
-int Cell::AjouterVoisin(Cell& voisin)
+void Cell::AjouterVoisin(Cell& voisin)
 {
     m_voisins.push_back(&voisin);
 }

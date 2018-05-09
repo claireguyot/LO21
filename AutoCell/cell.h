@@ -24,10 +24,11 @@ public:
     int GetX() { return m_x; }
     int GetY() { return m_y; }
 
-    int SetX(int x);
-    int SetY(int y);
-    int SetEtat(int etat);
-    int AjouterVoisin(Cell& voisin);
+    void SetX(int x);
+    void SetY(int y);
+    void SetEtat(int etat);
+    void AjouterVoisin(Cell& voisin);
+    ~Cell() = default;
 private:
     int m_etat;
     std::vector<Cell*> m_voisins;

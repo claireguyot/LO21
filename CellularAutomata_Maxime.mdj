@@ -6489,7 +6489,7 @@
 							"width": 265,
 							"height": 118,
 							"autoResize": false,
-							"text": "cellules est en fait un vector<vector<Cell>> tableau 1D est un cas particulier avec une seule ligne.",
+							"text": "cellules est en fait un vector<vector<Cell>> tableau 1D est un cas particulier avec une seule ligne. car sinon c'est beaucoup plus compliqué",
 							"wordWrap": true
 						},
 						{
