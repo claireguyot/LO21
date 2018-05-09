@@ -6487,9 +6487,9 @@
 							"left": 1256,
 							"top": 600,
 							"width": 265,
-							"height": 118,
+							"height": 181,
 							"autoResize": false,
-							"text": "cellules est en fait un vector<vector<Cell>> tableau 1D est un cas particulier avec une seule ligne. car sinon c'est beaucoup plus compliqué",
+							"text": "cellules est en fait un vector<vector<Cell>> tableau 1D est un cas particulier avec une seule ligne. car sinon c'est beaucoup plus compliqué + STOCKER UN POINTEUR SUR LE GENERATEUR D ETAT N'EST PAS OBLIGATOIRE car ça ne sert qu'à la génération de la 1ere grille mais le stocker permettra de regénerer une grille aléatoire pendant qu'on simulera l'automate => possibilité de réinitialiser la simulation tout en repartant avec une nouvelle grille sans se retaper la configuration complète ",
 							"wordWrap": true
 						},
 						{
@@ -6514,7 +6514,7 @@
 								"$ref": "AAAAAAFir8K6DteCAwQ="
 							},
 							"lineStyle": 1,
-							"points": "1326:562;1350:599"
+							"points": "1319:562;1339:599"
 						},
 						{
 							"_type": "UMLClassView",
