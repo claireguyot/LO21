@@ -1,6 +1,6 @@
-# LO21
+# CellularAutomata
  
-_Projet de LO21 concernant les **automates cellulaires**._  
+_Projet concernant les **automates cellulaires**._  
 **Collaborateurs :** phcarval, noizetma, claireguyot
 
 ***
