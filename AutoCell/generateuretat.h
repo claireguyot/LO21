@@ -20,4 +20,11 @@ public:
     void GenererEtat(int nbEtat, std::vector<std::vector<Cell>>& tab) override;
     ~GenerateurRandom() = default;
 };
+
+class GenerateurSymetrieAxeLargeur : public GenerateurEtat
+{
+public:
+    void GenererEtat(int nbEtat, std::vector<std::vector<Cell>>& tab) override;
+    ~GenerateurSymetrieAxeLargeur() = default;
+};
 #endif // GENERATEURETAT_H
