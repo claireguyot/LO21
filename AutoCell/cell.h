@@ -28,7 +28,7 @@ public:
     void SetY(int y);
     void SetEtat(int etat);
     void AjouterVoisin(Cell& voisin);
-    ~Cell() = default;
+    ~Cell() = default; //pas d'allocation dynamique dans la classe car le vector m_voisins est un tableau d'adresses (on ne supprime pas les voisins d'une Cellule quand on détruit la Cellule)
 private:
     int m_etat;
     std::vector<Cell*> m_voisins;

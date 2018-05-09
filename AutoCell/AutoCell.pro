@@ -5,8 +5,10 @@ QMAKE_LFLAGS = -std=c++11
 SOURCES += \
     main.cpp \
     cell.cpp \
-    generateuretat.cpp
+    generateuretat.cpp \
+    etat.cpp
 
 HEADERS += \
     cell.h \
-    generateuretat.h
+    generateuretat.h \
+    etat.h
