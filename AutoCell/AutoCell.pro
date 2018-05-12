@@ -6,9 +6,11 @@ SOURCES += \
     main.cpp \
     cell.cpp \
     generateuretat.cpp \
-    etat.cpp
+    etat.cpp \
+    voisinage.cpp
 
 HEADERS += \
     cell.h \
     generateuretat.h \
-    etat.h
+    etat.h \
+    voisinage.h

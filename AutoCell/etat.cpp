@@ -29,6 +29,20 @@ Etat::Etat(int largeur, int longueur, int **tab) : m_largeur(largeur), m_longueu
     }
 }
 
+Etat::Etat(int largeur, int longueur) : m_largeur(largeur), m_longueur(longueur), m_cellules()
+{
+    for (int i=0;i<largeur;i++)
+    {
+        m_cellules.push_back(vector<Cell>());
+        for(int j=0; j<longueur;j++)
+        {
+            m_cellules[i].push_back(Cell(0,i,j));
+        }
+
+    }
+}
+
+
 void Etat::afficher()
 {
     for (int i=0;i<m_largeur;i++)
