@@ -43,7 +43,7 @@ Etat::Etat(int largeur, int longueur) : m_largeur(largeur), m_longueur(longueur)
 }
 
 
-void Etat::afficher()
+void Etat::afficher() const
 {
     for (int i=0;i<m_largeur;i++)
     {

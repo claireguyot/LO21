@@ -13,16 +13,16 @@ public:
     {
 
     }
-    std::vector<Cell*> const& GetVoisins()
+    std::vector<Cell*> const& GetVoisins() const
     {
         return m_voisins;
     }
-    int GetEtat()
+    int GetEtat() const
     {
         return m_etat;
     }
-    int GetX() { return m_x; }
-    int GetY() { return m_y; }
+    int GetX() const { return m_x; }
+    int GetY() const { return m_y; }
 
     void SetX(int x);
     void SetY(int y);
