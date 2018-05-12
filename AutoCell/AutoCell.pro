@@ -7,10 +7,12 @@ SOURCES += \
     cell.cpp \
     generateuretat.cpp \
     etat.cpp \
-    voisinage.cpp
+    voisinage.cpp \
+    transitionrule.cpp
 
 HEADERS += \
     cell.h \
     generateuretat.h \
     etat.h \
-    voisinage.h
+    voisinage.h \
+    transitionrule.h
