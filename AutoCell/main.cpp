@@ -4,6 +4,7 @@
 #include "etat.h"
 #include "voisinage.h"
 #include "transitionrule.h"
+#include "cellularautomata.h"
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -13,8 +14,8 @@ int main(int argc, char* argv[])
         GenerateurSymetrieAxeLargeur test;
         Voisinage1D voisinageDef;
         Etat grille(1,5,test,2);
-        voisinageDef.definirVoisinage(grille,3);
-        grille.afficher();
+        //voisinageDef.definirVoisinage(grille,3);
+        //grille.afficher();
         cout <<endl;
         /*Cell& cellule = grille.GetCellule(0,0);
         vector<Cell*> const& voisin = cellule.GetVoisins();
@@ -23,11 +24,14 @@ int main(int argc, char* argv[])
 
         cout << endl;
         */
-        Etat grille2(grille);
         ElementaryRule rule("10101010",2);
-        rule.EffectuerTransition(grille,grille2);
-        grille2.afficher();
-
+        CellularAutomata automate(&rule,grille,2,3,&voisinageDef,2);
+        automate.Dernier().afficher();
+        for(int i=0;i<5;i++)
+        {
+            automate.Next();
+            automate.Dernier().afficher();
+        }
     }
     catch(char const* e)
     {

@@ -8,8 +8,8 @@ class TransitionRule
 {
 public:
     TransitionRule() = default;
-    virtual void EffectuerTransition(Etat const& depart, Etat& arrivee);
-    virtual void TransitionCellule(Cell const& depart, Cell& arrivee) = 0;
+    virtual void EffectuerTransition(Etat const& depart, Etat& arrivee) const;
+    virtual void TransitionCellule(Cell const& depart, Cell& arrivee) const = 0;
     ~TransitionRule()= default;
 };
 
@@ -23,7 +23,7 @@ public:
 class ElementaryRule : public TransitionRule1D
 {
 public:
-    void TransitionCellule(Cell const& depart,Cell& arrivee) override;
+    void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
     ElementaryRule(std::string rule,int nbEtats) : TransitionRule1D(), m_rule(rule), m_nbEtats(nbEtats)
     {
 

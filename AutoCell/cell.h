@@ -1,6 +1,12 @@
 #ifndef CELL_H
 #define CELL_H
 #include <vector>
+#include "automateexception.h"
+//nombre d'etat pris en compte pour nos automates : Dans le cadre de l'automate FeuDeFôret : Blanc = case vide, Noir = cendre, Vert = Arbre, Rouge = Feu
+enum etat
+{
+    BLANC = 0, NOIR = 1, VERT = 2, ROUGE = 3
+};
 
 class Cell
 {
@@ -13,7 +19,12 @@ public:
     {
 
     }
+    Cell(Cell const& c) = default;
     std::vector<Cell*> const& GetVoisins() const
+    {
+        return m_voisins;
+    }
+    std::vector<Cell*>& GetVoisins()
     {
         return m_voisins;
     }
@@ -27,7 +38,7 @@ public:
     void SetX(int x);
     void SetY(int y);
     void SetEtat(int etat);
-    void AjouterVoisin(Cell& voisin);
+    void AjouterVoisin(Cell *voisin);
     ~Cell() = default; //pas d'allocation dynamique dans la classe car le vector m_voisins est un tableau d'adresses (on ne supprime pas les voisins d'une Cellule quand on détruit la Cellule)
 private:
     int m_etat;
