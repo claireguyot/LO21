@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
         cout << endl;
         */
         ElementaryRule rule("10101010",2);
-        CellularAutomata automate(&rule,grille,2,3,&voisinageDef,2);
+        CellularAutomata automate(&rule,grille,2,1,&voisinageDef,2);
         automate.Dernier().afficher();
         for(int i=0;i<5;i++)
         {
