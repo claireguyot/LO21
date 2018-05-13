@@ -4,13 +4,15 @@
 using namespace std;
 
 
-CellularAutomata::CellularAutomata(const TransitionRule* rule , Etat& dep, unsigned int nbEtats,unsigned int ordre,Voisinage const* definitionVoisinage,unsigned int buffer):
-    m_rule(rule), m_etats(nullptr), m_depart(&dep), m_buffer(buffer),m_rang(0),m_nbEtats(nbEtats),m_ordre(ordre), m_voisinageDefinition(definitionVoisinage) {
+CellularAutomata::CellularAutomata(const TransitionRule* rule , Etat& dep, unsigned int nbEtats,unsigned int ordreVoisinage,Voisinage const* definitionVoisinage,unsigned int buffer):
+    m_rule(rule), m_etats(nullptr), m_depart(&dep), m_buffer(buffer),m_rang(0),m_nbEtats(nbEtats),m_ordreVoisinage(ordreVoisinage), m_voisinageDefinition(definitionVoisinage) {
     m_etats = new Etat*[m_buffer];
+
     for (unsigned int i = 0; i < m_buffer; i++) m_etats[i] = nullptr;
-    //m_voisinageDefinition->definirVoisinage(*m_depart,m_ordre);
+    //m_voisinageDefinition->definirVoisinage(*m_depart,m_ordreVoisinage);
     m_etats[0] = new Etat(*m_depart);
-    m_voisinageDefinition->definirVoisinage(*m_etats[0],m_ordre);
+    m_voisinageDefinition->definirVoisinage(*m_etats[0],m_ordreVoisinage);
+
 }
 
 
@@ -20,7 +22,7 @@ void CellularAutomata::Build(unsigned int cellule) {
     if (m_etats[cellule] == nullptr)
     {
         m_etats[cellule] = new Etat(*m_depart);
-        m_voisinageDefinition->definirVoisinage(*m_etats[cellule],m_ordre); //le voisinage est lié à la grille donc quand on recrée une grille on doit recréer un voisinage pour cette grille donc c'est important de ne pas avoir un buffer trop grand pour pas recalculer le voisinage trop de fois + pour éviter le surplus mémoire
+        m_voisinageDefinition->definirVoisinage(*m_etats[cellule],m_ordreVoisinage); //le voisinage est lié à la grille donc quand on recrée une grille on doit recréer un voisinage pour cette grille donc c'est important de ne pas avoir un buffer trop grand pour pas recalculer le voisinage trop de fois + pour éviter le surplus mémoire
         //mais ça évite de recalculer le voisinage à chaque transition
     };
 }

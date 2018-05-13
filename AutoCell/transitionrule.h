@@ -33,4 +33,23 @@ private:
     std::string m_rule;
     int m_nbEtats;
 };
+
+class TransitionRule2D : public TransitionRule
+{
+
+};
+
+class GameOfLife : public TransitionRule2D //nombre d'Etats forcément = à 2 !!!!!!!!
+{
+public:
+    void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
+    GameOfLife(int minVoisinsVivants,int maxVoisinsVivants ) : TransitionRule2D(), m_minVoisinsVivants(minVoisinsVivants), m_maxVoisinsVivants(maxVoisinsVivants)
+    {
+
+    }
+    ~GameOfLife() = default;
+private:
+    int m_minVoisinsVivants;
+    int m_maxVoisinsVivants;
+};
 #endif // TRANSITIONRULE_H

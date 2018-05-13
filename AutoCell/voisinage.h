@@ -27,6 +27,7 @@ class Voisinage2D : public Voisinage
 
 class VonNeumann : public Voisinage2D
 {
+public:
     VonNeumann() = default;
     ~VonNeumann() = default;
     void definirVoisinage(Etat &e, int ordre) const override;
@@ -34,6 +35,7 @@ class VonNeumann : public Voisinage2D
 
 class Moore : public Voisinage2D
 {
+public:
     Moore() = default;
     ~Moore() = default;
     void definirVoisinage(Etat &e, int ordre) const override;

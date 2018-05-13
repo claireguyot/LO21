@@ -37,7 +37,8 @@ void VonNeumann::definirVoisinage(Etat &e, int ordre) const //nbVoisins = minimu
         {
             Cell& actuel = e.GetCellule(i,j);
             if(actuel.GetVoisins().size() != 0) actuel.GetVoisins().clear();
-                for (int k=-ordre; k<= ordre; j++)
+
+                for (int k=-ordre; k<= ordre; k++)
                 {
                     if(k == 0)
                     {
@@ -50,8 +51,9 @@ void VonNeumann::definirVoisinage(Etat &e, int ordre) const //nbVoisins = minimu
                         else
                             actuel.AjouterVoisin(nullptr);
                     }
+
                 }
-                for (int k=-ordre; k<= ordre; j++)
+                for (int k=-ordre; k<= ordre; k++)
                 {
                     if(k != 0)
                     {
@@ -77,11 +79,11 @@ void Moore::definirVoisinage(Etat &e, int ordre) const
         {
             Cell& actuel = e.GetCellule(i,j);
             if(actuel.GetVoisins().size() != 0) actuel.GetVoisins().clear();
-                for (int k=-ordre; k<= ordre; j++)
+                for (int k=-ordre; k<= ordre; k++)
                 {
                     for (int l = -ordre; l<= ordre; l++)
                     {
-                        if(k == 0)
+                        if(k == 0 && l == 0)
                         {
                                 actuel.AjouterVoisin(&actuel);
                         }

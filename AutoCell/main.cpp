@@ -32,6 +32,25 @@ int main(int argc, char* argv[])
             automate.Next();
             automate.Dernier().afficher();
         }
+        cout << endl << endl;
+        //test du GameOfLife
+        GenerateurRandom test2;
+        //VonNeumann voisinageDef2; marche
+        Moore voisinageDef2; // vérifier mais normalement OK
+        Etat grille2(5,5,test2,2);
+        GameOfLife rule2(1,2);
+
+        CellularAutomata automate2(&rule2,grille2,2,1,&voisinageDef2,2);
+        cout << "test" <<endl;
+        automate2.Dernier().afficher();
+        cout <<endl;
+        for(int i=0;i<5;i++)
+        {
+            automate2.Next();
+            automate2.Dernier().afficher();
+            cout << endl;
+        }
+
     }
     catch(char const* e)
     {
