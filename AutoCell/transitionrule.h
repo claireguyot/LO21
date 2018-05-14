@@ -52,4 +52,12 @@ private:
     int m_minVoisinsVivants;
     int m_maxVoisinsVivants;
 };
+class FeuForet : public TransitionRule2D //nombre d'Etats forcément = à 2 !!!!!!!!
+{
+public:
+    void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
+    FeuForet() = default;
+    ~FeuForet() = default;
+};
+
 #endif // TRANSITIONRULE_H

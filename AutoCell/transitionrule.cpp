@@ -48,3 +48,25 @@ void GameOfLife::TransitionCellule(const Cell &depart, Cell &arrivee) const
         arrivee.SetEtat(BLANC);
 
 }
+
+void FeuForet::TransitionCellule(Cell const& depart,Cell& arrivee) const
+{
+    vector<Cell*> const& voisins = depart.GetVoisins();
+    if(depart.GetEtat()==BLANC) arrivee.SetEtat(BLANC);
+    else if(depart.GetEtat()==NOIR) arrivee.SetEtat(NOIR);
+    else if(depart.GetEtat()==ROUGE) arrivee.SetEtat(NOIR);
+    else
+    {
+        for(int i=0;i<voisins.size();i++)
+        {
+
+            if(voisins[i]!= nullptr && voisins[i]!= &depart && voisins[i]->GetEtat()==ROUGE)
+            {
+                arrivee.SetEtat(ROUGE);
+                break;
+            }
+
+        }
+    }
+
+}

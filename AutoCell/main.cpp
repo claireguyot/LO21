@@ -51,6 +51,24 @@ int main(int argc, char* argv[])
             cout << endl;
         }
 
+        //test du FeuForet
+        GenerateurRandom test3;
+        //VonNeumann voisinageDef2; marche
+        Moore voisinageDef3; // vérifier mais normalement OK
+        Etat grille3(5,5,test3,4);
+        FeuForet rule3;
+
+        CellularAutomata automate3(&rule3,grille3,2,1,&voisinageDef3,2);
+        cout << "test" <<endl;
+        automate3.Dernier().afficher();
+        cout <<endl;
+        for(int i=0;i<5;i++)
+        {
+            automate3.Next();
+            automate3.Dernier().afficher();
+            cout << endl;
+        }
+
     }
     catch(char const* e)
     {
