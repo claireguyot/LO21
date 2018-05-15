@@ -1,0 +1,62 @@
+\hypertarget{class_cellular_automata}{}\section{Cellular\+Automata Class Reference}
+\label{class_cellular_automata}\index{Cellular\+Automata@{Cellular\+Automata}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_afc79d40dd2e2d2f99f7ceeaa756058a5}\label{class_cellular_automata_afc79d40dd2e2d2f99f7ceeaa756058a5}} 
+{\bfseries Cellular\+Automata} (const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} $\ast$rule, \mbox{\hyperlink{class_etat}{Etat}} \&dep, unsigned int nb\+Etats, unsigned int ordre\+Voisinage, \mbox{\hyperlink{class_voisinage}{Voisinage}} const $\ast$definition\+Voisinage, unsigned int buffer=2)
+\item 
+\mbox{\Hypertarget{class_cellular_automata_aa704c475e0501f7db1f3bcb88211493a}\label{class_cellular_automata_aa704c475e0501f7db1f3bcb88211493a}} 
+void {\bfseries Run} (unsigned int nb\+Steps)
+\item 
+\mbox{\Hypertarget{class_cellular_automata_acfc9ced987c630324dcd70ceea348148}\label{class_cellular_automata_acfc9ced987c630324dcd70ceea348148}} 
+void {\bfseries Next} ()
+\item 
+\mbox{\Hypertarget{class_cellular_automata_a42291e2737e23c206e44f074d13323f7}\label{class_cellular_automata_a42291e2737e23c206e44f074d13323f7}} 
+const \mbox{\hyperlink{class_etat}{Etat}} \& {\bfseries Dernier} () const
+\item 
+\mbox{\Hypertarget{class_cellular_automata_a2c7e3542b8360a97f0166b5b75a11125}\label{class_cellular_automata_a2c7e3542b8360a97f0166b5b75a11125}} 
+unsigned int {\bfseries Get\+Rang\+Dernier} () const
+\item 
+\mbox{\Hypertarget{class_cellular_automata_a0cbefb6072fea0aeb9458d81167c84d5}\label{class_cellular_automata_a0cbefb6072fea0aeb9458d81167c84d5}} 
+void {\bfseries Reset} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_ac087053c4ed0f8989ea2016faa5fbae0}\label{class_cellular_automata_ac087053c4ed0f8989ea2016faa5fbae0}} 
+void {\bfseries Build} (unsigned int c)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_aac41608d613ea2ee9df3a55ad0a127f6}\label{class_cellular_automata_aac41608d613ea2ee9df3a55ad0a127f6}} 
+const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} $\ast$ {\bfseries m\+\_\+rule}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_a6990374e6bca2e228ff82ad5a3419833}\label{class_cellular_automata_a6990374e6bca2e228ff82ad5a3419833}} 
+const \mbox{\hyperlink{class_voisinage}{Voisinage}} $\ast$ {\bfseries m\+\_\+voisinage\+Definition}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_aed4b142d4bbd1af6ea66db5c4b03cc9d}\label{class_cellular_automata_aed4b142d4bbd1af6ea66db5c4b03cc9d}} 
+\mbox{\hyperlink{class_etat}{Etat}} $\ast$$\ast$ {\bfseries m\+\_\+etats}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_ae2b6fe299791495f1835bb193b638985}\label{class_cellular_automata_ae2b6fe299791495f1835bb193b638985}} 
+\mbox{\hyperlink{class_etat}{Etat}} $\ast$ {\bfseries m\+\_\+depart}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_a75bbb557cc4e2056da5265f242185e0a}\label{class_cellular_automata_a75bbb557cc4e2056da5265f242185e0a}} 
+unsigned int {\bfseries m\+\_\+nb\+Etats}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_a8d2cab9f275061f595fab6a12f8c84d9}\label{class_cellular_automata_a8d2cab9f275061f595fab6a12f8c84d9}} 
+unsigned int {\bfseries m\+\_\+buffer}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_ac6d05bb0d1a0696c83253257f1047f8e}\label{class_cellular_automata_ac6d05bb0d1a0696c83253257f1047f8e}} 
+unsigned int {\bfseries m\+\_\+rang}
+\item 
+\mbox{\Hypertarget{class_cellular_automata_ab8cdf5ceb51238136d7ce47ca960f54b}\label{class_cellular_automata_ab8cdf5ceb51238136d7ce47ca960f54b}} 
+unsigned int {\bfseries m\+\_\+ordre\+Voisinage}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/cellularautomata.\+h\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/cellularautomata.\+cpp\end{DoxyCompactItemize}
