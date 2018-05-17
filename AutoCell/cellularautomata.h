@@ -12,7 +12,7 @@ private:
     const TransitionRule *m_rule;
     const Voisinage *m_voisinageDefinition;
     Etat** m_etats;
-    Etat* m_depart;
+    const Etat* m_depart;
     unsigned int m_nbEtats;
     unsigned int m_buffer;
     unsigned int m_rang;
@@ -22,7 +22,9 @@ private:
     CellularAutomata& operator=(const CellularAutomata& s);*/
 public:
     //CellularAutomata( TransitionRule const* rule, unsigned int buffer = 2);
-    CellularAutomata(const TransitionRule* rule ,Etat& dep, unsigned int nbEtats,unsigned int ordreVoisinage,Voisinage const* definitionVoisinage,unsigned int buffer = 2);
+    CellularAutomata(const TransitionRule &rule ,unsigned int nbEtats, unsigned int ordreVoisinage, const Voisinage &definitionVoisinage, unsigned int buffer);
+    CellularAutomata(const Etat& dep, const TransitionRule& rule , unsigned int nbEtats, unsigned int ordreVoisinage, Voisinage const& definitionVoisinage, unsigned int buffer = 2);
+    void setEtatDepart(const Etat &dep);
     //void setEtatDepart(const Etat& e);
     void Run(unsigned int nbSteps); // génère les n prochains états
     void Next(); // génère le prochain état

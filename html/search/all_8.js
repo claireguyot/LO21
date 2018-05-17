@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['next',['Next',['../class_cellular_automata.html#acfc9ced987c630324dcd70ceea348148',1,'CellularAutomata']]],
-  ['noir',['NOIR',['../cell_8h.html#ae60adcb558b7f2142c3aa2dd94aaa535a59e3323a198f0162330111165caaf367',1,'cell.h']]]
+  ['voisinage',['Voisinage',['../class_voisinage.html',1,'']]],
+  ['voisinage1d',['Voisinage1D',['../class_voisinage1_d.html',1,'']]],
+  ['voisinage2d',['Voisinage2D',['../class_voisinage2_d.html',1,'']]],
+  ['vonneumann',['VonNeumann',['../class_von_neumann.html',1,'']]]
 ];

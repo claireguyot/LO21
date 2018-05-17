@@ -4,8 +4,8 @@
 using namespace std;
 
 
-CellularAutomata::CellularAutomata(const TransitionRule* rule , Etat& dep, unsigned int nbEtats,unsigned int ordreVoisinage,Voisinage const* definitionVoisinage,unsigned int buffer):
-    m_rule(rule), m_etats(nullptr), m_depart(&dep), m_buffer(buffer),m_rang(0),m_nbEtats(nbEtats),m_ordreVoisinage(ordreVoisinage), m_voisinageDefinition(definitionVoisinage) {
+CellularAutomata::CellularAutomata(const Etat &dep, const TransitionRule &rule , unsigned int nbEtats, unsigned int ordreVoisinage, const Voisinage &definitionVoisinage, unsigned int buffer):
+    m_rule(&rule), m_etats(nullptr), m_depart(&dep), m_buffer(buffer),m_rang(0),m_nbEtats(nbEtats),m_ordreVoisinage(ordreVoisinage), m_voisinageDefinition(&definitionVoisinage) {
     m_etats = new Etat*[m_buffer];
 
     for (unsigned int i = 0; i < m_buffer; i++) m_etats[i] = nullptr;
@@ -15,8 +15,20 @@ CellularAutomata::CellularAutomata(const TransitionRule* rule , Etat& dep, unsig
 
 }
 
+CellularAutomata::CellularAutomata(const TransitionRule &rule ,unsigned int nbEtats, unsigned int ordreVoisinage, const Voisinage &definitionVoisinage, unsigned int buffer):
+    m_rule(&rule), m_etats(nullptr), m_depart(nullptr), m_buffer(buffer),m_rang(0),m_nbEtats(nbEtats),m_ordreVoisinage(ordreVoisinage), m_voisinageDefinition(&definitionVoisinage) {
+    m_etats = new Etat*[m_buffer];
 
+    for (unsigned int i = 0; i < m_buffer; i++) m_etats[i] = nullptr;
+    //m_voisinageDefinition->definirVoisinage(*m_depart,m_ordreVoisinage);
+}
 
+void CellularAutomata::setEtatDepart(const Etat &dep)
+{
+    m_depart = &dep;
+    m_etats[0] = new Etat(*m_depart);
+    m_voisinageDefinition->definirVoisinage(*m_etats[0],m_ordreVoisinage);
+}
 void CellularAutomata::Build(unsigned int cellule) {
     if (cellule >= m_buffer) throw AutomateException("erreur taille buffer");
     if (m_etats[cellule] == nullptr)

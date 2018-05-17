@@ -1,3 +1,9 @@
+/*!
+ * \file cell.cpp
+ * \brief implémentation des méthodes non inline de la classe Cell
+ * \version 1.0
+ */
+
 #include "cell.h"
 
 using namespace std;
