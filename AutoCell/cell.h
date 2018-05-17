@@ -29,7 +29,7 @@ public:
     /*!
          *  \brief Constructeur
          *
-         *  Constructeur par défault de la classe Cell
+         *  Constructeur par défault de la classe Cell : X, Y et l'état sont initialisés à 0
          *
          *
          */
@@ -54,7 +54,7 @@ public:
          */
     Cell(Cell const& c) = default;
     /*!
-         *  \brief Récupération des voisins
+         *  \brief Accesseur sur m_voisins
          *
          *  Méthode permettant de récupérer une référence const sur l'ensemble des voisins d'une cellule
          * \return voisins de la cellule
@@ -64,7 +64,7 @@ public:
         return m_voisins;
     }
     /*!
-         *  \brief Récupération des voisins
+         *  \brief Accesseur sur m_voisins
          *
          *  Méthode permettant de récupérer une référence sur l'ensemble des voisins d'une cellule
          * \return voisins de la cellule
@@ -74,7 +74,7 @@ public:
         return m_voisins;
     }
     /*!
-         *  \brief Récupération de l'état
+         *  \brief Accesseur sur m_etat
          *
          *
          * \return etat de la cellule
@@ -84,14 +84,14 @@ public:
         return m_etat;
     }
     /*!
-         *  \brief Position X
+         *  \brief Accesseur sur m_x
          *
          *
          * \return position en X (ligne)
          */
     int GetX() const { return m_x; }
     /*!
-         *  \brief Position Y
+         *  \brief Accesseur sur m_y
          *
          *
          * \return position en Y (colonne)
@@ -123,9 +123,25 @@ public:
          */
     ~Cell() = default; //pas d'allocation dynamique dans la classe car le vector m_voisins est un tableau d'adresses (on ne supprime pas les voisins d'une Cellule quand on détruit la Cellule)
 private:
+    /*!
+         *  \brief état (valeur) de la cellule
+         *
+         */
     int m_etat;
+    /*!
+         *  \brief vecteur de pointeurs sur les voisins de la cellule
+         *
+         */
     std::vector<Cell*> m_voisins;
+    /*!
+         *  \brief position en ligne de la cellule
+         *
+         */
     int m_x;
+    /*!
+         *  \brief position en colonne de la cellule
+         *
+         */
     int m_y;
 
 };
