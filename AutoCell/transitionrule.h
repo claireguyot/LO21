@@ -29,7 +29,7 @@ public:
 
     }
     ~ElementaryRule() = default;
-private:
+protected:
     std::string m_rule;
     int m_nbEtats;
 };
@@ -48,7 +48,7 @@ public:
 
     }
     ~GameOfLife() = default;
-private:
+protected:
     int m_minVoisinsVivants;
     int m_maxVoisinsVivants;
 };

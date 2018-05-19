@@ -16,14 +16,14 @@ private:
     unsigned int m_nbEtats;
     unsigned int m_buffer;
     unsigned int m_rang;
-    unsigned int m_ordreVoisinage;
+
     void Build(unsigned int c);
     /*CellularAutomata(const CellularAutomata& s);
     CellularAutomata& operator=(const CellularAutomata& s);*/
 public:
     //CellularAutomata( TransitionRule const* rule, unsigned int buffer = 2);
-    CellularAutomata(const TransitionRule &rule ,unsigned int nbEtats, unsigned int ordreVoisinage, const Voisinage &definitionVoisinage, unsigned int buffer);
-    CellularAutomata(const Etat& dep, const TransitionRule& rule , unsigned int nbEtats, unsigned int ordreVoisinage, Voisinage const& definitionVoisinage, unsigned int buffer = 2);
+    CellularAutomata(const TransitionRule &rule ,unsigned int nbEtats, const Voisinage &definitionVoisinage, unsigned int buffer);
+    CellularAutomata(const Etat& dep, const TransitionRule& rule , unsigned int nbEtats, Voisinage const& definitionVoisinage, unsigned int buffer = 2);
     void setEtatDepart(const Etat &dep);
     //void setEtatDepart(const Etat& e);
     void Run(unsigned int nbSteps); // génère les n prochains états

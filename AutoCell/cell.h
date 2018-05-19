@@ -54,7 +54,7 @@ public:
          */
     Cell(Cell const& c) = default;
     /*!
-         *  \brief Accesseur sur m_voisins
+         *  \brief Accesseur en lecture sur m_voisins
          *
          *  Méthode permettant de récupérer une référence const sur l'ensemble des voisins d'une cellule
          * \return voisins de la cellule
@@ -63,18 +63,9 @@ public:
     {
         return m_voisins;
     }
+
     /*!
-         *  \brief Accesseur sur m_voisins
-         *
-         *  Méthode permettant de récupérer une référence sur l'ensemble des voisins d'une cellule
-         * \return voisins de la cellule
-         */
-    std::vector<Cell*>& GetVoisins()
-    {
-        return m_voisins;
-    }
-    /*!
-         *  \brief Accesseur sur m_etat
+         *  \brief Accesseur en lecture sur m_etat
          *
          *
          * \return etat de la cellule
@@ -84,14 +75,14 @@ public:
         return m_etat;
     }
     /*!
-         *  \brief Accesseur sur m_x
+         *  \brief Accesseur en lecture sur m_x
          *
          *
          * \return position en X (ligne)
          */
     int GetX() const { return m_x; }
     /*!
-         *  \brief Accesseur sur m_y
+         *  \brief Accesseur en lecture sur m_y
          *
          *
          * \return position en Y (colonne)
@@ -118,9 +109,18 @@ public:
          */
     void AjouterVoisin(Cell *voisin);
     /*!
+      * \brief Suppression du voisinage
+      *
+      */
+    void ClearVoisinage()
+    {
+        m_voisins.clear();
+    }
+    /*!
          *  \brief Destructeur par défaut
          *
          */
+
     ~Cell() = default; //pas d'allocation dynamique dans la classe car le vector m_voisins est un tableau d'adresses (on ne supprime pas les voisins d'une Cellule quand on détruit la Cellule)
 private:
     /*!

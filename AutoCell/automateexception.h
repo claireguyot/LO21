@@ -5,7 +5,7 @@
 class AutomateException {
 public:
     AutomateException(const std::string& message) :info(message) {}
-    std::string getInfo() const { return info; }
+    std::string const& getInfo() const { return info; }
 private:
     std::string info;
 };

@@ -1,6 +1,8 @@
 var hierarchy =
 [
     [ "AutomateException", "class_automate_exception.html", null ],
+    [ "CABuilder1D", "class_c_a_builder1_d.html", null ],
+    [ "CABuilder2D", "class_c_a_builder2_d.html", null ],
     [ "Cell", "class_cell.html", null ],
     [ "CellularAutomata", "class_cellular_automata.html", null ],
     [ "Etat", "class_etat.html", null ],

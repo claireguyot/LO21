@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['setetat',['SetEtat',['../class_cell.html#a33dac87ec7294fdb4c67b8b430ea0946',1,'Cell']]],
-  ['setx',['SetX',['../class_cell.html#a9aaedcce2daccb4aa070f870c1a207ed',1,'Cell']]],
-  ['sety',['SetY',['../class_cell.html#a48afb0c8c8d1ebe3409b9a166dcd507d',1,'Cell']]]
+  ['m_5fetat',['m_etat',['../class_cell.html#a350cfee41db7450651de4e48543227c3',1,'Cell']]],
+  ['m_5fvoisins',['m_voisins',['../class_cell.html#a7d781cbf0f2a5dffd13313b8eab86732',1,'Cell']]],
+  ['m_5fx',['m_x',['../class_cell.html#ae38c546e6fd703965c8b62f750e68417',1,'Cell']]],
+  ['m_5fy',['m_y',['../class_cell.html#a303c301e529e95ce1eadaf5b73ad41b2',1,'Cell']]],
+  ['moore',['Moore',['../class_moore.html',1,'']]]
 ];
