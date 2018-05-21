@@ -1,3 +1,9 @@
+/*!
+ * \file cell.cpp
+ * \brief implémentation des méthodes non inline de la classe Cell
+ * \version 1.0
+ */
+
 #include "cell.h"
 
 using namespace std;
@@ -14,7 +20,7 @@ void Cell::SetEtat(int etat)
 {
     m_etat = etat;
 }
-void Cell::AjouterVoisin(Cell& voisin)
+void Cell::AjouterVoisin(Cell* voisin)
 {
-    m_voisins.push_back(&voisin);
+    m_voisins.push_back(voisin);
 }

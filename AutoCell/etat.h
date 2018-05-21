@@ -18,11 +18,11 @@ public:
    }
    int GetLongueur() const { return m_longueur; }
    int GetLargeur() const { return m_largeur; }
-   Cell const& GetCellule(int i, int j) const {
+   Cell& GetCellule(int i, int j)  {
        if (i>=m_largeur || i<0 || j< 0 || j>= m_longueur)
            throw "Trop loin";
        return m_cellules[i][j];}
-   Cell& GetCellule(int i, int j) {
+   Cell const& GetCellule(int i, int j) const {
        if (i>=m_largeur || i<0 || j< 0 || j>= m_longueur)
            throw "Trop loin";
        return m_cellules[i][j];}

@@ -8,11 +8,16 @@ SOURCES += \
     generateuretat.cpp \
     etat.cpp \
     voisinage.cpp \
-    transitionrule.cpp
+    transitionrule.cpp \
+    cellularautomata.cpp \
+    cabuilder.cpp
 
 HEADERS += \
     cell.h \
     generateuretat.h \
     etat.h \
     voisinage.h \
-    transitionrule.h
+    transitionrule.h \
+    cellularautomata.h \
+    automateexception.h \
+    cabuilder.h
