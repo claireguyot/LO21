@@ -45,10 +45,6 @@ fenetre::fenetre(QWidget *parent) : QMainWindow(parent)
     topMenu->addWidget(largeur);
     topMenu->addWidget(hauteur);
 
-    QGridLayout *layoutGlobal = new QGridLayout; //on crée le layout global de la fenêtre
-
-    layoutGlobal->addWidget(choixDimension,0,0,1,1);
-    layoutGlobal->addLayout(topMenu,0,1,1,10);
 
     /*
      * Définition du menu gauche : celui-ci sera modifié en fonction du mode 1D ou 2D
@@ -56,7 +52,15 @@ fenetre::fenetre(QWidget *parent) : QMainWindow(parent)
 
 
 
+    QGridLayout *layoutGlobal = new QGridLayout; //on crée le layout global de la fenêtre
+
+    layoutGlobal->addWidget(choixDimension,0,0,1,1);
+    layoutGlobal->addLayout(topMenu,0,1,1,10);
+
+
+
     dim1->setLayout(layoutGlobal);
+    //dim1->setLayout(layoutGlobal1D);
     //dim2->setLayout(layoutGlobal2D);
 
     setCentralWidget(switchDim);
