@@ -11,7 +11,8 @@ SOURCES += \
     transitionrule.cpp \
     cellularautomata.cpp \
     cabuilder.cpp \
-    interface.cpp
+    interface.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     cell.h \
@@ -22,4 +23,5 @@ HEADERS += \
     cellularautomata.h \
     automateexception.h \
     cabuilder.h \
-    interface.h
+    interface.h \
+    mainwindow.h

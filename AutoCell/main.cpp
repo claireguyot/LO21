@@ -7,13 +7,14 @@
 #include "voisinage.h"
 #include "transitionrule.h"
 #include "cellularautomata.h"
+#include "mainwindow.h"
 using namespace std;
 
 int main(int argc, char* argv[])
 {
     QApplication app(argc,argv);
 
-    fenetre maFenetre;
+    MainWindow maFenetre;
     maFenetre.show();
 
     return app.exec();

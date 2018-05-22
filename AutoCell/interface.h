@@ -9,6 +9,7 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <QSpinBox>
+#include <QLabel>
 
 const int maxLargeurTableau = 30;
 const int maxHauteurTableau = 30;
