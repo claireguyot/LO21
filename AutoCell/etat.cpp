@@ -1,7 +1,7 @@
 #include "etat.h"
 
 using namespace std;
-Etat::Etat(int largeur, int longueur, GenerateurEtat& generateur, int nbEtats ) : m_largeur(largeur), m_longueur(longueur), m_generateur(&generateur), m_cellules()
+Etat::Etat(int largeur, int longueur, const GenerateurEtat &generateur, int nbEtats ) : m_largeur(largeur), m_longueur(longueur), m_generateur(&generateur), m_cellules()
 {
     for (int i=0;i<largeur;i++)
     {
@@ -16,7 +16,7 @@ Etat::Etat(int largeur, int longueur, GenerateurEtat& generateur, int nbEtats ) 
     m_generateur->GenererEtat(nbEtats,m_cellules);
 }
 
-Etat::Etat(int largeur, int longueur, int **tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
+Etat::Etat(int largeur, int longueur, vector<vector<int> > tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
 {
     for (int i=0;i<largeur;i++)
     {

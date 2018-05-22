@@ -59,6 +59,7 @@ public:
         m_generateurEtat = new GenerateurSymetrieAxeLargeur;
     }
 
+
 }
 /*!
  * \class CABuilder1D
@@ -87,6 +88,33 @@ public:
             static CABuilder1D m;
             return m;
     }
+    void BuildVoisinageDef(unsigned int ordre) {
+        if (m_voisinageDefinition != nullptr && m_voisinageDefinition->GetOrdre() == ordre) return;
+        if(m_voisinageDefinition != nullptr) delete m_voisinageDefinition;
+        m_voisinageDefinition = new Voisinage1D(ordre);
+    }
+    void BuildEtatDepart(unsigned int taille, GenerateurEtat const& generateur,int nbEtats)
+    {
+        if(m_etatDepart != nullptr) delete m_etatDepart;
+        m_etatDepart = new Etat(1,taille,generateur,nbEtats);
+    }
+    void BuildEtatDepart(unsigned int taille, vector<vector<int>> tab)
+    {
+        if(m_etatDepart != nullptr) delete m_etatDepart;
+        m_etatDepart = new Etat(1,taille,tab);
+    }
+    void BuildEtatDepart(unsigned int taille)
+    {
+        if(m_etatDepart != nullptr) delete m_etatDepart;
+        m_etatDepart = new Etat(1,taille);
+    }
+    void BuildElementaryRule(std::string& rule, unsigned int nbEtats)
+    {
+        if(m_transitionRule != nullptr) delete m_transitionRule;
+        m_transitionRule = new ElementaryRule(rule,nbEtats)
+    }
+
+
 };
 #include "cellularautomata.h"
 /*!

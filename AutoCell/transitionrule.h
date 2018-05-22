@@ -24,14 +24,14 @@ class ElementaryRule : public TransitionRule1D
 {
 public:
     void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
-    ElementaryRule(std::string rule,int nbEtats) : TransitionRule1D(), m_rule(rule), m_nbEtats(nbEtats)
+    ElementaryRule(std::string rule, unsigned int nbEtats) : TransitionRule1D(), m_rule(rule), m_nbEtats(nbEtats)
     {
 
     }
     ~ElementaryRule() = default;
 protected:
     std::string m_rule;
-    int m_nbEtats;
+    unsigned int m_nbEtats;
 };
 
 class TransitionRule2D : public TransitionRule

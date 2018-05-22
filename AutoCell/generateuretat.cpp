@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void GenerateurRandom::GenererEtat(int nbEtat,vector<vector<Cell>>& tab)
+void GenerateurRandom::GenererEtat(int nbEtat,vector<vector<Cell>>& tab) const
 {
     srand(time(NULL)); // initialisation de rand
     for(int i = 0; i<tab.size(); i++)
@@ -18,7 +18,7 @@ void GenerateurRandom::GenererEtat(int nbEtat,vector<vector<Cell>>& tab)
     }
 }
 
-void GenerateurSymetrieAxeLargeur::GenererEtat(int nbEtat,vector<vector<Cell>>& tab)
+void GenerateurSymetrieAxeLargeur::GenererEtat(int nbEtat,vector<vector<Cell>>& tab) const
 {
     srand(time(NULL)); // initialisation de rand
     for(int i = 0; i<tab.size(); i++)
