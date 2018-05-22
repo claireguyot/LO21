@@ -10,7 +10,8 @@ SOURCES += \
     voisinage.cpp \
     transitionrule.cpp \
     cellularautomata.cpp \
-    cabuilder.cpp
+    cabuilder.cpp \
+    interface.cpp
 
 HEADERS += \
     cell.h \
@@ -20,4 +21,5 @@ HEADERS += \
     transitionrule.h \
     cellularautomata.h \
     automateexception.h \
-    cabuilder.h
+    cabuilder.h \
+    interface.h
