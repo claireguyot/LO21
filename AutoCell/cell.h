@@ -7,6 +7,7 @@
  */
 #include <vector>
 #include "automateexception.h"
+
 //nombre d'etat pris en compte pour nos automates : Dans le cadre de l'automate FeuDeFôret : Blanc = case vide, Noir = cendre, Vert = Arbre, Rouge = Feu
 /**
 * \enum etat

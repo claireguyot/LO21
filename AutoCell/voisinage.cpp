@@ -4,25 +4,38 @@
 using namespace std;
 
 
-void Voisinage1D::definirVoisinage(Etat &e) const //nbVoisins = mini 2
+void Voisinage1D::definirVoisinage(Etat &e) const
 {
 
     for(int i=0; i<e.GetLongueur();i++)
     {
         Cell& actuel = e.GetCellule(0,i);
+        cout << actuel.GetX() << " " << actuel.GetY() << " " << endl;
         if(actuel.GetVoisins().size() != 0) actuel.ClearVoisinage();
-            for (int j=-m_ordre; j<= m_ordre; j++)
+
+            for (int j=-1*m_ordre; j<= m_ordre; j++)
             {
+                cout << "connard2 " << endl;
+
                 if(j == 0)
                 {
+                    cout << "test3" << endl;
                         actuel.AjouterVoisin(&actuel);
                 }
                 else
                 {
                     if(i+j>=0 && i+j<e.GetLongueur())
+                    {
+
+                        cout << "test" << endl;
                         actuel.AjouterVoisin(&(e.GetCellule(0,i+j)));
+                    }
+
                     else
+                    {
                         actuel.AjouterVoisin(nullptr);
+                        cout << "test 2" << endl;
+                    }
                 }
             }
     }
@@ -37,6 +50,7 @@ void VonNeumann::definirVoisinage(Etat &e) const //nbVoisins = minimum 4
         {
             Cell& actuel = e.GetCellule(i,j);
             if(actuel.GetVoisins().size() != 0) actuel.ClearVoisinage();
+
 
                 for (int k=-m_ordre; k<= m_ordre; k++)
                 {

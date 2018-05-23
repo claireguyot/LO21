@@ -6,9 +6,9 @@
 class Voisinage
 {
 protected:
-    unsigned int m_ordre;
+    int m_ordre;
 public:
-    Voisinage(unsigned int ordre): m_ordre(ordre)
+    Voisinage(int ordre): m_ordre(ordre)
     {
 
     }
@@ -21,7 +21,7 @@ public:
 class Voisinage1D : public Voisinage
 {
 public:
-    Voisinage1D(unsigned int ordre) : Voisinage(ordre)
+    Voisinage1D(int ordre) : Voisinage(ordre)
     {
 
     }
@@ -32,7 +32,7 @@ public:
 class Voisinage2D : public Voisinage
 {
 public:
-    Voisinage2D(unsigned int ordre): Voisinage(ordre)
+    Voisinage2D(int ordre): Voisinage(ordre)
     {
 
     }
@@ -41,7 +41,7 @@ public:
 class VonNeumann : public Voisinage2D
 {
 public:
-    VonNeumann(unsigned int ordre): Voisinage2D(ordre)
+    VonNeumann(int ordre): Voisinage2D(ordre)
     {
 
     }
@@ -52,7 +52,7 @@ public:
 class Moore : public Voisinage2D
 {
 public:
-    Moore(unsigned int ordre): Voisinage2D(ordre)
+    Moore(int ordre): Voisinage2D(ordre)
     {
 
     }

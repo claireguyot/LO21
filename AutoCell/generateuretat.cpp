@@ -3,12 +3,12 @@
 
 using namespace std;
 
-void GenerateurRandom::GenererEtat(int nbEtat,vector<vector<Cell>>& tab) const
+void GenerateurRandom::GenererEtat(int nbEtat, Cell** tab, int nbLigne, int nbColonne) const
 {
     srand(time(NULL)); // initialisation de rand
-    for(int i = 0; i<tab.size(); i++)
+    for(int i = 0; i<nbLigne; i++)
     {
-        for(int j=0; j<tab[i].size(); j++)
+        for(int j=0; j<nbColonne; j++)
         {
 
             int n = rand()%(nbEtat);
@@ -18,16 +18,16 @@ void GenerateurRandom::GenererEtat(int nbEtat,vector<vector<Cell>>& tab) const
     }
 }
 
-void GenerateurSymetrieAxeLargeur::GenererEtat(int nbEtat,vector<vector<Cell>>& tab) const
+void GenerateurSymetrieAxeLargeur::GenererEtat(int nbEtat, Cell **tab, int nbLigne, int nbColonne) const
 {
     srand(time(NULL)); // initialisation de rand
-    for(int i = 0; i<tab.size(); i++)
+    for(int i = 0; i<nbLigne; i++)
     {
-        for(int j=0; j<=tab[i].size()/2; j++)
+        for(int j=0; j<=nbColonne/2; j++)
         {
 
             int n = rand()%(nbEtat);
-            tab[i][tab[i].size()-j-1].SetEtat(n);
+            tab[i][nbColonne-j-1].SetEtat(n);
             tab[i][j].SetEtat(n);
         }
     }

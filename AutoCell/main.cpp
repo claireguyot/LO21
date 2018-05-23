@@ -33,6 +33,7 @@ int main(int argc, char* argv[])
             automate.Dernier().afficher();
         }
         cout << endl << endl;
+        /*
         //test du GameOfLife
         GenerateurRandom test2;
         //VonNeumann voisinageDef2; marche
@@ -68,12 +69,14 @@ int main(int argc, char* argv[])
             automate3.Dernier().afficher();
             cout << endl;
         }
-
+        */
     }
+
     catch(char const* e)
     {
         cout << e << endl;
     }
+
 
 
 }
