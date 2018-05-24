@@ -14,6 +14,8 @@ int main(int argc, char* argv[])
         GenerateurSymetrieAxeLargeur test;
         Voisinage1D voisinageDef(1);
         Etat grille(1,5,test,2);
+        for(Etat::iterator it = grille.begin(); it != grille.end(); ++it)
+            cout << (*it).GetEtat();
         //voisinageDef.definirVoisinage(grille,3);
         //grille.afficher();
         cout <<endl;
@@ -24,6 +26,7 @@ int main(int argc, char* argv[])
 
         cout << endl;
         */
+        /*
         ElementaryRule rule("10101010",2);
         CellularAutomata automate(grille,rule,2,voisinageDef,2);
         automate.Dernier().afficher();
@@ -69,6 +72,7 @@ int main(int argc, char* argv[])
             automate3.Dernier().afficher();
             cout << endl;
         }
+        */
 
     }
 

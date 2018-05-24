@@ -32,54 +32,7 @@ public:
     unsigned int GetRangDernier() const { return m_rang; }
     void Reset(); // revenir à l'état de départ
     ~CellularAutomata();
-/*
-    class iterator {
-        friend class CellularAutomata;
-        CellularAutomata* sim;
-        int i;
-        iterator(CellularAutomata* s) :sim(s), i(s->m_rang) {}
-        iterator(CellularAutomata* s, int dep) :sim(s), i(dep) {}
-    public:
-        iterator():sim(nullptr),i(0) {}
-        iterator& operator++() {
-            i--;
-            if (i == -1 && sim->m_rang >= sim->m_buffer) i = sim->m_buffer - 1;
-            return *this;
-        }
-        Etat& operator*() const {
-            return *sim->m_etats[i%sim->m_buffer;
-        }
-        bool operator!=(iterator it) const { return sim != it.sim || i != it.i; }
-    };
 
-    iterator begin() {	return iterator(this); }
-    iterator end() { if (m_rang < m_buffer) return iterator(this, -1); else return iterator(this, m_rang - m_buffer);  }
-
-
-    class const_iterator {
-        friend class CellularAutomata;
-        const CellularAutomata* sim;
-        int i;
-        const_iterator(const CellularAutomata* s) :sim(s), i(s->m_rang) {}
-        const_iterator(const CellularAutomata* s, int dep) :sim(s), i(dep) {}
-    public:
-        const_iterator():sim(nullptr),i(0) {}
-        const_iterator& operator++() {
-            i--;
-            if (i == -1 && sim->m_rang >= sim->m_buffer) i = sim->m_buffer- 1;
-            return *this;
-        }
-        const Etat& operator*() const {
-            return *sim->m_etats[i%sim->m_buffer];
-        }
-        bool operator!=(const_iterator it) const { return sim != it.sim || i != it.i; }
-    };
-
-    const_iterator begin() const { return const_iterator(this); }
-    const_iterator end() const { if (m_rang < m_buffer) return const_iterator(this, -1); else return const_iterator(this, m_rang - m_buffer); }
-    const_iterator cbegin() const { return const_iterator(this); }
-    const_iterator cend() const { if (m_rang < m_buffer) return const_iterator(this, -1); else return const_iterator(this, m_rang - m_buffer);
-*/
 };
 
 #endif // CELLULARAUTOMATA_H

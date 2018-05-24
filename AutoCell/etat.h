@@ -27,6 +27,62 @@ public:
        return m_cellules[i][j];}
    ~Etat();
    void afficher() const;
+   friend class iterator;
+   class iterator {
+       friend class Etat;
+           Etat* etat;
+           int i;
+           int j;
+           iterator(Etat* e) :etat(e), i(0), j(0) {}
+           iterator(Etat*e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+       public:
+           iterator& operator++() {
+               j++;
+               if (j==etat->m_longueur && i<etat->m_largeur)
+               {
+                    j=0;
+                    i++;
+               }
+               return *this;
+           }
+           Cell& operator*() const {
+                return etat->m_cellules[i][j];
+           }
+           bool operator!=(iterator it) const { return etat != it.etat || i != it.i || j != it.j; }
+       };
+
+       iterator begin() {	return iterator(this,0,0); }
+       iterator end() {  return iterator(this, m_largeur-1,m_longueur-1);}
+
+       friend class const_iterator;
+       class const_iterator {
+           friend class Etat;
+               Etat const* etat;
+               int i;
+               int j;
+               const_iterator(Etat const* e) :etat(e), i(0), j(0) {}
+               const_iterator(Etat const* e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+           public:
+
+               const_iterator & operator++() {
+                   j++;
+                   if (j==etat->m_longueur)
+                   {
+                        j=0;
+                        i++;
+                   }
+                   return *this;
+               }
+               Cell const& operator*() const {
+                    return etat->m_cellules[i][j];
+               }
+               bool operator!=(const_iterator it) const { return etat != it.etat || i != it.i || j != it.j; }
+           };
+
+           const_iterator begin() const {	return const_iterator(this,0,0); }
+           const_iterator end() const {  return const_iterator(this, m_largeur-1,m_longueur-1);}
+
+
 private:
    GenerateurEtat const* m_generateur; //pointeur sur le générateur d'Etat (ne sera pas détruit avec la destruction de l'Etat car le generateur peut exister sans l'Etat.
    Cell** m_cellules; //représente un tableau 2D de Cell, on n'utilise pas de Cell* car pour chaque grille il faut avoir des Cell différentes sinon si on supprime une grille on perd toutes les informations

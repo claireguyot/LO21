@@ -1,7 +1,8 @@
 var annotated_dup =
 [
     [ "AutomateException", "class_automate_exception.html", "class_automate_exception" ],
-    [ "CABuilder1D", "class_c_a_builder1_d.html", "class_c_a_builder1_d" ],
+    [ "CABuilder", "class_c_a_builder.html", "class_c_a_builder" ],
+    [ "CABuilder1D", "class_c_a_builder1_d.html", null ],
     [ "CABuilder2D", "class_c_a_builder2_d.html", "class_c_a_builder2_d" ],
     [ "Cell", "class_cell.html", "class_cell" ],
     [ "CellularAutomata", "class_cellular_automata.html", "class_cellular_automata" ],
