@@ -39,7 +39,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     depart->setFixedSize(1000,50);
 
 
-
+    connect(depart,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
 
     etats  = new QTableWidget(this);
     etats->horizontalHeader()->setVisible(false);
@@ -202,7 +202,8 @@ void fenetre1D::buildGrille()
     unsigned int tailleLongueur = 1000/bLongueur->value();
     unsigned int tailleLargeur = 1000/bLargeur->value();
 
-
+    depart->clear();
+    etats->clear();
 
     depart->setColumnCount(bLongueur->value());
     depart->setRowCount(1);
@@ -213,7 +214,7 @@ void fenetre1D::buildGrille()
      depart->setItem(0, i, new QTableWidgetItem(""));
     }
 
-    connect(depart,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+
 
 
 
