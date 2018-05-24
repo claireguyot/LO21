@@ -1,5 +1,5 @@
-#ifndef FENETRE1D_H
-#define FENETRE1D_H
+#ifndef FENETRE2D_H
+#define FENETRE2D_H
 #include <QApplication>
 #include <QWidget>
 #include <QSpinBox>
@@ -18,7 +18,7 @@
 short unsigned int NumBitToNum(const std::string& num);
 std::string NumToNumBit(short unsigned int num);
 
-class fenetre1D : public QWidget{
+class fenetre2D : public QWidget{
     Q_OBJECT
 
     QPushButton* bGenerer;
@@ -29,15 +29,6 @@ class fenetre1D : public QWidget{
     QLabel* lHauteur;
     QLabel* lLargeur;
     QHBoxLayout* menuSuperieur;
-    QSpinBox* num; // numéro
-    QLineEdit* numeroBit[8]; // un QLineEdit par bit
-    QLabel* numl;
-    QLabel* numeroBitl[8];
-    QVBoxLayout* numc;
-    QVBoxLayout* bitc[8];
-    QHBoxLayout* numeroc;
-    QIntValidator* zeroOneValidator;
-    QTableWidget* depart;
     QVBoxLayout *layout;
     QPushButton *simulation;
     QTableWidget* etats;
@@ -54,11 +45,9 @@ class fenetre1D : public QWidget{
     QVBoxLayout* menuGauche;
     QHBoxLayout* layoutGlobal;
 public:
-    explicit fenetre1D(QWidget* parent = nullptr);
+    explicit fenetre2D(QWidget* parent = nullptr);
 private slots:
-    void synchronizeNumToNumBit(int i);
-    void synchronizeNumBitToNum(const QString& s);
     void cellActivation(const QModelIndex& index);
     void faireSimulation();
 };
-#endif // FENETRE1D_H
+#endif // FENETRE2D_H

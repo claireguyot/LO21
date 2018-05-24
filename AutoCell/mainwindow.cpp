@@ -3,7 +3,7 @@
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
     fenetre1D* dim1 = new fenetre1D();
-    fenetre1D* dim2 = new fenetre1D();
+    fenetre2D* dim2 = new fenetre2D();
 
     QStackedWidget *switchDim = new QStackedWidget(this);
     switchDim->addWidget(dim1);
@@ -17,8 +17,8 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 
     QComboBox *choixDimension = new QComboBox;
 
-    choixDimension->addItem("automate 1D");
-    choixDimension->addItem("automate 2D");
+    choixDimension->addItem("Automate 1D");
+    choixDimension->addItem("Automate 2D");
     connect(choixDimension, SIGNAL(activated(int)), switchDim, SLOT(setCurrentIndex(int)));
 
     QVBoxLayout *layout = new QVBoxLayout();

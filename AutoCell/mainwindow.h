@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "fenetre1d.h"
+#include "fenetre2d.h"
 #include <QWidget>
 #include <QStackedWidget>
 #include <QComboBox>
