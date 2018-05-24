@@ -21,6 +21,14 @@ std::string NumToNumBit(short unsigned int num);
 class fenetre1D : public QWidget{
     Q_OBJECT
 
+    QPushButton* bGenerer;
+    QPushButton* bSauvegarder;
+    QPushButton* bCharger;
+    QSpinBox* bLargeur;
+    QSpinBox* bHauteur;
+    QLabel* lHauteur;
+    QLabel* lLargeur;
+    QHBoxLayout* menuSuperieur;
     QSpinBox* num; // numéro
     QLineEdit* numeroBit[8]; // un QLineEdit par bit
     QLabel* numl;
@@ -35,6 +43,16 @@ class fenetre1D : public QWidget{
     QTableWidget* etats;
     static unsigned int dimension;
     static unsigned int nombreEtats;
+    QPushButton* bStart;
+    QPushButton* bPause;
+    QPushButton* bRetourDepart;
+    QPushButton* bNextFrame;
+    QSpinBox* bSelectVitesse;
+    QHBoxLayout* menuInferieur;
+    QPushButton* bGenAleatoire;
+    QPushButton* bGenSymetrique;
+    QVBoxLayout* menuGauche;
+    QHBoxLayout* layoutGlobal;
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
 private slots:

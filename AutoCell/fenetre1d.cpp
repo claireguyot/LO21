@@ -1,88 +1,153 @@
 #include "fenetre1D.h"
 unsigned int fenetre1D::dimension = 25;
-unsigned int fenetre1D::nombreEtats = 25;
+//unsigned int fenetre1D::nombreEtats = 25;
 fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
 {
-     num = new QSpinBox(this);
-     num->setRange(0,255);
-     numl = new QLabel("Numéro",this);
-     numc = new QVBoxLayout();
-     numc->addWidget(numl);
-     numc->addWidget(num);
+    /*
+     * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la grille
+     */
 
-     numeroc = new QHBoxLayout();
-     numeroc->addLayout(numc);
+    bGenerer = new QPushButton("Générer",this);
+    bSauvegarder = new QPushButton("Sauvegarder",this);
+    bCharger = new QPushButton("Charger",this);
+    bLargeur = new QSpinBox(this);
+    bLargeur->setRange(10,25);
+    bLargeur->setValue(dimension);
+    bHauteur = new QSpinBox(this);
+    bHauteur->setRange(10,25);
+    bHauteur->setValue(dimension);
+    lLargeur = new QLabel("Largeur",this);
+    lHauteur = new QLabel("Hauteur",this);
 
-     zeroOneValidator = new QIntValidator(0,1,this);
-     for(int i =0;i<8;i++)
-     {
-         int j = 7 - i;
-         const char* chaine = NumToNumBit(j).c_str();
-         char chaine2[3];
-         chaine2[0]= chaine[5];
-         chaine2[1]= chaine[6];
-         chaine2[2]= chaine[7];
+    menuSuperieur = new QHBoxLayout();
+    menuSuperieur->addWidget(bGenerer);
+    menuSuperieur->addWidget(bSauvegarder);
+    menuSuperieur->addWidget(bCharger);
+    menuSuperieur->addWidget(lLargeur);
+    menuSuperieur->addWidget(bLargeur);
+    menuSuperieur->addWidget(lHauteur);
+    menuSuperieur->addWidget(bHauteur);
 
-         numeroBitl[i]= new QLabel(QString(chaine2),this);
-         numeroBit[i] = new QLineEdit("0",this);
-         numeroBit[i]->setMaxLength(1);
-         numeroBit[i]->setMaxLength(20);
-         numeroBit[i]->setValidator(zeroOneValidator);
+    /*
+    * Gestion de la génération de l'automate : numéro, numéro bit, grille et état initial
+    */
 
-         QObject::connect(numeroBit[i],SIGNAL(textChanged(QString)),this,SLOT(synchronizeNumBitToNum(QString)));
-         bitc[i] = new QVBoxLayout();
-         bitc[i]->addWidget(numeroBitl[i]);
-         bitc[i]->addWidget(numeroBit[i]);
-         numeroc->addLayout(bitc[i]);
-     }
+    num = new QSpinBox(this);
+    num->setRange(0,255);
+    numl = new QLabel("Numéro",this);
+    numc = new QVBoxLayout();
+    numc->addWidget(numl);
+    numc->addWidget(num);
 
-     depart = new QTableWidget(1,dimension,this);
-     depart->horizontalHeader()->setVisible(false);
-     depart->verticalHeader()->setVisible(false);
-     depart->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-     depart->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-     unsigned int taille = 50;
-     depart->setFixedSize(dimension*taille,taille);
-     for(unsigned int i = 0;i<dimension;i++)
-     {
-         depart->setColumnWidth(i,taille);
-         depart->setItem(0, i, new QTableWidgetItem(""));
-     }
-     connect(depart,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+    numeroc = new QHBoxLayout();
+    numeroc->addLayout(numc);
 
+    zeroOneValidator = new QIntValidator(0,1,this);
+    for(int i =0;i<8;i++)
+    {
+     int j = 7 - i;
+     const char* chaine = NumToNumBit(j).c_str();
+     char chaine2[3];
+     chaine2[0]= chaine[5];
+     chaine2[1]= chaine[6];
+     chaine2[2]= chaine[7];
 
+     numeroBitl[i]= new QLabel(QString(chaine2),this);
+     numeroBit[i] = new QLineEdit("0",this);
+     numeroBit[i]->setMaxLength(1);
+     numeroBit[i]->setMaxLength(20);
+     numeroBit[i]->setValidator(zeroOneValidator);
 
-     simulation = new QPushButton("Simulation",this);
-     connect(simulation,SIGNAL(clicked(bool)),this,SLOT(faireSimulation()));
+     QObject::connect(numeroBit[i],SIGNAL(textChanged(QString)),this,SLOT(synchronizeNumBitToNum(QString)));
+     bitc[i] = new QVBoxLayout();
+     bitc[i]->addWidget(numeroBitl[i]);
+     bitc[i]->addWidget(numeroBit[i]);
+     numeroc->addLayout(bitc[i]);
+    }
 
-
-     layout = new QVBoxLayout;
-
-     etats  = new QTableWidget(dimension,dimension,this);
-     etats->horizontalHeader()->setVisible(false);
-     etats->verticalHeader()->setVisible(false);
-     etats->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-     etats->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-     etats->setFixedSize(dimension*taille,dimension*taille);
-     //non éditable
-     etats->setEditTriggers(QAbstractItemView::NoEditTriggers);
-     for(unsigned int i=0;i<dimension;i++)
-     {
-         etats->setColumnWidth(i,taille);
-         etats->setRowHeight(i,taille);
-         for(unsigned int j = 0;j<dimension;j++)
-             etats->setItem(j,i,new QTableWidgetItem(""));
-
-     }
-
-     layout->addLayout(numeroc);
-     layout->addWidget(depart);
-     layout->addWidget(simulation);
-     layout->addWidget(etats);
-     setLayout(layout);
+    depart = new QTableWidget(1,dimension,this);
+    depart->horizontalHeader()->setVisible(false);
+    depart->verticalHeader()->setVisible(false);
+    depart->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    depart->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    unsigned int taille = 50;
+    depart->setFixedSize(dimension*taille,taille);
+    for(unsigned int i = 0;i<dimension;i++)
+    {
+     depart->setColumnWidth(i,taille);
+     depart->setItem(0, i, new QTableWidgetItem(""));
+    }
+    connect(depart,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
 
 
-     QObject::connect(num, SIGNAL(valueChanged(int)),this,SLOT(synchronizeNumToNumBit(int)));
+
+    simulation = new QPushButton("Simulation",this);
+    connect(simulation,SIGNAL(clicked(bool)),this,SLOT(faireSimulation()));
+
+
+    layout = new QVBoxLayout;
+
+    etats  = new QTableWidget(dimension,dimension,this);
+    etats->horizontalHeader()->setVisible(false);
+    etats->verticalHeader()->setVisible(false);
+    etats->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    etats->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    etats->setFixedSize(dimension*taille,dimension*taille);
+    //non éditable
+    etats->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    for(unsigned int i=0;i<dimension;i++)
+    {
+     etats->setColumnWidth(i,taille);
+     etats->setRowHeight(i,taille);
+     for(unsigned int j = 0;j<dimension;j++)
+         etats->setItem(j,i,new QTableWidgetItem(""));
+    }
+
+    /*
+     * Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
+     */
+
+    bStart = new QPushButton("Start",this);
+    bPause = new QPushButton("Pause",this);
+    bRetourDepart = new QPushButton("Retour départ",this);
+    bNextFrame = new QPushButton("Prochain état",this);
+    bSelectVitesse = new QSpinBox(this);
+    bSelectVitesse->setRange(1,50);
+    bSelectVitesse->setValue(2);
+
+    menuInferieur = new QHBoxLayout();
+    menuInferieur->addWidget(bStart);
+    menuInferieur->addWidget(bPause);
+    menuInferieur->addWidget(bRetourDepart);
+    menuInferieur->addWidget(bNextFrame);
+    menuInferieur->addWidget(bSelectVitesse);
+
+    /*
+     * Menu de gauche : voisinage (?), génération d'un état aléatoire ou symétrique
+     */
+
+    bGenAleatoire = new QPushButton("Génération aléatoire",this);
+    bGenSymetrique = new QPushButton("Génération symétrique",this);
+
+    menuGauche = new QVBoxLayout();
+    menuGauche->addWidget(bGenAleatoire);
+    menuGauche->addWidget(bGenSymetrique);
+
+    layout->addLayout(menuSuperieur);
+    layout->addLayout(numeroc);
+    layout->addWidget(depart);
+    layout->addWidget(simulation);
+    layout->addWidget(etats);
+    layout->addLayout(menuInferieur);
+
+    layoutGlobal = new QHBoxLayout();
+    layoutGlobal->addLayout(menuGauche);
+    layoutGlobal->addLayout(layout);
+
+    setLayout(layoutGlobal);
+
+
+QObject::connect(num, SIGNAL(valueChanged(int)),this,SLOT(synchronizeNumToNumBit(int)));
 }
 
 void fenetre1D::faireSimulation()
