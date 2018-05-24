@@ -1,4 +1,5 @@
 #include <iostream>
+#include <QApplication>
 #include "cell.h"
 #include "generateuretat.h"
 #include "etat.h"
@@ -11,6 +12,9 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-
+    QApplication app(argc, argv);
+    sauvegarde window;
+    window.show();
+    return app.exec();
 }
 
