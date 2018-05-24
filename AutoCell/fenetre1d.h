@@ -25,40 +25,41 @@ class fenetre1D : public QWidget{
     QPushButton* bSauvegarder;
     QPushButton* bCharger;
     QSpinBox* bLargeur;
-    QSpinBox* bHauteur;
-    QLabel* lHauteur;
-    QLabel* lLargeur;
-    QHBoxLayout* menuSuperieur;
-    QSpinBox* num; // numéro
-    QLineEdit* numeroBit[8]; // un QLineEdit par bit
+    QSpinBox* bLongueur;
+    //QLabel* lHauteur;
+    //QLabel* lLargeur;
+    //QHBoxLayout* menuSuperieur;
+    //QSpinBox* num; // numéro
+    /*QLineEdit* numeroBit[8]; // un QLineEdit par bit
     QLabel* numl;
     QLabel* numeroBitl[8];
     QVBoxLayout* numc;
     QVBoxLayout* bitc[8];
     QHBoxLayout* numeroc;
     QIntValidator* zeroOneValidator;
+    */
     QTableWidget* depart;
-    QVBoxLayout *layout;
+    //QVBoxLayout *layout;
     QPushButton *simulation;
     QTableWidget* etats;
-    static unsigned int dimension;
-    static unsigned int nombreEtats;
+   // static unsigned int dimension;
+   // static unsigned int nombreEtats;
     QPushButton* bStart;
     QPushButton* bPause;
     QPushButton* bRetourDepart;
     QPushButton* bNextFrame;
     QSpinBox* bSelectVitesse;
     QHBoxLayout* menuInferieur;
-    QPushButton* bGenAleatoire;
+    /*QPushButton* bGenAleatoire;
     QPushButton* bGenSymetrique;
-    QVBoxLayout* menuGauche;
+    */
+    //QVBoxLayout* menuGauche;
     QHBoxLayout* layoutGlobal;
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
 private slots:
-    void synchronizeNumToNumBit(int i);
-    void synchronizeNumBitToNum(const QString& s);
     void cellActivation(const QModelIndex& index);
     void faireSimulation();
+    void buildGrille();
 };
 #endif // FENETRE1D_H
