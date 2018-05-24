@@ -12,7 +12,7 @@ SOURCES += \
     cellularautomata.cpp \
     cabuilder.cpp \
     mainwindow.cpp \
-    fenetre1D.cpp
+    fenetre1d.cpp
 
 HEADERS += \
     cell.h \
@@ -24,4 +24,4 @@ HEADERS += \
     automateexception.h \
     cabuilder.h \
     mainwindow.h \
-    fenetre1D.h
+    fenetre1d.h
