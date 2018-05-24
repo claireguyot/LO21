@@ -228,9 +228,12 @@ void fenetre1D::buildGrille()
     for(unsigned int i=0;i<bLongueur->value();i++)
     {
      etats->setColumnWidth(i,tailleLongueur);
-     etats->setRowHeight(i,tailleLargeur);
+
      for(unsigned int j = 0;j<bLargeur->value();j++)
+     {
+         if(i==0) etats->setRowHeight(j,tailleLargeur);
          etats->setItem(j,i,new QTableWidgetItem(""));
+     }
     }
 
 
