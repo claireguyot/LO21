@@ -2,8 +2,8 @@
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
-    fenetre* dim1 = new fenetre();
-    fenetre* dim2 = new fenetre();
+    fenetre1D* dim1 = new fenetre1D();
+    fenetre1D* dim2 = new fenetre1D();
 
     QStackedWidget *switchDim = new QStackedWidget(this);
     switchDim->addWidget(dim1);

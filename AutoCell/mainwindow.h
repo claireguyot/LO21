@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "interface.h"
+#include "fenetre1D.h"
 #include <QWidget>
 
 class MainWindow : public QWidget

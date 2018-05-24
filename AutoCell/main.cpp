@@ -1,6 +1,6 @@
 #include <iostream>
 #include <QApplication>
-#include "interface.h"
+#include "fenetre1D.h"
 #include "cell.h"
 #include "generateuretat.h"
 #include "etat.h"
