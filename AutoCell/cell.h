@@ -51,7 +51,7 @@ public:
 
     }
     /*!
-         *  \brief Constructeur de recopie
+         *  \brief Constructeur de recopie par défaut
          */
     Cell(Cell const& c) = default;
     /*!

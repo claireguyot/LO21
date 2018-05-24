@@ -5,17 +5,32 @@
 #include "voisinage.h"
 #include "transitionrule.h"
 #include "cellularautomata.h"
+#include <ctime>
 using namespace std;
+
+
+
 
 int main(int argc, char* argv[])
 {
     try
     {
+        clock_t begin = clock();
+
         GenerateurSymetrieAxeLargeur test;
         Voisinage1D voisinageDef(1);
-        Etat grille(1,5,test,2);
+
+        Etat grille(100,100,test,2);
+        for(unsigned int i = 0; i<5;i++)
+        {
         for(Etat::iterator it = grille.begin(); it != grille.end(); ++it)
-            cout << (*it).GetEtat();
+           cout << (*it).GetEtat();
+        //grille.afficher();
+        }
+
+        clock_t end = clock();
+        double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+        cout << endl << "elapsed secs" << elapsed_secs << endl;
         //voisinageDef.definirVoisinage(grille,3);
         //grille.afficher();
         cout <<endl;
