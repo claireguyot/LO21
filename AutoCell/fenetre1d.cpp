@@ -33,7 +33,6 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
 
     QHBoxLayout* menuSuperieur = new QHBoxLayout();
     menuSuperieur->addWidget(bchoixGenerateur);
-    menuSuperieur->addWidget(bGenererEtat);
     menuSuperieur->addWidget(bChargerEtat);
     menuSuperieur->addWidget(lLargeur);
     menuSuperieur->addWidget(bLargeur);
@@ -76,8 +75,6 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
      * Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
      */
 
-    simulation = new QPushButton("Simulation",this);
-    connect(simulation,SIGNAL(clicked(bool)),this,SLOT(faireSimulation()));
 
 
     bSauvegarderEtat = new QPushButton("Sauvegarder dernier état");
@@ -106,7 +103,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
 
 
     choixAutomate = new QComboBox();
-    choixAutomate->addItem("automates élémentaires revisitée");
+    choixAutomate->addItem("automates élémentaires revisités");
 
     QStackedWidget* automates = new QStackedWidget();
 
@@ -130,7 +127,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
 
     layout->addLayout(menuSuperieur);
     layout->addWidget(depart);
-    layout->addWidget(simulation);
+    layout->addWidget(bGenererEtat);
     layout->addWidget(etats);
     layout->addLayout(menuInferieur);
 
@@ -143,8 +140,6 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     //layoutGlobal->set
     setLayout(layoutGlobal);
 
-
-//QObject::connect(num, SIGNAL(valueChanged(int)),this,SLOT(synchronizeNumToNumBit(int)));
 }
 
 void fenetre1D::faireSimulation()

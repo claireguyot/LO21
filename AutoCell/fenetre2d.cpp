@@ -1,127 +1,210 @@
-#include "fenetre1d.h"
-#include "fenetre2d.h"
-unsigned int fenetre2D::dimension = 25;
+#include "fenetre2D.h"
 fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent)
 {
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la grille
      */
+    /*
+     * /!\ pas de besoin de mettre this quand on construit les widgets car les layout s'occupent des relations de parenté grâce aux méthodes addWidget, addLayout, setLayout
+     */
 
-    bGenerer = new QPushButton("Générer",this);
-    bSauvegarder = new QPushButton("Sauvegarder",this);
-    bCharger = new QPushButton("Charger",this);
+    bGenererEtat = new QPushButton("Générer état",this);
+    bChargerEtat = new QPushButton("Charger état",this);
     bLargeur = new QSpinBox(this);
-    bLargeur->setRange(10,25);
-    bLargeur->setValue(dimension);
-    bHauteur = new QSpinBox(this);
-    bHauteur->setRange(10,25);
-    bHauteur->setValue(dimension);
+    bLargeur->setRange(1,50);
+    bLargeur->setValue(10);
+    QObject::connect(bLargeur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+    bLongueur = new QSpinBox(this);
+    bLongueur->setRange(1,50);
+    bLongueur->setValue(10);
     lLargeur = new QLabel("Largeur",this);
-    lHauteur = new QLabel("Hauteur",this);
+    lLongueur = new QLabel("Longueur",this);
+    QObject::connect(bLongueur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
 
-    menuSuperieur = new QHBoxLayout();
-    menuSuperieur->addWidget(bGenerer);
-    menuSuperieur->addWidget(bSauvegarder);
-    menuSuperieur->addWidget(bCharger);
+    bchoixGenerateur = new QComboBox();
+    bchoixGenerateur->addItem("Génération manuelle");
+    bchoixGenerateur->addItem("Génération aléatoire");
+    bchoixGenerateur->addItem("Génération aléatoire symétrie axiale");
+
+
+
+    QHBoxLayout* menuSuperieur = new QHBoxLayout();
+    menuSuperieur->addWidget(bchoixGenerateur);
+    menuSuperieur->addWidget(bChargerEtat);
     menuSuperieur->addWidget(lLargeur);
     menuSuperieur->addWidget(bLargeur);
-    menuSuperieur->addWidget(lHauteur);
-    menuSuperieur->addWidget(bHauteur);
-
-    /*
-    * Gestion de la génération de l'automate : grille et état initial
-    */
-
-    unsigned int taille = 50;
-
-    simulation = new QPushButton("Simulation",this);
-    connect(simulation,SIGNAL(clicked(bool)),this,SLOT(faireSimulation()));
+    menuSuperieur->addWidget(lLongueur);
+    menuSuperieur->addWidget(bLongueur);
 
 
-    layout = new QVBoxLayout;
 
-    etats  = new QTableWidget(dimension,dimension,this);
-    etats->horizontalHeader()->setVisible(false);
-    etats->verticalHeader()->setVisible(false);
-    etats->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    etats->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    etats->setFixedSize(dimension*taille,dimension*taille);
+
+
+
+
+
+
+
+    grille  = new QTableWidget(this);
+    grille->horizontalHeader()->setVisible(false);
+    grille->verticalHeader()->setVisible(false);
+    grille->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    grille->setFixedSize(1000,1000);
+
+
     //non éditable
-    etats->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    for(unsigned int i=0;i<dimension;i++)
-    {
-     etats->setColumnWidth(i,taille);
-     etats->setRowHeight(i,taille);
-     for(unsigned int j = 0;j<dimension;j++)
-         etats->setItem(j,i,new QTableWidgetItem(""));
-    }
-    connect(etats,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+    grille->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    connect(grille,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+
+
+    buildGrille();
+
+
+
+
 
     /*
      * Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
      */
 
-    bStart = new QPushButton("Start",this);
-    bPause = new QPushButton("Pause",this);
-    bRetourDepart = new QPushButton("Retour départ",this);
-    bNextFrame = new QPushButton("Prochain état",this);
-    bSelectVitesse = new QSpinBox(this);
+
+
+    bSauvegarderEtat = new QPushButton("Sauvegarder dernier état");
+    bStart = new QPushButton("Start");
+    bPause = new QPushButton("Pause");
+    bRetourDepart = new QPushButton("Retour départ");
+    bNextFrame = new QPushButton("Prochain état");
+    bSelectVitesse = new QSpinBox();
     bSelectVitesse->setRange(1,50);
     bSelectVitesse->setValue(2);
 
-    menuInferieur = new QHBoxLayout();
-    menuInferieur->addWidget(bStart);
-    menuInferieur->addWidget(bPause);
+    QHBoxLayout* menuInferieur = new QHBoxLayout();
+
+    menuInferieur->addWidget(bSauvegarderEtat);
     menuInferieur->addWidget(bRetourDepart);
     menuInferieur->addWidget(bNextFrame);
+    menuInferieur->addWidget(bPause);
+    menuInferieur->addWidget(bStart);
     menuInferieur->addWidget(bSelectVitesse);
 
     /*
      * Menu de gauche : voisinage (?), génération d'un état aléatoire ou symétrique
      */
 
-    bGenAleatoire = new QPushButton("Génération aléatoire",this);
-    bGenSymetrique = new QPushButton("Génération symétrique",this);
 
-    menuGauche = new QVBoxLayout();
-    menuGauche->addWidget(bGenAleatoire);
-    menuGauche->addWidget(bGenSymetrique);
+
+
+    choixAutomate = new QComboBox();
+    choixAutomate->addItem("automates élémentaires revisités");
+
+    QStackedWidget* automates = new QStackedWidget();
+
+    bGenererAutomate = new QPushButton("Générer automate");
+    bSauvegarderAutomate = new QPushButton("Sauvegarder automate");
+    bChargerAutomate = new QPushButton("Charger automate");
+
+    QHBoxLayout* menuAutomate = new QHBoxLayout();
+
+    menuAutomate->addWidget(bGenererAutomate);
+    menuAutomate->addWidget(bSauvegarderAutomate);
+    menuAutomate->addWidget(bChargerAutomate);
+
+    QVBoxLayout* menuGauche = new QVBoxLayout();
+
+    menuGauche->addWidget(choixAutomate);
+    menuGauche->addWidget(automates);
+    menuGauche->addLayout(menuAutomate);
+
+    QVBoxLayout* layout = new QVBoxLayout();
 
     layout->addLayout(menuSuperieur);
-    layout->addWidget(simulation);
-    layout->addWidget(etats);
+    layout->addWidget(bGenererEtat);
+    layout->addWidget(grille);
     layout->addLayout(menuInferieur);
 
-    layoutGlobal = new QHBoxLayout();
+
+
+
+    QHBoxLayout* layoutGlobal = new QHBoxLayout();
     layoutGlobal->addLayout(menuGauche);
     layoutGlobal->addLayout(layout);
-
     setLayout(layoutGlobal);
 
 }
 
 void fenetre2D::faireSimulation()
 {
+    /*Etat e(dimension);
+    for(unsigned int i= 0;i<dimension;i++)
+    {
+        if (depart->item(0,i)->text()!="") e.setCellule(i,true);
+
+    }
+    const Automate& A = AutomateManager::getAutomateManager().getAutomate(num->value());
+    Simulateur S(A,e);
+    for(unsigned int i=0;i<dimension;i++)
+    {
+        S.next();
+        const Etat& d=S.dernier();
+        for (unsigned int j=0;j<dimension;j++)
+        {
+            if (d.getCellule(j))
+                grille->item(i,j)->setBackgroundColor("black");
+            else
+                grille->item(i,j)->setBackgroundColor(("white"));
+
+        }
+    }*/
 
 }
 
+
 void fenetre2D::cellActivation(const QModelIndex& index)
 {
-    if (etats->item(index.row(),index.column())->text()=="")
+    if (grille->item(index.row(),index.column())->text()=="")
     {
-        etats->item(index.row(),index.column())->setText("_");
-        etats->item(index.row(),index.column())->setBackgroundColor("black");
-        etats->item(index.row(),index.column())->setTextColor("black");
+        grille->item(index.row(),index.column())->setText("_");
+        grille->item(index.row(),index.column())->setBackgroundColor("black");
+        grille->item(index.row(),index.column())->setTextColor("black");
     }
     else
     {
-        etats->item(index.row(),index.column())->setText("");
-        etats->item(index.row(),index.column())->setBackgroundColor("white");
-        etats->item(index.row(),index.column())->setTextColor("white");
+        grille->item(index.row(),index.column())->setText("");
+        grille->item(index.row(),index.column())->setBackgroundColor("white");
+        grille->item(index.row(),index.column())->setTextColor("white");
     }
+    grille->item(index.row(),index.column())->setSelected(false);
 }
 
 /*void lancerSimulation()
 {
 
 }*/
+
+void fenetre2D::buildGrille()
+{
+
+
+    unsigned int tailleLongueur = 1000/bLongueur->value();
+    unsigned int tailleLargeur = 1000/bLargeur->value();
+
+    grille->clear();
+    grille->setColumnCount(bLongueur->value());
+    grille->setRowCount(bLargeur->value());
+
+
+
+    for(unsigned int i=0;i<bLongueur->value();i++)
+    {
+     grille->setColumnWidth(i,tailleLongueur);
+
+     for(unsigned int j = 0;j<bLargeur->value();j++)
+     {
+         if(i==0) grille->setRowHeight(j,tailleLargeur);
+         grille->setItem(j,i,new QTableWidgetItem(""));
+     }
+    }
+
+
+}

@@ -33,7 +33,6 @@ class fenetre1D : public QWidget{
     QComboBox* bchoixGenerateur;
     QTableWidget* depart;
     //QVBoxLayout *layout;
-    QPushButton *simulation;
     QTableWidget* etats;
     QPushButton* bStart;
     QPushButton* bPause;

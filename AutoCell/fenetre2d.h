@@ -1,5 +1,5 @@
-#ifndef FENETRE2D_H
-#define FENETRE2D_H
+#ifndef fenetre2D_H
+#define fenetre2D_H
 #include <QApplication>
 #include <QWidget>
 #include <QSpinBox>
@@ -12,6 +12,8 @@
 #include <QTableWidgetItem>
 #include <QPushButton>
 #include <QHeaderView>
+#include <QComboBox>
+#include <QStackedWidget>
 #include "automateexception.h"
 //#include "automate.h"
 
@@ -21,33 +23,36 @@ std::string NumToNumBit(short unsigned int num);
 class fenetre2D : public QWidget{
     Q_OBJECT
 
-    QPushButton* bGenerer;
-    QPushButton* bSauvegarder;
-    QPushButton* bCharger;
+    QPushButton* bGenererEtat;
+    QPushButton* bSauvegarderEtat;
+    QPushButton* bChargerEtat;
     QSpinBox* bLargeur;
-    QSpinBox* bHauteur;
-    QLabel* lHauteur;
+    QSpinBox* bLongueur;
+    QLabel* lLongueur;
     QLabel* lLargeur;
-    QHBoxLayout* menuSuperieur;
-    QVBoxLayout *layout;
-    QPushButton *simulation;
-    QTableWidget* etats;
-    static unsigned int dimension;
-    static unsigned int nombreEtats;
+    QComboBox* bchoixGenerateur;
+    //QTableWidget* depart;
+    //QVBoxLayout *layout;
+    QTableWidget* grille;
     QPushButton* bStart;
     QPushButton* bPause;
     QPushButton* bRetourDepart;
     QPushButton* bNextFrame;
     QSpinBox* bSelectVitesse;
-    QHBoxLayout* menuInferieur;
-    QPushButton* bGenAleatoire;
-    QPushButton* bGenSymetrique;
-    QVBoxLayout* menuGauche;
-    QHBoxLayout* layoutGlobal;
+
+    QPushButton* bGenererAutomate;
+    QPushButton* bSauvegarderAutomate;
+    QPushButton* bChargerAutomate;
+
+    QComboBox* choixAutomate;
+    //QHBoxLayout* menuInferieur;
+    //QHBoxLayout* layoutGlobal;
+
 public:
     explicit fenetre2D(QWidget* parent = nullptr);
 private slots:
     void cellActivation(const QModelIndex& index);
     void faireSimulation();
+    void buildGrille();
 };
-#endif // FENETRE2D_H
+#endif // fenetre2D_H

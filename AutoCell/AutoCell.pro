@@ -13,7 +13,8 @@ SOURCES += \
     cabuilder.cpp \
     mainwindow.cpp \
     fenetre1d.cpp \
-    fenetre2d.cpp
+    fenetre2d.cpp \
+    fenetreconfig.cpp
 
 HEADERS += \
     cell.h \
@@ -26,4 +27,5 @@ HEADERS += \
     cabuilder.h \
     mainwindow.h \
     fenetre1d.h \
-    fenetre2d.h
+    fenetre2d.h \
+    fenetreconfig.h
