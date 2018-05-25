@@ -10,7 +10,6 @@ SOURCES += \
     voisinage.cpp \
     transitionrule.cpp \
     cellularautomata.cpp \
-    cabuilder.cpp \
     mainwindow.cpp \
     fenetre1d.cpp \
     fenetre2d.cpp \

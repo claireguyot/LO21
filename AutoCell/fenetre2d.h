@@ -54,5 +54,6 @@ private slots:
     void cellActivation(const QModelIndex& index);
     void faireSimulation();
     void buildGrille();
+
 };
 #endif // fenetre2D_H

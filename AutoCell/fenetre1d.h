@@ -14,11 +14,13 @@
 #include <QHeaderView>
 #include <QComboBox>
 #include <QStackedWidget>
+#include "cellularautomata.h"
 #include "automateexception.h"
+#include "fenetreconfig.h"
+#include <QTimer>
 //#include "automate.h"
 
-short unsigned int NumBitToNum(const std::string& num);
-std::string NumToNumBit(short unsigned int num);
+
 
 class fenetre1D : public QWidget{
     Q_OBJECT
@@ -33,7 +35,7 @@ class fenetre1D : public QWidget{
     QComboBox* bchoixGenerateur;
     QTableWidget* depart;
     //QVBoxLayout *layout;
-    QTableWidget* etats;
+    QTableWidget* grille;
     QPushButton* bStart;
     QPushButton* bPause;
     QPushButton* bRetourDepart;
@@ -48,11 +50,31 @@ class fenetre1D : public QWidget{
     //QHBoxLayout* menuInferieur;
     //QHBoxLayout* layoutGlobal;
 
+    fenetreElementaryRule* configElementaryRule;
+    CellularAutomata* simulateur;
+
+    QTimer* m_timer;
+
+
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
+    ~fenetre1D()
+    {
+        delete simulateur;
+    }
 private slots:
     void cellActivation(const QModelIndex& index);
-    void faireSimulation();
     void buildGrille();
+    void generationSuivante();
+    void play();
+    void pause();
+    void appelConfig() const;
+    void construireEtat();
+    void reset();
+
+public slots:
+    void construireAutomate(int nbEtats);
+private:
+    void afficherDernierEtat();
 };
 #endif // FENETRE1D_H

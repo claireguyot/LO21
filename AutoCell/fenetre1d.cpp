@@ -1,7 +1,7 @@
 #include "fenetre1D.h"
 //unsigned int fenetre1D::dimension = 25;
-//unsigned int fenetre1D::nombreEtats = 25;
-fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
+//unsigned int fenetre1D::nombregrille = 25;
+fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 {
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la grille
@@ -53,16 +53,16 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
 
 
 
-    etats  = new QTableWidget(this);
-    etats->horizontalHeader()->setVisible(false);
-    etats->verticalHeader()->setVisible(false);
-    etats->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    etats->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    etats->setFixedSize(1000,1000);
+    grille  = new QTableWidget(this);
+    grille->horizontalHeader()->setVisible(false);
+    grille->verticalHeader()->setVisible(false);
+    grille->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    grille->setFixedSize(1000,1000);
 
 
     //non éditable
-    etats->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    grille->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 
     buildGrille();
@@ -71,9 +71,9 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
 
 
 
-    /*
-     * Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
-     */
+
+    // Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
+
 
 
 
@@ -100,12 +100,20 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
      */
 
 
-
-
+    configElementaryRule = new fenetreElementaryRule();
+    QStackedWidget* automates = new QStackedWidget(this);
+    automates->addWidget(configElementaryRule);
+    automates->setCurrentIndex(0);
     choixAutomate = new QComboBox();
     choixAutomate->addItem("automates élémentaires revisités");
 
-    QStackedWidget* automates = new QStackedWidget();
+
+
+
+
+
+
+    connect(choixAutomate,SIGNAL(currentIndexChanged(int)),automates, SLOT(setCurrentIndex(int)));
 
     bGenererAutomate = new QPushButton("Générer automate");
     bSauvegarderAutomate = new QPushButton("Sauvegarder automate");
@@ -121,14 +129,16 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
 
     menuGauche->addWidget(choixAutomate);
     menuGauche->addWidget(automates);
+
     menuGauche->addLayout(menuAutomate);
+
 
     QVBoxLayout* layout = new QVBoxLayout();
 
     layout->addLayout(menuSuperieur);
     layout->addWidget(depart);
     layout->addWidget(bGenererEtat);
-    layout->addWidget(etats);
+    layout->addWidget(grille);
     layout->addLayout(menuInferieur);
 
 
@@ -137,53 +147,71 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     QHBoxLayout* layoutGlobal = new QHBoxLayout();
     layoutGlobal->addLayout(menuGauche);
     layoutGlobal->addLayout(layout);
-    //layoutGlobal->set
     setLayout(layoutGlobal);
 
-}
+    m_timer = new QTimer(this);
+    m_timer->stop();
+    connect(m_timer,SIGNAL(timeout()),this,SLOT(generationSuivante()));
 
-void fenetre1D::faireSimulation()
-{
-    /*Etat e(dimension);
-    for(unsigned int i= 0;i<dimension;i++)
-    {
-        if (depart->item(0,i)->text()!="") e.setCellule(i,true);
-
-    }
-    const Automate& A = AutomateManager::getAutomateManager().getAutomate(num->value());
-    Simulateur S(A,e);
-    for(unsigned int i=0;i<dimension;i++)
-    {
-        S.next();
-        const Etat& d=S.dernier();
-        for (unsigned int j=0;j<dimension;j++)
-        {
-            if (d.getCellule(j))
-                etats->item(i,j)->setBackgroundColor("black");
-            else
-                etats->item(i,j)->setBackgroundColor(("white"));
-
-        }
-    }*/
+    connect(bStart,SIGNAL(clicked(bool)),this,SLOT(play()));
+    connect(bPause,SIGNAL(clicked(bool)),this,SLOT(pause()));
+    connect(bGenererAutomate,SIGNAL(clicked(bool)),this,SLOT(appelConfig()));
+    connect(configElementaryRule,SIGNAL(configConstruite(int)),this,SLOT(construireAutomate(int)));
+    connect(bNextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
+    connect(bGenererEtat,SIGNAL(clicked(bool)),this,SLOT(construireEtat()));
+    connect(bRetourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
 
 }
+
+
 
 
 void fenetre1D::cellActivation(const QModelIndex& index)
 {
-    if (depart->item(0,index.column())->text()=="")
+    if (depart->item(index.row(),index.column())->text()=="0")
     {
-        depart->item(0,index.column())->setText("_");
-        depart->item(0,index.column())->setBackgroundColor("black");
-        depart->item(0,index.column())->setTextColor("black");
+        depart->item(index.row(),index.column())->setText("1");
+        depart->item(index.row(),index.column())->setBackgroundColor("black");
+        depart->item(index.row(),index.column())->setTextColor("black");
+    }
+    else if (depart->item(index.row(),index.column())->text()=="1")
+    {
+        if(simulateur != nullptr && simulateur->GetNombreEtats() >=3)
+        {
+            depart->item(index.row(),index.column())->setText("2");
+            depart->item(index.row(),index.column())->setBackgroundColor("green");
+            depart->item(index.row(),index.column())->setTextColor("green");
+        }
+        else
+        {
+            depart->item(index.row(),index.column())->setText("0");
+            depart->item(index.row(),index.column())->setBackgroundColor("white");
+            depart->item(index.row(),index.column())->setTextColor("white");
+        }
+
+    }
+    else if (depart->item(index.row(),index.column())->text()=="2")
+    {
+        if(simulateur != nullptr && simulateur->GetNombreEtats() ==4)
+        {
+            depart->item(index.row(),index.column())->setText("3");
+            depart->item(index.row(),index.column())->setBackgroundColor("red");
+            depart->item(index.row(),index.column())->setTextColor("red");
+        }
+        else
+        {
+            depart->item(index.row(),index.column())->setText("0");
+            depart->item(index.row(),index.column())->setBackgroundColor("white");
+            depart->item(index.row(),index.column())->setTextColor("white");
+        }
     }
     else
     {
-        depart->item(0,index.column())->setText("");
-        depart->item(0,index.column())->setBackgroundColor("white");
-        depart->item(0,index.column())->setTextColor("white");
+        depart->item(index.row(),index.column())->setText("0");
+        depart->item(index.row(),index.column())->setBackgroundColor("white");
+        depart->item(index.row(),index.column())->setTextColor("white");
     }
-    depart->item(0,index.column())->setSelected(false);
+    depart->item(index.row(),index.column())->setSelected(false);
 }
 
 /*void lancerSimulation()
@@ -199,7 +227,7 @@ void fenetre1D::buildGrille()
     unsigned int tailleLargeur = 1000/bLargeur->value();
 
     depart->clear();
-    etats->clear();
+    grille->clear();
 
     depart->setColumnCount(bLongueur->value());
     depart->setRowCount(1);
@@ -207,7 +235,9 @@ void fenetre1D::buildGrille()
     for(unsigned int i = 0;i<bLongueur->value();i++)
     {
      depart->setColumnWidth(i,tailleLongueur);
-     depart->setItem(0, i, new QTableWidgetItem(""));
+     depart->setItem(0, i, new QTableWidgetItem("0"));
+     depart->item(0,i)->setBackgroundColor("white");
+     depart->item(0,i)->setTextColor("white");
     }
 
 
@@ -216,21 +246,199 @@ void fenetre1D::buildGrille()
 
 
 
-    etats->setColumnCount(bLongueur->value());
-    etats->setRowCount(bLargeur->value());
+    grille->setColumnCount(bLongueur->value());
+    grille->setRowCount(bLargeur->value());
 
 
 
     for(unsigned int i=0;i<bLongueur->value();i++)
     {
-     etats->setColumnWidth(i,tailleLongueur);
+     grille->setColumnWidth(i,tailleLongueur);
 
      for(unsigned int j = 0;j<bLargeur->value();j++)
      {
-         if(i==0) etats->setRowHeight(j,tailleLargeur);
-         etats->setItem(j,i,new QTableWidgetItem(""));
+         if(i==0) grille->setRowHeight(j,tailleLargeur);
+         grille->setItem(j,i,new QTableWidgetItem(""));
+         grille->item(j,i)->setBackgroundColor("white");
+         grille->item(j,i)->setTextColor("white");
      }
     }
 
 
+}
+
+void fenetre1D::afficherDernierEtat()
+{
+    if (simulateur!= nullptr)
+    {
+
+
+        unsigned int ligne = simulateur->GetRangDernier()%bLargeur->value();
+        Etat const& etat = simulateur->Dernier();
+        //for(Etat::const_iterator it = etat.begin();it!=etat.end();++it)
+        for(int i=0;i<etat.GetLargeur();i++)
+            for(int j=0;j<etat.GetLongueur();j++)
+        {
+            const Cell& cellule = etat.GetCellule(i,j);
+            switch(cellule.GetEtat())
+            {
+            case BLANC:
+                grille->item(ligne,cellule.GetY())->setText("0");
+                grille->item(ligne,cellule.GetY())->setBackgroundColor("white");
+                grille->item(ligne,cellule.GetY())->setTextColor("white");
+            break;
+            case NOIR:
+                grille->item(ligne,cellule.GetY())->setText("1");
+                grille->item(ligne,cellule.GetY())->setBackgroundColor("black");
+                grille->item(ligne,cellule.GetY())->setTextColor("black");;
+            break;
+            case VERT:
+                grille->item(ligne,cellule.GetY())->setText("2");
+                grille->item(ligne,cellule.GetY())->setBackgroundColor("green");
+                grille->item(ligne,cellule.GetY())->setTextColor("green");
+            break;
+            case ROUGE:
+                grille->item(ligne,cellule.GetY())->setText("3");
+                grille->item(ligne,cellule.GetY())->setBackgroundColor("red");
+                grille->item(ligne,cellule.GetY())->setTextColor("red");
+            break;
+            default:
+                grille->item(ligne,cellule.GetY())->setText("0");
+                grille->item(ligne,cellule.GetY())->setBackgroundColor("white");
+                grille->item(ligne,cellule.GetY())->setTextColor("white");
+            }
+        }
+    }
+
+}
+
+void fenetre1D::generationSuivante()
+{
+    if (simulateur== nullptr )
+    {
+            pause();
+            QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
+    }
+    else if (simulateur->getEtatDepart() == nullptr)
+    {
+        pause();
+        QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
+
+
+    }
+    else
+    {
+        simulateur->Next();
+        afficherDernierEtat();
+    }
+
+}
+
+void fenetre1D::play()
+{
+
+    m_timer->start(bSelectVitesse->value()*1000);
+    generationSuivante();
+}
+
+void fenetre1D::pause()
+{
+    m_timer->stop();
+}
+
+void fenetre1D::appelConfig() const
+{
+    switch(choixAutomate->currentIndex())
+    {
+    case 0:
+        configElementaryRule->constructionAutomate();
+        break;
+    default:
+        break;
+    }
+}
+
+void fenetre1D::construireAutomate(int nbgrille)
+{
+    pause();
+
+    if(simulateur != nullptr)
+    {
+        delete simulateur;
+        simulateur = nullptr;
+    }
+    CABuilder1D& builder = CABuilder1D::getInstance();
+    simulateur = new CellularAutomata(builder.GetTransitionRule(),nbgrille,builder.GetVoisinageDefinition());
+
+    bLongueur->setVisible(true);
+    lLongueur->setVisible(true);
+    bLargeur->setVisible(true);
+    lLargeur->setVisible(true);
+
+    buildGrille();
+
+
+}
+
+void fenetre1D::construireEtat()
+{
+
+
+    if(simulateur == nullptr)
+    {
+        QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
+    }
+    else
+    {
+        CABuilder1D& builder = CABuilder1D::getInstance();
+        pause();
+        buildGrille();
+        bLongueur->setVisible(false);
+        lLongueur->setVisible(false);
+        bLargeur->setVisible(false);
+        lLargeur->setVisible(false);
+
+        switch(bchoixGenerateur->currentIndex())
+        {
+        case 0:
+            QMessageBox::critical(0,"erreur","Pas encore implémenté !");
+            break;
+        case 1:
+            builder.BuildGenerateurEtatRandom();
+            builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            break;
+        case 2:
+            builder.BuildGenerateurEtatSymetrieAxeLargeur();
+            builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            break;
+        }
+
+        simulateur->setEtatDepart(builder.GetEtatDepart());
+
+        afficherDernierEtat();
+
+    }
+}
+
+void fenetre1D::reset()
+{
+    if (simulateur== nullptr )
+    {
+            pause();
+            QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
+    }
+    else if (simulateur->getEtatDepart() == nullptr)
+    {
+        pause();
+        QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
+
+
+    }
+    else
+    {
+        pause();
+        simulateur->Reset();
+        buildGrille();
+        afficherDernierEtat();
+    }
 }

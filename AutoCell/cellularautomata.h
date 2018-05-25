@@ -22,14 +22,15 @@ private:
     CellularAutomata& operator=(const CellularAutomata& s);*/
 public:
     //CellularAutomata( TransitionRule const* rule, unsigned int buffer = 2);
-    CellularAutomata(const TransitionRule &rule ,unsigned int nbEtats, const Voisinage &definitionVoisinage, unsigned int buffer);
+    CellularAutomata(const TransitionRule &rule ,unsigned int nbEtats, const Voisinage &definitionVoisinage, unsigned int buffer = 2);
     CellularAutomata(const Etat& dep, const TransitionRule& rule , unsigned int nbEtats, Voisinage const& definitionVoisinage, unsigned int buffer = 2);
     void setEtatDepart(const Etat &dep);
-    //void setEtatDepart(const Etat& e);
+    Etat const* getEtatDepart() const {return m_depart;}
     void Run(unsigned int nbSteps); // génère les n prochains états
     void Next(); // génère le prochain état
     const Etat& Dernier() const;
     unsigned int GetRangDernier() const { return m_rang; }
+    unsigned int GetNombreEtats() const { return m_nbEtats; }
     void Reset(); // revenir à l'état de départ
     ~CellularAutomata();
 

@@ -52,7 +52,7 @@ public:
        };
 
        iterator begin() {	return iterator(this,0,0); }
-       iterator end() {  return iterator(this, m_largeur-1,m_longueur-1);}
+       iterator end() {  return iterator(this, m_largeur,m_longueur);}
 
        friend class const_iterator;
        class const_iterator {
@@ -80,7 +80,7 @@ public:
            };
 
            const_iterator begin() const {	return const_iterator(this,0,0); }
-           const_iterator end() const {  return const_iterator(this, m_largeur-1,m_longueur-1);}
+           const_iterator end() const {  return const_iterator(this, m_largeur,0); }
 
 
 private:

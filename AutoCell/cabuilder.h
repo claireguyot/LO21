@@ -6,6 +6,7 @@
 */
 
 #include "cellularautomata.h"
+#include <vector>
 /*!
  * \class CABuilder
  * \brief Classe de base qui permet de construire les sous-parties nécessaire à la construction d'un CellularAutomata
@@ -24,7 +25,7 @@
  */
 class CABuilder
 {
-private:
+protected:
     CABuilder(): m_etatDepart(nullptr),m_generateurEtat(nullptr),m_transitionRule(nullptr),m_voisinageDefinition(nullptr)
     {
 
@@ -46,21 +47,21 @@ public:
     Voisinage const& GetVoisinageDefinition() const {return *m_voisinageDefinition;}
     TransitionRule const& GetTransitionRule() const {return *m_transitionRule;}
     Etat const& GetEtatDepart() const{ return *m_etatDepart;}
-    GenerateurEtat const& GetGenerateurEtat() const {return *m_generateurEtat}
+    GenerateurEtat const& GetGenerateurEtat() const {return *m_generateurEtat;}
     void BuildGenerateurEtatRandom() {
         if(m_generateurEtat != nullptr)
             delete m_generateurEtat;
         m_generateurEtat = new GenerateurRandom;
     }
-    void BuildGenerateurEtatSymetrieAxenbLignes()
+    void BuildGenerateurEtatSymetrieAxeLargeur()
     {
         if(m_generateurEtat != nullptr)
             delete m_generateurEtat;
-        m_generateurEtat = new GenerateurSymetrieAxenbLignes;
+        m_generateurEtat = new GenerateurSymetrieAxeLargeur;
     }
 
 
-}
+};
 /*!
  * \class CABuilder1D
  * \brief Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 1D
@@ -78,8 +79,14 @@ public:
 class CABuilder1D : public CABuilder
 {
 private:
-    CABuilder1D() = default;
-    ~CABuilder1D() = default;
+    CABuilder1D() : CABuilder()
+    {
+
+    }
+    ~CABuilder1D()
+    {
+
+    }
     CABuilder1D(const CABuilder1D&) = delete;
     CABuilder1D& operator=(const CABuilder1D&) = delete;
 public:
@@ -98,7 +105,7 @@ public:
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(1,taille,generateur,nbEtats);
     }
-    void BuildEtatDepart(unsigned int taille, vector<vector<int>> tab)
+    void BuildEtatDepart(unsigned int taille, std::vector<std::vector<int>> tab)
     {
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(1,taille,tab);
@@ -108,10 +115,10 @@ public:
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(1,taille);
     }
-    void BuildElementaryRule(std::string& rule, unsigned int nbEtats)
+    void BuildElementaryRule(std::string const& rule, unsigned int nbEtats)
     {
         if(m_transitionRule != nullptr) delete m_transitionRule;
-        m_transitionRule = new ElementaryRule(rule,nbEtats)
+        m_transitionRule = new ElementaryRule(rule,nbEtats);
     }
 
 
@@ -157,7 +164,7 @@ public:
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(nbLignes,nbColonnes,generateur,nbEtats);
     }
-    void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, vector<vector<int>> tab)
+    void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, std::vector<std::vector<int>> tab)
     {
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(nbLignes,nbColonnes,tab);
