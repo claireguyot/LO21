@@ -52,11 +52,11 @@ public:
             delete m_generateurEtat;
         m_generateurEtat = new GenerateurRandom;
     }
-    void BuildGenerateurEtatSymetrieAxeLargeur()
+    void BuildGenerateurEtatSymetrieAxenbLignes()
     {
         if(m_generateurEtat != nullptr)
             delete m_generateurEtat;
-        m_generateurEtat = new GenerateurSymetrieAxeLargeur;
+        m_generateurEtat = new GenerateurSymetrieAxenbLignes;
     }
 
 
@@ -65,14 +65,14 @@ public:
  * \class CABuilder1D
  * \brief Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 1D
  * \todo L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps
- *
+ *  \todo améliorer l'implémentation pour pouvoir gérer la construction de plusieurs automates en même temps
+ * On a décidé de mettre un design pattern singleton sur cette classe afin d'être sûr de n'avoir qu'une seule instance du builder pour créer un seul simulateur 1D car notre application ne peut gérer qu'un simulateur 1D à la fois
  * Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de CellularAutomate, ce n'est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement
  * Par exemple: la classe CellularAutomata construit des Etat. On aurait pu factoriser le code (héritage) des 2 Builder
  *
  * C'est un singleton car dans notre application il est impossible de gérer plusieurs automates 1D en même temps
- * \todo modifier l'implémentation pour pouvoir gérer la construction de plusieurs automates en même temps
  *
- * \todo Accesseur sur les éléments et méthodes permettant de construire les éléments
+
  */
 
 class CABuilder1D : public CABuilder
@@ -121,13 +121,13 @@ public:
  * \class CABuilder2D
  * \brief Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 2D
  * \todo L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps. On
- *
+ *\todo améliorer l'implémentation pour pouvoir gérer la construction de plusieurs automates en même temps
  * Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de CellularAutomate, ce n'est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement
  * Par exemple: la classe CellularAutomata construit des Etat.
  *
- *  C'est un singleton
+ *  On a décidé de mettre un design pattern singleton sur cette classe afin d'être sûr de n'avoir qu'une seule instance du builder pour créer un seul simulateur 2D car notre application ne peut gérer qu'un simulateur 2D à la fois
  *
- * \todo Accesseur sur les éléments et méthodes permettant de construire les éléments
+ *
  */
 class CABuilder2D : CABuilder
 {
@@ -142,6 +142,43 @@ public:
         static CABuilder2D m;
         return m;
     }
+    void BuildVoisinageVonNeumann(unsigned int ordre) {
+
+        if(m_voisinageDefinition != nullptr) delete m_voisinageDefinition;
+        m_voisinageDefinition = new VonNeumann(ordre);
+    }
+    void BuildVoisinageMoore(unsigned int ordre) {
+
+        if(m_voisinageDefinition != nullptr) delete m_voisinageDefinition;
+        m_voisinageDefinition = new Moore(ordre);
+    }
+    void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, GenerateurEtat const& generateur,int nbEtats)
+    {
+        if(m_etatDepart != nullptr) delete m_etatDepart;
+        m_etatDepart = new Etat(nbLignes,nbColonnes,generateur,nbEtats);
+    }
+    void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, vector<vector<int>> tab)
+    {
+        if(m_etatDepart != nullptr) delete m_etatDepart;
+        m_etatDepart = new Etat(nbLignes,nbColonnes,tab);
+    }
+    void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes)
+    {
+        if(m_etatDepart != nullptr) delete m_etatDepart;
+        m_etatDepart = new Etat(nbLignes,nbColonnes);
+    }
+    void BuildGameOfLife(unsigned int minVoisinsVivants, unsigned int maxVoisinsVivants)
+    {
+        if(m_transitionRule != nullptr) delete m_transitionRule;
+        m_transitionRule = new GameOfLife(minVoisinsVivants,maxVoisinsVivants);
+    }
+    void BuildFeuForet()
+    {
+        if(m_transitionRule != nullptr) delete m_transitionRule;
+        m_transitionRule = new FeuForet();
+    }
+
+
 };
 
 #endif // CABUILDER_H

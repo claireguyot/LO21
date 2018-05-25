@@ -87,7 +87,9 @@ $(document).ready(function(){initNavTree('cabuilder_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier cabuilder.h</div>  </div>
 </div><!--header-->
@@ -101,12 +103,84 @@ $(document).ready(function(){initNavTree('cabuilder_8h.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 1D.  <a href="class_c_a_builder1_d.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html">CABuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe de base qui permet de construire les sous-parties nécessaire à la construction d'un <a class="el" href="class_cellular_automata.html">CellularAutomata</a>.  <a href="class_c_a_builder.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder2_d.html">CABuilder2D</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 2D.  <a href="class_c_a_builder2_d.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1881417f453feab38a23bc6872ad9acb"><td class="memItemLeft" align="right" valign="top"><a id="a1881417f453feab38a23bc6872ad9acb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CABuilder</b> ()</td></tr>
+<tr class="separator:a1881417f453feab38a23bc6872ad9acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0df6b0333d7c11c8e306e18b3a965be2"><td class="memItemLeft" align="right" valign="top"><a id="a0df6b0333d7c11c8e306e18b3a965be2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CABuilder</b> (const <a class="el" href="class_c_a_builder.html">CABuilder</a> &amp;)=delete</td></tr>
+<tr class="separator:a0df6b0333d7c11c8e306e18b3a965be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75eec9aea1b6fe58961db7c3b84ca688"><td class="memItemLeft" align="right" valign="top"><a id="a75eec9aea1b6fe58961db7c3b84ca688"></a>
+<a class="el" href="class_c_a_builder.html">CABuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_c_a_builder.html">CABuilder</a> &amp;)=delete</td></tr>
+<tr class="separator:a75eec9aea1b6fe58961db7c3b84ca688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd42ba2377747e985a84461d6a0fc375"><td class="memItemLeft" align="right" valign="top"><a id="afd42ba2377747e985a84461d6a0fc375"></a>
+<a class="el" href="class_voisinage.html">Voisinage</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetVoisinageDefinition</b> () const</td></tr>
+<tr class="separator:afd42ba2377747e985a84461d6a0fc375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8656678723e2a2a5d92db219dbc73af"><td class="memItemLeft" align="right" valign="top"><a id="aa8656678723e2a2a5d92db219dbc73af"></a>
+<a class="el" href="class_transition_rule.html">TransitionRule</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetTransitionRule</b> () const</td></tr>
+<tr class="separator:aa8656678723e2a2a5d92db219dbc73af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4537462d4d4f15c95f7a285d1698aa1b"><td class="memItemLeft" align="right" valign="top"><a id="a4537462d4d4f15c95f7a285d1698aa1b"></a>
+<a class="el" href="class_etat.html">Etat</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetEtatDepart</b> () const</td></tr>
+<tr class="separator:a4537462d4d4f15c95f7a285d1698aa1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62a95827f710decd2d0ab6a62e924bdc"><td class="memItemLeft" align="right" valign="top"><a id="a62a95827f710decd2d0ab6a62e924bdc"></a>
+<a class="el" href="class_generateur_etat.html">GenerateurEtat</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetGenerateurEtat</b> () const</td></tr>
+<tr class="separator:a62a95827f710decd2d0ab6a62e924bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0284feaeb4982fa522dcc107475fea80"><td class="memItemLeft" align="right" valign="top"><a id="a0284feaeb4982fa522dcc107475fea80"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildGenerateurEtatRandom</b> ()</td></tr>
+<tr class="separator:a0284feaeb4982fa522dcc107475fea80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a85c8ec78ae400239af62f9f70507ee"><td class="memItemLeft" align="right" valign="top"><a id="a5a85c8ec78ae400239af62f9f70507ee"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildGenerateurEtatSymetrieAxenbLignes</b> ()</td></tr>
+<tr class="separator:a5a85c8ec78ae400239af62f9f70507ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2f207c6b4683bd6275e307180b3570"><td class="memItemLeft" align="right" valign="top"><a id="adf2f207c6b4683bd6275e307180b3570"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CABuilder1D</b> ()=default</td></tr>
+<tr class="separator:adf2f207c6b4683bd6275e307180b3570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb6941f03b801c220b9d776b8dedbf74"><td class="memItemLeft" align="right" valign="top"><a id="adb6941f03b801c220b9d776b8dedbf74"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CABuilder1D</b> (const <a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a> &amp;)=delete</td></tr>
+<tr class="separator:adb6941f03b801c220b9d776b8dedbf74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91fdb7664fdad488e377d0650714bc6e"><td class="memItemLeft" align="right" valign="top"><a id="a91fdb7664fdad488e377d0650714bc6e"></a>
+<a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a> &amp;)=delete</td></tr>
+<tr class="separator:a91fdb7664fdad488e377d0650714bc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8decd194ea53bd9e00600003c550f9e2"><td class="memItemLeft" align="right" valign="top"><a id="a8decd194ea53bd9e00600003c550f9e2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildVoisinageDef</b> (unsigned int ordre)</td></tr>
+<tr class="separator:a8decd194ea53bd9e00600003c550f9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426f7fa4702be6b7cf7095601f4d95c4"><td class="memItemLeft" align="right" valign="top"><a id="a426f7fa4702be6b7cf7095601f4d95c4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildEtatDepart</b> (unsigned int taille, <a class="el" href="class_generateur_etat.html">GenerateurEtat</a> const &amp;generateur, int nbEtats)</td></tr>
+<tr class="separator:a426f7fa4702be6b7cf7095601f4d95c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1c813a7c1efc174f22575858fe58d3a"><td class="memItemLeft" align="right" valign="top"><a id="ae1c813a7c1efc174f22575858fe58d3a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildEtatDepart</b> (unsigned int taille, vector&lt; vector&lt; int &gt;&gt; tab)</td></tr>
+<tr class="separator:ae1c813a7c1efc174f22575858fe58d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7653cd4639b09be41e82733ebcee23e0"><td class="memItemLeft" align="right" valign="top"><a id="a7653cd4639b09be41e82733ebcee23e0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildEtatDepart</b> (unsigned int taille)</td></tr>
+<tr class="separator:a7653cd4639b09be41e82733ebcee23e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad728910092b5888fad52396c8c70fe6a"><td class="memItemLeft" align="right" valign="top"><a id="ad728910092b5888fad52396c8c70fe6a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildElementaryRule</b> (std::string &amp;rule, unsigned int nbEtats)</td></tr>
+<tr class="separator:ad728910092b5888fad52396c8c70fe6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a5eecc579e3b0684e36adf0141f78dbc6"><td class="memItemLeft" align="right" valign="top"><a id="a5eecc579e3b0684e36adf0141f78dbc6"></a>
+<a class="el" href="class_generateur_etat.html">GenerateurEtat</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_generateurEtat</b></td></tr>
+<tr class="separator:a5eecc579e3b0684e36adf0141f78dbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a751ecff853f4c600ec3df7961d593e94"><td class="memItemLeft" align="right" valign="top"><a id="a751ecff853f4c600ec3df7961d593e94"></a>
+<a class="el" href="class_etat.html">Etat</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_etatDepart</b></td></tr>
+<tr class="separator:a751ecff853f4c600ec3df7961d593e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e7790eff6d2f396b8748b982c36a66a"><td class="memItemLeft" align="right" valign="top"><a id="a7e7790eff6d2f396b8748b982c36a66a"></a>
+<a class="el" href="class_transition_rule.html">TransitionRule</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_transitionRule</b></td></tr>
+<tr class="separator:a7e7790eff6d2f396b8748b982c36a66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af56caeff83e811c8e7ee1ac7d6d8a0eb"><td class="memItemLeft" align="right" valign="top"><a id="af56caeff83e811c8e7ee1ac7d6d8a0eb"></a>
+<a class="el" href="class_voisinage.html">Voisinage</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_voisinageDefinition</b></td></tr>
+<tr class="separator:af56caeff83e811c8e7ee1ac7d6d8a0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67144d8320dd172ee5e2abfb66e3fda"><td class="memItemLeft" align="right" valign="top"><a id="ae67144d8320dd172ee5e2abfb66e3fda"></a>
+<a class="el" href="class_c_a_builder2_d.html">CABuilder2D</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CABuilder1D</b></td></tr>
+<tr class="separator:ae67144d8320dd172ee5e2abfb66e3fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Déclaration des classes <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> et <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a>. </p>

@@ -16,6 +16,7 @@ SOURCES += \
     fenetre2d.cpp \
     fenetreconfig.cpp
 
+
 HEADERS += \
     cell.h \
     generateuretat.h \

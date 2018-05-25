@@ -87,9 +87,9 @@ $(document).ready(function(){initNavTree('class_c_a_builder2_d.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
 <a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
 <a href="#pri-methods">Fonctions membres privées</a> &#124;
-<a href="#pri-attribs">Attributs privés</a> &#124;
 <a href="class_c_a_builder2_d-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe CABuilder2D</div>  </div>
@@ -100,12 +100,45 @@ $(document).ready(function(){initNavTree('class_c_a_builder2_d.html','');});
  <a href="class_c_a_builder2_d.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="cabuilder_8h_source.html">cabuilder.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de CABuilder2D:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_c_a_builder2_d.png" usemap="#CABuilder2D_map" alt=""/>
+  <map id="CABuilder2D_map" name="CABuilder2D_map">
+<area href="class_c_a_builder.html" title="Classe de base qui permet de construire les sous-parties nécessaire à la construction d&#39;un CellularAu..." alt="CABuilder" shape="rect" coords="0,0,86,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a0d31f87b74b5058fc60edd47ec372828"><td class="memItemLeft" align="right" valign="top"><a id="a0d31f87b74b5058fc60edd47ec372828"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildVoisinageVonNeumann</b> (unsigned int ordre)</td></tr>
+<tr class="separator:a0d31f87b74b5058fc60edd47ec372828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abafd86f26de9ab72100212edc23fc7fc"><td class="memItemLeft" align="right" valign="top"><a id="abafd86f26de9ab72100212edc23fc7fc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildVoisinageMoore</b> (unsigned int ordre)</td></tr>
+<tr class="separator:abafd86f26de9ab72100212edc23fc7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b276f92d8dd9a914d123b16cc518c7"><td class="memItemLeft" align="right" valign="top"><a id="af1b276f92d8dd9a914d123b16cc518c7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildEtatDepart</b> (unsigned int nbLignes, unsigned int nbColonnes, <a class="el" href="class_generateur_etat.html">GenerateurEtat</a> const &amp;generateur, int nbEtats)</td></tr>
+<tr class="separator:af1b276f92d8dd9a914d123b16cc518c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9268506229113c7b2f1348bddddc7263"><td class="memItemLeft" align="right" valign="top"><a id="a9268506229113c7b2f1348bddddc7263"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildEtatDepart</b> (unsigned int nbLignes, unsigned int nbColonnes, vector&lt; vector&lt; int &gt;&gt; tab)</td></tr>
+<tr class="separator:a9268506229113c7b2f1348bddddc7263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7300ec839baa5de1d8c3b9a044b6c3cb"><td class="memItemLeft" align="right" valign="top"><a id="a7300ec839baa5de1d8c3b9a044b6c3cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildEtatDepart</b> (unsigned int nbLignes, unsigned int nbColonnes)</td></tr>
+<tr class="separator:a7300ec839baa5de1d8c3b9a044b6c3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a0719a1a51bfbc40f017808b4c05ed"><td class="memItemLeft" align="right" valign="top"><a id="ac8a0719a1a51bfbc40f017808b4c05ed"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildGameOfLife</b> (unsigned int minVoisinsVivants, unsigned int maxVoisinsVivants)</td></tr>
+<tr class="separator:ac8a0719a1a51bfbc40f017808b4c05ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f988b3a445b18248661fc4c890a3a0"><td class="memItemLeft" align="right" valign="top"><a id="a71f988b3a445b18248661fc4c890a3a0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildFeuForet</b> ()</td></tr>
+<tr class="separator:a71f988b3a445b18248661fc4c890a3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Fonctions membres publiques statiques</h2></td></tr>
-<tr class="memitem:aab7dbdda8780b58ef0393035c7c1a96e"><td class="memItemLeft" align="right" valign="top"><a id="aab7dbdda8780b58ef0393035c7c1a96e"></a>
+<tr class="memitem:a013a50b0ebd4313516febd015db293c2"><td class="memItemLeft" align="right" valign="top"><a id="a013a50b0ebd4313516febd015db293c2"></a>
 static <a class="el" href="class_c_a_builder2_d.html">CABuilder2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
-<tr class="separator:aab7dbdda8780b58ef0393035c7c1a96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a013a50b0ebd4313516febd015db293c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Fonctions membres privées</h2></td></tr>
@@ -115,31 +148,34 @@ Fonctions membres privées</h2></td></tr>
 <tr class="memitem:aa21c22e1d8f10b05bad1b13988adf49d"><td class="memItemLeft" align="right" valign="top"><a id="aa21c22e1d8f10b05bad1b13988adf49d"></a>
 <a class="el" href="class_c_a_builder2_d.html">CABuilder2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_c_a_builder2_d.html">CABuilder2D</a> &amp;)=delete</td></tr>
 <tr class="separator:aa21c22e1d8f10b05bad1b13988adf49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Attributs privés</h2></td></tr>
-<tr class="memitem:aa8db17b64ef8a7d5b796fc03b25301dd"><td class="memItemLeft" align="right" valign="top"><a id="aa8db17b64ef8a7d5b796fc03b25301dd"></a>
-<a class="el" href="class_generateur_etat.html">GenerateurEtat</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_generateurEtat</b></td></tr>
-<tr class="separator:aa8db17b64ef8a7d5b796fc03b25301dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af93eab0d08d16fa6627b5230e552fb02"><td class="memItemLeft" align="right" valign="top"><a id="af93eab0d08d16fa6627b5230e552fb02"></a>
-<a class="el" href="class_etat.html">Etat</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_etatDepart</b></td></tr>
-<tr class="separator:af93eab0d08d16fa6627b5230e552fb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef97f351e55d2e03517d829e8f163ea2"><td class="memItemLeft" align="right" valign="top"><a id="aef97f351e55d2e03517d829e8f163ea2"></a>
-<a class="el" href="class_transition_rule2_d.html">TransitionRule2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_transitionRule</b></td></tr>
-<tr class="separator:aef97f351e55d2e03517d829e8f163ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add11f210e9e17ea1ed6ea6239dd229b8"><td class="memItemLeft" align="right" valign="top"><a id="add11f210e9e17ea1ed6ea6239dd229b8"></a>
-<a class="el" href="class_voisinage2_d.html">Voisinage2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_voisinageDefinition</b></td></tr>
-<tr class="separator:add11f210e9e17ea1ed6ea6239dd229b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_c_a_builder"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_c_a_builder')"><img src="closed.png" alt="-"/>&#160;Fonctions membres privées hérités de <a class="el" href="class_c_a_builder.html">CABuilder</a></td></tr>
+<tr class="memitem:a7150d7e7f5a6f668d0bbc8d5d28d9f42 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a id="a7150d7e7f5a6f668d0bbc8d5d28d9f42"></a>
+<a class="el" href="class_voisinage.html">Voisinage</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetVoisinageDefinition</b> () const</td></tr>
+<tr class="separator:a7150d7e7f5a6f668d0bbc8d5d28d9f42 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219a1c31ea869ef6adfb17afd2f5ab04 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a id="a219a1c31ea869ef6adfb17afd2f5ab04"></a>
+<a class="el" href="class_transition_rule.html">TransitionRule</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetTransitionRule</b> () const</td></tr>
+<tr class="separator:a219a1c31ea869ef6adfb17afd2f5ab04 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6aa6ec21c798984836f3894e6161bb9 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a id="ad6aa6ec21c798984836f3894e6161bb9"></a>
+<a class="el" href="class_etat.html">Etat</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetEtatDepart</b> () const</td></tr>
+<tr class="separator:ad6aa6ec21c798984836f3894e6161bb9 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9273278d518b1750bdc647daabef2f29 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a id="a9273278d518b1750bdc647daabef2f29"></a>
+<a class="el" href="class_generateur_etat.html">GenerateurEtat</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetGenerateurEtat</b> () const</td></tr>
+<tr class="separator:a9273278d518b1750bdc647daabef2f29 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89fe25fa1d52a13756ff47f6b163e7c0 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a id="a89fe25fa1d52a13756ff47f6b163e7c0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildGenerateurEtatRandom</b> ()</td></tr>
+<tr class="separator:a89fe25fa1d52a13756ff47f6b163e7c0 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0fd5a51a7f584f1beae38012172885 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a id="abc0fd5a51a7f584f1beae38012172885"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildGenerateurEtatSymetrieAxenbLignes</b> ()</td></tr>
+<tr class="separator:abc0fd5a51a7f584f1beae38012172885 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 2D. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">A faire:</a></b></dt><dd>L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps. On</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">A faire:</a></b></dt><dd>L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps. On</dd></dl>
 <p>Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de CellularAutomate, ce n'est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement Par exemple: la classe <a class="el" href="class_cellular_automata.html">CellularAutomata</a> construit des <a class="el" href="class_etat.html">Etat</a>.</p>
 <p>C'est un singleton</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">A faire:</a></b></dt><dd>Accesseur sur les éléments et méthodes permettant de construire les éléments </dd></dl>
-</div><hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">A faire:</a></b></dt><dd>Accesseur sur les éléments et méthodes permettant de construire les éléments </dd></dl>
+</div><hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>git/LO21/AutoCell/<a class="el" href="cabuilder_8h_source.html">cabuilder.h</a></li>
-<li>git/LO21/AutoCell/<a class="el" href="cabuilder_8cpp.html">cabuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

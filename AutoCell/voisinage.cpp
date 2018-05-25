@@ -1,18 +1,19 @@
 #include "voisinage.h"
-#include <iostream>
-
-using namespace std;
 
 
-void Voisinage1D::definirVoisinage(Etat &e) const //nbVoisins = mini 2
+
+void Voisinage1D::definirVoisinage(Etat &e) const //nombre de Voisins minimum  = 3 (la cellule est comprise dans son propre voisinage)
 {
 
     for(int i=0; i<e.GetLongueur();i++)
     {
         Cell& actuel = e.GetCellule(0,i);
         if(actuel.GetVoisins().size() != 0) actuel.ClearVoisinage();
-            for (int j=-m_ordre; j<= m_ordre; j++)
+
+            for (int j=-1*m_ordre; j<= m_ordre; j++)
             {
+
+
                 if(j == 0)
                 {
                         actuel.AjouterVoisin(&actuel);
@@ -20,15 +21,22 @@ void Voisinage1D::definirVoisinage(Etat &e) const //nbVoisins = mini 2
                 else
                 {
                     if(i+j>=0 && i+j<e.GetLongueur())
+                    {
+
                         actuel.AjouterVoisin(&(e.GetCellule(0,i+j)));
+                    }
+
                     else
+                    {
                         actuel.AjouterVoisin(nullptr);
+
+                    }
                 }
             }
     }
 }
 
-void VonNeumann::definirVoisinage(Etat &e) const //nbVoisins = minimum 4
+void VonNeumann::definirVoisinage(Etat &e) const //nbVoisins = minimum 5 (la cellule est comprise dans son propre voisinage)
 {
 
     for(int i=0; i<e.GetLargeur();i++)
@@ -37,6 +45,7 @@ void VonNeumann::definirVoisinage(Etat &e) const //nbVoisins = minimum 4
         {
             Cell& actuel = e.GetCellule(i,j);
             if(actuel.GetVoisins().size() != 0) actuel.ClearVoisinage();
+
 
                 for (int k=-m_ordre; k<= m_ordre; k++)
                 {
