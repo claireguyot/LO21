@@ -12,6 +12,8 @@
 #include <QTableWidgetItem>
 #include <QPushButton>
 #include <QHeaderView>
+#include <QComboBox>
+#include <QStackedWidget>
 #include "automateexception.h"
 //#include "automate.h"
 
@@ -21,40 +23,32 @@ std::string NumToNumBit(short unsigned int num);
 class fenetre1D : public QWidget{
     Q_OBJECT
 
-    QPushButton* bGenerer;
-    QPushButton* bSauvegarder;
-    QPushButton* bCharger;
+    QPushButton* bGenererEtat;
+    QPushButton* bSauvegarderEtat;
+    QPushButton* bChargerEtat;
     QSpinBox* bLargeur;
     QSpinBox* bLongueur;
-    //QLabel* lHauteur;
-    //QLabel* lLargeur;
-    //QHBoxLayout* menuSuperieur;
-    //QSpinBox* num; // numéro
-    /*QLineEdit* numeroBit[8]; // un QLineEdit par bit
-    QLabel* numl;
-    QLabel* numeroBitl[8];
-    QVBoxLayout* numc;
-    QVBoxLayout* bitc[8];
-    QHBoxLayout* numeroc;
-    QIntValidator* zeroOneValidator;
-    */
+    QLabel* lLongueur;
+    QLabel* lLargeur;
+    QComboBox* bchoixGenerateur;
     QTableWidget* depart;
     //QVBoxLayout *layout;
     QPushButton *simulation;
     QTableWidget* etats;
-   // static unsigned int dimension;
-   // static unsigned int nombreEtats;
     QPushButton* bStart;
     QPushButton* bPause;
     QPushButton* bRetourDepart;
     QPushButton* bNextFrame;
     QSpinBox* bSelectVitesse;
-    QHBoxLayout* menuInferieur;
-    /*QPushButton* bGenAleatoire;
-    QPushButton* bGenSymetrique;
-    */
-    //QVBoxLayout* menuGauche;
-    QHBoxLayout* layoutGlobal;
+
+    QPushButton* bGenererAutomate;
+    QPushButton* bSauvegarderAutomate;
+    QPushButton* bChargerAutomate;
+
+    QComboBox* choixAutomate;
+    //QHBoxLayout* menuInferieur;
+    //QHBoxLayout* layoutGlobal;
+
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
 private slots:

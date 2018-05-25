@@ -6,10 +6,13 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la grille
      */
+    /*
+     * /!\ pas de besoin de mettre this quand on construit les widgets car les layout s'occupent des relations de parenté grâce aux méthodes addWidget, addLayout, setLayout
+     */
 
-    bGenerer = new QPushButton("Générer",this);
-    bSauvegarder = new QPushButton("Sauvegarder",this);
-    bCharger = new QPushButton("Charger",this);
+    bGenererEtat = new QPushButton("Générer état",this);
+
+    bChargerEtat = new QPushButton("Charger état",this);
     bLargeur = new QSpinBox(this);
     bLargeur->setRange(1,50);
     bLargeur->setValue(10);
@@ -17,14 +20,21 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     bLongueur = new QSpinBox(this);
     bLongueur->setRange(1,50);
     bLongueur->setValue(10);
-    QLabel* lLargeur = new QLabel("Largeur",this);
-    QLabel* lLongueur = new QLabel("Longueur",this);
+    lLargeur = new QLabel("Largeur",this);
+    lLongueur = new QLabel("Longueur",this);
     QObject::connect(bLongueur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
 
+    bchoixGenerateur = new QComboBox();
+    bchoixGenerateur->addItem("Génération manuelle");
+    bchoixGenerateur->addItem("Génération aléatoire");
+    bchoixGenerateur->addItem("Génération aléatoire symétrie axiale");
+
+
+
     QHBoxLayout* menuSuperieur = new QHBoxLayout();
-    menuSuperieur->addWidget(bGenerer);
-    menuSuperieur->addWidget(bSauvegarder);
-    menuSuperieur->addWidget(bCharger);
+    menuSuperieur->addWidget(bchoixGenerateur);
+    menuSuperieur->addWidget(bGenererEtat);
+    menuSuperieur->addWidget(bChargerEtat);
     menuSuperieur->addWidget(lLargeur);
     menuSuperieur->addWidget(bLargeur);
     menuSuperieur->addWidget(lLongueur);
@@ -39,7 +49,10 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     depart->setFixedSize(1000,50);
 
 
-    connect(depart,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+    connect(depart,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+
+
+
 
     etats  = new QTableWidget(this);
     etats->horizontalHeader()->setVisible(false);
@@ -56,43 +69,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     buildGrille();
 
 
-    /*
-    * Gestion de la génération de l'automate : numéro, numéro bit, grille et état initial
 
-
-    num = new QSpinBox(this);
-    num->setRange(0,255);
-    numl = new QLabel("Numéro",this);
-    numc = new QVBoxLayout();
-    numc->addWidget(numl);
-    numc->addWidget(num);
-
-    numeroc = new QHBoxLayout();
-    numeroc->addLayout(numc);
-
-    zeroOneValidator = new QIntValidator(0,1,this);
-    for(int i =0;i<8;i++)
-    {
-     int j = 7 - i;
-     const char* chaine = NumToNumBit(j).c_str();
-     char chaine2[3];
-     chaine2[0]= chaine[5];
-     chaine2[1]= chaine[6];
-     chaine2[2]= chaine[7];
-
-     numeroBitl[i]= new QLabel(QString(chaine2),this);
-     numeroBit[i] = new QLineEdit("0",this);
-     numeroBit[i]->setMaxLength(1);
-     numeroBit[i]->setMaxLength(20);
-     numeroBit[i]->setValidator(zeroOneValidator);
-
-     QObject::connect(numeroBit[i],SIGNAL(textChanged(QString)),this,SLOT(synchronizeNumBitToNum(QString)));
-     bitc[i] = new QVBoxLayout();
-     bitc[i]->addWidget(numeroBitl[i]);
-     bitc[i]->addWidget(numeroBit[i]);
-     numeroc->addLayout(bitc[i]);
-    }
-    */
 
 
     /*
@@ -103,16 +80,18 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     connect(simulation,SIGNAL(clicked(bool)),this,SLOT(faireSimulation()));
 
 
-    bStart = new QPushButton("Start",this);
-    bPause = new QPushButton("Pause",this);
-    bRetourDepart = new QPushButton("Retour départ",this);
-    bNextFrame = new QPushButton("Prochain état",this);
-    bSelectVitesse = new QSpinBox(this);
+    bSauvegarderEtat = new QPushButton("Sauvegarder dernier état");
+    bStart = new QPushButton("Start");
+    bPause = new QPushButton("Pause");
+    bRetourDepart = new QPushButton("Retour départ");
+    bNextFrame = new QPushButton("Prochain état");
+    bSelectVitesse = new QSpinBox();
     bSelectVitesse->setRange(1,50);
     bSelectVitesse->setValue(2);
 
-    menuInferieur = new QHBoxLayout();
+    QHBoxLayout* menuInferieur = new QHBoxLayout();
 
+    menuInferieur->addWidget(bSauvegarderEtat);
     menuInferieur->addWidget(bRetourDepart);
     menuInferieur->addWidget(bNextFrame);
     menuInferieur->addWidget(bPause);
@@ -123,11 +102,29 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
      * Menu de gauche : voisinage (?), génération d'un état aléatoire ou symétrique
      */
 
-    /*bGenAleatoire = new QPushButton("Génération aléatoire",this);
-    bGenSymetrique = new QPushButton("Génération symétrique",this);
-    */
+
+
+
+    choixAutomate = new QComboBox();
+    choixAutomate->addItem("automates élémentaires revisitée");
+
+    QStackedWidget* automates = new QStackedWidget();
+
+    bGenererAutomate = new QPushButton("Générer automate");
+    bSauvegarderAutomate = new QPushButton("Sauvegarder automate");
+    bChargerAutomate = new QPushButton("Charger automate");
+
+    QHBoxLayout* menuAutomate = new QHBoxLayout();
+
+    menuAutomate->addWidget(bGenererAutomate);
+    menuAutomate->addWidget(bSauvegarderAutomate);
+    menuAutomate->addWidget(bChargerAutomate);
 
     QVBoxLayout* menuGauche = new QVBoxLayout();
+
+    menuGauche->addWidget(choixAutomate);
+    menuGauche->addWidget(automates);
+    menuGauche->addLayout(menuAutomate);
 
     QVBoxLayout* layout = new QVBoxLayout();
 
@@ -137,10 +134,13 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent)
     layout->addWidget(etats);
     layout->addLayout(menuInferieur);
 
-    layoutGlobal = new QHBoxLayout();
+
+
+
+    QHBoxLayout* layoutGlobal = new QHBoxLayout();
     layoutGlobal->addLayout(menuGauche);
     layoutGlobal->addLayout(layout);
-
+    //layoutGlobal->set
     setLayout(layoutGlobal);
 
 
@@ -188,6 +188,7 @@ void fenetre1D::cellActivation(const QModelIndex& index)
         depart->item(0,index.column())->setBackgroundColor("white");
         depart->item(0,index.column())->setTextColor("white");
     }
+    depart->item(0,index.column())->setSelected(false);
 }
 
 /*void lancerSimulation()
