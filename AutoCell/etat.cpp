@@ -17,7 +17,7 @@ Etat::Etat(unsigned int largeur, unsigned int longueur, const GenerateurEtat &ge
     m_generateur->GenererEtat(nbEtats,m_cellules,m_largeur,m_longueur);
 }
 
-Etat::Etat(unsigned int largeur, unsigned int longueur, vector<vector<int> > tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
+Etat::Etat(unsigned int largeur, unsigned int longueur, int **tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
 {
     m_cellules = new Cell*[largeur];
     for (unsigned int i =0; i<largeur; i++)

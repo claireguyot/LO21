@@ -32,6 +32,7 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
 
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementRegExp()));
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementLabel()));
+    connect(m_regle,SIGNAL(textChanged(QString)),this,SLOT(changementLabel()));
 }
 
 void fenetreElementaryRule::constructionAutomate() const
@@ -74,7 +75,7 @@ void fenetreElementaryRule::changementLabel()
 {
     nbCaract->clear();
     unsigned int nombreVoisins = 2*m_ordreVoisinage+1;
-    unsigned int nbCarac =puissance(m_nombreEtats->value(),nombreVoisins);
+    unsigned int nbCarac =puissance(m_nombreEtats->value(),nombreVoisins)- m_regle->text().length();
     QString test("Nombre de caractères nécessaires: ");
     test += nbCarac/10 + '0';
     nbCarac = nbCarac%10;

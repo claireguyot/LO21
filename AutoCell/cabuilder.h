@@ -105,7 +105,7 @@ public:
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(1,taille,generateur,nbEtats);
     }
-    void BuildEtatDepart(unsigned int taille, std::vector<std::vector<int>> tab)
+    void BuildEtatDepart(unsigned int taille, int** tab)
     {
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(1,taille,tab);
@@ -164,7 +164,7 @@ public:
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(nbLignes,nbColonnes,generateur,nbEtats);
     }
-    void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, std::vector<std::vector<int>> tab)
+    void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, int** tab)
     {
         if(m_etatDepart != nullptr) delete m_etatDepart;
         m_etatDepart = new Etat(nbLignes,nbColonnes,tab);

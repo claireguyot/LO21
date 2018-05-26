@@ -7,7 +7,7 @@ class Etat
 {
 public:
    Etat(unsigned int largeur, unsigned int longueur, GenerateurEtat const& generateur, unsigned int nbEtats ); //le nombre d'Etats ne sera pas stocké dans la classe Etat car ça sert à rien on va le stocker dans la grande classe simulateur. ça ne sert qu'à générer le 1er Etat ou à regénérer et on va éviter de dupliquer des informations
-   Etat(unsigned int largeur, unsigned int longueur, std::vector<std::vector<int>> tab);
+   Etat(unsigned int largeur, unsigned int longueur, int** tab);
    Etat(unsigned int largeur, unsigned int longueur);
    Etat(Etat const& e);
    Etat& operator=(Etat const& e);

@@ -151,14 +151,17 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 
     m_timer = new QTimer(this);
     m_timer->stop();
-    connect(m_timer,SIGNAL(timeout()),this,SLOT(generationSuivante()));
 
+    /*
+     * toutes les connections entre SIGNALs et SLOTs
+     */
+    connect(m_timer,SIGNAL(timeout()),this,SLOT(generationSuivante()));
     connect(bStart,SIGNAL(clicked(bool)),this,SLOT(play()));
     connect(bPause,SIGNAL(clicked(bool)),this,SLOT(pause()));
     connect(bGenererAutomate,SIGNAL(clicked(bool)),this,SLOT(appelConfig()));
-    connect(configElementaryRule,SIGNAL(configConstruite(int)),this,SLOT(construireAutomate(int)));
+    connect(configElementaryRule,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
     connect(bNextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
-    connect(bGenererEtat,SIGNAL(clicked(bool)),this,SLOT(construireEtat()));
+    connect(bGenererEtat,SIGNAL(clicked(bool)),this,SLOT(ConstruireEtat()));
     connect(bRetourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
 
 }
@@ -358,7 +361,7 @@ void fenetre1D::appelConfig() const
     }
 }
 
-void fenetre1D::construireAutomate(int nbgrille)
+void fenetre1D::ConstruireAutomate(int nbgrille)
 {
     pause();
 
@@ -380,7 +383,7 @@ void fenetre1D::construireAutomate(int nbgrille)
 
 }
 
-void fenetre1D::construireEtat()
+void fenetre1D::ConstruireEtat()
 {
 
 
@@ -392,7 +395,6 @@ void fenetre1D::construireEtat()
     {
         CABuilder1D& builder = CABuilder1D::getInstance();
         pause();
-        buildGrille();
         bLongueur->setVisible(false);
         lLongueur->setVisible(false);
         bLargeur->setVisible(false);
@@ -401,7 +403,8 @@ void fenetre1D::construireEtat()
         switch(bchoixGenerateur->currentIndex())
         {
         case 0:
-            QMessageBox::critical(0,"erreur","Pas encore implémenté !");
+
+            ConstructionManuelle();
             break;
         case 1:
             builder.BuildGenerateurEtatRandom();
@@ -412,9 +415,9 @@ void fenetre1D::construireEtat()
             builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         }
+        buildGrille();
 
         simulateur->setEtatDepart(builder.GetEtatDepart());
-
         afficherDernierEtat();
 
     }
@@ -441,4 +444,33 @@ void fenetre1D::reset()
         buildGrille();
         afficherDernierEtat();
     }
+}
+
+void fenetre1D::ConstructionManuelle()
+{
+    CABuilder1D& builder = CABuilder1D::getInstance();
+    int** etats = new int*[1];
+    etats[0] = new int[bLongueur->value()];
+    for(unsigned int i=0;i<bLongueur->value();i++)
+    {/*
+        if (depart->item(0,i)->text()=="0")
+            etats[0][i]=0;
+        else if (depart->item(0,i)->text()=="1")
+        {
+            etats[0][i]=1;
+        }
+        else if (depart->item(0,i)->text()=="2")
+            etats[0][i]=2;
+        else if (depart->item(0,i)->text()=="3")
+            etats[0][i]=3;
+        else
+            etats[0][i]=0;
+            */
+        unsigned int j = depart->item(0,i)->text().toInt();
+        etats[0][i]=j;
+    }
+
+    builder.BuildEtatDepart(bLongueur->value(),etats);
+    delete[] etats[0];
+    delete[] etats;
 }

@@ -69,12 +69,13 @@ private slots:
     void play();
     void pause();
     void appelConfig() const;
-    void construireEtat();
+    void ConstruireEtat();
     void reset();
 
 public slots:
-    void construireAutomate(int nbEtats);
+    void ConstruireAutomate(int nbEtats);
 private:
     void afficherDernierEtat();
+    void ConstructionManuelle();
 };
 #endif // FENETRE1D_H
