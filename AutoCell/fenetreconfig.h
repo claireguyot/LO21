@@ -10,6 +10,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QLabel>
+#include <QComboBox>
 #include "cabuilder.h"
 
 class fenetreConfig : public QWidget
@@ -60,4 +61,29 @@ private slots:
 };
 
 unsigned int puissance(unsigned int a, unsigned int b);
+
+
+class fenetreGameOfLife : public fenetreConfig
+{
+    Q_OBJECT
+private:
+    QComboBox* m_choixVoisinage;
+    QSpinBox* m_ordreVoisinage;
+    static unsigned int m_nombreEtats;
+    QSpinBox* m_minVivants;
+    QSpinBox* m_maxVivants;
+
+
+
+
+public:
+
+    explicit fenetreGameOfLife(QWidget *parent = nullptr);
+    void constructionAutomate() const override;
+    ~fenetreGameOfLife()
+    {
+
+    }
+};
+
 #endif // FENETRECONFIG_H

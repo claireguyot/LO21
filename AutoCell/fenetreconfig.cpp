@@ -83,8 +83,64 @@ void fenetreElementaryRule::changementLabel()
     nbCaract->setText(test);
 }
 
+unsigned int fenetreGameOfLife::m_nombreEtats = 2;
+
+fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
+{
+    m_choixVoisinage = new QComboBox(this);
+    m_choixVoisinage->addItem("Moore");
+    m_choixVoisinage->addItem("Von Neumann");
+
+    m_ordreVoisinage = new QSpinBox(this);
+    m_ordreVoisinage->setRange(1,50);
+
+    m_maxVivants = new QSpinBox(this);
+    m_maxVivants->setMinimum(0);
+
+    m_minVivants = new QSpinBox(this);
+    m_minVivants->setMinimum(0);
 
 
+
+    QFormLayout *formulaire = new QFormLayout;
+    formulaire->addRow("type de voisinage",m_choixVoisinage);
+    formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
+    formulaire->addRow("nombre minimum de voisins vivants", m_minVivants);
+    formulaire->addRow("nombre maximum de Voisins vivants", m_maxVivants);
+    QString text= "Informations Jeu de la vie: \n- 2 etats possibles:\n blanc = vivant\n noir= mort\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- nombre minimum de voisins et nombre maximum de voisins:\n Nombre minimum et maximum de voisins vivants au temps t pour que la cellule soit vivante au temps t+1.\n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
+    QPlainTextEdit* info = new QPlainTextEdit(text);
+    info->setReadOnly(true);
+
+    QVBoxLayout* layoutPrincipal = new QVBoxLayout();
+    layoutPrincipal->addLayout(formulaire);
+    layoutPrincipal->addWidget(info);
+    setLayout(layoutPrincipal);
+
+}
+
+void fenetreGameOfLife::constructionAutomate() const
+{
+    if(m_minVivants->value()>m_maxVivants->value()) QMessageBox::critical(0,"Erreur","Le nombre minimum de voisins vivants est supérieur au nombre maximum");
+    else
+    {
+        CABuilder2D& builder = CABuilder2D::getInstance();
+        switch(m_choixVoisinage->currentIndex())
+        {
+        case 0:
+            builder.BuildVoisinageMoore(m_ordreVoisinage->value());
+            break;
+        case 1:
+            builder.BuildVoisinageVonNeumann(m_ordreVoisinage->value());
+            break;
+        default:
+            builder.BuildVoisinageMoore(m_ordreVoisinage->value());
+            break;
+        }
+        builder.BuildGameOfLife(m_minVivants->value(),m_maxVivants->value());
+        emit configConstruite(m_nombreEtats);
+
+    }
+}
 
 
 
@@ -95,4 +151,5 @@ unsigned int puissance(unsigned int a, unsigned int b)
         power *= a;
     return power;
 }
+
 

@@ -136,10 +136,13 @@ public:
  *
  *
  */
-class CABuilder2D : CABuilder
+class CABuilder2D : public CABuilder
 {
 private:
-    CABuilder2D() = default;
+    CABuilder2D() : CABuilder()
+    {
+
+    }
     ~CABuilder2D() = default;
     CABuilder2D(const CABuilder2D&) = delete;
     CABuilder2D& operator=(const CABuilder2D&) = delete;

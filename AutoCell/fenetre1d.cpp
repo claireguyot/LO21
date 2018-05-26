@@ -1,6 +1,4 @@
 #include "fenetre1D.h"
-//unsigned int fenetre1D::dimension = 25;
-//unsigned int fenetre1D::nombregrille = 25;
 fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 {
     /*
@@ -278,11 +276,9 @@ void fenetre1D::afficherDernierEtat()
 
         unsigned int ligne = simulateur->GetRangDernier()%bLargeur->value();
         Etat const& etat = simulateur->Dernier();
-        //for(Etat::const_iterator it = etat.begin();it!=etat.end();++it)
-        for(int i=0;i<etat.GetLargeur();i++)
-            for(int j=0;j<etat.GetLongueur();j++)
+        for(Etat::const_iterator it = etat.begin();it!=etat.end();++it)
         {
-            const Cell& cellule = etat.GetCellule(i,j);
+            const Cell& cellule = *it;
             switch(cellule.GetEtat())
             {
             case BLANC:
@@ -452,20 +448,7 @@ void fenetre1D::ConstructionManuelle()
     int** etats = new int*[1];
     etats[0] = new int[bLongueur->value()];
     for(unsigned int i=0;i<bLongueur->value();i++)
-    {/*
-        if (depart->item(0,i)->text()=="0")
-            etats[0][i]=0;
-        else if (depart->item(0,i)->text()=="1")
-        {
-            etats[0][i]=1;
-        }
-        else if (depart->item(0,i)->text()=="2")
-            etats[0][i]=2;
-        else if (depart->item(0,i)->text()=="3")
-            etats[0][i]=3;
-        else
-            etats[0][i]=0;
-            */
+    {
         unsigned int j = depart->item(0,i)->text().toInt();
         etats[0][i]=j;
     }

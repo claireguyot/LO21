@@ -14,11 +14,12 @@
 #include <QHeaderView>
 #include <QComboBox>
 #include <QStackedWidget>
+#include "cellularautomata.h"
 #include "automateexception.h"
-//#include "automate.h"
+#include "fenetreconfig.h"
+#include <QTimer>
 
-short unsigned int NumBitToNum(const std::string& num);
-std::string NumToNumBit(short unsigned int num);
+
 
 class fenetre2D : public QWidget{
     Q_OBJECT
@@ -31,8 +32,7 @@ class fenetre2D : public QWidget{
     QLabel* lLongueur;
     QLabel* lLargeur;
     QComboBox* bchoixGenerateur;
-    //QTableWidget* depart;
-    //QVBoxLayout *layout;
+
     QTableWidget* grille;
     QPushButton* bStart;
     QPushButton* bPause;
@@ -45,15 +45,33 @@ class fenetre2D : public QWidget{
     QPushButton* bChargerAutomate;
 
     QComboBox* choixAutomate;
-    //QHBoxLayout* menuInferieur;
-    //QHBoxLayout* layoutGlobal;
+
+    fenetreGameOfLife* configGameOfLife;
+    CellularAutomata* simulateur;
+
+    QTimer* m_timer;
+
 
 public:
     explicit fenetre2D(QWidget* parent = nullptr);
+    ~fenetre2D()
+    {
+        delete simulateur;
+    }
 private slots:
     void cellActivation(const QModelIndex& index);
-    void faireSimulation();
     void buildGrille();
+    void generationSuivante();
+    void play();
+    void pause();
+    void appelConfig() const;
+    void ConstruireEtat();
+    void reset();
 
+public slots:
+    void ConstruireAutomate(int nbEtats);
+private:
+    void afficherDernierEtat();
+    void ConstructionManuelle();
 };
 #endif // fenetre2D_H
