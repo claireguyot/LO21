@@ -285,26 +285,41 @@ void fenetre1D::afficherDernierEtat()
                 grille->item(ligne,cellule.GetY())->setText("0");
                 grille->item(ligne,cellule.GetY())->setBackgroundColor("white");
                 grille->item(ligne,cellule.GetY())->setTextColor("white");
+                depart->item(0,cellule.GetY())->setText("0");
+                depart->item(0,cellule.GetY())->setBackgroundColor("white");
+                depart->item(0,cellule.GetY())->setTextColor("white");
             break;
             case NOIR:
                 grille->item(ligne,cellule.GetY())->setText("1");
                 grille->item(ligne,cellule.GetY())->setBackgroundColor("black");
-                grille->item(ligne,cellule.GetY())->setTextColor("black");;
+                grille->item(ligne,cellule.GetY())->setTextColor("black");
+                depart->item(0,cellule.GetY())->setText("1");
+                depart->item(0,cellule.GetY())->setBackgroundColor("black");
+                depart->item(0,cellule.GetY())->setTextColor("black");
             break;
             case VERT:
                 grille->item(ligne,cellule.GetY())->setText("2");
                 grille->item(ligne,cellule.GetY())->setBackgroundColor("green");
                 grille->item(ligne,cellule.GetY())->setTextColor("green");
+                depart->item(0,cellule.GetY())->setText("2");
+                depart->item(0,cellule.GetY())->setBackgroundColor("green");
+                depart->item(0,cellule.GetY())->setTextColor("green");
             break;
             case ROUGE:
                 grille->item(ligne,cellule.GetY())->setText("3");
                 grille->item(ligne,cellule.GetY())->setBackgroundColor("red");
                 grille->item(ligne,cellule.GetY())->setTextColor("red");
+                depart->item(0,cellule.GetY())->setText("3");
+                depart->item(0,cellule.GetY())->setBackgroundColor("red");
+                depart->item(0,cellule.GetY())->setTextColor("red");
             break;
             default:
                 grille->item(ligne,cellule.GetY())->setText("0");
                 grille->item(ligne,cellule.GetY())->setBackgroundColor("white");
                 grille->item(ligne,cellule.GetY())->setTextColor("white");
+                depart->item(0,cellule.GetY())->setText("0");
+                depart->item(0,cellule.GetY())->setBackgroundColor("white");
+                depart->item(0,cellule.GetY())->setTextColor("white");
             }
         }
     }
