@@ -142,6 +142,58 @@ void fenetreGameOfLife::constructionAutomate() const
     }
 }
 
+unsigned int fenetreFeuForet::m_nombreEtats = 4;
+
+fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
+{
+    m_choixVoisinage = new QComboBox(this);
+    m_choixVoisinage->addItem("Moore");
+    m_choixVoisinage->addItem("Von Neumann");
+
+    m_ordreVoisinage = new QSpinBox(this);
+    m_ordreVoisinage->setRange(1,50);
+
+
+
+
+
+    QFormLayout *formulaire = new QFormLayout;
+    formulaire->addRow("type de voisinage",m_choixVoisinage);
+    formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
+
+    QString text= "Informations Feu de Forêt: \n- 4 etats possibles:\n blanc = vide\n noir= arbre mort\n rouge = arbre en feu\n vert = arbre vivant\n- Règle de transition\n - vide->vide\n - Feu->arbre mort\n - Arbre mort-> Arbre mort\n - Arbre vivant -> Feu si un voisin est en feu vivant sinon\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
+    QPlainTextEdit* info = new QPlainTextEdit(text);
+    info->setReadOnly(true);
+
+    QVBoxLayout* layoutPrincipal = new QVBoxLayout();
+    layoutPrincipal->addLayout(formulaire);
+    layoutPrincipal->addWidget(info);
+    setLayout(layoutPrincipal);
+
+}
+
+void fenetreFeuForet::constructionAutomate() const
+{
+
+        CABuilder2D& builder = CABuilder2D::getInstance();
+        switch(m_choixVoisinage->currentIndex())
+        {
+        case 0:
+            builder.BuildVoisinageMoore(m_ordreVoisinage->value());
+            break;
+        case 1:
+            builder.BuildVoisinageVonNeumann(m_ordreVoisinage->value());
+            break;
+        default:
+            builder.BuildVoisinageMoore(m_ordreVoisinage->value());
+            break;
+        }
+        builder.BuildFeuForet();
+        emit configConstruite(m_nombreEtats);
+
+
+}
+
 
 
 unsigned int puissance(unsigned int a, unsigned int b)

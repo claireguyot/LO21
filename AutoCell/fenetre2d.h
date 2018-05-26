@@ -47,6 +47,7 @@ class fenetre2D : public QWidget{
     QComboBox* choixAutomate;
 
     fenetreGameOfLife* configGameOfLife;
+    fenetreFeuForet* configFeuForet;
     CellularAutomata* simulateur;
 
     QTimer* m_timer;

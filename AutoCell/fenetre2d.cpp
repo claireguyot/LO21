@@ -90,23 +90,22 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     menuInferieur->addWidget(bSelectVitesse);
 
     /*
-     * Menu de gauche : voisinage (?), génération d'un état aléatoire ou symétrique
+     * Menu de gauche : choix des règles
      */
 
 
     configGameOfLife = new fenetreGameOfLife();
+    configFeuForet = new fenetreFeuForet();
     QStackedWidget* automates = new QStackedWidget(this);
+
+
     automates->addWidget(configGameOfLife);
+    automates->addWidget(configFeuForet);
     automates->setCurrentIndex(0);
+
     choixAutomate = new QComboBox();
     choixAutomate->addItem("Jeu de la vie");
     choixAutomate->addItem("Feu de Forêt");
-
-
-
-
-
-
 
     connect(choixAutomate,SIGNAL(currentIndexChanged(int)),automates, SLOT(setCurrentIndex(int)));
 
@@ -128,6 +127,9 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     menuGauche->addLayout(menuAutomate);
 
 
+    /*
+     * layout menu droit
+     */
     QVBoxLayout* layout = new QVBoxLayout();
 
     layout->addLayout(menuSuperieur);
@@ -153,10 +155,13 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     connect(bStart,SIGNAL(clicked(bool)),this,SLOT(play()));
     connect(bPause,SIGNAL(clicked(bool)),this,SLOT(pause()));
     connect(bGenererAutomate,SIGNAL(clicked(bool)),this,SLOT(appelConfig()));
-    connect(configGameOfLife,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
+
     connect(bNextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
     connect(bGenererEtat,SIGNAL(clicked(bool)),this,SLOT(ConstruireEtat()));
     connect(bRetourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
+
+    connect(configGameOfLife,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
+    connect(configFeuForet,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
 
 }
 
@@ -324,7 +329,8 @@ void fenetre2D::appelConfig() const //change par rapport à la fenetre 1D
         configGameOfLife->constructionAutomate();
         break;
     case 1:
-        QMessageBox::warning(0,"Erreur","Pas encore implémenté");
+        configFeuForet->constructionAutomate();
+        break;
     default:
         configGameOfLife->constructionAutomate();
     }

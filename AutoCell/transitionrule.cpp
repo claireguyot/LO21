@@ -57,16 +57,20 @@ void FeuForet::TransitionCellule(Cell const& depart,Cell& arrivee) const
     else if(depart.GetEtat()==ROUGE) arrivee.SetEtat(NOIR);
     else if(depart.GetEtat()== VERT)
     {
+        bool voisinRouge = false;
         for(int i=0;i<voisins.size();i++)
         {
 
             if(voisins[i]!= nullptr && voisins[i]!= &depart && voisins[i]->GetEtat()==ROUGE)
             {
                 arrivee.SetEtat(ROUGE);
+                voisinRouge = true;
                 break;
             }
 
         }
+        if (voisinRouge == false) arrivee.SetEtat(VERT);
+
     }
     else arrivee.SetEtat(BLANC); //si la cellule a un état différent des 4 pris en compte on la remplace par BLANC qui signifie VIDE dans le cas de cet automate
 

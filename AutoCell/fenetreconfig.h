@@ -86,4 +86,25 @@ public:
     }
 };
 
+class fenetreFeuForet : public fenetreConfig
+{
+    Q_OBJECT
+private:
+    QComboBox* m_choixVoisinage;
+    QSpinBox* m_ordreVoisinage;
+    static unsigned int m_nombreEtats;
+
+
+
+
+public:
+
+    explicit fenetreFeuForet(QWidget *parent = nullptr);
+    void constructionAutomate() const override;
+    ~fenetreFeuForet()
+    {
+
+    }
+};
+
 #endif // FENETRECONFIG_H
