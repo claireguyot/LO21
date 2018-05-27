@@ -10,6 +10,7 @@ var class_cell =
     [ "GetVoisins", "class_cell.html#a5c2a7b09dcb8afed0040ebdc4267408d", null ],
     [ "GetX", "class_cell.html#a3af5ea9b9e031151e16009b22118b07a", null ],
     [ "GetY", "class_cell.html#a3668c9664cadb1b94a632d497fa493c5", null ],
+    [ "operator=", "class_cell.html#ac1f905d4cd626cc32963ab7a6f76634e", null ],
     [ "SetEtat", "class_cell.html#a33dac87ec7294fdb4c67b8b430ea0946", null ],
     [ "SetX", "class_cell.html#a9aaedcce2daccb4aa070f870c1a207ed", null ],
     [ "SetY", "class_cell.html#a48afb0c8c8d1ebe3409b9a166dcd507d", null ],

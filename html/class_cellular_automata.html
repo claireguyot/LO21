@@ -98,15 +98,18 @@ $(document).ready(function(){initNavTree('class_cellular_automata.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a9c5505834953f51ca3c67a014ea6e01f"><td class="memItemLeft" align="right" valign="top"><a id="a9c5505834953f51ca3c67a014ea6e01f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CellularAutomata</b> (const <a class="el" href="class_transition_rule.html">TransitionRule</a> &amp;rule, unsigned int nbEtats, const <a class="el" href="class_voisinage.html">Voisinage</a> &amp;definitionVoisinage, unsigned int buffer)</td></tr>
-<tr class="separator:a9c5505834953f51ca3c67a014ea6e01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48872956d758811cc3684bdc579d157e"><td class="memItemLeft" align="right" valign="top"><a id="a48872956d758811cc3684bdc579d157e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CellularAutomata</b> (const <a class="el" href="class_transition_rule.html">TransitionRule</a> &amp;rule, unsigned int nbEtats, const <a class="el" href="class_voisinage.html">Voisinage</a> &amp;definitionVoisinage, unsigned int buffer=2)</td></tr>
+<tr class="separator:a48872956d758811cc3684bdc579d157e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd17942ae43b8dcc7d4beee17d2da103"><td class="memItemLeft" align="right" valign="top"><a id="acd17942ae43b8dcc7d4beee17d2da103"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CellularAutomata</b> (const <a class="el" href="class_etat.html">Etat</a> &amp;dep, const <a class="el" href="class_transition_rule.html">TransitionRule</a> &amp;rule, unsigned int nbEtats, <a class="el" href="class_voisinage.html">Voisinage</a> const &amp;definitionVoisinage, unsigned int buffer=2)</td></tr>
 <tr class="separator:acd17942ae43b8dcc7d4beee17d2da103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ee6a9ee70fccd7987805e3d176fb3e1"><td class="memItemLeft" align="right" valign="top"><a id="a8ee6a9ee70fccd7987805e3d176fb3e1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setEtatDepart</b> (const <a class="el" href="class_etat.html">Etat</a> &amp;dep)</td></tr>
 <tr class="separator:a8ee6a9ee70fccd7987805e3d176fb3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ebffd21b4b0f297a0ceea6f8648421"><td class="memItemLeft" align="right" valign="top"><a id="a28ebffd21b4b0f297a0ceea6f8648421"></a>
+<a class="el" href="class_etat.html">Etat</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><b>getEtatDepart</b> () const</td></tr>
+<tr class="separator:a28ebffd21b4b0f297a0ceea6f8648421"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa704c475e0501f7db1f3bcb88211493a"><td class="memItemLeft" align="right" valign="top"><a id="aa704c475e0501f7db1f3bcb88211493a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> (unsigned int nbSteps)</td></tr>
 <tr class="separator:aa704c475e0501f7db1f3bcb88211493a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,6 +122,9 @@ const <a class="el" href="class_etat.html">Etat</a> &amp;&#160;</td><td class="m
 <tr class="memitem:a2c7e3542b8360a97f0166b5b75a11125"><td class="memItemLeft" align="right" valign="top"><a id="a2c7e3542b8360a97f0166b5b75a11125"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetRangDernier</b> () const</td></tr>
 <tr class="separator:a2c7e3542b8360a97f0166b5b75a11125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fd8f8ee143b72c09107553d7ae04c8"><td class="memItemLeft" align="right" valign="top"><a id="a50fd8f8ee143b72c09107553d7ae04c8"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetNombreEtats</b> () const</td></tr>
+<tr class="separator:a50fd8f8ee143b72c09107553d7ae04c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cbefb6072fea0aeb9458d81167c84d5"><td class="memItemLeft" align="right" valign="top"><a id="a0cbefb6072fea0aeb9458d81167c84d5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr>
 <tr class="separator:a0cbefb6072fea0aeb9458d81167c84d5"><td class="memSeparator" colspan="2">&#160;</td></tr>

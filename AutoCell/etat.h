@@ -7,7 +7,7 @@ class Etat
 {
 public:
    Etat(unsigned int largeur, unsigned int longueur, GenerateurEtat const& generateur, unsigned int nbEtats ); //le nombre d'Etats ne sera pas stocké dans la classe Etat car ça sert à rien on va le stocker dans la grande classe simulateur. ça ne sert qu'à générer le 1er Etat ou à regénérer et on va éviter de dupliquer des informations
-   Etat(unsigned int largeur, unsigned int longueur, std::vector<std::vector<int>> tab);
+   Etat(unsigned int largeur, unsigned int longueur, int** tab);
    Etat(unsigned int largeur, unsigned int longueur);
    Etat(Etat const& e);
    Etat& operator=(Etat const& e);
@@ -52,7 +52,7 @@ public:
        };
 
        iterator begin() {	return iterator(this,0,0); }
-       iterator end() {  return iterator(this, m_largeur-1,m_longueur-1);}
+       iterator end() {  return iterator(this, m_largeur,m_longueur);}
 
        friend class const_iterator;
        class const_iterator {
@@ -80,7 +80,7 @@ public:
            };
 
            const_iterator begin() const {	return const_iterator(this,0,0); }
-           const_iterator end() const {  return const_iterator(this, m_largeur-1,m_longueur-1);}
+           const_iterator end() const {  return const_iterator(this, m_largeur,0); }
 
 
 private:

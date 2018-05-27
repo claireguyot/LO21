@@ -26,8 +26,7 @@ CellularAutomata::CellularAutomata(const TransitionRule &rule ,unsigned int nbEt
 void CellularAutomata::setEtatDepart(const Etat &dep)
 {
     m_depart = &dep;
-    m_etats[0] = new Etat(*m_depart);
-    m_voisinageDefinition->definirVoisinage(*m_etats[0]);
+    Reset();
 }
 void CellularAutomata::Build(unsigned int cellule) {
     if (cellule >= m_buffer) throw AutomateException("erreur taille buffer");
@@ -45,6 +44,7 @@ void CellularAutomata::Reset() {
     if (m_depart==nullptr) throw AutomateException("etat depart indefini");
     Build(0);
     *m_etats[0] = *m_depart;
+    m_voisinageDefinition->definirVoisinage(*m_etats[0]); //il faut redéfinir le voisinage car on l'a supprimé en faisant *m_etats[0] = *m_depart;
     m_rang = 0;
 }
 

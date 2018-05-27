@@ -17,7 +17,7 @@ Etat::Etat(unsigned int largeur, unsigned int longueur, const GenerateurEtat &ge
     m_generateur->GenererEtat(nbEtats,m_cellules,m_largeur,m_longueur);
 }
 
-Etat::Etat(unsigned int largeur, unsigned int longueur, vector<vector<int> > tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
+Etat::Etat(unsigned int largeur, unsigned int longueur, int **tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
 {
     m_cellules = new Cell*[largeur];
     for (unsigned int i =0; i<largeur; i++)
@@ -53,18 +53,6 @@ Etat::~Etat()
    delete[] m_cellules;
 }
 
-Etat::Etat(const Etat &e): m_largeur(e.m_largeur), m_longueur(e.m_longueur),m_generateur(e.m_generateur)
-{
-    m_cellules = new Cell*[e.m_largeur];
-    for (unsigned int i =0; i<e.m_largeur; i++)
-    {
-        m_cellules[i] = new Cell[e.m_longueur];
-        for(unsigned int j=0; j<e.m_longueur;j++)
-        {
-               m_cellules[i][j]= e.m_cellules[i][j];
-        }
-    }
-}
 
 Etat& Etat::operator=(const Etat &e)
 {
@@ -75,8 +63,7 @@ Etat& Etat::operator=(const Etat &e)
             for(unsigned int i = 0; i< m_largeur;i++)
                 delete[] m_cellules[i];
             delete[] m_cellules;
-            m_largeur = e.m_largeur;
-            m_longueur = e.m_longueur;
+
             m_cellules = new Cell*[e.m_largeur];
             for (unsigned int i =0; i<e.m_largeur; i++)
             {
@@ -97,9 +84,25 @@ Etat& Etat::operator=(const Etat &e)
                 }
             }
         }
+        m_largeur = e.m_largeur;
+        m_longueur = e.m_longueur;
         m_generateur = e.m_generateur;
+
     }
     return *this;
+}
+
+Etat::Etat(const Etat &e) : m_largeur(e.m_largeur), m_longueur(e.m_longueur),m_generateur(e.m_generateur)
+{
+    m_cellules = new Cell*[e.m_largeur];
+    for (unsigned int i =0; i<e.m_largeur; i++)
+    {
+        m_cellules[i] = new Cell[e.m_longueur];
+        for(unsigned int j=0; j<e.m_longueur;j++)
+        {
+               m_cellules[i][j]= e.m_cellules[i][j];
+        }
+    }
 }
 void Etat::afficher() const
 {

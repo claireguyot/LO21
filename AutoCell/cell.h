@@ -51,7 +51,7 @@ public:
 
     }
     /*!
-         *  \brief Constructeur de recopie par défaut
+         *  \brief Constructeur de recopie
          */
     Cell(Cell const& c) = default;
     /*!
@@ -123,6 +123,7 @@ public:
          */
 
     ~Cell() = default; //pas d'allocation dynamique dans la classe car le vector m_voisins est un tableau d'adresses (on ne supprime pas les voisins d'une Cellule quand on détruit la Cellule)
+    Cell& operator=(Cell const& c) = default;
 private:
     /*!
          *  \brief état (valeur) de la cellule
@@ -144,6 +145,7 @@ private:
          *
          */
     int m_y;
+
 
 };
 

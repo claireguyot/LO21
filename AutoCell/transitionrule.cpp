@@ -20,7 +20,7 @@ void ElementaryRule::TransitionCellule(const Cell &depart, Cell &arrivee) const
         if(voisins[i] == nullptr) k *= m_nbEtats;
         else
         {
-            somme += voisins[i]->GetEtat()*k;
+            somme += voisins[i]->GetEtat()%m_nbEtats*k; //on rajoute un %m_nbEtats au cas où la grille a des cellules qui ont dépassé le plus grand état possible pour une raison inconnue afin de s'assurer de n'avoir aucun bug éventuel
             k *= m_nbEtats;
         }
     }
@@ -55,18 +55,24 @@ void FeuForet::TransitionCellule(Cell const& depart,Cell& arrivee) const
     if(depart.GetEtat()==BLANC) arrivee.SetEtat(BLANC);
     else if(depart.GetEtat()==NOIR) arrivee.SetEtat(NOIR);
     else if(depart.GetEtat()==ROUGE) arrivee.SetEtat(NOIR);
-    else
+    else if(depart.GetEtat()== VERT)
     {
+        bool voisinRouge = false;
         for(int i=0;i<voisins.size();i++)
         {
 
             if(voisins[i]!= nullptr && voisins[i]!= &depart && voisins[i]->GetEtat()==ROUGE)
             {
                 arrivee.SetEtat(ROUGE);
+                voisinRouge = true;
                 break;
             }
 
         }
+        if (voisinRouge == false) arrivee.SetEtat(VERT);
+
     }
+    else arrivee.SetEtat(BLANC); //si la cellule a un état différent des 4 pris en compte on la remplace par BLANC qui signifie VIDE dans le cas de cet automate
+
 
 }
