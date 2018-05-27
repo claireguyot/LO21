@@ -37,7 +37,7 @@ void sauvegarde::openSauvConfig(const CellularAutomata& automate) //slot pour sa
     delete fen;
 }
 
-void sauvegarde::setTypeFichier(QString nom) //choix de l'algorithme à utiliser
+void sauvegarde::setTypeFichier(const QString& nom) //choix de l'algorithme à utiliser
 {
     if(nom.find(".csv"))
         f = new fichierConfig(nom);

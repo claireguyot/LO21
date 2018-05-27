@@ -20,7 +20,7 @@ class sauvegarde : public QWidget
 public:
     enum TypeFichier {ETAT, CONFIG};
     explicit sauvegarde(const CellularAutomata& automate, QWidget* parent = nullptr);
-    void setTypeFichier(QString nom);
+    void setTypeFichier(const QString& nom);
     sauverFichier(const CellularAutomata* automate);
 
 private:

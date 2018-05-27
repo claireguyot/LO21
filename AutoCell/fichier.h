@@ -12,10 +12,10 @@ public:
     fichier(const std::string nom) : nomF(nom){}
     virtual void save(const CellularAutomata& automate) = 0;
     virtual void Load(CellularAutomata& automate) = 0;
-    virtual ~fichier(){file.close}
+    virtual ~fichier(){file.close;}
 protected:
     std::string nomF;
-    ofstream file;
+    std::ofstream f;
 };
 
 class fichierEtat : public Fichier
@@ -23,8 +23,10 @@ class fichierEtat : public Fichier
 public:
     void save(const CellularAutomata& automate);
     void load(CellularAutomata& automate);
-private:
+    ~fichierEtat(){f.close();}
     fichierEtat(const std::string nom) : nomF(nom){}
+private:
+
 }
 
 class fichierConfig : public Fichier
@@ -32,8 +34,10 @@ class fichierConfig : public Fichier
 public:
     void save(const CellularAutomata& automate);
     void load(CellularAutomata& automate);
-private:
+    ~fichierConfig(){f.close();}
     fichierConfig(const std::string nom) : nomF(nom){}
+private:
+
 }
 
 #endif // FICHIER_H
