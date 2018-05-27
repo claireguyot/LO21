@@ -18,26 +18,13 @@ sauvegarde::sauvegarde(const CellularAutomata& automate, QWidget* parent) : QWid
 
     setLayout(layout);
 
-    connect(bSauvEtat,SIGNAL(clicked(bool)),sauv_etat,SLOT(openSauvEtat(automate));
+    connect(bSauvEtat,SIGNAL(clicked(bool)),this,SLOT(sauverFichier(automate,ETAT)));
+    connect(bSauvConfig,SIGNAL(clicked(bool)),this,SLOT(sauverFichier(automate,CONFIG)));
 
     connect(bAnnuler,SIGNAL(clicked(bool)),this,SLOT(close()));
 }
 
-void sauvegarde::openSauvEtat(const CellularAutomata& automate) //slot pour sauvegarder l'état
-{
-    sauv_etat::sauv_etat* fen = new sauv_etat::sauv_etat(automate);
-    fen->show();
-    delete fen;)
-}
-
-void sauvegarde::openSauvConfig(const CellularAutomata& automate) //slot pour sauvegarder la config
-{
-    sauv_config::sauv_config* fen = new sauv_config::sauv_config(automate);
-    fen->show();
-    delete fen;
-}
-
-void sauvegarde::setTypeFichier(const QString& nom) //choix de l'algorithme à utiliser
+void sauvegarde::setTypeFichier(const std::string& nom) //choix de l'algorithme à utiliser
 {
     if(nom.find(".csv"))
         f = new fichierConfig(nom);
@@ -47,18 +34,22 @@ void sauvegarde::setTypeFichier(const QString& nom) //choix de l'algorithme à u
         throw(FichierException("Le type du fichier n'est pas reconnu."));
 }
 
-sauvegarde::sauverFichier(const CellularAutomata& automate) //fonction de sauvegarde de l'état : fait appel à la classe fichier
+sauvegarde::sauverFichier(const CellularAutomata& automate, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
-    QString nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.bn","","*.bn");
+    std::string nomDoc = "";
+    if(t==ETAT)
+        nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.bn","","*.bn").toStdString();
+    else
+        nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.csv","","*.csv").toStdString();
     try
     {
         setTypeFichier(nomDoc);
-        f.save(automate.Dernier);
+        f->save(automate);
         delete f;
     }
     catch(FichierException& e)
     {
-        cout << e.getInfo();
+        std::cout << e.getInfo();
     }
 }
 

@@ -64,12 +64,12 @@ const Etat& CellularAutomata::Dernier() const {
     return *m_etats[m_rang%m_buffer];
 }
 
-m_rule CellularAutomata::getTransition() const{
-    return TransitionRule;
+const TransitionRule* CellularAutomata::getTransition() const{
+    return m_rule;
 }
 
-m_voisinageDefinition getVoisinage() const{
-    return Voisinage;
+const Voisinage* CellularAutomata::getVoisinage() const{
+    return m_voisinageDefinition;
 }
 
 CellularAutomata::~CellularAutomata() {

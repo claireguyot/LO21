@@ -9,8 +9,8 @@
 class CellularAutomata
 {
 private:
-    const TransitionRule *m_rule;
-    const Voisinage *m_voisinageDefinition;
+    const TransitionRule* m_rule;
+    const Voisinage* m_voisinageDefinition;
     Etat** m_etats;
     const Etat* m_depart;
     unsigned int m_nbEtats;
@@ -32,8 +32,8 @@ public:
     unsigned int GetRangDernier() const { return m_rang; }
     unsigned int GetNombreEtats() const { return m_nbEtats; }
     void Reset(); // revenir à l'état de départ
-    m_rule getTransition() const;
-    m_voisinageDefinition getVoisinage() const;
+    const TransitionRule* getTransition() const;
+    const Voisinage* getVoisinage() const;
     ~CellularAutomata();
 
 };

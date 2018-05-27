@@ -7,13 +7,14 @@
 #include "transitionrule.h"
 #include "cellularautomata.h"
 #include "sauvegarde.h"
+#include "mainwindow.h"
 #include <ctime>
 using namespace std;
 
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    sauvegarde window;
+    MainWindow window;
     window.show();
 
     return app.exec();

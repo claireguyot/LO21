@@ -11,33 +11,33 @@ class fichier
 public:
     fichier(const std::string nom) : nomF(nom){}
     virtual void save(const CellularAutomata& automate) = 0;
-    virtual void Load(CellularAutomata& automate) = 0;
-    virtual ~fichier(){file.close;}
+    //virtual void load(CellularAutomata& automate) = 0;
+    virtual ~fichier(){f.close();}
 protected:
     std::string nomF;
     std::ofstream f;
 };
 
-class fichierEtat : public Fichier
+class fichierEtat : public fichier
 {
 public:
+    fichierEtat(const std::string nom) : fichier(nom) {this->nomF = nom;}
     void save(const CellularAutomata& automate);
-    void load(CellularAutomata& automate);
+    //void load(CellularAutomata& automate);
     ~fichierEtat(){f.close();}
-    fichierEtat(const std::string nom) : nomF(nom){}
 private:
 
-}
+};
 
-class fichierConfig : public Fichier
+class fichierConfig : public fichier
 {
 public:
+    fichierConfig(const std::string nom) : fichier(nom) {this->nomF = nom;}
     void save(const CellularAutomata& automate);
-    void load(CellularAutomata& automate);
+    //void load(CellularAutomata& automate);
     ~fichierConfig(){f.close();}
-    fichierConfig(const std::string nom) : nomF(nom){}
 private:
 
-}
+};
 
 #endif // FICHIER_H

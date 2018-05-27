@@ -11,7 +11,7 @@ SOURCES += \
     transitionrule.cpp \
     cellularautomata.cpp \
     sauvegarde.cpp \
-    fichier.cpp
+    fichier.cpp \
     mainwindow.cpp \
     fenetre1d.cpp \
     fenetre2d.cpp \
@@ -28,7 +28,7 @@ HEADERS += \
     cabuilder.h \
     sauvegarde.h \
     fichier.h \
-    fichierexception.h
+    fichierexception.h \
     mainwindow.h \
     fenetre1d.h \
     fenetre2d.h \

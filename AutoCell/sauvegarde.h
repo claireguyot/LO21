@@ -10,7 +10,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QFileDialog>
-#include <QString>
+//#include <QString>
 #include "cellularautomata.h"
 #include "fichier.h"
 #include "fichierexception.h"
@@ -20,8 +20,7 @@ class sauvegarde : public QWidget
 public:
     enum TypeFichier {ETAT, CONFIG};
     explicit sauvegarde(const CellularAutomata& automate, QWidget* parent = nullptr);
-    void setTypeFichier(const QString& nom);
-    sauverFichier(const CellularAutomata* automate);
+    void setTypeFichier(const std::string& nom);
 
 private:
     /*QLabel* lbEtatActuel;
@@ -35,8 +34,7 @@ private:
     fichier* f;
 
 public slots:
-    void openSauvEtat(const CellularAutomata& automate);
-    void openSauvConfig(const CellularAutomata& automate);
+    sauverFichier(const CellularAutomata& automate, TypeFichier t);
 
 };
 

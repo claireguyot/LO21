@@ -1,24 +1,25 @@
 #include "fichier.h"
 
-fichierEtat::save(CellularAutomata& automate)
+void fichierEtat::save(const CellularAutomata& automate)
 {
     const Etat* e = &automate.Dernier();
-    f.open(f.nomF,out|trunc);
-    for(int i=0 ; i < e->GetLongueur() ; i++)
+    f.open(nomF,std::ofstream::out|std::ofstream::trunc);
+    int i,j;
+    for(i=0 ; i < e->GetLongueur() ; i++)
     {
-        for(int j=0 ; j < e->GetLargeur()-1 ; j++)
+        for(j=0 ; j < e->GetLargeur()-1 ; j++)
         {
             f << e->GetCellule(i,j).GetEtat() << ",";
         }
-        f << e->GetCellule(i,j).GetEtat()
+        f << e->GetCellule(i,j).GetEtat();
         f << ";";
     }
     f.close();
 }
 
-fichierConfig::save(CellularAutomata& automate)
+void fichierConfig::save(const CellularAutomata& automate)
 {
-    f.open(f.nomF,out|trunc);
+    f.open(nomF,std::ofstream::out|std::ofstream::trunc);
 
     f.close();
 }
