@@ -10,7 +10,8 @@ SOURCES += \
     voisinage.cpp \
     transitionrule.cpp \
     cellularautomata.cpp \
-    sauvegarde.cpp
+    sauvegarde.cpp \
+    fichier.cpp
 
 HEADERS += \
     cell.h \
@@ -21,4 +22,6 @@ HEADERS += \
     cellularautomata.h \
     automateexception.h \
     cabuilder.h \
-    sauvegarde.h
+    sauvegarde.h \
+    fichier.h \
+    fichierexception.h

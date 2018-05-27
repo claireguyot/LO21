@@ -64,6 +64,14 @@ const Etat& CellularAutomata::Dernier() const {
     return *m_etats[m_rang%m_buffer];
 }
 
+m_rule CellularAutomata::getTransition() const{
+    return TransitionRule;
+}
+
+m_voisinageDefinition getVoisinage() const{
+    return Voisinage;
+}
+
 CellularAutomata::~CellularAutomata() {
     for (unsigned int i = 0; i < m_buffer; i++) delete m_etats[i];
     delete[] m_etats;

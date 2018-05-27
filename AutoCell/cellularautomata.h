@@ -31,6 +31,8 @@ public:
     const Etat& Dernier() const;
     unsigned int GetRangDernier() const { return m_rang; }
     void Reset(); // revenir à l'état de départ
+    m_rule getTransition() const;
+    m_voisinageDefinition getVoisinage() const;
     ~CellularAutomata();
 
 };
