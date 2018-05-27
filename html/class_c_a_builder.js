@@ -4,7 +4,7 @@ var class_c_a_builder =
     [ "~CABuilder", "class_c_a_builder.html#a9f917ce136fc4a5d84a89734039f720d", null ],
     [ "CABuilder", "class_c_a_builder.html#af725c741fdb6c5304763638c72d1aa52", null ],
     [ "BuildGenerateurEtatRandom", "class_c_a_builder.html#a89fe25fa1d52a13756ff47f6b163e7c0", null ],
-    [ "BuildGenerateurEtatSymetrieAxenbLignes", "class_c_a_builder.html#abc0fd5a51a7f584f1beae38012172885", null ],
+    [ "BuildGenerateurEtatSymetrieAxeLargeur", "class_c_a_builder.html#a540324495ddc72dde48bfb9866c907f4", null ],
     [ "GetEtatDepart", "class_c_a_builder.html#ad6aa6ec21c798984836f3894e6161bb9", null ],
     [ "GetGenerateurEtat", "class_c_a_builder.html#a9273278d518b1750bdc647daabef2f29", null ],
     [ "GetTransitionRule", "class_c_a_builder.html#a219a1c31ea869ef6adfb17afd2f5ab04", null ],

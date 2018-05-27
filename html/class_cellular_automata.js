@@ -1,10 +1,12 @@
 var class_cellular_automata =
 [
-    [ "CellularAutomata", "class_cellular_automata.html#a9c5505834953f51ca3c67a014ea6e01f", null ],
+    [ "CellularAutomata", "class_cellular_automata.html#a48872956d758811cc3684bdc579d157e", null ],
     [ "CellularAutomata", "class_cellular_automata.html#acd17942ae43b8dcc7d4beee17d2da103", null ],
     [ "~CellularAutomata", "class_cellular_automata.html#a50e6daa1b843aeb3bcafc634ae219ed8", null ],
     [ "Build", "class_cellular_automata.html#ac087053c4ed0f8989ea2016faa5fbae0", null ],
     [ "Dernier", "class_cellular_automata.html#a42291e2737e23c206e44f074d13323f7", null ],
+    [ "getEtatDepart", "class_cellular_automata.html#a28ebffd21b4b0f297a0ceea6f8648421", null ],
+    [ "GetNombreEtats", "class_cellular_automata.html#a50fd8f8ee143b72c09107553d7ae04c8", null ],
     [ "GetRangDernier", "class_cellular_automata.html#a2c7e3542b8360a97f0166b5b75a11125", null ],
     [ "Next", "class_cellular_automata.html#acfc9ced987c630324dcd70ceea348148", null ],
     [ "Reset", "class_cellular_automata.html#a0cbefb6072fea0aeb9458d81167c84d5", null ],
