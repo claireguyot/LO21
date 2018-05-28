@@ -346,7 +346,7 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
         simulateur = nullptr;
     }
     CABuilder2D& builder = CABuilder2D::getInstance();
-    simulateur = new CellularAutomata(nbEtats,&(builder.GetEtatDepart()),&(builder.GetTransitionRule()),&(builder.GetVoisinageDefinition()));
+    simulateur = new CellularAutomata(nbEtats,nullptr,&(builder.GetTransitionRule()),&(builder.GetVoisinageDefinition()));
 
     bLongueur->setVisible(true);
     lLongueur->setVisible(true);

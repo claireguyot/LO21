@@ -6,12 +6,12 @@ using namespace std;
 
 CellularAutomata::CellularAutomata(unsigned int nbEtats, const Etat *dep, const TransitionRule *rule, const Voisinage *definitionVoisinage, unsigned int buffer):
     m_rule(rule), m_etats(nullptr), m_depart(dep), m_buffer(buffer),m_rang(0),m_nbEtats(nbEtats), m_voisinageDefinition(definitionVoisinage) {
-    m_etats = new Etat*[m_buffer];
 
+    m_etats = new Etat*[m_buffer];
     for (unsigned int i = 0; i < m_buffer; i++) m_etats[i] = nullptr;
     if(m_depart != nullptr)
         m_etats[0] = new Etat(*m_depart);
-    if (m_voisinageDefinition != nullptr)
+    if (m_voisinageDefinition != nullptr && m_etats[0]!= nullptr)
         m_voisinageDefinition->definirVoisinage(*m_etats[0]);
 
 }
