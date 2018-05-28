@@ -10,6 +10,7 @@ public:
     TransitionRule() = default;
     virtual void EffectuerTransition(Etat const& depart, Etat& arrivee) const;
     virtual void TransitionCellule(Cell const& depart, Cell& arrivee) const = 0;
+    virtual std::string getTransition() const = 0;
     virtual ~TransitionRule()= default;
 };
 
@@ -28,6 +29,7 @@ public:
     {
 
     }
+    std::string getTransition() const override;
     ~ElementaryRule() = default;
 protected:
     std::string m_rule;
@@ -47,6 +49,7 @@ public:
     {
 
     }
+    std::string getTransition() const override;
     ~GameOfLife() = default;
 protected:
     int m_minVoisinsVivants;
@@ -57,6 +60,7 @@ class FeuForet : public TransitionRule2D //nombre d'Etats forcément = à 2 !!!!
 public:
     void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
     FeuForet() = default;
+    std::string getTransition() const override;
     ~FeuForet() = default;
 };
 
