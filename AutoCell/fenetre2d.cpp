@@ -336,7 +336,7 @@ void fenetre2D::appelConfig() const //change par rapport à la fenetre 1D
     }
 }
 
-void fenetre2D::ConstruireAutomate(int nbgrille) //change par rapport à la fenetre 1D
+void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenetre 1D
 {
     pause();
 
@@ -346,7 +346,7 @@ void fenetre2D::ConstruireAutomate(int nbgrille) //change par rapport à la fene
         simulateur = nullptr;
     }
     CABuilder2D& builder = CABuilder2D::getInstance();
-    simulateur = new CellularAutomata(builder.GetTransitionRule(),nbgrille,builder.GetVoisinageDefinition());
+    simulateur = new CellularAutomata(nbEtats,&(builder.GetEtatDepart()),&(builder.GetTransitionRule()),&(builder.GetVoisinageDefinition()));
 
     bLongueur->setVisible(true);
     lLongueur->setVisible(true);

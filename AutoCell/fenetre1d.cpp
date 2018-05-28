@@ -372,7 +372,7 @@ void fenetre1D::appelConfig() const
     }
 }
 
-void fenetre1D::ConstruireAutomate(int nbgrille)
+void fenetre1D::ConstruireAutomate(int nbEtats)
 {
     pause();
 
@@ -382,7 +382,7 @@ void fenetre1D::ConstruireAutomate(int nbgrille)
         simulateur = nullptr;
     }
     CABuilder1D& builder = CABuilder1D::getInstance();
-    simulateur = new CellularAutomata(builder.GetTransitionRule(),nbgrille,builder.GetVoisinageDefinition());
+    simulateur = new CellularAutomata(nbEtats,&(builder.GetEtatDepart()),&(builder.GetTransitionRule()),&(builder.GetVoisinageDefinition()));
 
     bLongueur->setVisible(true);
     lLongueur->setVisible(true);
