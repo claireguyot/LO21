@@ -17,13 +17,13 @@ private:
     unsigned int m_buffer;
     unsigned int m_rang;
 
+
     void Build(unsigned int c);
     /*CellularAutomata(const CellularAutomata& s);
     CellularAutomata& operator=(const CellularAutomata& s);*/
 public:
     //CellularAutomata( TransitionRule const* rule, unsigned int buffer = 2);
-    CellularAutomata(const TransitionRule &rule ,unsigned int nbEtats, const Voisinage &definitionVoisinage, unsigned int buffer = 2);
-    CellularAutomata(const Etat& dep, const TransitionRule& rule , unsigned int nbEtats, Voisinage const& definitionVoisinage, unsigned int buffer = 2);
+    CellularAutomata(unsigned int nbEtats,const Etat *dep = nullptr, const TransitionRule *rule = nullptr, const Voisinage *definitionVoisinage=nullptr, unsigned int buffer = 2);
     void setEtatDepart(const Etat &dep);
     Etat const* getEtatDepart() const {return m_depart;}
     void Run(unsigned int nbSteps); // génère les n prochains états
@@ -32,8 +32,10 @@ public:
     unsigned int GetRangDernier() const { return m_rang; }
     unsigned int GetNombreEtats() const { return m_nbEtats; }
     void Reset(); // revenir à l'état de départ
-    const TransitionRule* getTransition() const;
-    const Voisinage* getVoisinage() const;
+    const TransitionRule* getTransition() const { return m_rule;}
+    const Voisinage* getVoisinage() const { return m_voisinageDefinition;}
+    void setRule(const TransitionRule &rule);
+    void setVoisinageDefinition(const Voisinage &voisinage);
     ~CellularAutomata();
 
 };

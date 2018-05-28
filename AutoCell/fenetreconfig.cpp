@@ -1,5 +1,5 @@
 #include "fenetreconfig.h"
-unsigned int fenetreElementaryRule::m_ordreVoisinage = 1;
+const unsigned int fenetreElementaryRule::m_ordreVoisinage = 1;
 fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(parent)
 {
     m_nombreEtats = new QSpinBox(this);
@@ -83,7 +83,7 @@ void fenetreElementaryRule::changementLabel()
     nbCaract->setText(test);
 }
 
-unsigned int fenetreGameOfLife::m_nombreEtats = 2;
+const unsigned int fenetreGameOfLife::m_nombreEtats = 2;
 
 fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
 {
@@ -142,7 +142,7 @@ void fenetreGameOfLife::constructionAutomate() const
     }
 }
 
-unsigned int fenetreFeuForet::m_nombreEtats = 4;
+const unsigned int fenetreFeuForet::m_nombreEtats = 4;
 
 fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
 {

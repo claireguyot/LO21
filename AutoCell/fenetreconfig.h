@@ -39,7 +39,7 @@ class fenetreElementaryRule : public fenetreConfig
     Q_OBJECT
 private:
     QSpinBox* m_nombreEtats;
-    static unsigned int m_ordreVoisinage;
+    static const unsigned int m_ordreVoisinage;
     QLineEdit* m_regle;
     QRegExpValidator* m_regleValidator;
     QLabel* nbCaract;
@@ -69,7 +69,7 @@ class fenetreGameOfLife : public fenetreConfig
 private:
     QComboBox* m_choixVoisinage;
     QSpinBox* m_ordreVoisinage;
-    static unsigned int m_nombreEtats;
+    static const unsigned int m_nombreEtats;
     QSpinBox* m_minVivants;
     QSpinBox* m_maxVivants;
 
@@ -92,7 +92,7 @@ class fenetreFeuForet : public fenetreConfig
 private:
     QComboBox* m_choixVoisinage;
     QSpinBox* m_ordreVoisinage;
-    static unsigned int m_nombreEtats;
+    static const unsigned int m_nombreEtats;
 
 
 
