@@ -37,13 +37,14 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     menuSuperieur->addWidget(lLongueur);
     menuSuperieur->addWidget(bLongueur);
 
+    int width = QApplication::desktop()->width()*0.4;
 
     depart = new QTableWidget(this);
     depart->horizontalHeader()->setVisible(false);
     depart->verticalHeader()->setVisible(false);
     depart->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    depart->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    depart->setFixedSize(1000,50);
+    depart->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    depart->setFixedSize(width,50);
 
 
     connect(depart,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
@@ -54,9 +55,9 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     grille  = new QTableWidget(this);
     grille->horizontalHeader()->setVisible(false);
     grille->verticalHeader()->setVisible(false);
-    grille->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    grille->setFixedSize(1000,1000);
+    grille->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    grille->setFixedSize(width,width);
 
 
     //non éditable
@@ -247,8 +248,8 @@ void fenetre1D::buildGrille()
 {
 
 
-    unsigned int tailleLongueur = 1000/bLongueur->value();
-    unsigned int tailleLargeur = 1000/bLargeur->value();
+    unsigned int tailleLongueur = grille->height()/bLongueur->value();
+    unsigned int tailleLargeur = grille->width()/bLargeur->value();
 
     depart->clear();
     grille->clear();

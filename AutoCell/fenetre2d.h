@@ -19,6 +19,7 @@
 #include "fenetreconfig.h"
 #include "sauvegarde.h"
 #include <QTimer>
+#include <QDesktopWidget>
 
 
 

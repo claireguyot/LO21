@@ -49,9 +49,13 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     grille  = new QTableWidget(this);
     grille->horizontalHeader()->setVisible(false);
     grille->verticalHeader()->setVisible(false);
-    grille->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    grille->setFixedSize(1000,1000);
+    grille->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
+    //grille->setFixedSize(this->width(),this->height());
+
+    int width = QApplication::desktop()->width()*0.4;
+    grille->setFixedSize(width,width);
 
     connect(grille,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
 
@@ -222,12 +226,14 @@ void fenetre2D::buildGrille() //changer par rapport à fenetre1D
 {
 
 
-    unsigned int tailleLongueur = 1000/bLongueur->value();
-    unsigned int tailleLargeur = 1000/bLargeur->value();
+
 
     grille->clear();
     grille->setColumnCount(bLongueur->value());
     grille->setRowCount(bLargeur->value());
+
+    unsigned int tailleLongueur = grille->height()/bLongueur->value();
+    unsigned int tailleLargeur = grille->width()/bLargeur->value();
 
 
 
@@ -238,7 +244,7 @@ void fenetre2D::buildGrille() //changer par rapport à fenetre1D
      for(unsigned int j = 0;j<bLargeur->value();j++)
      {
          if(i==0) grille->setRowHeight(j,tailleLargeur);
-         grille->setItem(j,i,new QTableWidgetItem(""));
+         grille->setItem(j,i,new QTableWidgetItem("0"));
          grille->item(j,i)->setBackgroundColor("white");
          grille->item(j,i)->setTextColor("white");
      }
