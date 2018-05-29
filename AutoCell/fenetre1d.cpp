@@ -161,14 +161,33 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     connect(bNextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
     connect(bGenererEtat,SIGNAL(clicked(bool)),this,SLOT(ConstruireEtat()));
     connect(bRetourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
-    connect(bSauvegarderAutomate,SIGNAL(clicked(bool)),sauvegarde,SLOT(sauvegarde(this,gest_fich::CONFIG);
-    connect(bSauvegarderEtat,SIGNAL(clicked(bool)),sauvegarde,SLOT(sauvegarde(this,gest_fich::ETAT));
-    connect(bChargerAutomate,SIGNAL(clicked(bool)),chargement,SLOT(chargement(this,gest_fich::CONFIG);
-    connect(bChargerEtat,SIGNAL(clicked(bool)),chargement,SLOT(chargement(this,gest_fich::ETAT));
+    connect(bSauvegarderAutomate,SIGNAL(clicked(bool)),this,SLOT(sauverAutomate()));
+    connect(bSauvegarderEtat,SIGNAL(clicked(bool)),this,SLOT(sauverEtat()));
+    connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
+    connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
 }
 
-
+void fenetre1D::sauverAutomate()
+{
+    sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
+    delete s;
+}
+void fenetre1D::chargerAutomate()
+{
+    chargement* s = new chargement(*this,gest_fich::CONFIG);
+    delete s;
+}
+void fenetre1D::sauverEtat()
+{
+    sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
+    delete s;
+}
+void fenetre1D::chargerEtat()
+{
+    chargement* s = new chargement(*this,gest_fich::ETAT);
+    delete s;
+}
 
 
 void fenetre1D::cellActivation(const QModelIndex& index)
@@ -477,7 +496,7 @@ void fenetre1D::ConstructionManuelle()
     delete[] etats;
 }
 
-const CellularAutomata& getSimulateur() const
+const CellularAutomata& fenetre1D::getSimulateur() const
 {
-    return simulateur;
+    return *simulateur;
 }

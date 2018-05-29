@@ -10,35 +10,24 @@
 #include "fenetre1d.h"
 #include "fenetre2d.h"
 
+#define TAILLE_BUF 100
+
+class fenetre1D;
+class fenetre2D;
+
 class fichier
 {
 public:
     fichier(const std::string nom) : nomF(nom){}
-    virtual void save(const fenetre1D& fen);
-    virtual void load(const fenetre1D& fen);
-    virtual void save(const fenetre2D& fen);
-    virtual void load(const fenetre2D& fen);
-    virtual ~fichier(){f.close();}
+    virtual void save(const fenetre1D& fen)=0;
+    virtual void load(const fenetre1D& fen)=0;
+    virtual void save(const fenetre2D& fen)=0;
+    virtual void load(const fenetre2D& fen)=0;
+    ~fichier(){f.close();}
 protected:
     std::string nomF;
     std::fstream f;
 };
-
-/*class fichierEtat : public fichier
-{
-public:
-    fichierEtat(const std::string nom) : fichier(nom){}
-    void save(const fenetre1D& fen);
-    virtual void load(fenetre1D& fen) = 0;
-};
-
-class fichierConfig : public fichier
-{
-public:
-    fichierConfig(const std::string nom) : fichier(nom){}
-    virtual void save(const fenetre2D& fen) = 0;
-    virtual void load(fenetre2D& fen) = 0;
-};*/
 
 class fichierEtat1D : public fichier
 {
@@ -46,6 +35,8 @@ public:
     fichierEtat1D(const std::string nom) : fichier(nom) {}
     void save(const fenetre1D& fen);
     void load(const fenetre1D& fen);
+    virtual void save(const fenetre2D& fen){return;}
+    virtual void load(const fenetre2D& fen){return;}
     ~fichierEtat1D(){f.close();}
 private:
 
@@ -55,8 +46,10 @@ class fichierEtat2D : public fichier
 {
 public:
     fichierEtat2D(const std::string nom) : fichier(nom) {}
-    void save(const fenetre1D& fen);
+    void save(const fenetre2D& fen);
     void load(const fenetre2D& fen);
+    virtual void save(const fenetre1D& fen){return;}
+    virtual void load(const fenetre1D& fen){return;}
     ~fichierEtat2D(){f.close();}
 private:
 
@@ -68,6 +61,8 @@ public:
     fichierConfig1D(const std::string nom) : fichier(nom) {}
     void save(const fenetre1D& fen);
     void load(const fenetre1D& fen);
+    virtual void save(const fenetre2D& fen){return;}
+    virtual void load(const fenetre2D& fen){return;}
     ~fichierConfig1D(){f.close();}
 private:
 
@@ -79,6 +74,8 @@ public:
     fichierConfig2D(const std::string nom) : fichier(nom) {}
     void save(const fenetre2D& fen);
     void load(const fenetre2D& fen);
+    virtual void save(const fenetre1D& fen){return;}
+    virtual void load(const fenetre1D& fen){return;}
     ~fichierConfig2D(){f.close();}
 private:
 

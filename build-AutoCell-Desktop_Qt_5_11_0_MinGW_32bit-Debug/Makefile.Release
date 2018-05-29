@@ -1075,9 +1075,9 @@ release/main.o: ../AutoCell/main.cpp C:/Qt/5.11.0/mingw53_32/include/QtWidgets/Q
 		C:/Qt/5.11.0/mingw53_32/include/QtCore/qdir.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtCore/qfileinfo.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/qdialog.h \
-		../AutoCell/fichier.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/QMessageBox \
 		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/qmessagebox.h \
+		../AutoCell/fichier.h \
 		../AutoCell/cabuilder.h \
 		../AutoCell/fenetre1d.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/QSpinBox \
@@ -1296,6 +1296,8 @@ release/sauvegarde.o: ../AutoCell/sauvegarde.cpp ../AutoCell/sauvegarde.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtCore/qdir.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtCore/qfileinfo.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/QMessageBox \
+		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/qmessagebox.h \
 		../AutoCell/cellularautomata.h \
 		../AutoCell/cell.h \
 		../AutoCell/automateexception.h \
@@ -1304,8 +1306,6 @@ release/sauvegarde.o: ../AutoCell/sauvegarde.cpp ../AutoCell/sauvegarde.h \
 		../AutoCell/voisinage.h \
 		../AutoCell/transitionrule.h \
 		../AutoCell/fichier.h \
-		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/QMessageBox \
-		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/qmessagebox.h \
 		../AutoCell/cabuilder.h \
 		../AutoCell/fenetre1d.h \
 		C:/Qt/5.11.0/mingw53_32/include/QtWidgets/QApplication \

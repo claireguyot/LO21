@@ -1,66 +1,66 @@
 #include "sauvegarde.h"
 
-sauvegarde::sauvegarde(const fenetre1D& fen, TypeFichier t, QWidget* parent) //fonction de sauvegarde de l'état : fait appel à la classe fichier
+sauvegarde::sauvegarde(const fenetre1D& fen, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
     std::string nomDoc = "";
-    if(t==ETAT)
+    if(t==gest_fich::TypeFichier::ETAT)
         nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.bn","","*.bn").toStdString();
-    else
+    else if(t==gest_fich::TypeFichier::CONFIG)
         nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.csv","","*.csv").toStdString();
 
     setTypeFichier(nomDoc,_1D);
     if(this->f != nullptr)
         this->f->save(fen);
     else
-        QMessageBox::critical(parent,"Erreur chargement fichier","Extension non reconnue.");
+        QMessageBox::critical(nullptr,"Erreur chargement fichier","Extension non reconnue.");
     delete this->f;
 }
 
-sauvegarde::sauvegarde(const fenetre2D& fen, TypeFichier t, QWidget* parent) //fonction de sauvegarde de l'état : fait appel à la classe fichier
+sauvegarde::sauvegarde(const fenetre2D& fen, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
     std::string nomDoc = "";
-    if(t==ETAT)
+    if(t==gest_fich::TypeFichier::ETAT)
         nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.bn","","*.bn").toStdString();
-    else
+    else if(t==gest_fich::TypeFichier::CONFIG)
         nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.csv","","*.csv").toStdString();
 
     setTypeFichier(nomDoc,_2D);
     if(this->f != nullptr)
         this->f->save(fen);
     else
-        QMessageBox::critical(parent,"Erreur chargement fichier","Extension non reconnue.");
+        QMessageBox::critical(nullptr,"Erreur chargement fichier","Extension non reconnue.");
     delete this->f;
 }
 
-chargement::chargement(const fenetre1D& fen, TypeFichier t, QWidget* parent) //fonction de sauvegarde de l'état : fait appel à la classe fichier
+chargement::chargement(const fenetre1D &fen, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
     std::string nomDoc = "";
-    if(t==ETAT)
+    if(t==gest_fich::TypeFichier::ETAT)
         nomDoc = QFileDialog::getOpenFileName(this,"Nouveau.bn","","*.bn").toStdString();
-    else
+    else if(t==gest_fich::TypeFichier::CONFIG)
         nomDoc = QFileDialog::getOpenFileName(this,"Nouveau.csv","","*.csv").toStdString();
 
     setTypeFichier(nomDoc,_1D);
     if(this->f != nullptr)
         this->f->load(fen);
     else
-        QMessageBox::critical(parent,"Erreur chargement fichier","Extension non reconnue.");
+        QMessageBox::critical(nullptr,"Erreur chargement fichier","Extension non reconnue.");
     delete this->f;
 }
 
-chargement::chargement(const fenetre2D& fen, TypeFichier t, QWidget* parent) //fonction de sauvegarde de l'état : fait appel à la classe fichier
+chargement::chargement(const fenetre2D& fen, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
     std::string nomDoc = "";
-    if(t==ETAT)
+    if(t==gest_fich::TypeFichier::ETAT)
         nomDoc = QFileDialog::getOpenFileName(this,"Nouveau.bn","","*.bn").toStdString();
-    else
+    else if(t==gest_fich::TypeFichier::CONFIG)
         nomDoc = QFileDialog::getOpenFileName(this,"Nouveau.csv","","*.csv").toStdString();
 
     setTypeFichier(nomDoc,_2D);
     if(this->f != nullptr)
         this->f->load(fen);
     else
-        QMessageBox::critical(parent,"Erreur chargement fichier","Extension non reconnue.");
+        QMessageBox::critical(nullptr,"Erreur chargement fichier","Extension non reconnue.");
 
     delete this->f;
 }
