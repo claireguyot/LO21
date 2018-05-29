@@ -386,7 +386,7 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
             builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         case 2:
-            builder.BuildGenerateurEtatSymetrieAxeLargeur();
+            builder.BuildGenerateurEtatSymetrieAxeVertical();
             builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         }

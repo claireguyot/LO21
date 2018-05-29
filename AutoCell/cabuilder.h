@@ -21,7 +21,6 @@
  * L'implémentation necessite de bloquer l'utilisation du simulateur lorsqu'on fait une modification du simulateur car quand on modifie une sous-partie on supprime l'ancienne
  *
  * \todo L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps
- * \todo Accesseur sur les éléments et méthodes permettant de construire les éléments
  */
 class CABuilder
 {
@@ -53,11 +52,11 @@ public:
             delete m_generateurEtat;
         m_generateurEtat = new GenerateurRandom;
     }
-    void BuildGenerateurEtatSymetrieAxeLargeur()
+    void BuildGenerateurEtatSymetrieAxeVertical()
     {
         if(m_generateurEtat != nullptr)
             delete m_generateurEtat;
-        m_generateurEtat = new GenerateurSymetrieAxeLargeur;
+        m_generateurEtat = new GenerateurSymetrieAxeVertical;
     }
 
 

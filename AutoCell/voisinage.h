@@ -1,7 +1,7 @@
 #ifndef VOISINAGE_H
 #define VOISINAGE_H
 #include "etat.h"
-//la cellule dont on calcule le voisinage fait toujours partie de son voisinage !!!!!
+//la cellule dont on calcule le voisinage fait toujours partie de son voisinage
 // Notion d'ordre à expliquer à l'utilisateur ? donc dans les commentaires du programme également
 class Voisinage
 {

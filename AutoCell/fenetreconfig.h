@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <QLabel>
 #include <QComboBox>
+#include <sstream>
 #include "cabuilder.h"
 
 class fenetreConfig : public QWidget

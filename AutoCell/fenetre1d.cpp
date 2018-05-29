@@ -445,7 +445,7 @@ void fenetre1D::ConstruireEtat()
             builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         case 2:
-            builder.BuildGenerateurEtatSymetrieAxeLargeur();
+            builder.BuildGenerateurEtatSymetrieAxeVertical();
             builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         }
