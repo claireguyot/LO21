@@ -17,6 +17,7 @@
 #include "cellularautomata.h"
 #include "automateexception.h"
 #include "fenetreconfig.h"
+#include "sauvegarde.h"
 #include <QTimer>
 //#include "automate.h"
 

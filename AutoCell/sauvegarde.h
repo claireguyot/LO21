@@ -11,19 +11,25 @@
 #include <QLineEdit>
 #include <QFileDialog>
 //#include <QString>
+#include <QMessageBox>
 #include "cellularautomata.h"
 #include "fichier.h"
-#include "fichierexception.h"
 #include "fenetre1d.h"
 #include "fenetre2d.h"
 
-class sauvegarde : public QWidget
+class gest_fich : public QWidget
 {
 public:
     enum TypeFichier {ETAT, CONFIG};
-    explicit sauvegarde(const fenetre1D& f, QWidget* parent = nullptr);
-    explicit sauvegarde(const fenetre2D& f, QWidget* parent = nullptr);
-    void setTypeFichier(const std::string& nom);
+
+    enum DimType {_1D,_2D};
+    /*explicit sauvegarde(const fenetre1D& fen, QWidget* parent = nullptr);
+    explicit sauvegarde(const fenetre2D& fen, QWidget* parent = nullptr);*/
+    void setTypeFichier(const std::string& nom, DimType dim);
+    ~gest_fich(){delete this->f;}
+
+protected:
+    fichier* f;
 
 private:
     /*QLabel* lbEtatActuel;
@@ -34,11 +40,40 @@ private:
     QPushButton* bAnnuler;
     //QLineEdit* nomDoc;
 
-    fichier* f;
+/*public slots:
+    sauverFichier(const fenetre1D& fen, TypeFichier t);
+    sauverFichier(const fenetre2D& fen, TypeFichier t);*/
+};
 
+class sauvegarde : public gest_fich
+{
 public slots:
-    sauverFichier(const CellularAutomata& automate, TypeFichier t);
+    explicit sauvegarde(const fenetre1D& fen, TypeFichier t, QWidget* parent = nullptr);
+    explicit sauvegarde(const fenetre2D& fen, TypeFichier t, QWidget* parent = nullptr);
+/*public:
+    enum TypeFichier {ETAT, CONFIG};
+    explicit sauvegarde(const fenetre1D& fen, QWidget* parent = nullptr);
+    explicit sauvegarde(const fenetre2D& fen, QWidget* parent = nullptr);
+    void setTypeFichier(const std::string& nom);
 
+private:
+    QLabel* lbEtatActuel;
+    QLabel* lbConfig;
+    QHBoxLayout* layout;
+    QPushButton* bSauvEtat;
+    QPushButton* bSauvConfig;
+    QPushButton* bAnnuler;
+    QLineEdit* nomDoc;
+
+    fichier* f;*/
+
+};
+
+class chargement : public gest_fich
+{
+public slots:
+    explicit chargement(const fenetre1D& fen, TypeFichier t, QWidget* parent = nullptr);
+    explicit chargement(const fenetre2D& fen, TypeFichier t, QWidget* parent = nullptr);
 };
 
 #endif // SAUVEGARDE_H

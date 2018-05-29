@@ -28,7 +28,6 @@ HEADERS += \
     cabuilder.h \
     sauvegarde.h \
     fichier.h \
-    fichierexception.h \
     mainwindow.h \
     fenetre1d.h \
     fenetre2d.h \

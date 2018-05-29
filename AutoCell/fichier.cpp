@@ -1,6 +1,24 @@
 #include "fichier.h"
 
-void fichierEtat::save(const fenetre1D* fen = nullptr) //sauvegarde d'un état (1D ou 2D)
+void fichierEtat1D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D)
+{
+    const Etat* e = &fen->getSimulateur().Dernier();
+    f.open(nomF,std::ofstream::out|std::ofstream::trunc);
+    int i,j;
+    for(i=0 ; i < e->GetLongueur() ; i++)
+    {
+        for(j=0 ; j < e->GetLargeur()-1 ; j++)
+        {
+            f << e->GetCellule(i,j).GetEtat() << ",";
+        }
+        f << e->GetCellule(i,j).GetEtat();
+        if(i != e->GetLongueur()-1)
+            f << ";";
+    }
+    f.close();
+}
+
+void fichierEtat2D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D)
 {
     const Etat* e = &fen->getSimulateur().Dernier();
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
@@ -63,11 +81,11 @@ void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
     {
         switch(numEtat)
         {
-        case ",":
+        case ',':
             largeur++;
             break;
 
-        case ";":
+        case ';':
             longueur++;
             if(largPrec == 0 || largeur == largPrec) //on vérifie que toutes les lignes ont la même largeur
             {
