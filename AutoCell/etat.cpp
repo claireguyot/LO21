@@ -121,5 +121,6 @@ void Etat::afficher() const
 
 void Etat::Regenerer(int nbEtats)
 {
-    m_generateur->GenererEtat(nbEtats,*this);
+    if (m_generateur!= nullptr)
+        m_generateur->GenererEtat(nbEtats,*this);
 }
