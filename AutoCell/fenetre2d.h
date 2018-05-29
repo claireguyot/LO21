@@ -17,6 +17,7 @@
 #include "cellularautomata.h"
 #include "automateexception.h"
 #include "fenetreconfig.h"
+#include "sauvegarde.h"
 #include <QTimer>
 
 
@@ -59,6 +60,8 @@ public:
     {
         delete simulateur;
     }
+    const CellularAutomata& getSimulateur() const;
+
 private slots:
     void cellActivation(const QModelIndex& index);
     void buildGrille();

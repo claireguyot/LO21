@@ -161,6 +161,10 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     connect(bNextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
     connect(bGenererEtat,SIGNAL(clicked(bool)),this,SLOT(ConstruireEtat()));
     connect(bRetourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
+    connect(bSauvegarderAutomate,SIGNAL(clicked(bool)),sauvegarde,SLOT(sauvegarde(this,gest_fich::CONFIG);
+    connect(bSauvegarderEtat,SIGNAL(clicked(bool)),sauvegarde,SLOT(sauvegarde(this,gest_fich::ETAT));
+    connect(bChargerAutomate,SIGNAL(clicked(bool)),chargement,SLOT(chargement(this,gest_fich::CONFIG);
+    connect(bChargerEtat,SIGNAL(clicked(bool)),chargement,SLOT(chargement(this,gest_fich::ETAT));
 
 }
 
@@ -471,4 +475,9 @@ void fenetre1D::ConstructionManuelle()
     builder.BuildEtatDepart(bLongueur->value(),etats);
     delete[] etats[0];
     delete[] etats;
+}
+
+const CellularAutomata& getSimulateur() const
+{
+    return simulateur;
 }

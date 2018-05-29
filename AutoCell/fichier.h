@@ -3,39 +3,83 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <QMessageBox>
 #include "cellularautomata.h"
-#include "fichierexception.h"
+#include "cabuilder.h"
+#include "fenetre1d.h"
+#include "fenetre2d.h"
 
 class fichier
 {
 public:
     fichier(const std::string nom) : nomF(nom){}
-    virtual void save(const CellularAutomata& automate) = 0;
-    //virtual void load(CellularAutomata& automate) = 0;
+    virtual void save(const fenetre1D& fen);
+    virtual void load(const fenetre1D& fen);
+    virtual void save(const fenetre2D& fen);
+    virtual void load(const fenetre2D& fen);
     virtual ~fichier(){f.close();}
 protected:
     std::string nomF;
-    std::ofstream f;
+    std::fstream f;
 };
 
-class fichierEtat : public fichier
+/*class fichierEtat : public fichier
 {
 public:
-    fichierEtat(const std::string nom) : fichier(nom) {this->nomF = nom;}
-    void save(const CellularAutomata& automate);
-    //void load(CellularAutomata& automate);
-    ~fichierEtat(){f.close();}
-private:
-
+    fichierEtat(const std::string nom) : fichier(nom){}
+    void save(const fenetre1D& fen);
+    virtual void load(fenetre1D& fen) = 0;
 };
 
 class fichierConfig : public fichier
 {
 public:
-    fichierConfig(const std::string nom) : fichier(nom) {this->nomF = nom;}
-    void save(const CellularAutomata& automate);
-    //void load(CellularAutomata& automate);
-    ~fichierConfig(){f.close();}
+    fichierConfig(const std::string nom) : fichier(nom){}
+    virtual void save(const fenetre2D& fen) = 0;
+    virtual void load(fenetre2D& fen) = 0;
+};*/
+
+class fichierEtat1D : public fichier
+{
+public:
+    fichierEtat1D(const std::string nom) : fichier(nom) {}
+    void save(const fenetre1D& fen);
+    void load(const fenetre1D& fen);
+    ~fichierEtat1D(){f.close();}
+private:
+
+};
+
+class fichierEtat2D : public fichier
+{
+public:
+    fichierEtat2D(const std::string nom) : fichier(nom) {}
+    void save(const fenetre1D& fen);
+    void load(const fenetre2D& fen);
+    ~fichierEtat2D(){f.close();}
+private:
+
+};
+
+class fichierConfig1D : public fichier
+{
+public:
+    fichierConfig1D(const std::string nom) : fichier(nom) {}
+    void save(const fenetre1D& fen);
+    void load(const fenetre1D& fen);
+    ~fichierConfig1D(){f.close();}
+private:
+
+};
+
+class fichierConfig2D : public fichier
+{
+public:
+    fichierConfig2D(const std::string nom) : fichier(nom) {}
+    void save(const fenetre2D& fen);
+    void load(const fenetre2D& fen);
+    ~fichierConfig2D(){f.close();}
 private:
 
 };
