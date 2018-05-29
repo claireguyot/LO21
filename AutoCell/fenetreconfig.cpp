@@ -54,33 +54,22 @@ void fenetreElementaryRule::constructionAutomate() const
 
 void fenetreElementaryRule::changementRegExp()
 {
-   switch(m_nombreEtats->value())
-   {
-   case 2:
-       m_regleValidator->setRegExp(QRegExp("[0-1]+"));
-       break;
-   case 3:
-       m_regleValidator->setRegExp(QRegExp("[0-2]+"));
-       break;
-   case 4:
-       m_regleValidator->setRegExp(QRegExp("[0-3]+"));
-       break;
-   default:
-       m_regleValidator->setRegExp(QRegExp("[0-1]+"));
-   }
+
    m_regle->clear();
+   std::stringstream flux;
+   flux << "[0-"<<m_nombreEtats->value()-1<<"]+";
+
+   m_regleValidator->setRegExp(QRegExp(flux.str().c_str()));
 }
 
 void fenetreElementaryRule::changementLabel()
 {
     nbCaract->clear();
     unsigned int nombreVoisins = 2*m_ordreVoisinage+1;
-    unsigned int nbCarac =puissance(m_nombreEtats->value(),nombreVoisins)- m_regle->text().length();
-    QString test("Nombre de caractères nécessaires: ");
-    test += nbCarac/10 + '0';
-    nbCarac = nbCarac%10;
-    test += nbCarac + '0';
-    nbCaract->setText(test);
+    int nbCarac =puissance(m_nombreEtats->value(),nombreVoisins)- m_regle->text().length();
+    std::stringstream flux;
+    flux << "Nombre de caractères nécessaires:"<<nbCarac;
+    nbCaract->setText(QString(flux.str().c_str()));
 }
 
 const unsigned int fenetreGameOfLife::m_nombreEtats = 2;

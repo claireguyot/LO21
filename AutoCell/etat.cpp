@@ -1,4 +1,5 @@
 #include "etat.h"
+#include "generateuretat.h"
 
 using namespace std;
 Etat::Etat(unsigned int largeur, unsigned int longueur, const GenerateurEtat &generateur, unsigned int nbEtats ) : m_largeur(largeur), m_longueur(longueur), m_generateur(&generateur), m_cellules()
@@ -14,7 +15,7 @@ Etat::Etat(unsigned int largeur, unsigned int longueur, const GenerateurEtat &ge
         }
     }
 
-    m_generateur->GenererEtat(nbEtats,m_cellules,m_largeur,m_longueur);
+    m_generateur->GenererEtat(nbEtats,*this);
 }
 
 Etat::Etat(unsigned int largeur, unsigned int longueur, int **tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
@@ -116,4 +117,9 @@ void Etat::afficher() const
         cout << endl;
 
     }
+}
+
+void Etat::Regenerer(int nbEtats)
+{
+    m_generateur->GenererEtat(nbEtats,*this);
 }

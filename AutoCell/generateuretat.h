@@ -1,15 +1,16 @@
 #ifndef GENERATEURETAT_H
 #define GENERATEURETAT_H
-#include "cell.h"
+
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
-
+#include "etat.h"
+//class Etat; //nécessaire pour régler le problème de dépendance circulaire
 class GenerateurEtat
 {
 public:
     GenerateurEtat() = default;
-    virtual void GenererEtat(int nbEtat, Cell** tab, int nbLigne, int nbColonne) const = 0;
+    virtual void GenererEtat(int nbEtats, Etat& grille) const = 0;
     virtual ~GenerateurEtat()= default;
 };
 
@@ -17,15 +18,19 @@ class GenerateurRandom : public GenerateurEtat
 {
 public:
     GenerateurRandom() = default;
-    virtual void GenererEtat(int nbEtat, Cell** tab, int nbLigne, int nbColonne) const override;
+    virtual void GenererEtat(int nbEtats, Etat& grille) const override;
     ~GenerateurRandom() = default;
 };
 
-class GenerateurSymetrieAxeLargeur : public GenerateurEtat
+class GenerateurSymetrieAxeVertical : public GenerateurEtat
 {
 public:
-    GenerateurSymetrieAxeLargeur() = default;
-    virtual void GenererEtat(int nbEtat, Cell** tab, int nbLigne, int nbColonne) const override;
-    ~GenerateurSymetrieAxeLargeur() = default;
+    GenerateurSymetrieAxeVertical() = default;
+    virtual void GenererEtat(int nbEtats, Etat& grille) const override;
+    ~GenerateurSymetrieAxeVertical() = default;
 };
+
+
+
+
 #endif // GENERATEURETAT_H

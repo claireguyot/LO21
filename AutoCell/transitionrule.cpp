@@ -24,6 +24,7 @@ void ElementaryRule::TransitionCellule(const Cell &depart, Cell &arrivee) const
             k *= m_nbEtats;
         }
     }
+    if(somme>= m_rule.size()) throw AutomateException("Erreur: la règle de transition de Elementary Rule est trop petite");
     arrivee.SetEtat(m_rule[m_rule.size()-somme-1]-'0');
 }
 
@@ -52,27 +53,38 @@ void GameOfLife::TransitionCellule(const Cell &depart, Cell &arrivee) const
 void FeuForet::TransitionCellule(Cell const& depart,Cell& arrivee) const
 {
     vector<Cell*> const& voisins = depart.GetVoisins();
-    if(depart.GetEtat()==BLANC) arrivee.SetEtat(BLANC);
-    else if(depart.GetEtat()==NOIR) arrivee.SetEtat(NOIR);
-    else if(depart.GetEtat()==ROUGE) arrivee.SetEtat(NOIR);
-    else if(depart.GetEtat()== VERT)
+
+    switch(depart.GetEtat())
+    {
+    case BLANC:
+        arrivee.SetEtat(BLANC);
+        break;
+    case NOIR:
+        arrivee.SetEtat(NOIR);
+        break;
+    case ROUGE:
+        arrivee.SetEtat(NOIR);
+        break;
+    case VERT:
     {
         bool voisinRouge = false;
-        for(int i=0;i<voisins.size();i++)
+        int i = 0;
+        while(i<voisins.size()&& voisinRouge == false)
         {
 
             if(voisins[i]!= nullptr && voisins[i]!= &depart && voisins[i]->GetEtat()==ROUGE)
             {
                 arrivee.SetEtat(ROUGE);
                 voisinRouge = true;
-                break;
-            }
 
+            }
+            i++;
         }
         if (voisinRouge == false) arrivee.SetEtat(VERT);
-
     }
-    else arrivee.SetEtat(BLANC); //si la cellule a un état différent des 4 pris en compte on la remplace par BLANC qui signifie VIDE dans le cas de cet automate
-
+        break;
+    default:
+        arrivee.SetEtat(BLANC); //si la cellule a un état différent des 4 pris en compte on la remplace par BLANC qui signifie VIDE dans le cas de cet automate
+    }
 
 }

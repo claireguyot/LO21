@@ -26,7 +26,7 @@ public:
     void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
     ElementaryRule(std::string rule, unsigned int nbEtats) : TransitionRule1D(), m_rule(rule), m_nbEtats(nbEtats)
     {
-
+        if (m_nbEtats>10) throw AutomateException("Erreur: nombre d'etats de la regle élementaire > 10 , cela n'est pas pris en charge");
     }
     ~ElementaryRule() = default;
 protected:
