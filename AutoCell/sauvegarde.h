@@ -14,12 +14,15 @@
 #include "cellularautomata.h"
 #include "fichier.h"
 #include "fichierexception.h"
+#include "fenetre1d.h"
+#include "fenetre2d.h"
 
 class sauvegarde : public QWidget
 {
 public:
     enum TypeFichier {ETAT, CONFIG};
-    explicit sauvegarde(const CellularAutomata& automate, QWidget* parent = nullptr);
+    explicit sauvegarde(const fenetre1D& f, QWidget* parent = nullptr);
+    explicit sauvegarde(const fenetre2D& f, QWidget* parent = nullptr);
     void setTypeFichier(const std::string& nom);
 
 private:

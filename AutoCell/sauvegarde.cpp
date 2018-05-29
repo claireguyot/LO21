@@ -1,6 +1,6 @@
 #include "sauvegarde.h"
 
-sauvegarde::sauvegarde(const CellularAutomata& automate, QWidget* parent) : QWidget(parent)
+sauvegarde::sauvegarde(fenetre1D& f, QWidget* parent) : QWidget(parent)
 {
     /*création de la fenêtre de sauvegarde*/
     f=nullptr;
@@ -18,8 +18,8 @@ sauvegarde::sauvegarde(const CellularAutomata& automate, QWidget* parent) : QWid
 
     setLayout(layout);
 
-    connect(bSauvEtat,SIGNAL(clicked(bool)),this,SLOT(sauverFichier(automate,ETAT)));
-    connect(bSauvConfig,SIGNAL(clicked(bool)),this,SLOT(sauverFichier(automate,CONFIG)));
+    connect(bSauvEtat,SIGNAL(clicked(bool)),this,SLOT(sauverFichier(f,ETAT)));
+    connect(bSauvConfig,SIGNAL(clicked(bool)),this,SLOT(sauverFichier(f,CONFIG)));
 
     connect(bAnnuler,SIGNAL(clicked(bool)),this,SLOT(close()));
 }
@@ -34,22 +34,16 @@ void sauvegarde::setTypeFichier(const std::string& nom) //choix de l'algorithme 
         throw(FichierException("Le type du fichier n'est pas reconnu."));
 }
 
-sauvegarde::sauverFichier(const CellularAutomata& automate, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
+sauvegarde::sauverFichier(fenetre1D& f, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
     std::string nomDoc = "";
     if(t==ETAT)
         nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.bn","","*.bn").toStdString();
     else
         nomDoc = QFileDialog::getSaveFileName(this,"Nouveau.csv","","*.csv").toStdString();
-    try
-    {
-        setTypeFichier(nomDoc);
-        f->save(automate);
-        delete f;
-    }
-    catch(FichierException& e)
-    {
-        std::cout << e.getInfo();
-    }
+
+    setTypeFichier(nomDoc);
+    f->save(f);
+    delete f;
 }
 

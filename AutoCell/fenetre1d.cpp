@@ -472,3 +472,8 @@ void fenetre1D::ConstructionManuelle()
     delete[] etats[0];
     delete[] etats;
 }
+
+const CellularAutomata& getSimulateur() const
+{
+    return simulateur;
+}

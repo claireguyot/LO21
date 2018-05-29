@@ -123,7 +123,7 @@ public:
 
 
 };
-#include "cellularautomata.h"
+//#include "cellularautomata.h"
 /*!
  * \class CABuilder2D
  * \brief Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 2D

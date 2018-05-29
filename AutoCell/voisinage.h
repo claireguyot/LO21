@@ -16,6 +16,7 @@ public:
     //le voisinage est centré sur la Cellule: il y autant de voisins à gauche qu'à droite si cela est possible sinon il peut y avoir uniquement que les voisins de droite si on est sur le bord gauche du tableau
     virtual void definirVoisinage(Etat& e) const = 0;
     unsigned int GetOrdre() const { return m_ordre; }
+    virtual std::string getType() const = 0;
 };
 
 class Voisinage1D : public Voisinage
@@ -27,6 +28,7 @@ public:
     }
     ~Voisinage1D() = default;
     void definirVoisinage(Etat &e) const final;
+    std::string getType() const {return "voisinage1D";}
 };
 
 class Voisinage2D : public Voisinage
@@ -47,6 +49,7 @@ public:
     }
     ~VonNeumann() = default;
     void definirVoisinage(Etat &e) const override;
+    std::string getType() const {return "VonNeumann";}
 };
 
 class Moore : public Voisinage2D
@@ -58,8 +61,7 @@ public:
     }
     ~Moore() = default;
     void definirVoisinage(Etat &e) const override;
+    std::string getType() const {return "Moore";}
 };
 #endif // VOISINAGE_H
-
-
 

@@ -77,17 +77,17 @@ void FeuForet::TransitionCellule(Cell const& depart,Cell& arrivee) const
 
 }
 
-std::string ElementaryRule::getTransition()
+std::string ElementaryRule::getTransition() const
 {
-    return "1D,rule," + m_rule + ",nbEtats," + std::to_string(m_nbEtats);
+    return "1D," + m_rule + "," + std::to_string(m_nbEtats);
 }
 
-std::string GameOfLife::getTransition()
+std::string GameOfLife::getTransition() const
 {
-    return "2D,GameOfLife,minVoisins," + std::to_string(m_minVoisinsVivants) + ",maxVoisins," + std::to_string(m_maxVoisinsVivants);
+    return "2D,GameOfLife," + std::to_string(m_minVoisinsVivants) + "," + std::to_string(m_maxVoisinsVivants);
 }
 
-std::string FeuForet::getTransition()
+std::string FeuForet::getTransition() const
 {
     return "2D,FeuForet";
 }

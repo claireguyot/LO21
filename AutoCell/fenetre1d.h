@@ -62,6 +62,7 @@ public:
     {
         delete simulateur;
     }
+    const CellularAutomata& getSimulateur() const;
 private slots:
     void cellActivation(const QModelIndex& index);
     void buildGrille();
