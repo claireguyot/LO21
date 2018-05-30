@@ -3,7 +3,9 @@
 void fichierEtat1D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D)
 {
     const Etat* e = &fen.getSimulateur().Dernier();
+    QMessageBox::critical(nullptr,"Alerte chargement état 1D","Le fichier décrit un automate 2D. Seule la première ligne a été chargée.");
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
+    QMessageBox::critical(nullptr,"Alerte chargement état 1D","Le fichier décrit un automate 2D. Seule la première ligne a été chargée.");
     int i,j;
     for(i=0 ; i < e->GetLongueur() ; i++)
     {

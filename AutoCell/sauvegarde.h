@@ -10,6 +10,7 @@
 #include <QLineEdit>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QString>
 #include "cellularautomata.h"
 #include "fichier.h"
 #include "fenetre1d.h"
@@ -25,7 +26,6 @@ public:
     enum TypeFichier {ETAT, CONFIG};
 
     enum DimType {_1D,_2D};
-    void setTypeFichier(const std::string& nom, DimType dim);
     ~gest_fich(){delete this->f;}
 
 protected:

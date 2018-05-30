@@ -59,7 +59,7 @@ void CellularAutomata::Run(unsigned int nb_steps) {
 }
 
 const Etat& CellularAutomata::Dernier() const {
-    if (m_depart==nullptr) throw AutomateException("etat depart indefini: le simulateur ne peut pas renvoyé le dernier état générer car il n'a pas d'état de départ de défini");
+    if (m_depart==nullptr) throw AutomateException("etat depart indefini: le simulateur ne peut pas renvoyer le dernier état généré car il n'a pas d'état de départ de défini");
     return *m_etats[m_rang%m_buffer];
 }
 
