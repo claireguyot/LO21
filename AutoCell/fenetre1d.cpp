@@ -172,22 +172,22 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 void fenetre1D::sauverAutomate()
 {
     sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
-    delete s;
+    s->~sauvegarde();
 }
 void fenetre1D::chargerAutomate()
 {
     chargement* s = new chargement(*this,gest_fich::CONFIG);
-    delete s;
+    s->~chargement();
 }
 void fenetre1D::sauverEtat()
 {
     sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
-    delete s;
+    s->~sauvegarde();
 }
 void fenetre1D::chargerEtat()
 {
     chargement* s = new chargement(*this,gest_fich::ETAT);
-    delete s;
+    s->~chargement();
 }
 
 

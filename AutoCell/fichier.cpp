@@ -1,20 +1,19 @@
 #include "fichier.h"
+#include <QDebug>
 
 void fichierEtat1D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D)
 {
     const Etat* e = &fen.getSimulateur().Dernier();
-    QMessageBox::critical(nullptr,"Alerte chargement état 1D","Le fichier décrit un automate 2D. Seule la première ligne a été chargée.");
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
-    QMessageBox::critical(nullptr,"Alerte chargement état 1D","Le fichier décrit un automate 2D. Seule la première ligne a été chargée.");
-    int i,j;
-    for(i=0 ; i < e->GetLongueur() ; i++)
+    unsigned int i,j;
+    for(i=0 ; i < e->GetLargeur() ; i++)
     {
-        for(j=0 ; j < e->GetLargeur()-1 ; j++)
+        for(j=0 ; j < e->GetLongueur()-1 ; j++)
         {
             f << e->GetCellule(i,j).GetEtat() << ",";
         }
         f << e->GetCellule(i,j).GetEtat();
-        if(i != e->GetLongueur()-1)
+        if(i != e->GetLargeur()-1) //ne devrait pas arriver (largeur=1 en 1D)
             f << ";";
     }
     f.close();
@@ -24,15 +23,15 @@ void fichierEtat2D::save(const fenetre2D &fen) //sauvegarde d'un état (1D ou 2D
 {
     const Etat* e = &fen.getSimulateur().Dernier();
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
-    int i,j;
-    for(i=0 ; i < e->GetLongueur() ; i++)
+    unsigned int i,j;
+    for(i=0 ; i < e->GetLargeur() ; i++)
     {
-        for(j=0 ; j < e->GetLargeur()-1 ; j++)
+        for(j=0 ; j < e->GetLongueur()-1 ; j++)
         {
             f << e->GetCellule(i,j).GetEtat() << ",";
         }
         f << e->GetCellule(i,j).GetEtat();
-        if(i != e->GetLongueur()-1)
+        if(i != e->GetLargeur()-1) //empêche de mettre un point virgule à la fin du document
             f << ";";
     }
     f.close();
@@ -59,17 +58,23 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
             elements.push_back(numEtat);
     }
     f.close();
-    int ** tab = new int*[longueur];
-    for(int i=0;i<longueur;i++)
+    QMessageBox::critical(nullptr,"Alerte chargement état 1D","Le fichier décrit un automate 2D. Seule la première ligne a été chargée.");
+    int ** tab = new int*[largeur];
+    for(int i=0;i<largeur;i++)
     {
-        tab[i] = new int[largeur];
-        for(int j=0;j<largeur;j++)
+        tab[i] = new int[longueur];
+        for(int j=0;j<longueur;j++)
         {
-            tab[i][j]=elements[i*(longueur-1)+j];
+            tab[i][j]=elements[i*(largeur-1)+j];
         }
     }
     CABuilder1D &m = CABuilder1D::getInstance();
-    m.BuildEtatDepart(largeur,tab);
+    m.BuildEtatDepart(longueur,tab);
+    for(int i=0;i<largeur;i++)
+    {
+        delete[] tab[i];
+    }
+    delete[] tab;
 }
 
 void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D

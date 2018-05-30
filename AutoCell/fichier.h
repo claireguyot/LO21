@@ -23,7 +23,7 @@ public:
     virtual void load(const fenetre1D& fen)=0;
     virtual void save(const fenetre2D& fen)=0;
     virtual void load(const fenetre2D& fen)=0;
-    ~fichier(){f.close();}
+    virtual ~fichier(){f.close();}
 protected:
     std::string nomF;
     std::fstream f;

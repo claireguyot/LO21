@@ -15,8 +15,8 @@ public:
    Etat& operator=(Etat const& e);
    void Regenerer(int nbEtats); //avec l'interface il faudra laisser la possibilité de regenerer l'etat initial uniquement si on a mit un algo de génération
 
-   int GetLongueur() const { return m_longueur; }
-   int GetLargeur() const { return m_largeur; }
+   unsigned int GetLongueur() const { return m_longueur; }
+   unsigned int GetLargeur() const { return m_largeur; }
    Cell& GetCellule(int i, int j)  {
        if (i>=m_largeur || i<0 || j< 0 || j>= m_longueur)
            throw AutomateException("Tentative d'accès à un élément hors grille");

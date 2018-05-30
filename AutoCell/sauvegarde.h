@@ -26,7 +26,7 @@ public:
     enum TypeFichier {ETAT, CONFIG};
 
     enum DimType {_1D,_2D};
-    ~gest_fich(){delete this->f;}
+    virtual ~gest_fich();
 
 protected:
     fichier* f;
@@ -39,6 +39,8 @@ private:
 
 class sauvegarde : public gest_fich
 {
+public:
+    ~sauvegarde();
 public slots:
     explicit sauvegarde(const fenetre1D& fen, TypeFichier t);
     explicit sauvegarde(const fenetre2D& fen, TypeFichier t);
@@ -47,6 +49,8 @@ public slots:
 
 class chargement : public gest_fich
 {
+public:
+    ~chargement();
 public slots:
     explicit chargement(const fenetre1D& fen, TypeFichier t);
     explicit chargement(const fenetre2D& fen, TypeFichier t);
