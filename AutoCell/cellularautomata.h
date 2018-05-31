@@ -18,7 +18,7 @@ private:
     unsigned int m_rang;
 
 
-    void Build(unsigned int c);
+    void Build(unsigned int indice);
     /*CellularAutomata(const CellularAutomata& s);
     CellularAutomata& operator=(const CellularAutomata& s);*/
 public:
