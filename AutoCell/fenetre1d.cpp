@@ -1,4 +1,5 @@
 #include "fenetre1D.h"
+#include <QDebug>
 fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 {
     /*
@@ -171,16 +172,27 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 
 void fenetre1D::sauverAutomate()
 {
-    sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
-    s->~sauvegarde();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
+        s->~sauvegarde();
+    }
 }
 void fenetre1D::chargerAutomate()
 {
-    chargement* s = new chargement(*this,gest_fich::CONFIG);
-    s->~chargement();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        chargement* s = new chargement(*this,gest_fich::CONFIG);
+        s->~chargement();
+    }
 }
 void fenetre1D::sauverEtat()
 {
+
     if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(0,"erreur","Veuillez générer le simulateur et l'état de départ.");
     else
     {
@@ -191,8 +203,29 @@ void fenetre1D::sauverEtat()
 }
 void fenetre1D::chargerEtat()
 {
-    chargement* s = new chargement(*this,gest_fich::ETAT);
-    s->~chargement();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        this->pause();
+        chargement* s = new chargement(*this,gest_fich::ETAT);
+        if(s->getFichier() != nullptr)
+        {
+            try{
+            s->~chargement();
+            CABuilder1D &m = CABuilder1D::getInstance();
+            bLongueur->setValue(m.GetEtatDepart().GetLongueur());
+            simulateur->setEtatDepart(m.GetEtatDepart());
+            buildGrille();
+            afficherDernierEtat();
+            }
+            catch(const AutomateException& e)
+            {
+                QString str = QString::fromStdString(e.getInfo());
+                qDebug() << str;
+            }
+        }
+    }
 }
 
 
@@ -502,7 +535,7 @@ void fenetre1D::ConstructionManuelle()
     delete[] etats;
 }
 
-const CellularAutomata& fenetre1D::getSimulateur() const
+const CellularAutomata* fenetre1D::getSimulateur() const
 {
-    return *simulateur;
+    return simulateur;
 }

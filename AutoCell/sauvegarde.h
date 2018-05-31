@@ -27,6 +27,7 @@ public:
 
     enum DimType {_1D,_2D};
     virtual ~gest_fich();
+    const fichier* getFichier(){return f;}
 
 protected:
     fichier* f;

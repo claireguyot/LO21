@@ -61,7 +61,7 @@ public:
     {
         delete simulateur;
     }
-    const CellularAutomata& getSimulateur() const;
+    const CellularAutomata* getSimulateur() const;
 
 private slots:
     void cellActivation(const QModelIndex& index);
