@@ -212,7 +212,7 @@ void fenetre1D::sauverEtat()
         s->~sauvegarde();
     }
 
-    play();
+
 }
 void fenetre1D::chargerEtat()
 {
