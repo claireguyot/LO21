@@ -190,11 +190,14 @@ void fenetre1D::chargerEtat()
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
     {
+        this->pause();
         chargement* s = new chargement(*this,gest_fich::ETAT);
         s->~chargement();
         CABuilder1D &m = CABuilder1D::getInstance();
+        bLongueur->setValue(m.GetEtatDepart().GetLongueur());
         simulateur->setEtatDepart(m.GetEtatDepart());
-        reset();
+        buildGrille();
+        afficherDernierEtat();
     }
 }
 
