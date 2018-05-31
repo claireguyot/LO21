@@ -167,9 +167,82 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     connect(configGameOfLife,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
     connect(configFeuForet,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
 
+    connect(bSauvegarderAutomate,SIGNAL(clicked(bool)),this,SLOT(sauverAutomate()));
+    connect(bSauvegarderEtat,SIGNAL(clicked(bool)),this,SLOT(sauverEtat()));
+    connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
+    connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
+
 }
 
+void fenetre2D::sauverAutomate()
+{
+    pause();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de sauver une config!");
+    else
+    {
+        sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
+        s->~sauvegarde();
+    }
+    //play();
+}
+void fenetre2D::chargerAutomate()
+{
+    pause();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger une config!");
+    else
+    {
+        chargement* s = new chargement(*this,gest_fich::CONFIG);
+        if(s->getFichier()!=nullptr)
+        {
+            s->~chargement();
+            CABuilder2D &m = CABuilder2D::getInstance();
+            simulateur->setRule(m.GetTransitionRule());
+            simulateur->setVoisinageDefinition(m.GetVoisinageDefinition());
+            //buildGrille();
+            //afficherDernierEtat();
+        }
+    }
+   // play();
+}
+void fenetre2D::sauverEtat()
+{
+    pause();
+    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(this,"erreur","Veuillez générer le simulateur et l'état de départ.");
+    else
+    {
+        sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
+        s->~sauvegarde();
+    }
+}
+void fenetre2D::chargerEtat()
+{
+    pause();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        chargement* s = new chargement(*this,gest_fich::ETAT);
+        if(s->getFichier() != nullptr)
+        {
+            s->~chargement();
+            CABuilder2D &m = CABuilder2D::getInstance();
+            bLongueur->setValue(m.GetEtatDepart().GetLongueur());
+            simulateur->setEtatDepart(m.GetEtatDepart());
+            buildGrille();
 
+            afficherDernierEtat();
+            bLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLongueur->setVisible(false);
+            lLargeur->setVisible(false);
+
+            //simulateur->setEtatDepart(m.GetEtatDepart()); //bug ici quand on charge deux fichiers différents d'affilée sans avoir générer d'Etat avec l'appli
+
+        }
+    }
+}
 
 
 void fenetre2D::cellActivation(const QModelIndex& index) //changée par rapport à fenetre1D

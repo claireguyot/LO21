@@ -72,6 +72,10 @@ private slots:
     void appelConfig() const;
     void ConstruireEtat();
     void reset();
+    void sauverAutomate();
+    void chargerAutomate();
+    void sauverEtat();
+    void chargerEtat();
 
 public slots:
     void ConstruireAutomate(int nbEtats);

@@ -137,6 +137,7 @@ void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
     f.close();
     CABuilder2D &m = CABuilder2D::getInstance();
     m.BuildEtatDepart(longueur,largeur,tab);
+
 }
 
 void fichierConfig1D::save(const fenetre1D& fen) //sauvegarde config 1D
