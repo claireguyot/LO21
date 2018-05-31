@@ -186,8 +186,16 @@ void fenetre1D::sauverEtat()
 }
 void fenetre1D::chargerEtat()
 {
-    chargement* s = new chargement(*this,gest_fich::ETAT);
-    s->~chargement();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        chargement* s = new chargement(*this,gest_fich::ETAT);
+        s->~chargement();
+        CABuilder1D &m = CABuilder1D::getInstance();
+        simulateur->setEtatDepart(m.GetEtatDepart());
+        reset();
+    }
 }
 
 
@@ -497,7 +505,7 @@ void fenetre1D::ConstructionManuelle()
     delete[] etats;
 }
 
-const CellularAutomata& fenetre1D::getSimulateur() const
+const CellularAutomata* fenetre1D::getSimulateur() const
 {
-    return *simulateur;
+    return simulateur;
 }

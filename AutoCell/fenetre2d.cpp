@@ -446,7 +446,7 @@ void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
     delete[] etats;
 }
 
-const CellularAutomata& fenetre2D::getSimulateur() const
+const CellularAutomata* fenetre2D::getSimulateur() const
 {
-    return *simulateur;
+    return simulateur;
 }

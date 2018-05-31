@@ -3,7 +3,7 @@
 
 void fichierEtat1D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D)
 {
-    const Etat* e = &fen.getSimulateur().Dernier();
+    const Etat* e = &fen.getSimulateur()->Dernier();
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
     unsigned int i,j;
     for(i=0 ; i < e->GetLargeur() ; i++)
@@ -21,7 +21,7 @@ void fichierEtat1D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D
 
 void fichierEtat2D::save(const fenetre2D &fen) //sauvegarde d'un état (1D ou 2D)
 {
-    const Etat* e = &fen.getSimulateur().Dernier();
+    const Etat* e = &fen.getSimulateur()->Dernier();
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
     unsigned int i,j;
     for(i=0 ; i < e->GetLargeur() ; i++)
@@ -40,7 +40,8 @@ void fichierEtat2D::save(const fenetre2D &fen) //sauvegarde d'un état (1D ou 2D
 void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
 {
     f.open(nomF,std::ofstream::in);
-    int longueur=1,largeur=1;
+    unsigned int longueur=1,largeur=1;
+    unsigned int etatMax = fen.getSimulateur()->GetNombreEtats();
     char numEtat;
     std::vector<int> elements(largeur);
     f.read(&numEtat,1);
@@ -55,10 +56,16 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
             largeur++;
 
         else
-            elements.push_back(numEtat);
+        {
+            if(numEtat>etatMax)
+                elements.push_back(etatMax);
+            else
+                elements.push_back(numEtat);
+        }
+
+        f.read(&numEtat,1);
     }
     f.close();
-    QMessageBox::critical(nullptr,"Alerte chargement état 1D","Le fichier décrit un automate 2D. Seule la première ligne a été chargée.");
     int ** tab = new int*[largeur];
     for(int i=0;i<largeur;i++)
     {
