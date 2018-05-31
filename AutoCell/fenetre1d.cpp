@@ -218,6 +218,10 @@ void fenetre1D::chargerEtat()
             simulateur->setEtatDepart(m.GetEtatDepart());
             buildGrille();
             afficherDernierEtat();
+            bLongueur->setVisible(false);
+            lLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLargeur->setVisible(false);
             }
             catch(const AutomateException& e)
             {
