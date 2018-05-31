@@ -219,6 +219,7 @@ void fenetre1D::chargerEtat()
             s->~chargement();
             CABuilder1D &m = CABuilder1D::getInstance();
             bLongueur->setValue(m.GetEtatDepart().GetLongueur());
+            simulateur->setEtatDepart(m.GetEtatDepart());
             buildGrille();
 
             afficherDernierEtat();
@@ -227,7 +228,7 @@ void fenetre1D::chargerEtat()
             lLongueur->setVisible(false);
             lLargeur->setVisible(false);
 
-            simulateur->setEtatDepart(m.GetEtatDepart()); //bug ici quand on charge deux fichiers différents d'affilée sans avoir générer d'Etat avec l'appli
+            //simulateur->setEtatDepart(m.GetEtatDepart()); //bug ici quand on charge deux fichiers différents d'affilée sans avoir générer d'Etat avec l'appli
 
         }
     }
