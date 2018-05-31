@@ -172,6 +172,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 
 void fenetre1D::sauverAutomate()
 {
+    pause();
     if(simulateur==nullptr)
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
@@ -179,9 +180,11 @@ void fenetre1D::sauverAutomate()
         sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
         s->~sauvegarde();
     }
+    play();
 }
 void fenetre1D::chargerAutomate()
 {
+    pause();
     if(simulateur==nullptr)
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
@@ -189,9 +192,11 @@ void fenetre1D::chargerAutomate()
         chargement* s = new chargement(*this,gest_fich::CONFIG);
         s->~chargement();
     }
+    play();
 }
 void fenetre1D::sauverEtat()
 {
+    pause();
     if(simulateur==nullptr)
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
@@ -199,9 +204,11 @@ void fenetre1D::sauverEtat()
         sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
         s->~sauvegarde();
     }
+    play();
 }
 void fenetre1D::chargerEtat()
 {
+    pause();
     if(simulateur==nullptr)
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
@@ -210,21 +217,19 @@ void fenetre1D::chargerEtat()
         chargement* s = new chargement(*this,gest_fich::ETAT);
         if(s->getFichier() != nullptr)
         {
-            try{
             s->~chargement();
             CABuilder1D &m = CABuilder1D::getInstance();
             bLongueur->setValue(m.GetEtatDepart().GetLongueur());
             simulateur->setEtatDepart(m.GetEtatDepart());
             buildGrille();
             afficherDernierEtat();
-            }
-            catch(const AutomateException& e)
-            {
-                QString str = QString::fromStdString(e.getInfo());
-                qDebug() << str;
-            }
+            bLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLongueur->setVisible(false);
+            lLargeur->setVisible(false);
         }
     }
+    play();
 }
 
 

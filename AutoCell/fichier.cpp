@@ -41,7 +41,7 @@ void fichierEtat2D::save(const fenetre2D &fen) //sauvegarde d'un état (1D ou 2D
 void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
 {
     f.open(nomF,std::ofstream::in);
-    unsigned int longueur=1,largeur=1;
+    unsigned int longueur=0,largeur=1;
     unsigned int etatMax = fen.getSimulateur()->GetNombreEtats()-1;
     char numEtat;
     std::vector<int> elements(longueur);
@@ -68,6 +68,7 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
         f.read(&numEtat,1);
     }
     f.close();
+    //longueur++;
     int ** tab = new int*[largeur];
     for(int i=0;i<largeur;i++)
     {
