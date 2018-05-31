@@ -207,7 +207,7 @@ void fenetre1D::chargerEtat()
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
     {
-        this->pause();
+        pause();
         chargement* s = new chargement(*this,gest_fich::ETAT);
         if(s->getFichier() != nullptr)
         {
@@ -215,13 +215,10 @@ void fenetre1D::chargerEtat()
             s->~chargement();
             CABuilder1D &m = CABuilder1D::getInstance();
             bLongueur->setValue(m.GetEtatDepart().GetLongueur());
-            simulateur->setEtatDepart(m.GetEtatDepart());
             buildGrille();
-            afficherDernierEtat();
-            bLongueur->setVisible(false);
-            lLongueur->setVisible(false);
-            bLargeur->setVisible(false);
-            lLargeur->setVisible(false);
+            simulateur->setEtatDepart(m.GetEtatDepart()); //bug ici quand on charge deux fichiers différents d'affilée sans avoir générer d'Etat avec l'appli
+
+            //afficherDernierEtat();
             }
             catch(const AutomateException& e)
             {

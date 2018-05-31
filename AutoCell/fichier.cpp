@@ -44,7 +44,7 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
     unsigned int longueur=1,largeur=1;
     unsigned int etatMax = fen.getSimulateur()->GetNombreEtats()-1;
     char numEtat;
-    std::vector<int> elements(longueur);
+    std::vector<int> elements;
 
     f.read(&numEtat,1);
     while(f.eof() == false)
