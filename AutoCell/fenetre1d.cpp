@@ -212,7 +212,11 @@ void fenetre1D::sauverEtat()
         s->~sauvegarde();
     }
 
+<<<<<<< HEAD
     //play();
+=======
+
+>>>>>>> 2833e5efe9c01461c8b291e5fc64395538273636
 }
 void fenetre1D::chargerEtat()
 {
@@ -240,7 +244,10 @@ void fenetre1D::chargerEtat()
 
         }
     }
+<<<<<<< HEAD
     //play();
+=======
+>>>>>>> 2833e5efe9c01461c8b291e5fc64395538273636
 }
 
 
