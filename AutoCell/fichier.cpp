@@ -1,5 +1,6 @@
 #include "fichier.h"
 #include <QDebug>
+#include <QMessageBox>
 
 void fichierEtat1D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D)
 {
@@ -41,9 +42,10 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
 {
     f.open(nomF,std::ofstream::in);
     unsigned int longueur=1,largeur=1;
-    unsigned int etatMax = fen.getSimulateur()->GetNombreEtats();
+    unsigned int etatMax = fen.getSimulateur()->GetNombreEtats()-1;
     char numEtat;
-    std::vector<int> elements(largeur);
+    std::vector<int> elements(longueur);
+
     f.read(&numEtat,1);
     while(f.eof() == false)
     {
@@ -53,14 +55,14 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
             break;
         }
         else if(numEtat==',')
-            largeur++;
+            longueur++;
 
         else
         {
-            if(numEtat>etatMax)
+            if(numEtat-'0'>etatMax)
                 elements.push_back(etatMax);
             else
-                elements.push_back(numEtat);
+                elements.push_back(numEtat-'0');
         }
 
         f.read(&numEtat,1);

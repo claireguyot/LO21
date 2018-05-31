@@ -1,4 +1,5 @@
 #include "fenetre1D.h"
+#include <QDebug>
 fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 {
     /*
@@ -171,18 +172,33 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
 
 void fenetre1D::sauverAutomate()
 {
-    sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
-    s->~sauvegarde();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
+        s->~sauvegarde();
+    }
 }
 void fenetre1D::chargerAutomate()
 {
-    chargement* s = new chargement(*this,gest_fich::CONFIG);
-    s->~chargement();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        chargement* s = new chargement(*this,gest_fich::CONFIG);
+        s->~chargement();
+    }
 }
 void fenetre1D::sauverEtat()
 {
-    sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
-    s->~sauvegarde();
+    if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    else
+    {
+        sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
+        s->~sauvegarde();
+    }
 }
 void fenetre1D::chargerEtat()
 {
@@ -192,12 +208,22 @@ void fenetre1D::chargerEtat()
     {
         this->pause();
         chargement* s = new chargement(*this,gest_fich::ETAT);
-        s->~chargement();
-        CABuilder1D &m = CABuilder1D::getInstance();
-        bLongueur->setValue(m.GetEtatDepart().GetLongueur());
-        simulateur->setEtatDepart(m.GetEtatDepart());
-        buildGrille();
-        afficherDernierEtat();
+        if(s->getFichier() != nullptr)
+        {
+            try{
+            s->~chargement();
+            CABuilder1D &m = CABuilder1D::getInstance();
+            bLongueur->setValue(m.GetEtatDepart().GetLongueur());
+            simulateur->setEtatDepart(m.GetEtatDepart());
+            buildGrille();
+            afficherDernierEtat();
+            }
+            catch(const AutomateException& e)
+            {
+                QString str = QString::fromStdString(e.getInfo());
+                qDebug() << str;
+            }
+        }
     }
 }
 

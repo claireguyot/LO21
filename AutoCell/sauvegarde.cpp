@@ -1,4 +1,5 @@
 #include "sauvegarde.h"
+#include <QDebug>
 
 sauvegarde::sauvegarde(const fenetre1D& fen, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
@@ -20,7 +21,6 @@ sauvegarde::sauvegarde(const fenetre1D& fen, TypeFichier t) //fonction de sauveg
     if(this->f != nullptr)
     {
         this->f->save(fen);
-        delete this->f;
     }
 }
 
@@ -43,7 +43,6 @@ sauvegarde::sauvegarde(const fenetre2D& fen, TypeFichier t) //fonction de sauveg
     if(this->f != nullptr)
     {
         this->f->save(fen);
-        delete this->f;
     }
 }
 
@@ -65,8 +64,7 @@ chargement::chargement(const fenetre1D &fen, TypeFichier t) //fonction de sauveg
     }
     if(this->f != nullptr)
     {
-        this->f->save(fen);
-        delete this->f;
+        this->f->load(fen);
     }
 }
 
@@ -88,21 +86,26 @@ chargement::chargement(const fenetre2D& fen, TypeFichier t) //fonction de sauveg
     }
     if(this->f != nullptr)
     {
-        this->f->save(fen);
-        delete this->f;
+        this->f->load(fen);
     }
 }
 
 gest_fich::~gest_fich()
 {
-
+    if(f!=nullptr)
+        delete f;
+    f=nullptr;
 }
 sauvegarde::~sauvegarde()
 {
-
+    if(f!=nullptr)
+        delete f;
+    f=nullptr;
 }
 chargement::~chargement()
 {
-
+    if(f!=nullptr)
+        delete f;
+    f=nullptr;
 }
 
