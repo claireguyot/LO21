@@ -181,8 +181,13 @@ void fenetre1D::chargerAutomate()
 }
 void fenetre1D::sauverEtat()
 {
-    sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
-    s->~sauvegarde();
+    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(0,"erreur","Veuillez générer le simulateur et l'état de départ.");
+    else
+    {
+        sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
+        s->~sauvegarde();
+    }
+
 }
 void fenetre1D::chargerEtat()
 {
