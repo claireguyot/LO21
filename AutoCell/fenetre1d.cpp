@@ -232,7 +232,6 @@ void fenetre1D::chargerEtat()
 
         }
     }
-    play();
 }
 
 
