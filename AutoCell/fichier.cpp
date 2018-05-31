@@ -44,7 +44,7 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
     unsigned int longueur=0,largeur=1;
     unsigned int etatMax = fen.getSimulateur()->GetNombreEtats()-1;
     char numEtat;
-    std::vector<int> elements;
+    std::vector<int> elements(longueur);
 
     f.read(&numEtat,1);
     while(f.eof() == false)
@@ -93,7 +93,7 @@ void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
     int longueur=0,largeur=1, longPrec=0;
     char numEtat;
     unsigned int etatMax = fen.getSimulateur()->GetNombreEtats()-1;
-    std::vector<int> elements;
+    std::vector<int> elements(longueur);
     f.read(&numEtat,1);
     while(f.eof() == false)
     {

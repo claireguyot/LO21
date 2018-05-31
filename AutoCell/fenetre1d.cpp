@@ -180,7 +180,7 @@ void fenetre1D::sauverAutomate()
         sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
         s->~sauvegarde();
     }
-    play();
+    //play();
 }
 void fenetre1D::chargerAutomate()
 {
@@ -212,7 +212,7 @@ void fenetre1D::sauverEtat()
         s->~sauvegarde();
     }
 
-    play();
+    //play();
 }
 void fenetre1D::chargerEtat()
 {
@@ -240,7 +240,7 @@ void fenetre1D::chargerEtat()
 
         }
     }
-    play();
+    //play();
 }
 
 
