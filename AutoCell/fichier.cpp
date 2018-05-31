@@ -14,8 +14,8 @@ void fichierEtat1D::save(const fenetre1D& fen) //sauvegarde d'un état (1D ou 2D
             f << e->GetCellule(i,j).GetEtat() << ",";
         }
         f << e->GetCellule(i,j).GetEtat();
-        if(i != e->GetLargeur()-1) //ne devrait pas arriver (largeur=1 en 1D)
-            f << ";";
+        /*if(i != e->GetLargeur()-1) //ne devrait pas arriver (largeur=1 en 1D)
+            f << ";";*/
     }
     f.close();
 }
@@ -68,7 +68,7 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
         f.read(&numEtat,1);
     }
     f.close();
-    //longueur++;
+    longueur++;
     int ** tab = new int*[largeur];
     for(int i=0;i<largeur;i++)
     {
@@ -90,24 +90,25 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
 void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
 {
     f.open(nomF,std::ofstream::in);
-    int longueur=1,largeur=1, largPrec=0;
+    int longueur=0,largeur=1, longPrec=0;
     char numEtat;
-    std::vector<int> elements(largeur);
+    unsigned int etatMax = fen.getSimulateur()->GetNombreEtats()-1;
+    std::vector<int> elements;
     f.read(&numEtat,1);
     while(f.eof() == false)
     {
-        switch(numEtat)
+        if(numEtat==',')
         {
-        case ',':
-            largeur++;
-            break;
-
-        case ';':
             longueur++;
-            if(largPrec == 0 || largeur == largPrec) //on vérifie que toutes les lignes ont la même largeur
+        }
+        else if(numEtat==';')
+        {
+            largeur++;
+            longueur++;
+            if(longPrec == 0 || longueur == longPrec) //on vérifie que toutes les lignes ont la même largeur
             {
-                largPrec = largeur;
-                largeur=0;
+                longPrec = longueur;
+                longueur=0;
             }
             else
             {
@@ -115,20 +116,22 @@ void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
                 f.close();
                 return;
             }
-            break;
-
-        default:
-            elements.push_back(numEtat);
-            break;
+        }
+        else
+        {
+            if(numEtat-'0'>etatMax)
+                elements.push_back(etatMax);
+            else
+                elements.push_back(numEtat-'0');
         }
     }
-    int ** tab = new int*[longueur];
-    for(int i=0;i<longueur;i++)
+    int ** tab = new int*[largeur];
+    for(int i=0;i<largeur;i++)
     {
-        tab[i] = new int[largeur];
-        for(int j=0;j<largeur;j++)
+        tab[i] = new int[longueur];
+        for(int j=0;j<longueur;j++)
         {
-            tab[i][j]=elements[i*(longueur-1)+j];
+            tab[i][j]=elements[i*(largeur-1)+j];
         }
     }
     f.close();
@@ -144,7 +147,7 @@ void fichierConfig1D::save(const fenetre1D& fen) //sauvegarde config 1D
     const TransitionRule* tra = &m.GetTransitionRule();
     if(voi!=nullptr)
     {
-        f << "voisinage," << voi->getType() << ",ordre," << voi->GetOrdre();
+        f << "voisinage," << voi->getType() << "," << voi->GetOrdre();
         if(tra != nullptr)
             f << ",";
     }

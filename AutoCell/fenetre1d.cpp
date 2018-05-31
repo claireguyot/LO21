@@ -174,7 +174,7 @@ void fenetre1D::sauverAutomate()
 {
     pause();
     if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de sauver une config!");
     else
     {
         sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
@@ -186,18 +186,26 @@ void fenetre1D::chargerAutomate()
 {
     pause();
     if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger une config!");
     else
     {
         chargement* s = new chargement(*this,gest_fich::CONFIG);
-        s->~chargement();
+        if(s->getFichier()!=nullptr)
+        {
+            s->~chargement();
+            CABuilder1D &m = CABuilder1D::getInstance();
+            simulateur->setRule(m.GetTransitionRule());
+            simulateur->setVoisinageDefinition(m.GetVoisinageDefinition());
+            //buildGrille();
+            //afficherDernierEtat();
+        }
     }
-    play();
+   // play();
 }
 void fenetre1D::sauverEtat()
 {
     pause();
-    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(0,"erreur","Veuillez générer le simulateur et l'état de départ.");
+    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(this,"erreur","Veuillez générer le simulateur et l'état de départ.");
     else
     {
         sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
