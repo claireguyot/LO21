@@ -194,8 +194,15 @@ void fenetre1D::chargerAutomate()
         {
             s->~chargement();
             CABuilder1D &m = CABuilder1D::getInstance();
-            simulateur->setRule(m.GetTransitionRule());
-            simulateur->setVoisinageDefinition(m.GetVoisinageDefinition());
+            std::string str = m.GetTransitionRule().getTransition(); //1D,m_rule,m_nbEtats
+            while(str[0]!=',')
+                str.erase(0,1);
+            str.erase(0,1);
+            while(str[0]!=',')
+                str.erase(0,1);
+            str.erase(0,1);
+            int etatsMax=std::stoi(str);
+            ConstruireAutomate(etatsMax);
             //buildGrille();
             //afficherDernierEtat();
         }

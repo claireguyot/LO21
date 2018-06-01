@@ -88,6 +88,7 @@ private:
     }
     CABuilder1D(const CABuilder1D&) = delete;
     CABuilder1D& operator=(const CABuilder1D&) = delete;
+    unsigned int m_nbEtats;
 public:
     static CABuilder1D& getInstance()
     {
