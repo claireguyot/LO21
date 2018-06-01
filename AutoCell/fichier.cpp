@@ -75,7 +75,7 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
         tab[i] = new int[longueur];
         for(int j=0;j<longueur;j++)
         {
-            tab[i][j]=elements[i*(largeur-1)+j];
+            tab[i][j]=elements[i*(longueur)+j];
         }
     }
     CABuilder1D &m = CABuilder1D::getInstance();
@@ -90,7 +90,7 @@ void fichierEtat1D::load(const fenetre1D& fen) //chargement état 1D
 void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
 {
     f.open(nomF,std::ofstream::in);
-    int longueur=0,largeur=1, longPrec=0;
+    int longueur=0,largeur=0, longPrec=0;
     char numEtat;
     unsigned int etatMax = fen.getSimulateur()->GetNombreEtats()-1;
     std::vector<int> elements(longueur);
@@ -104,7 +104,6 @@ void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
         else if(numEtat==';')
         {
             largeur++;
-            longueur++;
             if(longPrec == 0 || longueur == longPrec) //on vérifie que toutes les lignes ont la même largeur
             {
                 longPrec = longueur;
@@ -124,20 +123,27 @@ void fichierEtat2D::load(const fenetre2D& fen) //chargement état 2D
             else
                 elements.push_back(numEtat-'0');
         }
+        f.read(&numEtat,1);
     }
+    longueur++;
+    largeur++;
     int ** tab = new int*[largeur];
     for(int i=0;i<largeur;i++)
     {
         tab[i] = new int[longueur];
         for(int j=0;j<longueur;j++)
         {
-            tab[i][j]=elements[i*(largeur-1)+j];
+            tab[i][j]=elements[i*(longueur)+j];
         }
     }
     f.close();
     CABuilder2D &m = CABuilder2D::getInstance();
-    m.BuildEtatDepart(longueur,largeur,tab);
-
+    m.BuildEtatDepart(largeur,longueur,tab);;
+    for(int i=0;i<largeur;i++)
+    {
+        delete[] tab[i];
+    }
+    delete[] tab;
 }
 
 void fichierConfig1D::save(const fenetre1D& fen) //sauvegarde config 1D
