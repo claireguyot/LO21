@@ -31,6 +31,8 @@ public:
     }
     std::string getTransition() const override;
     ~ElementaryRule() = default;
+    std::string const& GetRule() const {return m_rule;}
+    unsigned int getNbEtats() const{return m_nbEtats;}
 protected:
     std::string m_rule;
     unsigned int m_nbEtats;

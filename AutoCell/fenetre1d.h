@@ -20,6 +20,7 @@
 #include "sauvegarde.h"
 #include <QTimer>
 #include <QSettings>
+#include <typeinfo>
 //#include "automate.h"
 
 class gest_fich;
@@ -56,9 +57,10 @@ class fenetre1D : public QWidget{
     CellularAutomata* simulateur;
 
     QTimer* m_timer;
+    QLabel* m_info;
 
 
-
+    void UpdateInfo();
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
     ~fenetre1D()

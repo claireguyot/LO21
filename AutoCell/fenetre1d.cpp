@@ -125,12 +125,16 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     menuAutomate->addWidget(bSauvegarderAutomate);
     menuAutomate->addWidget(bChargerAutomate);
 
+    m_info = new QLabel(this);
+    UpdateInfo();
+
     QVBoxLayout* menuGauche = new QVBoxLayout();
 
     menuGauche->addWidget(choixAutomate);
     menuGauche->addWidget(automates);
 
     menuGauche->addLayout(menuAutomate);
+    menuGauche->addWidget(m_info);
 
 
     QVBoxLayout* layout = new QVBoxLayout();
@@ -480,6 +484,7 @@ void fenetre1D::ConstruireAutomate(int nbEtats)
 
     if(simulateur->getTransition() == nullptr)
             QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
+    UpdateInfo();
 }
 
 void fenetre1D::ConstruireEtat()
@@ -603,4 +608,29 @@ void fenetre1D::loadConfig()
     bLongueur->setValue(settings.value("LongueurGrille",bLongueur->value()).toInt());
     bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
     settings.endGroup();
+}
+
+void fenetre1D::UpdateInfo()
+{
+    std::stringstream flux;
+    if (simulateur == nullptr || simulateur->getTransition()==nullptr)
+        flux << "Aucun automate généré";
+    else
+    {
+        flux <<"Automate généré: ";
+        const ElementaryRule* test = dynamic_cast<const ElementaryRule*>(simulateur->getTransition());
+        if(test != nullptr)
+        {
+            flux <<"nombre d'Etats: " << simulateur->GetNombreEtats() << " règle: " << test->GetRule();
+        }
+        else
+        {
+            flux << "Automate non pris en compte par ce message d'information";
+        }
+
+        if(simulateur->getVoisinage() != nullptr)
+            flux << " Voisinage : "<< simulateur->getVoisinage()->getType() << ", ordre : " << simulateur->getVoisinage()->GetOrdre();
+
+    }
+    m_info->setText(QString(flux.str().c_str()));
 }

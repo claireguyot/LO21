@@ -60,6 +60,7 @@ public:
     }
     virtual void loadConfig() override;
     virtual void saveConfig() override;
+
 private slots:
     void changementRegExp();
     void changementLabel();
