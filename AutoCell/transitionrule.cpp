@@ -30,6 +30,7 @@ void ElementaryRule::TransitionCellule(const Cell &depart, Cell &arrivee) const
 
 void GameOfLife::TransitionCellule(const Cell &depart, Cell &arrivee) const
 {
+    //BLANC = MORTE NOIR = VIVANTE
     vector<Cell*> const& voisins = depart.GetVoisins();
     int somme = 0;
     for(int i=0;i<voisins.size();i++)
@@ -39,14 +40,26 @@ void GameOfLife::TransitionCellule(const Cell &depart, Cell &arrivee) const
 
             //somme += voisins[i]->GetEtat(); //on ajoute 0 si la cellule voisine = 0 (donc morte) 1 sinon (vivante) /!\ il faut que les etats des cellules soit égaux à 0 ou 1 !!!! (à contrôler à la création du CellularAutomata et de la grille de Depart)
             //ou si on veut pas s'embêter à contrôler :
-            if (voisins[i]->GetEtat()!= 0) somme++;
+            if (voisins[i]->GetEtat()!= BLANC) somme++; //on compte le nombre de voisins vivantes
         }
 
     }
-    if(somme>=m_minVoisinsVivants && somme<=m_maxVoisinsVivants)
-        arrivee.SetEtat(NOIR);
+    if(depart.GetEtat()== NOIR) //si la cellule est vivante
+    {
+        if(somme>=m_minVoisinsVivants && somme<=m_maxVoisinsVivants)
+            arrivee.SetEtat(NOIR);
+        else
+            arrivee.SetEtat(BLANC);
+    }
+    else if(depart.GetEtat()==BLANC) //si la cellule est morte
+    {
+        if(somme == m_maxVoisinsVivants)
+            arrivee.SetEtat(NOIR);
+        else
+            arrivee.SetEtat(BLANC);
+    }
     else
-        arrivee.SetEtat(BLANC);
+        throw AutomateException("La cellule prend un état qui n'est pas pris en compte par le GameOfLife");
 
 }
 

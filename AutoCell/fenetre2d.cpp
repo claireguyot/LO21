@@ -323,7 +323,7 @@ void fenetre2D::buildGrille() //changer par rapport à fenetre1D
      for(unsigned int j = 0;j<bLargeur->value();j++)
      {
          if(i==0) grille->setRowHeight(j,tailleLargeur);
-         grille->setItem(j,i,new QTableWidgetItem("0"));
+         grille->setItem(j,i,new QTableWidgetItem(""));
          grille->item(j,i)->setBackgroundColor("white");
          grille->item(j,i)->setTextColor("white");
      }
