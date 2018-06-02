@@ -19,6 +19,7 @@
 #include "fenetreconfig.h"
 #include "sauvegarde.h"
 #include <QTimer>
+#include <QSettings>
 //#include "automate.h"
 
 class gest_fich;
@@ -57,6 +58,7 @@ class fenetre1D : public QWidget{
     QTimer* m_timer;
 
 
+
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
     ~fenetre1D()
@@ -64,6 +66,8 @@ public:
         delete simulateur;
     }
     const CellularAutomata* getSimulateur() const;
+    void loadConfig();
+    void saveConfig();
 private slots:
     void cellActivation(const QModelIndex& index);
     void buildGrille();

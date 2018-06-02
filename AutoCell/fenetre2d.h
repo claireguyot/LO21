@@ -20,7 +20,7 @@
 #include "sauvegarde.h"
 #include <QTimer>
 #include <QDesktopWidget>
-
+#include <QSettings>
 
 
 class fenetre2D : public QWidget{
@@ -62,6 +62,8 @@ public:
         delete simulateur;
     }
     const CellularAutomata* getSimulateur() const;
+    void loadConfig();
+    void saveConfig();
 
 private slots:
     void cellActivation(const QModelIndex& index);

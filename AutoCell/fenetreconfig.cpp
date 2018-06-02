@@ -33,6 +33,8 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementRegExp()));
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementLabel()));
     connect(m_regle,SIGNAL(textChanged(QString)),this,SLOT(changementLabel()));
+
+    loadConfig();
 }
 
 void fenetreElementaryRule::constructionAutomate() const
@@ -105,6 +107,8 @@ fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
     layoutPrincipal->addWidget(info);
     setLayout(layoutPrincipal);
 
+    loadConfig();
+
 }
 
 void fenetreGameOfLife::constructionAutomate() const
@@ -159,6 +163,8 @@ fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
     layoutPrincipal->addWidget(info);
     setLayout(layoutPrincipal);
 
+    loadConfig();
+
 }
 
 void fenetreFeuForet::constructionAutomate() const
@@ -194,3 +200,76 @@ unsigned int puissance(unsigned int a, unsigned int b)
 }
 
 
+void fenetreElementaryRule::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ElementaryRuleWindow");
+
+    settings.setValue("nbEtats",m_nombreEtats->value());
+    settings.setValue("rule",m_regle->text());
+    settings.endGroup();
+}
+
+void fenetreElementaryRule::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ElementaryRuleWindow");
+
+    m_nombreEtats->setValue(settings.value("nbEtats",m_nombreEtats->value()).toInt());
+    m_regle->setText(settings.value("rule",m_regle->text()).toString());
+
+    settings.endGroup();
+}
+
+void fenetreGameOfLife::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("GameOfLifeWindow");
+
+    settings.setValue("choixVoisinage",m_choixVoisinage->currentIndex());
+    settings.setValue("ordreVoisinage",m_ordreVoisinage->value());
+    settings.setValue("minVivants",m_minVivants->value());
+    settings.setValue("maxVivants",m_maxVivants->value());
+
+    settings.endGroup();
+}
+
+void fenetreGameOfLife::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("GameOfLifeWindow");
+
+    m_choixVoisinage->setCurrentIndex(settings.value("choixVoisinage",m_choixVoisinage->currentIndex()).toInt());
+    m_ordreVoisinage->setValue(settings.value("ordreVoisinage",m_ordreVoisinage->value()).toInt());
+    m_minVivants->setValue(settings.value("minVivants",m_minVivants->value()).toInt());
+    m_maxVivants->setValue(settings.value("maxVivants",m_maxVivants->value()).toInt());
+
+    settings.endGroup();
+}
+
+void fenetreFeuForet::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ForestFireWindow");
+
+    settings.setValue("choixVoisinage",m_choixVoisinage->currentIndex());
+    settings.setValue("ordreVoisinage",m_ordreVoisinage->value());
+    settings.endGroup();
+}
+
+void fenetreFeuForet::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("GameOfLifeWindow");
+
+    m_choixVoisinage->setCurrentIndex(settings.value("choixVoisinage",m_choixVoisinage->currentIndex()).toInt());
+    m_ordreVoisinage->setValue(settings.value("ordreVoisinage",m_ordreVoisinage->value()).toInt());
+
+    settings.endGroup();
+}

@@ -168,6 +168,8 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
     connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
+    loadConfig();
+
 }
 
 void fenetre1D::sauverAutomate()
@@ -571,4 +573,34 @@ void fenetre1D::ConstructionManuelle()
 const CellularAutomata* fenetre1D::getSimulateur() const
 {
     return simulateur;
+}
+
+void fenetre1D::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("1DWindow");
+
+    settings.setValue("AutomataChoice",choixAutomate->currentIndex());
+    settings.setValue("GeneratorChoice",bchoixGenerateur->currentIndex());
+    settings.setValue("LargeurGrille",bLargeur->value());
+    settings.setValue("LongueurGrille",bLongueur->value());
+    settings.setValue("Timer",bSelectVitesse->value());
+    settings.endGroup();
+
+    configElementaryRule->saveConfig();
+}
+
+void fenetre1D::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("1DWindow");
+
+    choixAutomate->setCurrentIndex(settings.value("AutomataChoice",choixAutomate->currentIndex()).toInt());
+    bchoixGenerateur->setCurrentIndex(settings.value("GeneratorChoice",choixAutomate->currentIndex()).toInt());
+    bLargeur->setValue(settings.value("LargeurGrille",bLargeur->value()).toInt());
+    bLongueur->setValue(settings.value("LongueurGrille",bLongueur->value()).toInt());
+    bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
+    settings.endGroup();
 }

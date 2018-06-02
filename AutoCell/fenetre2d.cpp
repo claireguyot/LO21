@@ -172,6 +172,8 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
     connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
+    loadConfig();
+
 }
 
 void fenetre2D::sauverAutomate()
@@ -536,4 +538,37 @@ void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
 const CellularAutomata* fenetre2D::getSimulateur() const
 {
     return simulateur;
+}
+
+void fenetre2D::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("2DWindow");
+
+    settings.setValue("AutomataChoice",choixAutomate->currentIndex());
+    settings.setValue("GeneratorChoice",bchoixGenerateur->currentIndex());
+    settings.setValue("LargeurGrille",bLargeur->value());
+    settings.setValue("LongueurGrille",bLongueur->value());
+    settings.setValue("Timer",bSelectVitesse->value());
+    settings.endGroup();
+
+    configFeuForet->saveConfig();
+    configGameOfLife->saveConfig();
+}
+
+void fenetre2D::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("2DWindow");
+
+    choixAutomate->setCurrentIndex(settings.value("AutomataChoice",choixAutomate->currentIndex()).toInt());
+    bchoixGenerateur->setCurrentIndex(settings.value("GeneratorChoice",choixAutomate->currentIndex()).toInt());
+    bLargeur->setValue(settings.value("LargeurGrille",bLargeur->value()).toInt());
+    bLongueur->setValue(settings.value("LongueurGrille",bLongueur->value()).toInt());
+    bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
+    settings.endGroup();
+
+
 }
