@@ -185,16 +185,13 @@ void fenetre1D::sauverAutomate()
 void fenetre1D::chargerAutomate()
 {
     pause();
-    if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger une config!");
-    else
-    {
+
         chargement* s = new chargement(*this,gest_fich::CONFIG);
         if(s->getFichier()!=nullptr)
         {
             s->~chargement();
             CABuilder1D &m = CABuilder1D::getInstance();
-            std::string str = m.GetTransitionRule().getTransition(); //1D,m_rule,m_nbEtats
+            std::string str = m.GetTransitionRule()->getTransition(); //1D,m_rule,m_nbEtats
             while(str[0]!=',')
                 str.erase(0,1);
             str.erase(0,1);
@@ -203,10 +200,9 @@ void fenetre1D::chargerAutomate()
             str.erase(0,1);
             int etatsMax=std::stoi(str);
             ConstruireAutomate(etatsMax);
-            //buildGrille();
-            //afficherDernierEtat();
+
         }
-    }
+
    // play();
 }
 void fenetre1D::sauverEtat()
@@ -222,8 +218,8 @@ void fenetre1D::sauverEtat()
 void fenetre1D::chargerEtat()
 {
     pause();
-    if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    if(simulateur==nullptr || simulateur->getTransition()==nullptr)
+        QMessageBox::warning(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
     {
         chargement* s = new chargement(*this,gest_fich::ETAT);
@@ -231,17 +227,24 @@ void fenetre1D::chargerEtat()
         {
             s->~chargement();
             CABuilder1D &m = CABuilder1D::getInstance();
-            bLongueur->setValue(m.GetEtatDepart().GetLongueur());
-            simulateur->setEtatDepart(m.GetEtatDepart());
-            buildGrille();
+            if(m.GetEtatDepart() == nullptr)
+            {
+                QMessageBox::warning(0,"Erreur","Aucun état n'a été chargé.");
+            }
+            else
+            {
+                bLongueur->setValue(m.GetEtatDepart()->GetLongueur());
+                simulateur->setEtatDepart(*m.GetEtatDepart());
+                buildGrille();
 
-            afficherDernierEtat();
-            bLongueur->setVisible(false);
-            bLargeur->setVisible(false);
-            lLongueur->setVisible(false);
-            lLargeur->setVisible(false);
+                afficherDernierEtat();
+                bLongueur->setVisible(false);
+                bLargeur->setVisible(false);
+                lLongueur->setVisible(false);
+                lLargeur->setVisible(false);
+            }
 
-            //simulateur->setEtatDepart(m.GetEtatDepart()); //bug ici quand on charge deux fichiers différents d'affilée sans avoir générer d'Etat avec l'appli
+
 
         }
     }
@@ -463,34 +466,33 @@ void fenetre1D::ConstruireAutomate(int nbEtats)
         simulateur = nullptr;
     }
     CABuilder1D& builder = CABuilder1D::getInstance();
-    simulateur = new CellularAutomata(nbEtats,nullptr,&(builder.GetTransitionRule()),&(builder.GetVoisinageDefinition()));
+
+    simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
     bLongueur->setVisible(true);
     lLongueur->setVisible(true);
     bLargeur->setVisible(true);
     lLargeur->setVisible(true);
-
     buildGrille();
 
 
+    if(simulateur->getTransition() == nullptr)
+            QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
 }
 
 void fenetre1D::ConstruireEtat()
 {
 
 
-    if(simulateur == nullptr)
+    if(simulateur == nullptr || simulateur->getTransition() == nullptr)
     {
-        QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
+        QMessageBox::warning(0,"erreur","L'automate n'est pas généré.");
     }
     else
     {
         CABuilder1D& builder = CABuilder1D::getInstance();
         pause();
-        bLongueur->setVisible(false);
-        lLongueur->setVisible(false);
-        bLargeur->setVisible(false);
-        lLargeur->setVisible(false);
+
 
         switch(bchoixGenerateur->currentIndex())
         {
@@ -500,17 +502,29 @@ void fenetre1D::ConstruireEtat()
             break;
         case 1:
             builder.BuildGenerateurEtatRandom();
-            builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         case 2:
             builder.BuildGenerateurEtatSymetrieAxeVertical();
-            builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         }
-        buildGrille();
 
-        simulateur->setEtatDepart(builder.GetEtatDepart());
-        afficherDernierEtat();
+        const Etat* etatDep = builder.GetEtatDepart();
+        if (etatDep == nullptr)
+            QMessageBox::warning(0,"Erreur","Erreur dans la création du dernier état.");
+        else
+        {
+            bLongueur->setVisible(false);
+            lLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLargeur->setVisible(false);
+
+            buildGrille();
+            simulateur->setEtatDepart((*builder.GetEtatDepart()));
+            afficherDernierEtat();
+        }
+
 
     }
 }

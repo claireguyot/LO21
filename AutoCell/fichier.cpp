@@ -150,8 +150,8 @@ void fichierConfig1D::save(const fenetre1D& fen) //sauvegarde config 1D
 {
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
     CABuilder1D &m = CABuilder1D::getInstance();
-    const Voisinage* voi = &m.GetVoisinageDefinition();
-    const TransitionRule* tra = &m.GetTransitionRule();
+    const Voisinage* voi = m.GetVoisinageDefinition();
+    const TransitionRule* tra = m.GetTransitionRule();
     if(voi!=nullptr)
     {
         f << "voisinage," << voi->getType() << "," << voi->GetOrdre();
@@ -169,8 +169,8 @@ void fichierConfig2D::save(const fenetre2D& fen) //sauvegarde config 2D
 {
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
     CABuilder2D &m = CABuilder2D::getInstance();
-    const Voisinage* voi = &m.GetVoisinageDefinition();
-    const TransitionRule* tra = &m.GetTransitionRule();
+    const Voisinage* voi = m.GetVoisinageDefinition();
+    const TransitionRule* tra = m.GetTransitionRule();
     if(voi!=nullptr)
     {
         f << "voisinage," << voi->getType() << "," << voi->GetOrdre();
