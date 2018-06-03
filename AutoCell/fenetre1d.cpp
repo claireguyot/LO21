@@ -623,7 +623,7 @@ void fenetre1D::UpdateInfo()
         const ElementaryRule* test = dynamic_cast<const ElementaryRule*>(simulateur->getTransition());
         if(test != nullptr)
         {
-            flux <<"nombre d'Etats: " << simulateur->GetNombreEtats() << " règle: " << test->GetRule();
+            flux <<"nombre d'Etats: " << simulateur->GetNombreEtats() << "\nrègle: " << test->GetRule();
         }
         else
         {
@@ -631,7 +631,7 @@ void fenetre1D::UpdateInfo()
         }
 
         if(simulateur->getVoisinage() != nullptr)
-            flux << " Voisinage : "<< simulateur->getVoisinage()->getType() << ", ordre : " << simulateur->getVoisinage()->GetOrdre();
+            flux << "\nVoisinage : "<< simulateur->getVoisinage()->getType() << ", ordre : " << simulateur->getVoisinage()->GetOrdre();
 
     }
     m_info->setText(QString(flux.str().c_str()));

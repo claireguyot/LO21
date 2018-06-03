@@ -84,7 +84,7 @@ private slots:
     void sauverEtat();
     void chargerEtat();
 
-public slots:
+//public slots:
     void ConstruireAutomate(int nbEtats);
 private:
     void afficherDernierEtat();
