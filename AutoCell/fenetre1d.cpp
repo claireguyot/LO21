@@ -83,6 +83,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     bRetourDepart = new QPushButton("Retour départ");
     bNextFrame = new QPushButton("Prochain état");
     bSelectVitesse = new QSpinBox();
+    bSelectVitesse->setSuffix(" s");
     bSelectVitesse->setRange(1,50);
     bSelectVitesse->setValue(2);
 
