@@ -363,9 +363,11 @@ void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
                 grille->item(cellule.GetX(),cellule.GetY())->setTextColor("red");
             break;
             default:
-                grille->item(cellule.GetX(),cellule.GetY())->setText("0");
-                grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("white");
-                grille->item(cellule.GetX(),cellule.GetY())->setTextColor("white");
+                std::stringstream flux;
+                flux << cellule.GetEtat();
+                grille->item(0,cellule.GetY())->setText(flux.str().c_str());
+                grille->item(0,cellule.GetY())->setBackgroundColor("white");
+                grille->item(0,cellule.GetY())->setTextColor("white");
             }
         }
     }

@@ -404,10 +404,12 @@ void fenetre1D::afficherDernierEtat()
                 depart->item(0,cellule.GetY())->setTextColor("red");
             break;
             default:
-                grille->item(ligne,cellule.GetY())->setText("0");
+                std::stringstream flux;
+                flux << cellule.GetEtat();
+                grille->item(ligne,cellule.GetY())->setText(flux.str().c_str());
                 grille->item(ligne,cellule.GetY())->setBackgroundColor("white");
                 grille->item(ligne,cellule.GetY())->setTextColor("white");
-                depart->item(0,cellule.GetY())->setText("0");
+                depart->item(0,cellule.GetY())->setText(flux.str().c_str());
                 depart->item(0,cellule.GetY())->setBackgroundColor("white");
                 depart->item(0,cellule.GetY())->setTextColor("white");
             }

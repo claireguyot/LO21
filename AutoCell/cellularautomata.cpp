@@ -81,5 +81,11 @@ void CellularAutomata::setVoisinageDefinition(const Voisinage &voisinage)
 {
     m_voisinageDefinition =&voisinage;
     for(unsigned int i = 0;i<m_buffer;i++)
-        m_voisinageDefinition->definirVoisinage(*m_etats[i]);
+    {
+        if(m_etats[i]!= nullptr)
+        {
+            m_voisinageDefinition->definirVoisinage(*m_etats[i]);
+        }
+    }
+
 }
