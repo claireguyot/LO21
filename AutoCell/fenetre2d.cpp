@@ -8,7 +8,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
      * /!\ pas de besoin de mettre this quand on construit les widgets car les layout s'occupent des relations de parenté grâce aux méthodes addWidget, addLayout, setLayout
      */
 
-    bGenererEtat = new QPushButton("Générer état",this);
+
 
     bChargerEtat = new QPushButton("Charger état",this);
     bLargeur = new QSpinBox(this);
@@ -38,12 +38,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     menuSuperieur->addWidget(bLongueur);
 
 
-
-
-
-
-
-
+    bGenererEtat = new QPushButton("Générer état",this);
 
 
     grille  = new QTableWidget(this);
@@ -64,8 +59,6 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
 
 
     buildGrille();
-
-
 
 
 
@@ -95,6 +88,16 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     menuInferieur->addWidget(bSelectVitesse);
 
     /*
+     * layout menu droit
+     */
+    QVBoxLayout* layout = new QVBoxLayout();
+
+    layout->addLayout(menuSuperieur);
+    layout->addWidget(bGenererEtat);
+    layout->addWidget(grille);
+    layout->addLayout(menuInferieur);
+
+    /*
      * Menu de gauche : choix des règles
      */
 
@@ -118,29 +121,28 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     bSauvegarderAutomate = new QPushButton("Sauvegarder automate");
     bChargerAutomate = new QPushButton("Charger automate");
 
+
     QHBoxLayout* menuAutomate = new QHBoxLayout();
 
     menuAutomate->addWidget(bGenererAutomate);
     menuAutomate->addWidget(bSauvegarderAutomate);
     menuAutomate->addWidget(bChargerAutomate);
 
+    m_info = new QLabel(this);
+    UpdateInfo();
+
     QVBoxLayout* menuGauche = new QVBoxLayout();
+
+
+
 
     menuGauche->addWidget(choixAutomate);
     menuGauche->addWidget(automates);
-
     menuGauche->addLayout(menuAutomate);
+    menuGauche->addWidget(m_info);
 
 
-    /*
-     * layout menu droit
-     */
-    QVBoxLayout* layout = new QVBoxLayout();
 
-    layout->addLayout(menuSuperieur);
-    layout->addWidget(bGenererEtat);
-    layout->addWidget(grille);
-    layout->addLayout(menuInferieur);
 
 
 
@@ -444,6 +446,7 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
     buildGrille();
     if(simulateur->getTransition() == nullptr)
             QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
+    UpdateInfo();
 
 }
 
@@ -538,12 +541,12 @@ void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
     delete[] etats;
 }
 
-const CellularAutomata* fenetre2D::getSimulateur() const
+const CellularAutomata* fenetre2D::getSimulateur() const //pareil que fenetre1D
 {
     return simulateur;
 }
 
-void fenetre2D::saveConfig()
+void fenetre2D::saveConfig() //change par rapport à fenetre 1D
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -560,7 +563,7 @@ void fenetre2D::saveConfig()
     configGameOfLife->saveConfig();
 }
 
-void fenetre2D::loadConfig()
+void fenetre2D::loadConfig() //change par rapport à fenetre 1D
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -574,4 +577,21 @@ void fenetre2D::loadConfig()
     settings.endGroup();
 
 
+}
+
+void fenetre2D::UpdateInfo() //change par rapport à fenetre 1D
+{
+    std::stringstream flux;
+    if (simulateur == nullptr || simulateur->getTransition()==nullptr)
+        flux << "Aucun automate généré";
+    else
+    {
+        flux <<"Automate généré: "<< simulateur->getTransition()->getTransition();
+
+
+        if(simulateur->getVoisinage() != nullptr)
+            flux << "\nVoisinage : "<< simulateur->getVoisinage()->getType() << ", ordre : " << simulateur->getVoisinage()->GetOrdre();
+
+    }
+    m_info->setText(QString(flux.str().c_str()));
 }

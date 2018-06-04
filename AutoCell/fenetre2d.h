@@ -21,6 +21,7 @@
 #include <QTimer>
 #include <QDesktopWidget>
 #include <QSettings>
+#include <sstream>
 
 
 class fenetre2D : public QWidget{
@@ -53,6 +54,7 @@ class fenetre2D : public QWidget{
     CellularAutomata* simulateur;
 
     QTimer* m_timer;
+    QLabel* m_info;
 
 
 public:
@@ -83,5 +85,6 @@ private slots:
 private:
     void afficherDernierEtat();
     void ConstructionManuelle();
+    void UpdateInfo();
 };
 #endif // fenetre2D_H

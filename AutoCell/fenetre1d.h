@@ -20,7 +20,7 @@
 #include "sauvegarde.h"
 #include <QTimer>
 #include <QSettings>
-#include <typeinfo>
+
 //#include "automate.h"
 
 class gest_fich;
@@ -60,7 +60,6 @@ class fenetre1D : public QWidget{
     QLabel* m_info;
 
 
-    void UpdateInfo();
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
     ~fenetre1D()
@@ -89,5 +88,6 @@ private slots:
 private:
     void afficherDernierEtat();
     void ConstructionManuelle();
+    void UpdateInfo();
 };
 #endif // FENETRE1D_H
