@@ -31,19 +31,11 @@ public:
     std::string getType() const {return "voisinage1D";}
 };
 
-class Voisinage2D : public Voisinage
+
+class VonNeumann : public Voisinage
 {
 public:
-    Voisinage2D(int ordre): Voisinage(ordre)
-    {
-
-    }
-};
-
-class VonNeumann : public Voisinage2D
-{
-public:
-    VonNeumann(int ordre): Voisinage2D(ordre)
+    VonNeumann(int ordre): Voisinage(ordre)
     {
 
     }
@@ -52,10 +44,10 @@ public:
     std::string getType() const {return "VonNeumann";}
 };
 
-class Moore : public Voisinage2D
+class Moore : public Voisinage
 {
 public:
-    Moore(int ordre): Voisinage2D(ordre)
+    Moore(int ordre): Voisinage(ordre)
     {
 
     }
