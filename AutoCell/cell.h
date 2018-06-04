@@ -27,33 +27,7 @@ enum etat
 class Cell
 {
 public:
-    /*!
-         *  \brief Constructeur
-         *
-         *  Constructeur par défault de la classe Cell : X, Y et l'état sont initialisés à 0
-         *
-         *
-         */
-    Cell() : m_etat(0), m_voisins(), m_x(0), m_y(0)
-    {
-
-    }
-    /*!
-         *  \brief Constructeur
-         *
-         *  Constructeur de la classe Cell
-         *
-         *  \param etat : valeur prise par la cellule
-         *  \param x,y : positions
-         */
-    Cell(int etat, int x, int y) : m_etat(etat), m_voisins(), m_x(x), m_y(y)
-    {
-
-    }
-    /*!
-         *  \brief Constructeur de recopie
-         */
-    Cell(Cell const& c) = default;
+    friend class Etat;
     /*!
          *  \brief Accesseur en lecture sur m_voisins
          *
@@ -90,16 +64,6 @@ public:
          */
     int GetY() const { return m_y; }
     /*!
-         *  \brief modification de la position X
-         * \param x : ligne
-         */
-    void SetX(int x);
-    /*!
-         *  \brief modification de la position Y
-         * \param y : colonne
-         */
-    void SetY(int y);
-    /*!
          *  \brief modification de l'etat
          * \param etat : valeur prise par la cellule
          */
@@ -125,6 +89,43 @@ public:
     ~Cell() = default; //pas d'allocation dynamique dans la classe car le vector m_voisins est un tableau d'adresses (on ne supprime pas les voisins d'une Cellule quand on détruit la Cellule)
     Cell& operator=(Cell const& c) = default;
 private:
+    /*!
+         *  \brief Constructeur
+         *
+         *  Constructeur par défault de la classe Cell : X, Y et l'état sont initialisés à 0
+         *
+         *
+         */
+    Cell() : m_etat(0), m_voisins(), m_x(0), m_y(0)
+    {
+
+    }
+    /*!
+         *  \brief Constructeur
+         *
+         *  Constructeur de la classe Cell
+         *
+         *  \param etat : valeur prise par la cellule
+         *  \param x,y : positions
+         */
+    Cell(int etat, int x, int y) : m_etat(etat), m_voisins(), m_x(x), m_y(y)
+    {
+
+    }
+    /*!
+         *  \brief Constructeur de recopie
+         */
+    Cell(Cell const& c) = default;
+    /*!
+         *  \brief modification de la position X
+         * \param x : ligne
+         */
+    void SetX(int x);
+    /*!
+         *  \brief modification de la position Y
+         * \param y : colonne
+         */
+    void SetY(int y);
     /*!
          *  \brief état (valeur) de la cellule
          *
