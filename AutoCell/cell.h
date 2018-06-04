@@ -81,14 +81,15 @@ public:
     {
         m_voisins.clear();
     }
+
+
+private:
     /*!
          *  \brief Destructeur par défaut
          *
          */
 
     ~Cell() = default; //pas d'allocation dynamique dans la classe car le vector m_voisins est un tableau d'adresses (on ne supprime pas les voisins d'une Cellule quand on détruit la Cellule)
-    Cell& operator=(Cell const& c) = default;
-private:
     /*!
          *  \brief Constructeur
          *
@@ -126,6 +127,12 @@ private:
          * \param y : colonne
          */
     void SetY(int y);
+    /*!
+      * \brief surcharge de l'opérateur d'affectation (défaut)
+      */
+    Cell& operator=(Cell const& c) = default;
+
+
     /*!
          *  \brief état (valeur) de la cellule
          *
