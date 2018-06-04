@@ -98,12 +98,9 @@ $(document).ready(function(){initNavTree('class_cellular_automata.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a48872956d758811cc3684bdc579d157e"><td class="memItemLeft" align="right" valign="top"><a id="a48872956d758811cc3684bdc579d157e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CellularAutomata</b> (const <a class="el" href="class_transition_rule.html">TransitionRule</a> &amp;rule, unsigned int nbEtats, const <a class="el" href="class_voisinage.html">Voisinage</a> &amp;definitionVoisinage, unsigned int buffer=2)</td></tr>
-<tr class="separator:a48872956d758811cc3684bdc579d157e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd17942ae43b8dcc7d4beee17d2da103"><td class="memItemLeft" align="right" valign="top"><a id="acd17942ae43b8dcc7d4beee17d2da103"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CellularAutomata</b> (const <a class="el" href="class_etat.html">Etat</a> &amp;dep, const <a class="el" href="class_transition_rule.html">TransitionRule</a> &amp;rule, unsigned int nbEtats, <a class="el" href="class_voisinage.html">Voisinage</a> const &amp;definitionVoisinage, unsigned int buffer=2)</td></tr>
-<tr class="separator:acd17942ae43b8dcc7d4beee17d2da103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af50a5ecce37ce634058c6cd8724f6732"><td class="memItemLeft" align="right" valign="top"><a id="af50a5ecce37ce634058c6cd8724f6732"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CellularAutomata</b> (unsigned int nbEtats, const <a class="el" href="class_etat.html">Etat</a> *dep=nullptr, const <a class="el" href="class_transition_rule.html">TransitionRule</a> *rule=nullptr, const <a class="el" href="class_voisinage.html">Voisinage</a> *definitionVoisinage=nullptr, unsigned int buffer=2)</td></tr>
+<tr class="separator:af50a5ecce37ce634058c6cd8724f6732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ee6a9ee70fccd7987805e3d176fb3e1"><td class="memItemLeft" align="right" valign="top"><a id="a8ee6a9ee70fccd7987805e3d176fb3e1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setEtatDepart</b> (const <a class="el" href="class_etat.html">Etat</a> &amp;dep)</td></tr>
 <tr class="separator:a8ee6a9ee70fccd7987805e3d176fb3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,12 +125,24 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetNombreEtat
 <tr class="memitem:a0cbefb6072fea0aeb9458d81167c84d5"><td class="memItemLeft" align="right" valign="top"><a id="a0cbefb6072fea0aeb9458d81167c84d5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr>
 <tr class="separator:a0cbefb6072fea0aeb9458d81167c84d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75397ff49dc3b2042d922c2da9d7bf85"><td class="memItemLeft" align="right" valign="top"><a id="a75397ff49dc3b2042d922c2da9d7bf85"></a>
+const <a class="el" href="class_transition_rule.html">TransitionRule</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTransition</b> () const</td></tr>
+<tr class="separator:a75397ff49dc3b2042d922c2da9d7bf85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b579ee2708d749ec4073950d3593083"><td class="memItemLeft" align="right" valign="top"><a id="a6b579ee2708d749ec4073950d3593083"></a>
+const <a class="el" href="class_voisinage.html">Voisinage</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getVoisinage</b> () const</td></tr>
+<tr class="separator:a6b579ee2708d749ec4073950d3593083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a894e9aaca0bae53d59494aab600bb11d"><td class="memItemLeft" align="right" valign="top"><a id="a894e9aaca0bae53d59494aab600bb11d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRule</b> (const <a class="el" href="class_transition_rule.html">TransitionRule</a> &amp;rule)</td></tr>
+<tr class="separator:a894e9aaca0bae53d59494aab600bb11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa2d03eaa7b1b5349d67393fcad0a7fa"><td class="memItemLeft" align="right" valign="top"><a id="aaa2d03eaa7b1b5349d67393fcad0a7fa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setVoisinageDefinition</b> (const <a class="el" href="class_voisinage.html">Voisinage</a> &amp;voisinage)</td></tr>
+<tr class="separator:aaa2d03eaa7b1b5349d67393fcad0a7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Fonctions membres privées</h2></td></tr>
-<tr class="memitem:ac087053c4ed0f8989ea2016faa5fbae0"><td class="memItemLeft" align="right" valign="top"><a id="ac087053c4ed0f8989ea2016faa5fbae0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Build</b> (unsigned int c)</td></tr>
-<tr class="separator:ac087053c4ed0f8989ea2016faa5fbae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c57645f11882d3290e6493f4773c3c"><td class="memItemLeft" align="right" valign="top"><a id="ad0c57645f11882d3290e6493f4773c3c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Build</b> (unsigned int indice)</td></tr>
+<tr class="separator:ad0c57645f11882d3290e6493f4773c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>

@@ -379,7 +379,7 @@ void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
 
 void fenetre2D::generationSuivante() //ne change pas par rapport à la fenetre 1D
 {
-    if (simulateur== nullptr )
+    if (simulateur== nullptr || simulateur->getTransition() == nullptr )
     {
             pause();
             QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");

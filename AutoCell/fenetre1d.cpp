@@ -421,7 +421,7 @@ void fenetre1D::afficherDernierEtat()
 
 void fenetre1D::generationSuivante()
 {
-    if (simulateur== nullptr )
+    if (simulateur== nullptr || simulateur->getTransition()==nullptr )
     {
             pause();
             QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");

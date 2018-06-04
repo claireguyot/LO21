@@ -13,8 +13,10 @@ var dir_d12365c4357d765eca6d19a725dd50d7 =
     [ "fenetre1d.h", "fenetre1d_8h_source.html", null ],
     [ "fenetre2d.h", "fenetre2d_8h_source.html", null ],
     [ "fenetreconfig.h", "fenetreconfig_8h_source.html", null ],
+    [ "fichier.h", "fichier_8h_source.html", null ],
     [ "generateuretat.h", "generateuretat_8h_source.html", null ],
     [ "mainwindow.h", "mainwindow_8h_source.html", null ],
+    [ "sauvegarde.h", "sauvegarde_8h_source.html", null ],
     [ "transitionrule.h", "transitionrule_8h_source.html", null ],
     [ "voisinage.h", "voisinage_8h_source.html", null ]
 ];

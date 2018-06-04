@@ -92,9 +92,7 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt><a class="anchor" id="_todo000001"></a>Classe <a class="el" href="class_c_a_builder.html">CABuilder</a>  </dt>
-<dd><p class="startdd">L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps </p>
-<p class="enddd">Accesseur sur les éléments et méthodes permettant de construire les éléments  </p>
-</dd>
+<dd>L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps  </dd>
 <dt><a class="anchor" id="_todo000002"></a>Classe <a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a>  </dt>
 <dd><p class="startdd">L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps </p>
 <p class="enddd">améliorer l'implémentation pour pouvoir gérer la construction de plusieurs automates en même temps On a décidé de mettre un design pattern singleton sur cette classe afin d'être sûr de n'avoir qu'une seule instance du builder pour créer un seul simulateur 1D car notre application ne peut gérer qu'un simulateur 1D à la fois Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de CellularAutomate, ce n'est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement Par exemple: la classe <a class="el" href="class_cellular_automata.html">CellularAutomata</a> construit des <a class="el" href="class_etat.html">Etat</a>. On aurait pu factoriser le code (héritage) des 2 Builder </p>
