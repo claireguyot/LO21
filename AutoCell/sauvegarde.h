@@ -20,7 +20,15 @@ class fichier;
 class fenetre1D;
 class fenetre2D;
 
-class gest_fich : public QWidget
+enum TypeFichier {ETAT, CONFIG};
+
+enum DimType {_1D,_2D};
+
+bool sauvegarde(const CellularAutomata& automate, TypeFichier t, DimType d);
+
+bool chargement(const CellularAutomata& automate, TypeFichier t, DimType d);
+
+/*class gest_fich : public QWidget
 {
 public:
     enum TypeFichier {ETAT, CONFIG};
@@ -55,6 +63,6 @@ public:
 public slots:
     explicit chargement(const fenetre1D& fen, TypeFichier t);
     explicit chargement(const fenetre2D& fen, TypeFichier t);
-};
+};*/
 
 #endif // SAUVEGARDE_H

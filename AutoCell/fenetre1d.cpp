@@ -183,44 +183,35 @@ void fenetre1D::sauverAutomate()
     if(simulateur==nullptr)
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de sauver une config!");
     else
-    {
-        sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
-        s->~sauvegarde();
-    }
+        sauvegarde(*simulateur,CONFIG,_1D);
+
     //play();
 }
 void fenetre1D::chargerAutomate()
 {
     pause();
-
-        chargement* s = new chargement(*this,gest_fich::CONFIG);
-        if(s->getFichier()!=nullptr)
-        {
-            s->~chargement();
-            CABuilder1D &m = CABuilder1D::getInstance();
-            std::string str = m.GetTransitionRule()->getTransition(); //1D,m_rule,m_nbEtats
-            while(str[0]!=',')
-                str.erase(0,1);
+    if(chargement(*simulateur,CONFIG,_1D))
+    {
+        CABuilder1D &m = CABuilder1D::getInstance();
+        std::string str = m.GetTransitionRule()->getTransition(); //1D,m_rule,m_nbEtats
+        while(str[0]!=',')
             str.erase(0,1);
-            while(str[0]!=',')
-                str.erase(0,1);
+        str.erase(0,1);
+        while(str[0]!=',')
             str.erase(0,1);
-            int etatsMax=std::stoi(str);
-            ConstruireAutomate(etatsMax);
-
-        }
-
-   // play();
+        str.erase(0,1);
+        int etatsMax=std::stoi(str);
+        ConstruireAutomate(etatsMax);
+    }
 }
 void fenetre1D::sauverEtat()
 {
     pause();
-    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(this,"erreur","Veuillez générer le simulateur et l'état de départ.");
+    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr)
+        QMessageBox::warning(this,"Erreur","Veuillez générer le simulateur et l'état de départ.");
     else
-    {
-        sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
-        s->~sauvegarde();
-    }
+        sauvegarde(*simulateur,ETAT,_1D);
+
 }
 void fenetre1D::chargerEtat()
 {
@@ -229,10 +220,8 @@ void fenetre1D::chargerEtat()
         QMessageBox::warning(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
     {
-        chargement* s = new chargement(*this,gest_fich::ETAT);
-        if(s->getFichier() != nullptr)
+        if(chargement(*simulateur,ETAT,_1D))
         {
-            s->~chargement();
             CABuilder1D &m = CABuilder1D::getInstance();
             if(m.GetEtatDepart() == nullptr)
             {
@@ -250,9 +239,6 @@ void fenetre1D::chargerEtat()
                 lLongueur->setVisible(false);
                 lLargeur->setVisible(false);
             }
-
-
-
         }
     }
 }
@@ -305,11 +291,6 @@ void fenetre1D::cellActivation(const QModelIndex& index)
     }
     depart->item(index.row(),index.column())->setSelected(false);
 }
-
-/*void lancerSimulation()
-{
-
-}*/
 
 void fenetre1D::buildGrille()
 {

@@ -185,41 +185,32 @@ void fenetre2D::sauverAutomate()
     if(simulateur==nullptr)
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de sauver une config!");
     else
-    {
-        sauvegarde* s = new sauvegarde(*this,gest_fich::CONFIG);
-        s->~sauvegarde();
-    }
-    //play();
+        sauvegarde(*simulateur,CONFIG,_2D);
 }
 void fenetre2D::chargerAutomate()
 {
     pause();
-    if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger une config!");
-    else
-    {
-        chargement* s = new chargement(*this,gest_fich::CONFIG);
-        if(s->getFichier()!=nullptr)
+    /*if(simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger une config!");*/
+    //else
+    //{
+        if(chargement(*simulateur,CONFIG,_2D))
         {
-            s->~chargement();
             CABuilder2D &m = CABuilder2D::getInstance();
             simulateur->setRule(*m.GetTransitionRule());
             simulateur->setVoisinageDefinition(*m.GetVoisinageDefinition());
             //buildGrille();
             //afficherDernierEtat();
         }
-    }
-   // play();
+    //}
 }
 void fenetre2D::sauverEtat()
 {
     pause();
     if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(this,"erreur","Veuillez générer le simulateur et l'état de départ.");
     else
-    {
-        sauvegarde* s = new sauvegarde(*this,gest_fich::ETAT);
-        s->~sauvegarde();
-    }
+        sauvegarde(*simulateur,ETAT,_2D);
+
 }
 void fenetre2D::chargerEtat()
 {
@@ -228,10 +219,8 @@ void fenetre2D::chargerEtat()
         QMessageBox::critical(this,"Erreur","L'automate n'a pas été généré");
     else
     {
-        chargement* s = new chargement(*this,gest_fich::ETAT);
-        if(s->getFichier() != nullptr)
+        if(chargement(*simulateur,ETAT,_2D))
         {
-            s->~chargement();
             CABuilder2D &m = CABuilder2D::getInstance();
             if(m.GetEtatDepart() == nullptr)
             {
