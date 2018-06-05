@@ -17,12 +17,12 @@ public:
 
    unsigned int GetLongueur() const { return m_longueur; }
    unsigned int GetLargeur() const { return m_largeur; }
-   Cell& GetCellule(int i, int j)  {
-       if (i>=m_largeur || i<0 || j< 0 || j>= m_longueur)
+   Cell& GetCellule(unsigned int i, unsigned int j)  {
+       if (i>=m_largeur || j>= m_longueur)
            throw AutomateException("Tentative d'accès à un élément hors grille");
        return m_cellules[i][j];}
-   Cell const& GetCellule(int i, int j) const {
-       if (i>=m_largeur || i<0 || j< 0 || j>= m_longueur)
+   Cell const& GetCellule(unsigned int i, unsigned int j) const {
+       if (i>=m_largeur || j>= m_longueur)
            throw AutomateException("Tentative d'accès à un élément hors grille");
        return m_cellules[i][j];}
    ~Etat();

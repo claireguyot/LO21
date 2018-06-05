@@ -26,7 +26,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     bchoixGenerateur = new QComboBox();
     bchoixGenerateur->addItem("Génération manuelle");
     bchoixGenerateur->addItem("Génération aléatoire");
-    bchoixGenerateur->addItem("Génération aléatoire symétrie axiale");
+    bchoixGenerateur->addItem("Génération aléatoire symétrie axiale verticale");
 
 
 

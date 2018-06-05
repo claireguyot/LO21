@@ -39,15 +39,15 @@ class GameOfLife : public TransitionRule //nombre d'Etats forcément = à 2 !!!!
 {
 public:
     void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
-    GameOfLife(int minVoisinsVivants,int maxVoisinsVivants ) : TransitionRule(), m_minVoisinsVivants(minVoisinsVivants), m_maxVoisinsVivants(maxVoisinsVivants)
+    GameOfLife(unsigned int minVoisinsVivants,unsigned int maxVoisinsVivants ) : TransitionRule(), m_minVoisinsVivants(minVoisinsVivants), m_maxVoisinsVivants(maxVoisinsVivants)
     {
 
     }
     std::string getTransition() const override;
     ~GameOfLife() = default;
 protected:
-    int m_minVoisinsVivants;
-    int m_maxVoisinsVivants;
+    unsigned int m_minVoisinsVivants;
+    unsigned int m_maxVoisinsVivants;
 };
 class FeuForet : public TransitionRule //nombre d'Etats forcément = à 2 !!!!!!!!
 {
