@@ -153,11 +153,11 @@ bool fichierEtat2D::load(const CellularAutomata& automate) //chargement état 2D
 bool fichierConfig1D::save(const CellularAutomata& automate) //sauvegarde config 1D
 {
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
-    /*CABuilder1D &m = CABuilder1D::getInstance();
-    const Voisinage* voi = &m.GetVoisinageDefinition();
-    const TransitionRule* tra = &m.GetTransitionRule();*/ //AVEC CABuilder
-    const Voisinage* voi = automate.getVoisinage();
-    const TransitionRule* tra = automate.getTransition(); //AVEC automate
+    CABuilder1D &m = CABuilder1D::getInstance();
+    const Voisinage* voi = m.GetVoisinageDefinition();
+    const TransitionRule* tra = m.GetTransitionRule(); //AVEC CABuilder
+    /*const Voisinage* voi = automate.getVoisinage();
+    const TransitionRule* tra = automate.getTransition();*/ //AVEC automate
     if(voi!=nullptr)
     {
         f << "voisinage," << voi->getType() << "," << voi->GetOrdre();
@@ -175,11 +175,11 @@ bool fichierConfig1D::save(const CellularAutomata& automate) //sauvegarde config
 bool fichierConfig2D::save(const CellularAutomata& automate) //sauvegarde config 2D
 {
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
-    /*CABuilder2D &m = CABuilder2D::getInstance();
-    const Voisinage* voi = &m.GetVoisinageDefinition();
-    const TransitionRule* tra = &m.GetTransitionRule();*/ //AVEC CABuilder
-    const Voisinage* voi = automate.getVoisinage();
-    const TransitionRule* tra = automate.getTransition(); //AVEC automate
+    CABuilder2D &m = CABuilder2D::getInstance();
+    const Voisinage* voi = m.GetVoisinageDefinition();
+    const TransitionRule* tra = m.GetTransitionRule(); //AVEC CABuilder
+    /*const Voisinage* voi = automate.getVoisinage();
+    const TransitionRule* tra = automate.getTransition();*/ //AVEC automate
     if(voi!=nullptr)
     {
         f << "voisinage," << voi->getType() << "," << voi->GetOrdre();
@@ -194,7 +194,7 @@ bool fichierConfig2D::save(const CellularAutomata& automate) //sauvegarde config
     return true;
 }
 
-bool fichierConfig1D::load(const CellularAutomata& automate) //chargement config 1D //argument pas nécessaire
+bool fichierConfig1D::load(const CellularAutomata &automate) //chargement config 1D //argument pas nécessaire
 {
     f.open(nomF,std::ofstream::in);
     CABuilder1D &m = CABuilder1D::getInstance();
@@ -229,6 +229,8 @@ bool fichierConfig1D::load(const CellularAutomata& automate) //chargement config
     a=std::stoi(mot);
     m.BuildVoisinageDef(a);
 
+    f.getline(st,TAILLE_BUF,',');
+    mot = st;
     if(mot != "transition")
     {
         QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
@@ -315,6 +317,9 @@ bool fichierConfig2D::load(const CellularAutomata& automate) //chargement config
         f.close();
         return false;
     }
+
+    f.getline(st,TAILLE_BUF,',');
+    mot = st;
     if(mot != "transition")
     {
         QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");

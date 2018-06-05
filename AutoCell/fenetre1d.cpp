@@ -184,8 +184,6 @@ void fenetre1D::sauverAutomate()
         QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de sauver une config!");
     else
         sauvegarde(*simulateur,CONFIG,_1D);
-
-    //play();
 }
 void fenetre1D::chargerAutomate()
 {

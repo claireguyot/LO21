@@ -190,24 +190,25 @@ void fenetre2D::sauverAutomate()
 void fenetre2D::chargerAutomate()
 {
     pause();
-    /*if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger une config!");*/
-    //else
-    //{
-        if(chargement(*simulateur,CONFIG,_2D))
-        {
-            CABuilder2D &m = CABuilder2D::getInstance();
-            simulateur->setRule(*m.GetTransitionRule());
-            simulateur->setVoisinageDefinition(*m.GetVoisinageDefinition());
-            //buildGrille();
-            //afficherDernierEtat();
-        }
-    //}
+    if(chargement(*simulateur,CONFIG,_2D))
+    {
+        CABuilder2D &m = CABuilder2D::getInstance();
+        std::string str = m.GetTransitionRule()->getTransition(); //1D,m_rule,m_nbEtats
+        while(str[0]!=',')
+            str.erase(0,1);
+        str.erase(0,1);
+        while(str[0]!=',')
+            str.erase(0,1);
+        str.erase(0,1);
+        int etatsMax=std::stoi(str);
+        ConstruireAutomate(etatsMax);
+    }
 }
 void fenetre2D::sauverEtat()
 {
     pause();
-    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr) QMessageBox::warning(this,"erreur","Veuillez générer le simulateur et l'état de départ.");
+    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr)
+        QMessageBox::warning(this,"erreur","Veuillez générer le simulateur et l'état de départ.");
     else
         sauvegarde(*simulateur,ETAT,_2D);
 
