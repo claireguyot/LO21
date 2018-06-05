@@ -1,7 +1,95 @@
 #include "sauvegarde.h"
 #include <QDebug>
 
-sauvegarde::sauvegarde(const fenetre1D& fen, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
+bool sauvegarde(const CellularAutomata& automate, TypeFichier t, DimType d)
+{
+    fichier *f = nullptr;
+    QString nomDoc;
+    if(d == _1D)
+    {
+        if(t==ETAT)
+        {
+            nomDoc = QFileDialog::getSaveFileName(nullptr,"Nouveau.bn","","*.bn");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierEtat1D(nomDoc.toStdString());
+        }
+        else if(t==CONFIG)
+        {
+            nomDoc = QFileDialog::getSaveFileName(nullptr,"Nouveau.csv","","*.csv");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierConfig1D(nomDoc.toStdString());
+        }
+    }
+    else
+    {
+        if(t==ETAT)
+        {
+            nomDoc = QFileDialog::getSaveFileName(nullptr,"Nouveau.bn","","*.bn");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierEtat2D(nomDoc.toStdString());
+        }
+        else if(t==CONFIG)
+        {
+            nomDoc = QFileDialog::getSaveFileName(nullptr,"Nouveau.csv","","*.csv");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierConfig2D(nomDoc.toStdString());
+        }
+    }
+
+    if(f != nullptr)
+    {
+        if(f->save(automate)) return true;
+        else return false;
+    }
+    else
+        return false;
+}
+
+bool chargement(const CellularAutomata& automate, TypeFichier t, DimType d)
+{
+    fichier *f = nullptr;
+    QString nomDoc;
+    if(d == _1D)
+    {
+        if(t==ETAT)
+        {
+            nomDoc = QFileDialog::getOpenFileName(nullptr,"Nouveau.bn","","*.bn");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierEtat1D(nomDoc.toStdString());
+        }
+        else if(t==CONFIG)
+        {
+            nomDoc = QFileDialog::getOpenFileName(nullptr,"Nouveau.csv","","*.csv");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierConfig1D(nomDoc.toStdString());
+        }
+    }
+    else
+    {
+        if(t==ETAT)
+        {
+            nomDoc = QFileDialog::getOpenFileName(nullptr,"Nouveau.bn","","*.bn");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierEtat2D(nomDoc.toStdString());
+        }
+        else if(t==CONFIG)
+        {
+            nomDoc = QFileDialog::getOpenFileName(nullptr,"Nouveau.csv","","*.csv");
+            if(!nomDoc.isNull() && !nomDoc.isEmpty())
+                f = new fichierConfig2D(nomDoc.toStdString());
+        }
+    }
+
+    if(f != nullptr)
+    {
+        if(f->load(automate)) return true;
+        else return false;
+    }
+    else
+        return false;
+}
+
+/*sauvegarde::sauvegarde(const fenetre1D& fen, TypeFichier t) //fonction de sauvegarde de l'état : fait appel à la classe fichier
 {
     f=nullptr;
     QString nomDoc;
@@ -107,5 +195,5 @@ chargement::~chargement()
     if(f!=nullptr)
         delete f;
     f=nullptr;
-}
+}*/
 
