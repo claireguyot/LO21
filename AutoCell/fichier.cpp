@@ -40,11 +40,18 @@ bool fichierEtat2D::save(const CellularAutomata& automate) //sauvegarde d'un ét
     return true;
 }
 
-bool fichierEtat1D::load(const CellularAutomata& automate) //chargement état 1D //argument pas nécessaire si CABuilder
+bool fichierEtat1D::load(const CellularAutomata* automate) //chargement état 1D //argument pas nécessaire si CABuilder
 {
     f.open(nomF,std::ofstream::in);
+    if(f.is_open()==false)
+        return false;
+
     unsigned int longueur=0,largeur=1;
-    unsigned int etatMax = automate.GetNombreEtats()-1;
+    int etatMax;
+    if(automate==nullptr)
+        etatMax = -1; //il n'y a pas d'état max prédéfini à priori
+    else
+        etatMax = automate->GetNombreEtats()-1;
     char numEtat;
     std::vector<int> elements(longueur);
 
@@ -61,7 +68,7 @@ bool fichierEtat1D::load(const CellularAutomata& automate) //chargement état 1D
 
         else
         {
-            if(numEtat-'0'>etatMax)
+            if(etatMax >=0 && numEtat-'0'>etatMax)
                 elements.push_back(etatMax);
             else
                 elements.push_back(numEtat-'0');
@@ -90,12 +97,19 @@ bool fichierEtat1D::load(const CellularAutomata& automate) //chargement état 1D
     return true;
 }
 
-bool fichierEtat2D::load(const CellularAutomata& automate) //chargement état 2D //idem pour argument
+bool fichierEtat2D::load(const CellularAutomata* automate) //chargement état 2D //idem pour argument
 {
     f.open(nomF,std::ofstream::in);
+    if(f.is_open()==false)
+        return false;
+
     int longueur=0,largeur=0, longPrec=0;
     char numEtat;
-    unsigned int etatMax = automate.GetNombreEtats()-1;
+    int etatMax;
+    if(automate==nullptr)
+        etatMax = -1; //il n'y a pas d'état max prédéfini à priori
+    else
+        etatMax = automate->GetNombreEtats()-1;
     std::vector<int> elements(longueur);
     f.read(&numEtat,1);
     while(f.eof() == false)
@@ -121,7 +135,7 @@ bool fichierEtat2D::load(const CellularAutomata& automate) //chargement état 2D
         }
         else
         {
-            if(numEtat-'0'>etatMax)
+            if(etatMax >= 0 && numEtat-'0'>etatMax)
                 elements.push_back(etatMax);
             else
                 elements.push_back(numEtat-'0');
@@ -194,9 +208,12 @@ bool fichierConfig2D::save(const CellularAutomata& automate) //sauvegarde config
     return true;
 }
 
-bool fichierConfig1D::load(const CellularAutomata &automate) //chargement config 1D //argument pas nécessaire
+bool fichierConfig1D::load(const CellularAutomata* automate) //chargement config 1D //argument pas nécessaire
 {
     f.open(nomF,std::ofstream::in);
+    if(f.is_open()==false)
+        return false;
+
     CABuilder1D &m = CABuilder1D::getInstance();
     std::string mot, rule;
     char st[TAILLE_BUF];
@@ -204,72 +221,69 @@ bool fichierConfig1D::load(const CellularAutomata &automate) //chargement config
     a=0;
     f.getline(st,TAILLE_BUF,',');
     mot = st;
-    if(mot!="voisinage")
+    if(mot=="voisinage")
     {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
-    }
-    f.getline(st,TAILLE_BUF,','); //voisinage1D, VonNeumann ou Moore
-    mot = st;
-    if(mot != "voisinage1D")
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 2D.");
-        f.close();
-        return false;
-    }
-    f.getline(st,TAILLE_BUF,','); //ordre
-    mot = st;
-    if(mot=="")
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
-    }
-    a=std::stoi(mot);
-    m.BuildVoisinageDef(a);
+        f.getline(st,TAILLE_BUF,','); //voisinage1D, VonNeumann ou Moore
+        mot = st;
+        if(mot != "voisinage1D")
+        {
+            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 2D.");
+            f.close();
+            return false;
+        }
+        f.getline(st,TAILLE_BUF,','); //ordre
+        mot = st;
+        if(mot=="")
+        {
+            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+            f.close();
+            return false;
+        }
+        a=std::stoi(mot);
+        m.BuildVoisinageDef(a);
 
-    f.getline(st,TAILLE_BUF,',');
-    mot = st;
-    if(mot != "transition")
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
+        f.getline(st,TAILLE_BUF,',');
+        mot = st;
     }
-    f.getline(st,TAILLE_BUF,',');
-    mot = st;
-    if(mot != "1D")
+    if(mot == "transition")
     {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 2D.");
-        f.close();
-        return false;
+        f.getline(st,TAILLE_BUF,',');
+        mot = st;
+        if(mot != "1D")
+        {
+            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 2D.");
+            f.close();
+            return false;
+        }
+        f.getline(st,TAILLE_BUF,',');//m_rule
+        rule = st;
+        if(rule=="")
+        {
+            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+            f.close();
+            return false;
+        }
+        f.getline(st,TAILLE_BUF,',');//m_nbEtats
+        mot = st;
+        if(mot=="")
+        {
+            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+            f.close();
+            return false;
+        }
+        a=std::stoi(mot);
+        m.BuildElementaryRule(rule,a);
     }
-    f.getline(st,TAILLE_BUF,',');//m_rule
-    rule = st;
-    if(rule=="")
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
-    }
-    f.getline(st,TAILLE_BUF,',');//m_nbEtats
-    mot = st;
-    if(mot=="")
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
-    }
-    a=std::stoi(mot);
-    m.BuildElementaryRule(rule,a);
     f.close();
     return true;
 }
 
-bool fichierConfig2D::load(const CellularAutomata& automate) //chargement config 2D //argument pas nécessaire
+bool fichierConfig2D::load(const CellularAutomata *automate) //chargement config 2D //argument pas nécessaire
 {
     f.open(nomF,std::ofstream::in);
+    if(f.is_open()==false)
+        return false;
+
     CABuilder2D &m = CABuilder2D::getInstance();
     std::string mot, rule, mode;
     char st[TAILLE_BUF];
@@ -277,97 +291,91 @@ bool fichierConfig2D::load(const CellularAutomata& automate) //chargement config
 
     f.getline(st,TAILLE_BUF,',');
     mot = st;
-    if(mot != "voisinage")
+    if(mot == "voisinage")
     {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
-    }
-    f.getline(st,TAILLE_BUF,','); //voisinage1D, VonNeumann ou Moore
-    mot = st;
-    if(mot == "VonNeumann")
-    {
-        f.getline(st,TAILLE_BUF,','); //ordre
+        f.getline(st,TAILLE_BUF,','); //voisinage1D, VonNeumann ou Moore
         mot = st;
-        if(mot=="")
+        if(mot == "VonNeumann")
         {
-            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+            f.getline(st,TAILLE_BUF,','); //ordre
+            mot = st;
+            if(mot=="")
+            {
+                QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+                f.close();
+                return false;
+            }
+            a=std::stoi(mot);
+            m.BuildVoisinageVonNeumann(a);
+        }
+        else if(mot == "Moore")
+        {
+            f.getline(st,TAILLE_BUF,','); //ordre
+            mot = st;
+            if(mot=="")
+            {
+                QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+                f.close();
+                return false;
+            }
+            a=std::stoi(mot);
+            m.BuildVoisinageMoore(a);
+        }
+        else
+        {
+            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 1D.");
             f.close();
             return false;
         }
-        a=std::stoi(mot);
-        m.BuildVoisinageVonNeumann(a);
-    }
-    else if(mot == "Moore")
-    {
-        f.getline(st,TAILLE_BUF,','); //ordre
-        mot = st;
-        if(mot=="")
-        {
-            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-            f.close();
-            return false;
-        }
-        a=std::stoi(mot);
-        m.BuildVoisinageMoore(a);
-    }
-    else
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 1D.");
-        f.close();
-        return false;
-    }
 
-    f.getline(st,TAILLE_BUF,',');
-    mot = st;
-    if(mot != "transition")
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
-    }
-    a=0,b=0;
-    f.getline(st,TAILLE_BUF,',');
-    mot = st;
-    if(mot != "2D")
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 1D.");
-        f.close();
-        return false;
-    }
-    f.getline(st,TAILLE_BUF,',');//GameOfLife ou FeuForet
-    mode = st;
-    if(mode == "GameOfLife")
-    {
-        f.getline(st,TAILLE_BUF,',');//m_minVoisinsVivants
+        f.getline(st,TAILLE_BUF,',');
         mot = st;
-        if(mot=="")
+    }
+    if(mot == "transition")
+    {
+        a=0,b=0;
+        f.getline(st,TAILLE_BUF,',');
+        mot = st;
+        if(mot != "2D")
+        {
+            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier est une configuration 1D.");
+            f.close();
+            return false;
+        }
+        f.getline(st,TAILLE_BUF,',');//GameOfLife ou FeuForet
+        mode = st;
+        if(mode == "GameOfLife")
+        {
+            f.getline(st,TAILLE_BUF,',');//m_minVoisinsVivants
+            mot = st;
+            if(mot=="")
+            {
+                QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+                f.close();
+                return false;
+            }
+            a=std::stoi(mot);
+            f.getline(st,TAILLE_BUF,',');//m_maxVoisinsVivants
+            mot = st;
+            if(mot=="")
+            {
+                QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+                f.close();
+                return false;
+            }
+            b=std::stoi(mot);
+            m.BuildGameOfLife(a,b);
+        }
+        else if(mode == "FeuForet")
+        {
+            m.BuildFeuForet();
+        }
+        else
         {
             QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
             f.close();
             return false;
         }
-        a=std::stoi(mot);
-        f.getline(st,TAILLE_BUF,',');//m_maxVoisinsVivants
-        mot = st;
-        if(mot=="")
-        {
-            QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-            f.close();
-            return false;
-        }
-        b=std::stoi(mot);
-        m.BuildGameOfLife(a,b);
-    }
-    else if(mode == "FeuForet")
-    {
-        m.BuildFeuForet();
-    }
-    else
-    {
-        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
-        f.close();
-        return false;
     }
     f.close();
     return true;

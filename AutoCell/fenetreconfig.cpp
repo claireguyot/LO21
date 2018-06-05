@@ -1,5 +1,8 @@
 #include "fenetreconfig.h"
+#include "fichier.h"
+
 const unsigned int fenetreElementaryRule::m_ordreVoisinage = 1;
+
 fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(parent)
 {
     m_nombreEtats = new QSpinBox(this);

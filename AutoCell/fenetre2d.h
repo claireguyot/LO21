@@ -80,7 +80,7 @@ private slots:
     void chargerAutomate();
     void sauverEtat();
     void chargerEtat();
-    void ConstruireAutomate(int nbEtats);
+    void ConstruireAutomate(int nbEtats=-1);
 
 private:
     void afficherDernierEtat();

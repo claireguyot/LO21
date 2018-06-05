@@ -192,16 +192,7 @@ void fenetre2D::chargerAutomate()
     pause();
     if(chargement(*simulateur,CONFIG,_2D))
     {
-        CABuilder2D &m = CABuilder2D::getInstance();
-        std::string str = m.GetTransitionRule()->getTransition(); //1D,m_rule,m_nbEtats
-        while(str[0]!=',')
-            str.erase(0,1);
-        str.erase(0,1);
-        while(str[0]!=',')
-            str.erase(0,1);
-        str.erase(0,1);
-        int etatsMax=std::stoi(str);
-        ConstruireAutomate(etatsMax);
+        ConstruireAutomate();
     }
 }
 void fenetre2D::sauverEtat()
@@ -426,6 +417,7 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
         simulateur = nullptr;
     }
     CABuilder2D& builder = CABuilder2D::getInstance();
+    if(nbEtats<0) nbEtats = builder.GetTransitionRule()->getNbEtats();
     simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
     bLongueur->setVisible(true);
@@ -551,6 +543,13 @@ void fenetre2D::saveConfig() //change par rapport à fenetre 1D
 
     configFeuForet->saveConfig();
     configGameOfLife->saveConfig();
+
+    fichierEtat2D f("dEtatGen2D.bn");
+    if(simulateur!=nullptr && simulateur->getEtatDepart()!=nullptr)
+        f.save(*simulateur);
+    fichierConfig2D f2("dConfigGen2D.csv");
+    if(simulateur!=nullptr)
+        f2.save(*simulateur);
 }
 
 void fenetre2D::loadConfig() //change par rapport à fenetre 1D
@@ -566,7 +565,25 @@ void fenetre2D::loadConfig() //change par rapport à fenetre 1D
     bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
     settings.endGroup();
 
+    fichierConfig2D f2("dConfigGen2D.csv");
+    if(f2.load(simulateur)) //on charge le simulateur
+    {
+        ConstruireAutomate(); //on peut construire un automate
+        fichierEtat2D f("dEtatGen2D.bn");
+        if(f.load(simulateur)) //on charge le premier état
+        {
+            CABuilder2D &m = CABuilder2D::getInstance();
+            bLongueur->setValue(m.GetEtatDepart()->GetLongueur()); //on met le premier état
+            simulateur->setEtatDepart(*m.GetEtatDepart());
+            buildGrille();
 
+            afficherDernierEtat();
+            bLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLongueur->setVisible(false);
+            lLargeur->setVisible(false);
+        }
+    }
 }
 
 void fenetre2D::UpdateInfo() //change par rapport à fenetre 1D

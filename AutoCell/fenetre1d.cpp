@@ -190,16 +190,7 @@ void fenetre1D::chargerAutomate()
     pause();
     if(chargement(*simulateur,CONFIG,_1D))
     {
-        CABuilder1D &m = CABuilder1D::getInstance();
-        std::string str = m.GetTransitionRule()->getTransition(); //1D,m_rule,m_nbEtats
-        while(str[0]!=',')
-            str.erase(0,1);
-        str.erase(0,1);
-        while(str[0]!=',')
-            str.erase(0,1);
-        str.erase(0,1);
-        int etatsMax=std::stoi(str);
-        ConstruireAutomate(etatsMax);
+        ConstruireAutomate();
     }
 }
 void fenetre1D::sauverEtat()
@@ -454,7 +445,7 @@ void fenetre1D::ConstruireAutomate(int nbEtats)
         simulateur = nullptr;
     }
     CABuilder1D& builder = CABuilder1D::getInstance();
-
+    if(nbEtats<0) nbEtats=builder.GetTransitionRule()->getNbEtats();
     simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
     bLongueur->setVisible(true);
@@ -576,6 +567,13 @@ void fenetre1D::saveConfig()
     settings.endGroup();
 
     configElementaryRule->saveConfig();
+
+    fichierEtat1D f("dEtatGen1D.bn");
+    if(simulateur!=nullptr && simulateur->getEtatDepart()!=nullptr)
+        f.save(*simulateur);
+    fichierConfig1D f2("dConfigGen1D.csv");
+    if(simulateur!=nullptr)
+        f2.save(*simulateur);
 }
 
 void fenetre1D::loadConfig()
@@ -590,6 +588,27 @@ void fenetre1D::loadConfig()
     bLongueur->setValue(settings.value("LongueurGrille",bLongueur->value()).toInt());
     bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
     settings.endGroup();
+
+    fichierConfig1D f2("dConfigGen1D.csv");
+    if(f2.load(simulateur)) //on charge le simulateur
+    {
+        ConstruireAutomate(); //on peut construire un automate
+        fichierEtat1D f("dEtatGen1D.bn");
+        if(f.load(simulateur)) //on charge le premier état
+        {
+            CABuilder1D &m = CABuilder1D::getInstance();
+            bLongueur->setValue(m.GetEtatDepart()->GetLongueur()); //on met le premier état
+            simulateur->setEtatDepart(*m.GetEtatDepart());
+            buildGrille();
+
+            afficherDernierEtat();
+            bLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLongueur->setVisible(false);
+            lLargeur->setVisible(false);
+        }
+    }
+
 }
 
 void fenetre1D::UpdateInfo()

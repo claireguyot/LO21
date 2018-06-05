@@ -84,7 +84,7 @@ private slots:
     void chargerEtat();
 
 //public slots:
-    void ConstruireAutomate(int nbEtats);
+    void ConstruireAutomate(int nbEtats=-1);
 private:
     void afficherDernierEtat();
     void ConstructionManuelle();

@@ -38,8 +38,16 @@ bool sauvegarde(const CellularAutomata& automate, TypeFichier t, DimType d)
 
     if(f != nullptr)
     {
-        if(f->save(automate)) return true;
-        else return false;
+        if(f->save(automate))
+        {
+            delete f;
+            return true;
+        }
+        else
+        {
+            delete f;
+            return false;
+        }
     }
     else
         return false;
@@ -82,8 +90,16 @@ bool chargement(const CellularAutomata& automate, TypeFichier t, DimType d)
 
     if(f != nullptr)
     {
-        if(f->load(automate)) return true;
-        else return false;
+        if(f->load(&automate))
+        {
+            delete f;
+            return true;
+        }
+        else
+        {
+            delete f;
+            return false;
+        }
     }
     else
         return false;
