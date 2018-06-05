@@ -8,7 +8,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
      * /!\ pas de besoin de mettre this quand on construit les widgets car les layout s'occupent des relations de parenté grâce aux méthodes addWidget, addLayout, setLayout
      */
 
-    bGenererEtat = new QPushButton("Générer état",this);
+
 
     bChargerEtat = new QPushButton("Charger état",this);
     bLargeur = new QSpinBox(this);
@@ -38,12 +38,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     menuSuperieur->addWidget(bLongueur);
 
 
-
-
-
-
-
-
+    bGenererEtat = new QPushButton("Générer état",this);
 
 
     grille  = new QTableWidget(this);
@@ -68,8 +63,6 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
 
 
 
-
-
     // Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
 
 
@@ -81,6 +74,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     bRetourDepart = new QPushButton("Retour départ");
     bNextFrame = new QPushButton("Prochain état");
     bSelectVitesse = new QSpinBox();
+    bSelectVitesse->setSuffix(" s");
     bSelectVitesse->setRange(1,50);
     bSelectVitesse->setValue(2);
 
@@ -92,6 +86,16 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     menuInferieur->addWidget(bPause);
     menuInferieur->addWidget(bStart);
     menuInferieur->addWidget(bSelectVitesse);
+
+    /*
+     * layout menu droit
+     */
+    QVBoxLayout* layout = new QVBoxLayout();
+
+    layout->addLayout(menuSuperieur);
+    layout->addWidget(bGenererEtat);
+    layout->addWidget(grille);
+    layout->addLayout(menuInferieur);
 
     /*
      * Menu de gauche : choix des règles
@@ -117,29 +121,28 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     bSauvegarderAutomate = new QPushButton("Sauvegarder automate");
     bChargerAutomate = new QPushButton("Charger automate");
 
+
     QHBoxLayout* menuAutomate = new QHBoxLayout();
 
     menuAutomate->addWidget(bGenererAutomate);
     menuAutomate->addWidget(bSauvegarderAutomate);
     menuAutomate->addWidget(bChargerAutomate);
 
+    m_info = new QLabel(this);
+    UpdateInfo();
+
     QVBoxLayout* menuGauche = new QVBoxLayout();
+
+
+
 
     menuGauche->addWidget(choixAutomate);
     menuGauche->addWidget(automates);
-
     menuGauche->addLayout(menuAutomate);
+    menuGauche->addWidget(m_info);
 
 
-    /*
-     * layout menu droit
-     */
-    QVBoxLayout* layout = new QVBoxLayout();
 
-    layout->addLayout(menuSuperieur);
-    layout->addWidget(bGenererEtat);
-    layout->addWidget(grille);
-    layout->addLayout(menuInferieur);
 
 
 
@@ -172,6 +175,8 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
     connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
+    loadConfig();
+
 }
 
 void fenetre2D::sauverAutomate()
@@ -192,8 +197,8 @@ void fenetre2D::chargerAutomate()
         if(chargement(*simulateur,CONFIG,_2D))
         {
             CABuilder2D &m = CABuilder2D::getInstance();
-            simulateur->setRule(m.GetTransitionRule());
-            simulateur->setVoisinageDefinition(m.GetVoisinageDefinition());
+            simulateur->setRule(*m.GetTransitionRule());
+            simulateur->setVoisinageDefinition(*m.GetVoisinageDefinition());
             //buildGrille();
             //afficherDernierEtat();
         }
@@ -210,25 +215,29 @@ void fenetre2D::sauverEtat()
 void fenetre2D::chargerEtat()
 {
     pause();
-    if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    if(simulateur==nullptr || simulateur->getTransition() == nullptr)
+        QMessageBox::critical(this,"Erreur","L'automate n'a pas été généré");
     else
     {
         if(chargement(*simulateur,ETAT,_2D))
         {
             CABuilder2D &m = CABuilder2D::getInstance();
-            bLongueur->setValue(m.GetEtatDepart().GetLongueur());
-            simulateur->setEtatDepart(m.GetEtatDepart());
-            buildGrille();
+            if(m.GetEtatDepart() == nullptr)
+            {
+                QMessageBox::warning(0,"Erreur","Aucun état n'a été chargé.");
+            }
+            else
+            {
+                bLongueur->setValue(m.GetEtatDepart()->GetLongueur());
+                simulateur->setEtatDepart(*m.GetEtatDepart());
+                buildGrille();
 
-            afficherDernierEtat();
-            bLongueur->setVisible(false);
-            bLargeur->setVisible(false);
-            lLongueur->setVisible(false);
-            lLargeur->setVisible(false);
-
-            //simulateur->setEtatDepart(m.GetEtatDepart()); //bug ici quand on charge deux fichiers différents d'affilée sans avoir générer d'Etat avec l'appli
-
+                afficherDernierEtat();
+                bLongueur->setVisible(false);
+                bLargeur->setVisible(false);
+                lLongueur->setVisible(false);
+                lLargeur->setVisible(false);
+            }
         }
     }
 }
@@ -306,7 +315,7 @@ void fenetre2D::buildGrille() //changer par rapport à fenetre1D
      for(unsigned int j = 0;j<bLargeur->value();j++)
      {
          if(i==0) grille->setRowHeight(j,tailleLargeur);
-         grille->setItem(j,i,new QTableWidgetItem("0"));
+         grille->setItem(j,i,new QTableWidgetItem(""));
          grille->item(j,i)->setBackgroundColor("white");
          grille->item(j,i)->setTextColor("white");
      }
@@ -346,9 +355,11 @@ void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
                 grille->item(cellule.GetX(),cellule.GetY())->setTextColor("red");
             break;
             default:
-                grille->item(cellule.GetX(),cellule.GetY())->setText("0");
-                grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("white");
-                grille->item(cellule.GetX(),cellule.GetY())->setTextColor("white");
+                std::stringstream flux;
+                flux << cellule.GetEtat();
+                grille->item(0,cellule.GetY())->setText(flux.str().c_str());
+                grille->item(0,cellule.GetY())->setBackgroundColor("white");
+                grille->item(0,cellule.GetY())->setTextColor("white");
             }
         }
     }
@@ -357,7 +368,7 @@ void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
 
 void fenetre2D::generationSuivante() //ne change pas par rapport à la fenetre 1D
 {
-    if (simulateur== nullptr )
+    if (simulateur== nullptr || simulateur->getTransition() == nullptr )
     {
             pause();
             QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
@@ -414,7 +425,7 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
         simulateur = nullptr;
     }
     CABuilder2D& builder = CABuilder2D::getInstance();
-    simulateur = new CellularAutomata(nbEtats,nullptr,&(builder.GetTransitionRule()),&(builder.GetVoisinageDefinition()));
+    simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
     bLongueur->setVisible(true);
     lLongueur->setVisible(true);
@@ -422,7 +433,9 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
     lLargeur->setVisible(true);
 
     buildGrille();
-
+    if(simulateur->getTransition() == nullptr)
+            QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
+    UpdateInfo();
 
 }
 
@@ -430,18 +443,15 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
 {
 
 
-    if(simulateur == nullptr)
+    if(simulateur == nullptr || simulateur->getTransition() == nullptr)
     {
-        QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
+        QMessageBox::warning(0,"erreur","L'automate n'est pas généré !");
     }
     else
     {
         CABuilder2D& builder = CABuilder2D::getInstance();
         pause();
-        bLongueur->setVisible(false);
-        lLongueur->setVisible(false);
-        bLargeur->setVisible(false);
-        lLargeur->setVisible(false);
+
 
         switch(bchoixGenerateur->currentIndex())
         {
@@ -451,17 +461,29 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
             break;
         case 1:
             builder.BuildGenerateurEtatRandom();
-            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         case 2:
             builder.BuildGenerateurEtatSymetrieAxeVertical();
-            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         }
-        buildGrille();
 
-        simulateur->setEtatDepart(builder.GetEtatDepart());
-        afficherDernierEtat();
+        const Etat* etatDep = builder.GetEtatDepart();
+        if (etatDep == nullptr)
+            QMessageBox::warning(0,"Erreur","Erreur dans la création du dernier état.");
+        else
+        {
+            bLongueur->setVisible(false);
+            lLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLargeur->setVisible(false);
+
+            buildGrille();
+            simulateur->setEtatDepart((*builder.GetEtatDepart()));
+            afficherDernierEtat();
+        }
+
 
     }
 }
@@ -508,7 +530,57 @@ void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
     delete[] etats;
 }
 
-const CellularAutomata* fenetre2D::getSimulateur() const
+const CellularAutomata* fenetre2D::getSimulateur() const //pareil que fenetre1D
 {
     return simulateur;
+}
+
+void fenetre2D::saveConfig() //change par rapport à fenetre 1D
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("2DWindow");
+
+    settings.setValue("AutomataChoice",choixAutomate->currentIndex());
+    settings.setValue("GeneratorChoice",bchoixGenerateur->currentIndex());
+    settings.setValue("LargeurGrille",bLargeur->value());
+    settings.setValue("LongueurGrille",bLongueur->value());
+    settings.setValue("Timer",bSelectVitesse->value());
+    settings.endGroup();
+
+    configFeuForet->saveConfig();
+    configGameOfLife->saveConfig();
+}
+
+void fenetre2D::loadConfig() //change par rapport à fenetre 1D
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("2DWindow");
+
+    choixAutomate->setCurrentIndex(settings.value("AutomataChoice",choixAutomate->currentIndex()).toInt());
+    bchoixGenerateur->setCurrentIndex(settings.value("GeneratorChoice",choixAutomate->currentIndex()).toInt());
+    bLargeur->setValue(settings.value("LargeurGrille",bLargeur->value()).toInt());
+    bLongueur->setValue(settings.value("LongueurGrille",bLongueur->value()).toInt());
+    bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
+    settings.endGroup();
+
+
+}
+
+void fenetre2D::UpdateInfo() //change par rapport à fenetre 1D
+{
+    std::stringstream flux;
+    if (simulateur == nullptr || simulateur->getTransition()==nullptr)
+        flux << "Aucun automate généré";
+    else
+    {
+        flux <<"Automate généré: "<< simulateur->getTransition()->getTransition();
+
+
+        if(simulateur->getVoisinage() != nullptr)
+            flux << "\nVoisinage : "<< simulateur->getVoisinage()->getType() << ", ordre : " << simulateur->getVoisinage()->GetOrdre();
+
+    }
+    m_info->setText(QString(flux.str().c_str()));
 }

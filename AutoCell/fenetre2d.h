@@ -20,7 +20,8 @@
 #include "sauvegarde.h"
 #include <QTimer>
 #include <QDesktopWidget>
-
+#include <QSettings>
+#include <sstream>
 
 
 class fenetre2D : public QWidget{
@@ -53,6 +54,7 @@ class fenetre2D : public QWidget{
     CellularAutomata* simulateur;
 
     QTimer* m_timer;
+    QLabel* m_info;
 
 
 public:
@@ -62,6 +64,8 @@ public:
         delete simulateur;
     }
     const CellularAutomata* getSimulateur() const;
+    void loadConfig();
+    void saveConfig();
 
 private slots:
     void cellActivation(const QModelIndex& index);
@@ -76,11 +80,11 @@ private slots:
     void chargerAutomate();
     void sauverEtat();
     void chargerEtat();
-
-public slots:
     void ConstruireAutomate(int nbEtats);
+
 private:
     void afficherDernierEtat();
     void ConstructionManuelle();
+    void UpdateInfo();
 };
 #endif // fenetre2D_H

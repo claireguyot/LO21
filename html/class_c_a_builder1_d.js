@@ -8,5 +8,6 @@ var class_c_a_builder1_d =
     [ "BuildEtatDepart", "class_c_a_builder1_d.html#a0a274571cddf774bd67fc786dcf1684c", null ],
     [ "BuildEtatDepart", "class_c_a_builder1_d.html#a77fa7941654a3c41d68df447b1fd7e5f", null ],
     [ "BuildVoisinageDef", "class_c_a_builder1_d.html#aa82356e955ae82df3eec34cbb8b47758", null ],
-    [ "operator=", "class_c_a_builder1_d.html#a3fdf59ff606ba76be957049bc52f79cf", null ]
+    [ "operator=", "class_c_a_builder1_d.html#a3fdf59ff606ba76be957049bc52f79cf", null ],
+    [ "m_nbEtats", "class_c_a_builder1_d.html#a50193db158de49187b1a377fcbff6250", null ]
 ];

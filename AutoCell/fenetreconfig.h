@@ -12,6 +12,7 @@
 #include <QLabel>
 #include <QComboBox>
 #include <sstream>
+#include <QSettings>
 #include "cabuilder.h"
 
 class fenetreConfig : public QWidget
@@ -28,6 +29,8 @@ public:
     {
 
     }
+    virtual void loadConfig() = 0;
+    virtual void saveConfig() = 0;
 
 signals:
     void configConstruite(int) const;
@@ -55,6 +58,9 @@ public:
     {
 
     }
+    virtual void loadConfig() override;
+    virtual void saveConfig() override;
+
 private slots:
     void changementRegExp();
     void changementLabel();
@@ -85,6 +91,8 @@ public:
     {
 
     }
+    virtual void loadConfig() override;
+    virtual void saveConfig() override;
 };
 
 class fenetreFeuForet : public fenetreConfig
@@ -106,6 +114,8 @@ public:
     {
 
     }
+    virtual void loadConfig() override;
+    virtual void saveConfig() override;
 };
 
 #endif // FENETRECONFIG_H

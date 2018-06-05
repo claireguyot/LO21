@@ -33,6 +33,8 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementRegExp()));
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementLabel()));
     connect(m_regle,SIGNAL(textChanged(QString)),this,SLOT(changementLabel()));
+
+    loadConfig();
 }
 
 void fenetreElementaryRule::constructionAutomate() const
@@ -96,7 +98,7 @@ fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
     formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
     formulaire->addRow("nombre minimum de voisins vivants", m_minVivants);
     formulaire->addRow("nombre maximum de Voisins vivants", m_maxVivants);
-    QString text= "Informations Jeu de la vie: \n- 2 etats possibles:\n blanc = vivant\n noir= mort\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- nombre minimum de voisins et nombre maximum de voisins:\n Nombre minimum et maximum de voisins vivants au temps t pour que la cellule soit vivante au temps t+1.\n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
+    QString text= "Informations Jeu de la vie: \n- 2 etats possibles:\n blanc = mort\n noir = vivant\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- nombre minimum de voisins et nombre maximum de voisins:\n - Nombre minimum et maximum de voisins vivants au temps t pour que la cellule soit vivante au temps t+1 si la cellule était vivante au temps t (sinon elle meurt d'isolement ou de surpopulation).\n - si une cellule est 'morte' à l'instant t, elle repasse vivante à l'instant t+1 si il y exactements 'nombre max de voisins' cellules voisines vivantes à l'instant t.\n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
     QPlainTextEdit* info = new QPlainTextEdit(text);
     info->setReadOnly(true);
 
@@ -104,6 +106,8 @@ fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
     layoutPrincipal->addLayout(formulaire);
     layoutPrincipal->addWidget(info);
     setLayout(layoutPrincipal);
+
+    loadConfig();
 
 }
 
@@ -151,13 +155,15 @@ fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
     formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
 
     QString text= "Informations Feu de Forêt: \n- 4 etats possibles:\n blanc = vide\n noir= arbre mort\n rouge = arbre en feu\n vert = arbre vivant\n- Règle de transition\n - vide->vide\n - Feu->arbre mort\n - Arbre mort-> Arbre mort\n - Arbre vivant -> Feu si un voisin est en feu vivant sinon\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
-    QPlainTextEdit* info = new QPlainTextEdit(text);
+    QPlainTextEdit* info = new QPlainTextEdit(text,this);
     info->setReadOnly(true);
 
     QVBoxLayout* layoutPrincipal = new QVBoxLayout();
     layoutPrincipal->addLayout(formulaire);
     layoutPrincipal->addWidget(info);
     setLayout(layoutPrincipal);
+
+    loadConfig();
 
 }
 
@@ -194,3 +200,76 @@ unsigned int puissance(unsigned int a, unsigned int b)
 }
 
 
+void fenetreElementaryRule::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ElementaryRuleWindow");
+
+    settings.setValue("nbEtats",m_nombreEtats->value());
+    settings.setValue("rule",m_regle->text());
+    settings.endGroup();
+}
+
+void fenetreElementaryRule::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ElementaryRuleWindow");
+
+    m_nombreEtats->setValue(settings.value("nbEtats",m_nombreEtats->value()).toInt());
+    m_regle->setText(settings.value("rule",m_regle->text()).toString());
+
+    settings.endGroup();
+}
+
+void fenetreGameOfLife::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("GameOfLifeWindow");
+
+    settings.setValue("choixVoisinage",m_choixVoisinage->currentIndex());
+    settings.setValue("ordreVoisinage",m_ordreVoisinage->value());
+    settings.setValue("minVivants",m_minVivants->value());
+    settings.setValue("maxVivants",m_maxVivants->value());
+
+    settings.endGroup();
+}
+
+void fenetreGameOfLife::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("GameOfLifeWindow");
+
+    m_choixVoisinage->setCurrentIndex(settings.value("choixVoisinage",m_choixVoisinage->currentIndex()).toInt());
+    m_ordreVoisinage->setValue(settings.value("ordreVoisinage",m_ordreVoisinage->value()).toInt());
+    m_minVivants->setValue(settings.value("minVivants",m_minVivants->value()).toInt());
+    m_maxVivants->setValue(settings.value("maxVivants",m_maxVivants->value()).toInt());
+
+    settings.endGroup();
+}
+
+void fenetreFeuForet::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ForestFireWindow");
+
+    settings.setValue("choixVoisinage",m_choixVoisinage->currentIndex());
+    settings.setValue("ordreVoisinage",m_ordreVoisinage->value());
+    settings.endGroup();
+}
+
+void fenetreFeuForet::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ForestFireWindow");
+
+    m_choixVoisinage->setCurrentIndex(settings.value("choixVoisinage",m_choixVoisinage->currentIndex()).toInt());
+    m_ordreVoisinage->setValue(settings.value("ordreVoisinage",m_ordreVoisinage->value()).toInt());
+
+    settings.endGroup();
+}

@@ -43,10 +43,10 @@ protected:
     TransitionRule* m_transitionRule;
     Voisinage* m_voisinageDefinition;
 public:
-    Voisinage const& GetVoisinageDefinition() const {return *m_voisinageDefinition;}
-    TransitionRule const& GetTransitionRule() const {return *m_transitionRule;}
-    Etat const& GetEtatDepart() const{ return *m_etatDepart;}
-    GenerateurEtat const& GetGenerateurEtat() const {return *m_generateurEtat;}
+    Voisinage const* GetVoisinageDefinition() const {return m_voisinageDefinition;}
+    TransitionRule const* GetTransitionRule() const {return m_transitionRule;}
+    Etat const* GetEtatDepart() const{ return m_etatDepart;}
+    GenerateurEtat const* GetGenerateurEtat() const {return m_generateurEtat;}
     void BuildGenerateurEtatRandom() {
         if(m_generateurEtat != nullptr)
             delete m_generateurEtat;
@@ -97,27 +97,47 @@ public:
     }
     void BuildVoisinageDef(unsigned int ordre) {
         if (m_voisinageDefinition != nullptr && m_voisinageDefinition->GetOrdre() == ordre) return;
-        if(m_voisinageDefinition != nullptr) delete m_voisinageDefinition;
+        if(m_voisinageDefinition != nullptr)
+        {
+            delete m_voisinageDefinition;
+            m_voisinageDefinition = nullptr;
+        }
         m_voisinageDefinition = new Voisinage1D(ordre);
     }
     void BuildEtatDepart(unsigned int taille, GenerateurEtat const& generateur,int nbEtats)
     {
-        if(m_etatDepart != nullptr) delete m_etatDepart;
+        if(m_etatDepart != nullptr)
+        {
+            delete m_etatDepart;
+            m_etatDepart= nullptr;
+        }
         m_etatDepart = new Etat(1,taille,generateur,nbEtats);
     }
     void BuildEtatDepart(unsigned int taille, int** tab)
     {
-        if(m_etatDepart != nullptr) delete m_etatDepart;
+        if(m_etatDepart != nullptr)
+        {
+            delete m_etatDepart;
+            m_etatDepart= nullptr;
+        }
         m_etatDepart = new Etat(1,taille,tab);
     }
     void BuildEtatDepart(unsigned int taille)
     {
-        if(m_etatDepart != nullptr) delete m_etatDepart;
+        if(m_etatDepart != nullptr)
+        {
+            delete m_etatDepart;
+            m_etatDepart= nullptr;
+        }
         m_etatDepart = new Etat(1,taille);
     }
     void BuildElementaryRule(std::string const& rule, unsigned int nbEtats)
     {
-        if(m_transitionRule != nullptr) delete m_transitionRule;
+        if(m_transitionRule != nullptr)
+        {
+            delete m_transitionRule;
+            m_transitionRule= nullptr;
+        }
         m_transitionRule = new ElementaryRule(rule,nbEtats);
     }
 
@@ -154,37 +174,65 @@ public:
     }
     void BuildVoisinageVonNeumann(unsigned int ordre) {
 
-        if(m_voisinageDefinition != nullptr) delete m_voisinageDefinition;
+        if(m_voisinageDefinition != nullptr)
+        {
+            delete m_voisinageDefinition;
+            m_voisinageDefinition = nullptr;
+        }
         m_voisinageDefinition = new VonNeumann(ordre);
     }
     void BuildVoisinageMoore(unsigned int ordre) {
 
-        if(m_voisinageDefinition != nullptr) delete m_voisinageDefinition;
+        if(m_voisinageDefinition != nullptr)
+        {
+            delete m_voisinageDefinition;
+            m_voisinageDefinition = nullptr;
+        }
         m_voisinageDefinition = new Moore(ordre);
     }
     void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, GenerateurEtat const& generateur,int nbEtats)
     {
-        if(m_etatDepart != nullptr) delete m_etatDepart;
+        if(m_etatDepart != nullptr)
+        {
+            delete m_etatDepart;
+            m_etatDepart= nullptr;
+        }
         m_etatDepart = new Etat(nbLignes,nbColonnes,generateur,nbEtats);
     }
     void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes, int** tab)
     {
-        if(m_etatDepart != nullptr) delete m_etatDepart;
+        if(m_etatDepart != nullptr)
+        {
+            delete m_etatDepart;
+            m_etatDepart= nullptr;
+        }
         m_etatDepart = new Etat(nbLignes,nbColonnes,tab);
     }
     void BuildEtatDepart(unsigned int nbLignes, unsigned int nbColonnes)
     {
-        if(m_etatDepart != nullptr) delete m_etatDepart;
+        if(m_etatDepart != nullptr)
+        {
+            delete m_etatDepart;
+            m_etatDepart= nullptr;
+        }
         m_etatDepart = new Etat(nbLignes,nbColonnes);
     }
     void BuildGameOfLife(unsigned int minVoisinsVivants, unsigned int maxVoisinsVivants)
     {
-        if(m_transitionRule != nullptr) delete m_transitionRule;
+        if(m_transitionRule != nullptr)
+        {
+            delete m_transitionRule;
+            m_transitionRule = nullptr;
+        }
         m_transitionRule = new GameOfLife(minVoisinsVivants,maxVoisinsVivants);
     }
     void BuildFeuForet()
     {
-        if(m_transitionRule != nullptr) delete m_transitionRule;
+        if(m_transitionRule != nullptr)
+        {
+            delete m_transitionRule;
+            m_transitionRule = nullptr;
+        }
         m_transitionRule = new FeuForet();
     }
 

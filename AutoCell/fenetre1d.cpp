@@ -83,6 +83,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     bRetourDepart = new QPushButton("Retour départ");
     bNextFrame = new QPushButton("Prochain état");
     bSelectVitesse = new QSpinBox();
+    bSelectVitesse->setSuffix(" s");
     bSelectVitesse->setRange(1,50);
     bSelectVitesse->setValue(2);
 
@@ -125,12 +126,16 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     menuAutomate->addWidget(bSauvegarderAutomate);
     menuAutomate->addWidget(bChargerAutomate);
 
+    m_info = new QLabel(this);
+    UpdateInfo();
+
     QVBoxLayout* menuGauche = new QVBoxLayout();
 
     menuGauche->addWidget(choixAutomate);
     menuGauche->addWidget(automates);
 
     menuGauche->addLayout(menuAutomate);
+    menuGauche->addWidget(m_info);
 
 
     QVBoxLayout* layout = new QVBoxLayout();
@@ -168,6 +173,8 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
     connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
+    loadConfig();
+
 }
 
 void fenetre1D::sauverAutomate()
@@ -183,28 +190,19 @@ void fenetre1D::sauverAutomate()
 void fenetre1D::chargerAutomate()
 {
     pause();
-    /*if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger une config!");*/
-    //else
-    //{
-        if(chargement(*simulateur,CONFIG,_1D))
-        {
-            CABuilder1D &m = CABuilder1D::getInstance();
-            std::string str = m.GetTransitionRule().getTransition(); //1D,m_rule,m_nbEtats
-            while(str[0]!=',')
-                str.erase(0,1);
+    if(chargement(*simulateur,CONFIG,_1D))
+    {
+        CABuilder1D &m = CABuilder1D::getInstance();
+        std::string str = m.GetTransitionRule()->getTransition(); //1D,m_rule,m_nbEtats
+        while(str[0]!=',')
             str.erase(0,1);
-            while(str[0]!=',')
-                str.erase(0,1);
+        str.erase(0,1);
+        while(str[0]!=',')
             str.erase(0,1);
-            int etatsMax=std::stoi(str);
-            ConstruireAutomate(etatsMax);
-            //appelConfig();
-            //buildGrille();
-            //afficherDernierEtat();
-        }
-    //}
-   // play();
+        str.erase(0,1);
+        int etatsMax=std::stoi(str);
+        ConstruireAutomate(etatsMax);
+    }
 }
 void fenetre1D::sauverEtat()
 {
@@ -218,25 +216,29 @@ void fenetre1D::sauverEtat()
 void fenetre1D::chargerEtat()
 {
     pause();
-    if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
+    if(simulateur==nullptr || simulateur->getTransition()==nullptr)
+        QMessageBox::warning(this,"Erreur","Veuillez construire un simulateur avant de charger un état!");
     else
     {
         if(chargement(*simulateur,ETAT,_1D))
         {
             CABuilder1D &m = CABuilder1D::getInstance();
-            bLongueur->setValue(m.GetEtatDepart().GetLongueur());
-            simulateur->setEtatDepart(m.GetEtatDepart());
-            buildGrille();
+            if(m.GetEtatDepart() == nullptr)
+            {
+                QMessageBox::warning(0,"Erreur","Aucun état n'a été chargé.");
+            }
+            else
+            {
+                bLongueur->setValue(m.GetEtatDepart()->GetLongueur());
+                simulateur->setEtatDepart(*m.GetEtatDepart());
+                buildGrille();
 
-            afficherDernierEtat();
-            bLongueur->setVisible(false);
-            bLargeur->setVisible(false);
-            lLongueur->setVisible(false);
-            lLargeur->setVisible(false);
-
-            //simulateur->setEtatDepart(m.GetEtatDepart()); //bug ici quand on charge deux fichiers différents d'affilée sans avoir générer d'Etat avec l'appli
-
+                afficherDernierEtat();
+                bLongueur->setVisible(false);
+                bLargeur->setVisible(false);
+                lLongueur->setVisible(false);
+                lLargeur->setVisible(false);
+            }
         }
     }
 }
@@ -289,11 +291,6 @@ void fenetre1D::cellActivation(const QModelIndex& index)
     }
     depart->item(index.row(),index.column())->setSelected(false);
 }
-
-/*void lancerSimulation()
-{
-
-}*/
 
 void fenetre1D::buildGrille()
 {
@@ -389,10 +386,12 @@ void fenetre1D::afficherDernierEtat()
                 depart->item(0,cellule.GetY())->setTextColor("red");
             break;
             default:
-                grille->item(ligne,cellule.GetY())->setText("0");
+                std::stringstream flux;
+                flux << cellule.GetEtat();
+                grille->item(ligne,cellule.GetY())->setText(flux.str().c_str());
                 grille->item(ligne,cellule.GetY())->setBackgroundColor("white");
                 grille->item(ligne,cellule.GetY())->setTextColor("white");
-                depart->item(0,cellule.GetY())->setText("0");
+                depart->item(0,cellule.GetY())->setText(flux.str().c_str());
                 depart->item(0,cellule.GetY())->setBackgroundColor("white");
                 depart->item(0,cellule.GetY())->setTextColor("white");
             }
@@ -403,7 +402,7 @@ void fenetre1D::afficherDernierEtat()
 
 void fenetre1D::generationSuivante()
 {
-    if (simulateur== nullptr )
+    if (simulateur== nullptr || simulateur->getTransition()==nullptr )
     {
             pause();
             QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
@@ -457,34 +456,34 @@ void fenetre1D::ConstruireAutomate(int nbEtats)
         simulateur = nullptr;
     }
     CABuilder1D& builder = CABuilder1D::getInstance();
-    simulateur = new CellularAutomata(nbEtats,nullptr,&(builder.GetTransitionRule()),&(builder.GetVoisinageDefinition()));
+
+    simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
     bLongueur->setVisible(true);
     lLongueur->setVisible(true);
     bLargeur->setVisible(true);
     lLargeur->setVisible(true);
-
     buildGrille();
 
 
+    if(simulateur->getTransition() == nullptr)
+            QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
+    UpdateInfo();
 }
 
 void fenetre1D::ConstruireEtat()
 {
 
 
-    if(simulateur == nullptr)
+    if(simulateur == nullptr || simulateur->getTransition() == nullptr)
     {
-        QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
+        QMessageBox::warning(0,"erreur","L'automate n'est pas généré.");
     }
     else
     {
         CABuilder1D& builder = CABuilder1D::getInstance();
         pause();
-        bLongueur->setVisible(false);
-        lLongueur->setVisible(false);
-        bLargeur->setVisible(false);
-        lLargeur->setVisible(false);
+
 
         switch(bchoixGenerateur->currentIndex())
         {
@@ -494,17 +493,29 @@ void fenetre1D::ConstruireEtat()
             break;
         case 1:
             builder.BuildGenerateurEtatRandom();
-            builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         case 2:
             builder.BuildGenerateurEtatSymetrieAxeVertical();
-            builder.BuildEtatDepart(bLongueur->value(),builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
             break;
         }
-        buildGrille();
 
-        simulateur->setEtatDepart(builder.GetEtatDepart());
-        afficherDernierEtat();
+        const Etat* etatDep = builder.GetEtatDepart();
+        if (etatDep == nullptr)
+            QMessageBox::warning(0,"Erreur","Erreur dans la création du dernier état.");
+        else
+        {
+            bLongueur->setVisible(false);
+            lLongueur->setVisible(false);
+            bLargeur->setVisible(false);
+            lLargeur->setVisible(false);
+
+            buildGrille();
+            simulateur->setEtatDepart((*builder.GetEtatDepart()));
+            afficherDernierEtat();
+        }
+
 
     }
 }
@@ -551,4 +562,59 @@ void fenetre1D::ConstructionManuelle()
 const CellularAutomata* fenetre1D::getSimulateur() const
 {
     return simulateur;
+}
+
+void fenetre1D::saveConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("1DWindow");
+
+    settings.setValue("AutomataChoice",choixAutomate->currentIndex());
+    settings.setValue("GeneratorChoice",bchoixGenerateur->currentIndex());
+    settings.setValue("LargeurGrille",bLargeur->value());
+    settings.setValue("LongueurGrille",bLongueur->value());
+    settings.setValue("Timer",bSelectVitesse->value());
+    settings.endGroup();
+
+    configElementaryRule->saveConfig();
+}
+
+void fenetre1D::loadConfig()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("1DWindow");
+
+    choixAutomate->setCurrentIndex(settings.value("AutomataChoice",choixAutomate->currentIndex()).toInt());
+    bchoixGenerateur->setCurrentIndex(settings.value("GeneratorChoice",choixAutomate->currentIndex()).toInt());
+    bLargeur->setValue(settings.value("LargeurGrille",bLargeur->value()).toInt());
+    bLongueur->setValue(settings.value("LongueurGrille",bLongueur->value()).toInt());
+    bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
+    settings.endGroup();
+}
+
+void fenetre1D::UpdateInfo()
+{
+    std::stringstream flux;
+    if (simulateur == nullptr || simulateur->getTransition()==nullptr)
+        flux << "Aucun automate généré";
+    else
+    {
+        flux <<"Automate généré: ";
+        const ElementaryRule* test = dynamic_cast<const ElementaryRule*>(simulateur->getTransition());
+        if(test != nullptr)
+        {
+            flux <<"nombre d'Etats: " << simulateur->GetNombreEtats() << "\nrègle: " << test->GetRule();
+        }
+        else
+        {
+            flux << "Automate non pris en compte par ce message d'information";
+        }
+
+        if(simulateur->getVoisinage() != nullptr)
+            flux << "\nVoisinage : "<< simulateur->getVoisinage()->getType() << ", ordre : " << simulateur->getVoisinage()->GetOrdre();
+
+    }
+    m_info->setText(QString(flux.str().c_str()));
 }

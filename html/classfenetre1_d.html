@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('classfenetre1_d.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-slots">Connecteurs publics</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
 <a href="#pri-slots">Connecteurs privés</a> &#124;
 <a href="#pri-methods">Fonctions membres privées</a> &#124;
@@ -106,17 +105,20 @@ Graphe d'héritage de fenetre1D:</div>
 </map>
  </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
-Connecteurs publics</h2></td></tr>
-<tr class="memitem:a544b04a2527b25a535ab26f6d3756979"><td class="memItemLeft" align="right" valign="top"><a id="a544b04a2527b25a535ab26f6d3756979"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ConstruireAutomate</b> (int nbEtats)</td></tr>
-<tr class="separator:a544b04a2527b25a535ab26f6d3756979"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:adb843e57f0ba835052dfd216c82991ed"><td class="memItemLeft" align="right" valign="top"><a id="adb843e57f0ba835052dfd216c82991ed"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>fenetre1D</b> (QWidget *parent=nullptr)</td></tr>
 <tr class="separator:adb843e57f0ba835052dfd216c82991ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ab62ea0d20e9f9dd5b3135a385314b"><td class="memItemLeft" align="right" valign="top"><a id="a28ab62ea0d20e9f9dd5b3135a385314b"></a>
+const <a class="el" href="class_cellular_automata.html">CellularAutomata</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSimulateur</b> () const</td></tr>
+<tr class="separator:a28ab62ea0d20e9f9dd5b3135a385314b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13fdb7f89649288068f46b6aaf643053"><td class="memItemLeft" align="right" valign="top"><a id="a13fdb7f89649288068f46b6aaf643053"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadConfig</b> ()</td></tr>
+<tr class="separator:a13fdb7f89649288068f46b6aaf643053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc984ddd8dd83a65891a05b041614d21"><td class="memItemLeft" align="right" valign="top"><a id="acc984ddd8dd83a65891a05b041614d21"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>saveConfig</b> ()</td></tr>
+<tr class="separator:acc984ddd8dd83a65891a05b041614d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
 Connecteurs privés</h2></td></tr>
@@ -144,6 +146,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ConstruireEtat</b> ()
 <tr class="memitem:a8e06b057016afe1f0751493beb053107"><td class="memItemLeft" align="right" valign="top"><a id="a8e06b057016afe1f0751493beb053107"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
 <tr class="separator:a8e06b057016afe1f0751493beb053107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f5127eb0216f22761ec7f57b8846cd8"><td class="memItemLeft" align="right" valign="top"><a id="a0f5127eb0216f22761ec7f57b8846cd8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sauverAutomate</b> ()</td></tr>
+<tr class="separator:a0f5127eb0216f22761ec7f57b8846cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a812d2a814c96979138174c04137aa4fd"><td class="memItemLeft" align="right" valign="top"><a id="a812d2a814c96979138174c04137aa4fd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chargerAutomate</b> ()</td></tr>
+<tr class="separator:a812d2a814c96979138174c04137aa4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120deb2f665cb65120c083d31c39a393"><td class="memItemLeft" align="right" valign="top"><a id="a120deb2f665cb65120c083d31c39a393"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sauverEtat</b> ()</td></tr>
+<tr class="separator:a120deb2f665cb65120c083d31c39a393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e7c8a38df8987fd216c355a163d6c46"><td class="memItemLeft" align="right" valign="top"><a id="a4e7c8a38df8987fd216c355a163d6c46"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chargerEtat</b> ()</td></tr>
+<tr class="separator:a4e7c8a38df8987fd216c355a163d6c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a544b04a2527b25a535ab26f6d3756979"><td class="memItemLeft" align="right" valign="top"><a id="a544b04a2527b25a535ab26f6d3756979"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ConstruireAutomate</b> (int nbEtats)</td></tr>
+<tr class="separator:a544b04a2527b25a535ab26f6d3756979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Fonctions membres privées</h2></td></tr>
@@ -153,6 +170,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherDernierEtat</
 <tr class="memitem:a0af88e56b03b02ac2b1e7c44fe2699ce"><td class="memItemLeft" align="right" valign="top"><a id="a0af88e56b03b02ac2b1e7c44fe2699ce"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ConstructionManuelle</b> ()</td></tr>
 <tr class="separator:a0af88e56b03b02ac2b1e7c44fe2699ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca92762c8a29d06ad95761dafce3a53f"><td class="memItemLeft" align="right" valign="top"><a id="aca92762c8a29d06ad95761dafce3a53f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateInfo</b> ()</td></tr>
+<tr class="separator:aca92762c8a29d06ad95761dafce3a53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
@@ -222,6 +242,9 @@ QComboBox *&#160;</td><td class="memItemRight" valign="bottom"><b>choixAutomate<
 <tr class="memitem:ad6bed04909cf6b10b5b944e370b5a0ef"><td class="memItemLeft" align="right" valign="top"><a id="ad6bed04909cf6b10b5b944e370b5a0ef"></a>
 QTimer *&#160;</td><td class="memItemRight" valign="bottom"><b>m_timer</b></td></tr>
 <tr class="separator:ad6bed04909cf6b10b5b944e370b5a0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae5caa960edca0b17ed54681646432e"><td class="memItemLeft" align="right" valign="top"><a id="afae5caa960edca0b17ed54681646432e"></a>
+QLabel *&#160;</td><td class="memItemRight" valign="bottom"><b>m_info</b></td></tr>
+<tr class="separator:afae5caa960edca0b17ed54681646432e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>git/LO21/AutoCell/<a class="el" href="fenetre1d_8h_source.html">fenetre1d.h</a></li>
