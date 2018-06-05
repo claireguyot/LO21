@@ -544,6 +544,9 @@ void fenetre2D::saveConfig() //change par rapport à fenetre 1D
     configFeuForet->saveConfig();
     configGameOfLife->saveConfig();
 
+    remove("dEtatGen2D.bn");
+    remove("dConfigGen2D.csv");
+
     fichierEtat2D f("dEtatGen2D.bn");
     if(simulateur!=nullptr && simulateur->getEtatDepart()!=nullptr)
         f.save(*simulateur);

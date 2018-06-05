@@ -568,6 +568,9 @@ void fenetre1D::saveConfig()
 
     configElementaryRule->saveConfig();
 
+    remove("dEtatGen1D.bn");
+    remove("dConfigGen1D.csv");
+
     fichierEtat1D f("dEtatGen1D.bn");
     if(simulateur!=nullptr && simulateur->getEtatDepart()!=nullptr)
         f.save(*simulateur);
@@ -608,7 +611,6 @@ void fenetre1D::loadConfig()
             lLargeur->setVisible(false);
         }
     }
-
 }
 
 void fenetre1D::UpdateInfo()

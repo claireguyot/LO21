@@ -21,7 +21,7 @@ public:
     fichier(const std::string nom) : nomF(nom){}
     virtual bool save(const CellularAutomata& automate)=0;
     virtual bool load(const CellularAutomata* automate)=0;
-    ~fichier(){if(f.is_open()) f.close();}
+    virtual ~fichier(){if(f.is_open()) f.close();}
 protected:
     std::string nomF;
     std::fstream f;
