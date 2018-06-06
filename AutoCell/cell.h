@@ -3,7 +3,6 @@
 /*!
  * \file cell.h
  * \brief Déclaration de la classe Cell et déclaration des différents états que peut prendre les cellules et la couleur associée
- * \version 1.0
  */
 #include <vector>
 #include "automateexception.h"
@@ -23,7 +22,7 @@ enum etat
 /*! \class Cell
   * \brief classe représentant une cellule : élément de base du programme
   *
-  * \details La classe permet de créer des cellules, leur affecter une position, un etat, et des voisins
+  * \details Un objet Cell est une cellule qui fait nécessairement partie d'un objet Etat car seule Etat peut construire des objets Cell. Une cellule est caractérisée par sa position, son état (sa valeur), un voisinage.
   */
 class Cell
 {
@@ -32,8 +31,8 @@ public:
     /*!
          * \brief Accesseur en lecture sur m_voisins
          *
-         * \details Méthode permettant de récupérer une référence const sur l'ensemble des voisins d'une cellule
-         * \return voisins de la cellule
+         * \details Méthode permettant de récupérer une référence const sur l'ensemble des voisins d'une cellule.
+         * \return référence const sur le voisinage de la cellule qui est un vector de pointeurs de type Cell pointant chacun sur une cellule voisine de la cellule.
          */
     std::vector<Cell*> const& GetVoisins() const
     {
@@ -116,13 +115,13 @@ private:
 
     }
     /*!
-         *  \brief Constructeur de recopie.
+         * \brief Constructeur de recopie.
          * \details Constructeur de recopie de la classe Cell. Seule la classe Etat peut construire des Cell.
          * \param c : référence sur la Cell qu'on souhaite copier
          */
     Cell(Cell const& c) = default;
     /*!
-         *  \brief modification de la position X
+         * \brief modification de la position X
          * \details accesseur en écriture sur m_x. Seule la classe Etat peut l'utiliser car il est illogique d'affecter une position X en dehors d'une grille. (Cet accesseur n'a pas grand intérêt car la classe Etat pourrait modifier m_x directement vu que c'est une classe amie, mais nous avons pris la décision d'en faire une classe amie plus tard donc nous l'avons laissé afin de ne pas remodifier le code de la classe Etat)
          * \param x : ligne
          */
@@ -147,7 +146,7 @@ private:
          */
     int m_etat;
     /*!
-         *  \brief vecteur de pointeurs sur les voisins de la cellule
+         *  \brief vecteur de pointeurs sur les cellules voisines de la cellule
          *
          */
     std::vector<Cell*> m_voisins;

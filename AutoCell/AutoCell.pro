@@ -21,7 +21,6 @@ HEADERS += \
     voisinage.h
 
 SOURCES += \
-    automateexception.cpp \
     cell.cpp \
     cellularautomata.cpp \
     etat.cpp \
