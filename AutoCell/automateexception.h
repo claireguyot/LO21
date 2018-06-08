@@ -1,11 +1,11 @@
 #ifndef AUTOMATEEXCEPTION_H
 #define AUTOMATEEXCEPTION_H
 #include <string>
-
-class AutomateException {
+#include <exception>
+class AutomateException : public std::exception {
 public:
-    AutomateException(const std::string& message) :info(message) {}
-    std::string const& getInfo() const { return info; }
+    AutomateException(const std::string& message) throw() :info(message) {}
+    char const* what() const throw() { return info.c_str(); }
 private:
     std::string info;
 };
