@@ -35,6 +35,7 @@ public:
            int j;
            iterator(Etat* e) :etat(e), i(0), j(0) {}
            iterator(Etat*e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+           ~iterator() {}
        public:
            iterator& operator++() {
                j++;
@@ -62,6 +63,7 @@ public:
                int j;
                const_iterator(Etat const* e) :etat(e), i(0), j(0) {}
                const_iterator(Etat const* e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+            	~const_iterator() {}
            public:
 
                const_iterator & operator++() {
