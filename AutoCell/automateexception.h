@@ -11,3 +11,4 @@ private:
 };
 
 #endif // AUTOMATEEXCEPTION_H
+

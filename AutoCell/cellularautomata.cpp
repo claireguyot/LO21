@@ -27,6 +27,9 @@ void CellularAutomata::Build(unsigned int indice) {
     if (m_depart==nullptr) throw AutomateException("etat depart indefini");
     if (m_etats[indice] == nullptr || m_etats[indice]->GetLargeur() != m_depart->GetLargeur() || m_etats[indice]->GetLongueur() != m_depart->GetLongueur()) //si on a changé l 'etat de départ et que les tailles ont changées il faut re build les états du buffer
     {
+        if(m_etats[indice]==nullptr)
+            delete m_etats[indice];
+
         m_etats[indice] = new Etat(*m_depart);
         if (m_voisinageDefinition != nullptr)
             m_voisinageDefinition->definirVoisinage(*m_etats[indice]); //le voisinage est lié à la grille donc quand on recrée une grille on doit recréer un voisinage pour cette grille donc c'est important de ne pas avoir un buffer trop grand pour pas recalculer le voisinage trop de fois + pour éviter le surplus mémoire

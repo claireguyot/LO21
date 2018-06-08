@@ -28,41 +28,4 @@ bool sauvegarde(const CellularAutomata& automate, TypeFichier t, DimType d);
 
 bool chargement(const CellularAutomata& automate, TypeFichier t, DimType d);
 
-/*class gest_fich : public QWidget
-{
-public:
-    enum TypeFichier {ETAT, CONFIG};
-
-    enum DimType {_1D,_2D};
-    virtual ~gest_fich();
-    const fichier* getFichier(){return f;}
-
-protected:
-    fichier* f;
-
-private:
-    QPushButton* bSauvEtat;
-    QPushButton* bSauvConfig;
-    QPushButton* bAnnuler;
-};
-
-class sauvegarde : public gest_fich
-{
-public:
-    ~sauvegarde();
-public slots:
-    explicit sauvegarde(const fenetre1D& fen, TypeFichier t);
-    explicit sauvegarde(const fenetre2D& fen, TypeFichier t);
-
-};
-
-class chargement : public gest_fich
-{
-public:
-    ~chargement();
-public slots:
-    explicit chargement(const fenetre1D& fen, TypeFichier t);
-    explicit chargement(const fenetre2D& fen, TypeFichier t);
-};*/
-
 #endif // SAUVEGARDE_H
