@@ -6,7 +6,7 @@ class AutomateException : public std::exception {
 public:
     AutomateException(const std::string& message) throw() :info(message) {}
     char const* what() const throw() { return info.c_str(); }
-    ~AutomateException { }
+    ~AutomateException() { }
 private:
     std::string info;
 };
