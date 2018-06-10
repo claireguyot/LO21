@@ -203,6 +203,8 @@ void fenetre2D::chargerAutomate()
                 QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
         UpdateInfo();
     }
+    else
+           QMessageBox::warning(0,"Erreur","Fichier corrompu");
 }
 void fenetre2D::sauverEtat()
 {

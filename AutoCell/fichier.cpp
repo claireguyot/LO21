@@ -278,6 +278,12 @@ bool fichierConfig1D::load(CellularAutomata*& automate) //chargement config 1D /
         m.BuildElementaryRule(rule,a);
         nbEtats = a;
     }
+    else if(mot != "voisinage " && mot != "transition")
+    {
+        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+        return false;
+    }
+
     delete automate;
     automate = new CellularAutomata(nbEtats,nullptr,m.GetTransitionRule(),m.GetVoisinageDefinition());
     f.close();
@@ -385,6 +391,11 @@ bool fichierConfig2D::load(CellularAutomata*& automate) //chargement config 2D /
             f.close();
             return false;
         }
+    }
+    else if(mot != "voisinage " && mot != "transition")
+    {
+        QMessageBox::critical(nullptr,"Erreur chargement","Le fichier semble corrompu.");
+        return false;
     }
 
     delete automate;
