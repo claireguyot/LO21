@@ -1,3 +1,10 @@
+/*!
+ * \file generateuretat.cpp
+ * \brief Implémentation des méthodes non inline des classes du fichier < em>"generateuretat.h"< /em>
+ * \version 1.0
+ * \sa generateuretat.h
+ */
+
 #include "generateuretat.h"
 using namespace std;
 
