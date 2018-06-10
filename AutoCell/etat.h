@@ -8,7 +8,7 @@
 
 #include "cell.h"
 
-/*! \class GenerateurEtat
+/*!
   * \brief Classe déclarée dans le fichier < em>"generateuretat.h"< /em>
   * \sa GenerateurEtat
   * \details Le déclaration de cette classe dans le fichier < em>"etat.h"< /em> est nécessaire afin de régler le problème de dépendance circulaire.
@@ -183,7 +183,6 @@ public:
              * Ce constructeur permet d'initialiser les attributs d'un \a iterator \a i, \a j et \a etat à l'aide des valeurs passées en paramètres.
              */
             iterator(Etat*e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
-
         public:
             /*!
              * \brief Destructeur de la classe iterator
@@ -191,7 +190,6 @@ public:
              * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a iterator est détruit.
              */
             ~iterator() = default;
-
             /*!
              * \brief Surcharge de l'opérateur d'incrémentation de la classe iterator
              *
@@ -231,7 +229,7 @@ public:
         /*!
          * \brief Méthode de la classe iterator
          *
-         * Cette méthode permet de retourner un \a iterator pointant sur la dernière case de la grille d'un objet \a Etat.
+         * Cette méthode permet de retourner un \a iterator pointant sur la première case ne correspondant pas à une cellule de la grille d'un objet \a Etat.
          */
     iterator end() {  return iterator(this, m_largeur,0);}
 
@@ -282,7 +280,6 @@ public:
              * Ce constructeur permet d'initialiser les attributs d'un \a const_iterator \a i, \a j et \a etat à l'aide des valeurs passées en paramètres.
              */
             const_iterator(Etat const* e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
-
         public:
             /*!
              * \brief Destructeur de la classe const_iterator
@@ -329,7 +326,7 @@ public:
         /*!
          * \brief Méthode de la classe const_iterator
          *
-         * Cette méthode permet de retourner un \a const_iterator pointant sur la dernière case de la grille d'un objet \a const \a Etat.
+         * Cette méthode permet de retourner un \a const_iterator pointant sur la première case ne correspondant pas à une cellule de la grille d'un objet \a const \a Etat.
          */
     const_iterator end() const {  return const_iterator(this, m_largeur,0); }
 
@@ -347,7 +344,6 @@ private:
      * \brief Attribut de la classe Etat
      *
      * Cet attribut est de type \a Cell**. Il représente un tableau 2D de cellules de type \a Cell, et les durées de vie des cellules sont liées à la durée de vie de la grille \a Etat.
-     * Le type de cet attribut n'est pas \a Cell* car pour chaque grille, il est nécessaire d'avoir des cellules différentes. Ainsi, si on supprime une grille, les informations de celle-ci sont concervées.
      * De plus, comme l'on dispose d'un constructeur par défaut de la classe \a Cell, on peut utiliser \a Cell** au lieu de \a Cell* qui nous aurait obligés à utiliser \a Cell*** \a tab au lieu de \a Cell**.
      * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
      */
