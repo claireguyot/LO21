@@ -16,7 +16,7 @@ public:
     //le voisinage est centré sur la Cellule: il y autant de voisins à gauche qu'à droite si cela est possible sinon il peut y avoir uniquement que les voisins de droite si on est sur le bord gauche du tableau
     virtual void definirVoisinage(Etat& e) const = 0;
     unsigned int GetOrdre() const { return m_ordre; }
-    virtual std::string getType() const = 0;
+    virtual std::string getType() const {return "";}
 };
 
 class Voisinage1D : public Voisinage

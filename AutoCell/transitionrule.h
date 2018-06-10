@@ -10,7 +10,7 @@ public:
     TransitionRule() = default;
     virtual void EffectuerTransition(Etat const& depart, Etat& arrivee) const;
     virtual void TransitionCellule(Cell const& depart, Cell& arrivee) const = 0;
-    virtual std::string getTransition() const = 0;
+    virtual std::string getTransition() const {return "";}
     virtual unsigned int getNbEtats() const = 0;
     virtual ~TransitionRule()= default;
 };
