@@ -280,13 +280,14 @@ public:
              * Ce constructeur permet d'initialiser les attributs d'un \a const_iterator \a i, \a j et \a etat à l'aide des valeurs passées en paramètres.
              */
             const_iterator(Etat const* e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+
+        public:
             /*!
              * \brief Destructeur de la classe const_iterator
              *
              * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a const_iterator est détruit.
              */
             ~const_iterator() {}
-        public:
             /*!
              * \brief Surcharge de l'opérateur d'incrémentation de la classe const_iterator
              *
