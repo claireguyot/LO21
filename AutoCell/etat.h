@@ -183,13 +183,20 @@ public:
              * Ce constructeur permet d'initialiser les attributs d'un \a iterator \a i, \a j et \a etat à l'aide des valeurs passées en paramètres.
              */
             iterator(Etat*e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+
+        public:
             /*!
              * \brief Destructeur de la classe iterator
              *
              * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a iterator est détruit.
              */
             ~iterator() {}
-        public:
+            /*!
+             * \brief Destructeur de la classe iterator
+             *
+             * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a iterator est détruit.
+             */
+            ~iterator() {}
             /*!
              * \brief Surcharge de l'opérateur d'incrémentation de la classe iterator
              *
