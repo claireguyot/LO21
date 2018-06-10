@@ -140,7 +140,8 @@ public:
     /*! \class iterator
       * \brief Classe déclarée au sein de la classe Etat
       * \sa Etat, const_iterator
-      * Cette classe suit le Designe Pattern \a Iterator et permet de parcourir séquentiellement tous les objets de type \a Etat.
+      * Cette classe suit le Design Pattern \a Iterator et permet de parcourir séquentiellement toutes les cases de la grille d'un objet de type \a Etat.
+      * Cette méthode n'est pas plus optimale que faire une boucle classique à l'aide de \a GetLongueur et \a GetLargeur, mais cela permet d'avoir une structure plus "universelle" pour parcourir la grille de l'état car cela ressemble à la bibliothèque standard.
       */
     class iterator {
         friend class Etat;
@@ -152,12 +153,48 @@ public:
              * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
              */
             Etat* etat;
+            /*!
+             * \brief Attribut de la classe iterator
+             *
+             * Cet attribut est de type \a int. Il représente la position de l'iterator sur la ligne de l'état courant.
+             * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+             */
             int i;
+            /*!
+             * \brief Attribut de la classe iterator
+             *
+             * Cet attribut est de type \a int. Il représente la position de l'iterator sur la colonne de l'état courant.
+             * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+             */
             int j;
+            /*!
+             * \brief Constructeur de la classe iterator
+             * \param e Paramètre de type \a Etat* qui est un pointeur sur un objet de type \a Etat
+             *
+             * Ce constructeur permet d'initialiser les attributs d'un \a iterator \a i et \a j à 0, et \a etat à l'aide de l'état passé en paramètre.
+             */
             iterator(Etat* e) :etat(e), i(0), j(0) {}
+            /*!
+             * \brief Constructeur de la classe iterator
+             * \param e Paramètre de type \a Etat* qui est un pointeur sur un objet de type \a Etat
+             * \param ligne Paramètre de type \a int qui représente la position de l'iterator sur la ligne de l'état
+             * \param colonne Paramètre de type \a int qui représente la position de l'iterator sur la colonne de l'état
+             *
+             * Ce constructeur permet d'initialiser les attributs d'un \a iterator \a i, \a j et \a etat à l'aide des valeurs passées en paramètres.
+             */
             iterator(Etat*e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+            /*!
+             * \brief Destructeur de la classe iterator
+             *
+             * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a iterator est détruit.
+             */
             ~iterator() {}
         public:
+            /*!
+             * \brief Surcharge de l'opérateur d'incrémentation de la classe iterator
+             *
+             * Cet opérateur permet de passer à la cellule suivante dans la grille de l'état courant. Lorsque l'iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe.
+             */
             iterator& operator++() {
                 j++;
                 if (j==etat->m_longueur && i<etat->m_largeur)
@@ -167,21 +204,32 @@ public:
                 }
                 return *this;
             }
+            /*!
+             * \brief Surcharge de l'opérateur de référencement de la classe iterator
+             *
+             * Cet opérateur permet de retourner une référence sur la cellule de type \a Cell située à la position \a i et \a j sur la grille de l'état courant.
+             */
             Cell& operator*() const {
                 return etat->m_cellules[i][j];
             }
+            /*!
+             * \brief Surcharge de l'opérateur d'inégalité de la classe iterator
+             * \param it Paramètre de type \a iterator qui fait l'objet d'une comparaison avec l'iterator courant
+             *
+             * Cet opérateur permet de retourner un booléen selon si l'iterator passé en paramètre est différent ou non de l'iterator courant en comparant chacun de leurs attributs entre eux.
+             */
             bool operator!=(iterator it) const { return etat != it.etat || i != it.i || j != it.j; }
     };
         /*!
          * \brief Méthode de la classe iterator
          *
-         * Cette méthode permet de retourner un \a iterator pointant sur le premier objet \a Etat.
+         * Cette méthode permet de retourner un \a iterator pointant sur la première case de la grille d'un objet \a Etat.
          */
     iterator begin() {	return iterator(this,0,0); }
         /*!
          * \brief Méthode de la classe iterator
          *
-         * Cette méthode permet de retourner un \a iterator pointant sur le dernier objet \a Etat.
+         * Cette méthode permet de retourner un \a iterator pointant sur la dernière case de la grille d'un objet \a Etat.
          */
     iterator end() {  return iterator(this, m_largeur,0);}
 
@@ -189,7 +237,8 @@ public:
     /*! \class const_iterator
       * \brief Classe déclarée au sein de la classe Etat
       * \sa Etat, iterator
-      * Cette classe suit le Designe Pattern \a Iterator et permet de parcourir séquentiellement tous les objets de type \a const \a Etat.
+      * Cette classe suit le Designe Pattern \a Iterator et permet de parcourir séquentiellement toutes les cases de la grille d'un objet de type \a const \a Etat.
+      * Cette méthode n'est pas plus optimale que faire une boucle classique à l'aide de \a GetLongueur et \a GetLargeur, mais cela permet d'avoir une structure plus "universelle" pour parcourir la grille de l'état car cela ressemble à la bibliothèque standard.
       */
     class const_iterator {
         friend class Etat;
@@ -201,12 +250,48 @@ public:
              * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
              */
             Etat const* etat;
+            /*!
+             * \brief Attribut de la classe iterator
+             *
+             * Cet attribut est de type \a int. Il représente la position du const_iterator sur la ligne de l'état courant.
+             * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+             */
             int i;
+            /*!
+             * \brief Attribut de la classe iterator
+             *
+             * Cet attribut est de type \a int. Il représente la position du const_iterator sur la colonne de l'état courant.
+             * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+             */
             int j;
+            /*!
+             * \brief Constructeur de la classe const_iterator
+             * \param e Paramètre de type \a Etat* qui est un pointeur sur un objet de type \a const \a Etat
+             *
+             * Ce constructeur permet d'initialiser les attributs d'un \a const_iterator \a i et \a j à 0, et \a etat à l'aide de l'état passé en paramètre.
+             */
             const_iterator(Etat const* e) :etat(e), i(0), j(0) {}
+            /*!
+             * \brief Constructeur de la classe const_iterator
+             * \param e Paramètre de type \a Etat* qui est un pointeur sur un objet de type \a Etat
+             * \param ligne Paramètre de type \a int qui représente la position du const_iterator sur la ligne de l'état
+             * \param colonne Paramètre de type \a int qui représente la position du const_iterator sur la colonne de l'état
+             *
+             * Ce constructeur permet d'initialiser les attributs d'un \a const_iterator \a i, \a j et \a etat à l'aide des valeurs passées en paramètres.
+             */
             const_iterator(Etat const* e, int ligne, int colonne) :etat(e), i(ligne), j(colonne) {}
+            /*!
+             * \brief Destructeur de la classe const_iterator
+             *
+             * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a const_iterator est détruit.
+             */
             ~const_iterator() {}
         public:
+            /*!
+             * \brief Surcharge de l'opérateur d'incrémentation de la classe const_iterator
+             *
+             * Cet opérateur permet de passer à la case suivante dans la grille de l'état courant. Lorsque le const_iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe.
+             */
             const_iterator & operator++() {
                 j++;
                 if (j==etat->m_longueur)
@@ -216,21 +301,32 @@ public:
                 }
                 return *this;
             }
+            /*!
+             * \brief Surcharge de l'opérateur de référencement de la classe const_iterator
+             *
+             * Cet opérateur permet de retourner une référence \a const sur la cellule de type \a Cell \a const située à la position \a i et \a j sur la grille de l'état courant.
+             */
             Cell const& operator*() const {
                 return etat->m_cellules[i][j];
             }
+            /*!
+             * \brief Surcharge de l'opérateur d'inégalité de la classe const_iterator
+             * \param it Paramètre de type \a const_iterator qui fait l'objet d'une comparaison avec le const_iterator courant
+             *
+             * Cet opérateur permet de retourner un booléen selon si le const_iterator passé en paramètre est différent ou non du const_iterator courant en comparant chacun de leurs attributs entre eux.
+             */
             bool operator!=(const_iterator it) const { return etat != it.etat || i != it.i || j != it.j; }
     };
         /*!
          * \brief Méthode de la classe const_iterator
          *
-         * Cette méthode permet de retourner un \a const_iterator pointant sur le premier objet \a const Etat.
+         * Cette méthode permet de retourner un \a const_iterator pointant sur la première case de la grille d'un objet \a const \a Etat.
          */
     const_iterator begin() const {	return const_iterator(this,0,0); }
         /*!
          * \brief Méthode de la classe const_iterator
          *
-         * Cette méthode permet de retourner un \a const_iterator pointant sur le dernier objet \a const Etat.
+         * Cette méthode permet de retourner un \a const_iterator pointant sur la dernière case de la grille d'un objet \a const \a Etat.
          */
     const_iterator end() const {  return const_iterator(this, m_largeur,0); }
 
