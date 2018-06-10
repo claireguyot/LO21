@@ -1,3 +1,10 @@
+/*!
+ * \file cellularautomata.cpp
+ * \brief Implémentation des méthodes non inline de la classe CellularAutomata
+ * \version 1.0
+ * \sa cellularautomata.h
+ */
+
 #include "cellularautomata.h"
 #include <iostream>
 
