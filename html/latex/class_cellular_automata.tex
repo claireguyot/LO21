@@ -1,0 +1,206 @@
+\hypertarget{class_cellular_automata}{}\section{Référence de la classe Cellular\+Automata}
+\label{class_cellular_automata}\index{Cellular\+Automata@{Cellular\+Automata}}
+
+
+{\ttfamily \#include $<$cellularautomata.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cellular_automata_af50a5ecce37ce634058c6cd8724f6732}{Cellular\+Automata}} (unsigned int nb\+Etats, const \mbox{\hyperlink{class_etat}{Etat}} $\ast$dep=nullptr, const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} $\ast$rule=nullptr, const \mbox{\hyperlink{class_voisinage}{Voisinage}} $\ast$definition\+Voisinage=nullptr, unsigned int buffer=2)
+\item 
+void \mbox{\hyperlink{class_cellular_automata_a8ee6a9ee70fccd7987805e3d176fb3e1}{set\+Etat\+Depart}} (const \mbox{\hyperlink{class_etat}{Etat}} \&dep)
+\item 
+\mbox{\hyperlink{class_etat}{Etat}} const  $\ast$ \mbox{\hyperlink{class_cellular_automata_a28ebffd21b4b0f297a0ceea6f8648421}{get\+Etat\+Depart}} () const
+\item 
+void \mbox{\hyperlink{class_cellular_automata_aa704c475e0501f7db1f3bcb88211493a}{Run}} (unsigned int nb\+Steps)
+\item 
+void \mbox{\hyperlink{class_cellular_automata_acfc9ced987c630324dcd70ceea348148}{Next}} ()
+\item 
+const \mbox{\hyperlink{class_etat}{Etat}} \& \mbox{\hyperlink{class_cellular_automata_a42291e2737e23c206e44f074d13323f7}{Dernier}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_cellular_automata_a2c7e3542b8360a97f0166b5b75a11125}{Get\+Rang\+Dernier}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_cellular_automata_a50fd8f8ee143b72c09107553d7ae04c8}{Get\+Nombre\+Etats}} () const
+\item 
+void \mbox{\hyperlink{class_cellular_automata_a0cbefb6072fea0aeb9458d81167c84d5}{Reset}} ()
+\item 
+const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} $\ast$ \mbox{\hyperlink{class_cellular_automata_a75397ff49dc3b2042d922c2da9d7bf85}{get\+Transition}} () const
+\item 
+const \mbox{\hyperlink{class_voisinage}{Voisinage}} $\ast$ \mbox{\hyperlink{class_cellular_automata_a6b579ee2708d749ec4073950d3593083}{get\+Voisinage}} () const
+\item 
+void \mbox{\hyperlink{class_cellular_automata_a894e9aaca0bae53d59494aab600bb11d}{set\+Rule}} (const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} \&rule)
+\item 
+void \mbox{\hyperlink{class_cellular_automata_aaa2d03eaa7b1b5349d67393fcad0a7fa}{set\+Voisinage\+Definition}} (const \mbox{\hyperlink{class_voisinage}{Voisinage}} \&voisinage)
+\item 
+\mbox{\hyperlink{class_cellular_automata_a50e6daa1b843aeb3bcafc634ae219ed8}{$\sim$\+Cellular\+Automata}} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_cellular_automata_ad0c57645f11882d3290e6493f4773c3c}{Build}} (unsigned int indice)
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} $\ast$ \mbox{\hyperlink{class_cellular_automata_aac41608d613ea2ee9df3a55ad0a127f6}{m\+\_\+rule}}
+\item 
+const \mbox{\hyperlink{class_voisinage}{Voisinage}} $\ast$ \mbox{\hyperlink{class_cellular_automata_a6990374e6bca2e228ff82ad5a3419833}{m\+\_\+voisinage\+Definition}}
+\item 
+\mbox{\hyperlink{class_etat}{Etat}} $\ast$$\ast$ \mbox{\hyperlink{class_cellular_automata_aed4b142d4bbd1af6ea66db5c4b03cc9d}{m\+\_\+etats}}
+\item 
+const \mbox{\hyperlink{class_etat}{Etat}} $\ast$ \mbox{\hyperlink{class_cellular_automata_abfc701e73635828d67d45bdb8926440e}{m\+\_\+depart}}
+\item 
+unsigned int \mbox{\hyperlink{class_cellular_automata_a75bbb557cc4e2056da5265f242185e0a}{m\+\_\+nb\+Etats}}
+\item 
+unsigned int \mbox{\hyperlink{class_cellular_automata_a8d2cab9f275061f595fab6a12f8c84d9}{m\+\_\+buffer}}
+\item 
+unsigned int \mbox{\hyperlink{class_cellular_automata_ac6d05bb0d1a0696c83253257f1047f8e}{m\+\_\+rang}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_cellular_automata_af50a5ecce37ce634058c6cd8724f6732}\label{class_cellular_automata_af50a5ecce37ce634058c6cd8724f6732}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Cellular\+Automata@{Cellular\+Automata}}
+\index{Cellular\+Automata@{Cellular\+Automata}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Cellular\+Automata()}{CellularAutomata()}}
+{\footnotesize\ttfamily Cellular\+Automata\+::\+Cellular\+Automata (\begin{DoxyParamCaption}\item[{unsigned int}]{nb\+Etats,  }\item[{const \mbox{\hyperlink{class_etat}{Etat}} $\ast$}]{dep = {\ttfamily nullptr},  }\item[{const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} $\ast$}]{rule = {\ttfamily nullptr},  }\item[{const \mbox{\hyperlink{class_voisinage}{Voisinage}} $\ast$}]{definition\+Voisinage = {\ttfamily nullptr},  }\item[{unsigned int}]{buffer = {\ttfamily 2} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cellular_automata_a50e6daa1b843aeb3bcafc634ae219ed8}\label{class_cellular_automata_a50e6daa1b843aeb3bcafc634ae219ed8}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!````~Cellular\+Automata@{$\sim$\+Cellular\+Automata}}
+\index{````~Cellular\+Automata@{$\sim$\+Cellular\+Automata}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{$\sim$\+Cellular\+Automata()}{~CellularAutomata()}}
+{\footnotesize\ttfamily Cellular\+Automata\+::$\sim$\+Cellular\+Automata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_cellular_automata_ad0c57645f11882d3290e6493f4773c3c}\label{class_cellular_automata_ad0c57645f11882d3290e6493f4773c3c}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Build@{Build}}
+\index{Build@{Build}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Build()}{Build()}}
+{\footnotesize\ttfamily void Cellular\+Automata\+::\+Build (\begin{DoxyParamCaption}\item[{unsigned int}]{indice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cellular_automata_a42291e2737e23c206e44f074d13323f7}\label{class_cellular_automata_a42291e2737e23c206e44f074d13323f7}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Dernier@{Dernier}}
+\index{Dernier@{Dernier}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Dernier()}{Dernier()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_etat}{Etat}} \& Cellular\+Automata\+::\+Dernier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_cellular_automata_a28ebffd21b4b0f297a0ceea6f8648421}\label{class_cellular_automata_a28ebffd21b4b0f297a0ceea6f8648421}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!get\+Etat\+Depart@{get\+Etat\+Depart}}
+\index{get\+Etat\+Depart@{get\+Etat\+Depart}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{get\+Etat\+Depart()}{getEtatDepart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_etat}{Etat}} const$\ast$ Cellular\+Automata\+::get\+Etat\+Depart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cellular_automata_a50fd8f8ee143b72c09107553d7ae04c8}\label{class_cellular_automata_a50fd8f8ee143b72c09107553d7ae04c8}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Get\+Nombre\+Etats@{Get\+Nombre\+Etats}}
+\index{Get\+Nombre\+Etats@{Get\+Nombre\+Etats}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Get\+Nombre\+Etats()}{GetNombreEtats()}}
+{\footnotesize\ttfamily unsigned int Cellular\+Automata\+::\+Get\+Nombre\+Etats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cellular_automata_a2c7e3542b8360a97f0166b5b75a11125}\label{class_cellular_automata_a2c7e3542b8360a97f0166b5b75a11125}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Get\+Rang\+Dernier@{Get\+Rang\+Dernier}}
+\index{Get\+Rang\+Dernier@{Get\+Rang\+Dernier}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Get\+Rang\+Dernier()}{GetRangDernier()}}
+{\footnotesize\ttfamily unsigned int Cellular\+Automata\+::\+Get\+Rang\+Dernier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cellular_automata_a75397ff49dc3b2042d922c2da9d7bf85}\label{class_cellular_automata_a75397ff49dc3b2042d922c2da9d7bf85}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!get\+Transition@{get\+Transition}}
+\index{get\+Transition@{get\+Transition}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{get\+Transition()}{getTransition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}}$\ast$ Cellular\+Automata\+::get\+Transition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cellular_automata_a6b579ee2708d749ec4073950d3593083}\label{class_cellular_automata_a6b579ee2708d749ec4073950d3593083}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!get\+Voisinage@{get\+Voisinage}}
+\index{get\+Voisinage@{get\+Voisinage}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{get\+Voisinage()}{getVoisinage()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_voisinage}{Voisinage}}$\ast$ Cellular\+Automata\+::get\+Voisinage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cellular_automata_acfc9ced987c630324dcd70ceea348148}\label{class_cellular_automata_acfc9ced987c630324dcd70ceea348148}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Next@{Next}}
+\index{Next@{Next}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Next()}{Next()}}
+{\footnotesize\ttfamily void Cellular\+Automata\+::\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cellular_automata_a0cbefb6072fea0aeb9458d81167c84d5}\label{class_cellular_automata_a0cbefb6072fea0aeb9458d81167c84d5}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Reset@{Reset}}
+\index{Reset@{Reset}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void Cellular\+Automata\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cellular_automata_aa704c475e0501f7db1f3bcb88211493a}\label{class_cellular_automata_aa704c475e0501f7db1f3bcb88211493a}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!Run@{Run}}
+\index{Run@{Run}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Cellular\+Automata\+::\+Run (\begin{DoxyParamCaption}\item[{unsigned int}]{nb\+Steps }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cellular_automata_a8ee6a9ee70fccd7987805e3d176fb3e1}\label{class_cellular_automata_a8ee6a9ee70fccd7987805e3d176fb3e1}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!set\+Etat\+Depart@{set\+Etat\+Depart}}
+\index{set\+Etat\+Depart@{set\+Etat\+Depart}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{set\+Etat\+Depart()}{setEtatDepart()}}
+{\footnotesize\ttfamily void Cellular\+Automata\+::set\+Etat\+Depart (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_etat}{Etat}} \&}]{dep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cellular_automata_a894e9aaca0bae53d59494aab600bb11d}\label{class_cellular_automata_a894e9aaca0bae53d59494aab600bb11d}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!set\+Rule@{set\+Rule}}
+\index{set\+Rule@{set\+Rule}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{set\+Rule()}{setRule()}}
+{\footnotesize\ttfamily void Cellular\+Automata\+::set\+Rule (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}} \&}]{rule }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cellular_automata_aaa2d03eaa7b1b5349d67393fcad0a7fa}\label{class_cellular_automata_aaa2d03eaa7b1b5349d67393fcad0a7fa}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!set\+Voisinage\+Definition@{set\+Voisinage\+Definition}}
+\index{set\+Voisinage\+Definition@{set\+Voisinage\+Definition}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{set\+Voisinage\+Definition()}{setVoisinageDefinition()}}
+{\footnotesize\ttfamily void Cellular\+Automata\+::set\+Voisinage\+Definition (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voisinage}{Voisinage}} \&}]{voisinage }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_cellular_automata_a8d2cab9f275061f595fab6a12f8c84d9}\label{class_cellular_automata_a8d2cab9f275061f595fab6a12f8c84d9}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!m\+\_\+buffer@{m\+\_\+buffer}}
+\index{m\+\_\+buffer@{m\+\_\+buffer}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{m\+\_\+buffer}{m\_buffer}}
+{\footnotesize\ttfamily unsigned int Cellular\+Automata\+::m\+\_\+buffer\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cellular_automata_abfc701e73635828d67d45bdb8926440e}\label{class_cellular_automata_abfc701e73635828d67d45bdb8926440e}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!m\+\_\+depart@{m\+\_\+depart}}
+\index{m\+\_\+depart@{m\+\_\+depart}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{m\+\_\+depart}{m\_depart}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_etat}{Etat}}$\ast$ Cellular\+Automata\+::m\+\_\+depart\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cellular_automata_aed4b142d4bbd1af6ea66db5c4b03cc9d}\label{class_cellular_automata_aed4b142d4bbd1af6ea66db5c4b03cc9d}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!m\+\_\+etats@{m\+\_\+etats}}
+\index{m\+\_\+etats@{m\+\_\+etats}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{m\+\_\+etats}{m\_etats}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_etat}{Etat}}$\ast$$\ast$ Cellular\+Automata\+::m\+\_\+etats\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cellular_automata_a75bbb557cc4e2056da5265f242185e0a}\label{class_cellular_automata_a75bbb557cc4e2056da5265f242185e0a}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!m\+\_\+nb\+Etats@{m\+\_\+nb\+Etats}}
+\index{m\+\_\+nb\+Etats@{m\+\_\+nb\+Etats}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{m\+\_\+nb\+Etats}{m\_nbEtats}}
+{\footnotesize\ttfamily unsigned int Cellular\+Automata\+::m\+\_\+nb\+Etats\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cellular_automata_ac6d05bb0d1a0696c83253257f1047f8e}\label{class_cellular_automata_ac6d05bb0d1a0696c83253257f1047f8e}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!m\+\_\+rang@{m\+\_\+rang}}
+\index{m\+\_\+rang@{m\+\_\+rang}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{m\+\_\+rang}{m\_rang}}
+{\footnotesize\ttfamily unsigned int Cellular\+Automata\+::m\+\_\+rang\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cellular_automata_aac41608d613ea2ee9df3a55ad0a127f6}\label{class_cellular_automata_aac41608d613ea2ee9df3a55ad0a127f6}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!m\+\_\+rule@{m\+\_\+rule}}
+\index{m\+\_\+rule@{m\+\_\+rule}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{m\+\_\+rule}{m\_rule}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_transition_rule}{Transition\+Rule}}$\ast$ Cellular\+Automata\+::m\+\_\+rule\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cellular_automata_a6990374e6bca2e228ff82ad5a3419833}\label{class_cellular_automata_a6990374e6bca2e228ff82ad5a3419833}} 
+\index{Cellular\+Automata@{Cellular\+Automata}!m\+\_\+voisinage\+Definition@{m\+\_\+voisinage\+Definition}}
+\index{m\+\_\+voisinage\+Definition@{m\+\_\+voisinage\+Definition}!Cellular\+Automata@{Cellular\+Automata}}
+\subsubsection{\texorpdfstring{m\+\_\+voisinage\+Definition}{m\_voisinageDefinition}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_voisinage}{Voisinage}}$\ast$ Cellular\+Automata\+::m\+\_\+voisinage\+Definition\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{cellularautomata_8h}{cellularautomata.\+h}}\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{cellularautomata_8cpp}{cellularautomata.\+cpp}}\end{DoxyCompactItemize}

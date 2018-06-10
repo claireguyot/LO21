@@ -1,0 +1,145 @@
+\hypertarget{class_c_a_builder2_d}{}\section{Référence de la classe C\+A\+Builder2D}
+\label{class_c_a_builder2_d}\index{C\+A\+Builder2D@{C\+A\+Builder2D}}
+
+
+Classe permettant de construire toutes les sous-\/parties nécessaires à la construction d\textquotesingle{}un automate cellulaire 2D.  
+
+
+
+
+{\ttfamily \#include $<$cabuilder.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de C\+A\+Builder2D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_a_builder2_d}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_a_builder2_d_a0d31f87b74b5058fc60edd47ec372828}{Build\+Voisinage\+Von\+Neumann}} (unsigned int ordre)
+\item 
+void \mbox{\hyperlink{class_c_a_builder2_d_abafd86f26de9ab72100212edc23fc7fc}{Build\+Voisinage\+Moore}} (unsigned int ordre)
+\item 
+void \mbox{\hyperlink{class_c_a_builder2_d_af1b276f92d8dd9a914d123b16cc518c7}{Build\+Etat\+Depart}} (unsigned int nb\+Lignes, unsigned int nb\+Colonnes, \mbox{\hyperlink{class_generateur_etat}{Generateur\+Etat}} const \&generateur, int nb\+Etats)
+\item 
+void \mbox{\hyperlink{class_c_a_builder2_d_aa447c4c66f830ea0dd552592eb606336}{Build\+Etat\+Depart}} (unsigned int nb\+Lignes, unsigned int nb\+Colonnes, int $\ast$$\ast$tab)
+\item 
+void \mbox{\hyperlink{class_c_a_builder2_d_a7300ec839baa5de1d8c3b9a044b6c3cb}{Build\+Etat\+Depart}} (unsigned int nb\+Lignes, unsigned int nb\+Colonnes)
+\item 
+void \mbox{\hyperlink{class_c_a_builder2_d_ac8a0719a1a51bfbc40f017808b4c05ed}{Build\+Game\+Of\+Life}} (unsigned int min\+Voisins\+Vivants, unsigned int max\+Voisins\+Vivants)
+\item 
+void \mbox{\hyperlink{class_c_a_builder2_d_a71f988b3a445b18248661fc4c890a3a0}{Build\+Feu\+Foret}} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}} \& \mbox{\hyperlink{class_c_a_builder2_d_a013a50b0ebd4313516febd015db293c2}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_a_builder2_d_a208cc4460b17fb33756e0e384c173760}{C\+A\+Builder2D}} ()
+\item 
+\mbox{\hyperlink{class_c_a_builder2_d_a8f96127d2894b3a47fd32b8f23d073ba}{$\sim$\+C\+A\+Builder2D}} ()=default
+\item 
+\mbox{\hyperlink{class_c_a_builder2_d_a55cdd6483a571b716890d73ce4356c91}{C\+A\+Builder2D}} (const \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}} \&)=delete
+\item 
+\mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}} \& \mbox{\hyperlink{class_c_a_builder2_d_aa21c22e1d8f10b05bad1b13988adf49d}{operator=}} (const \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}} \&)=delete
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Classe permettant de construire toutes les sous-\/parties nécessaires à la construction d\textquotesingle{}un automate cellulaire 2D. 
+
+\begin{DoxyRefDesc}{A faire}
+\item[\mbox{\hyperlink{todo__todo000003}{A faire}}]L\textquotesingle{}implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps. On 
+
+améliorer l\textquotesingle{}implémentation pour pouvoir gérer la construction de plusieurs automates en même temps Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de Cellular\+Automate, ce n\textquotesingle{}est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement Par exemple\+: la classe \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} construit des \mbox{\hyperlink{class_etat}{Etat}}.\end{DoxyRefDesc}
+
+
+On a décidé de mettre un design pattern singleton sur cette classe afin d\textquotesingle{}être sûr de n\textquotesingle{}avoir qu\textquotesingle{}une seule instance du builder pour créer un seul simulateur 2D car notre application ne peut gérer qu\textquotesingle{}un simulateur 2D à la fois 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_c_a_builder2_d_a208cc4460b17fb33756e0e384c173760}\label{class_c_a_builder2_d_a208cc4460b17fb33756e0e384c173760}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{C\+A\+Builder2\+D()}{CABuilder2D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily C\+A\+Builder2\+D\+::\+C\+A\+Builder2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_a8f96127d2894b3a47fd32b8f23d073ba}\label{class_c_a_builder2_d_a8f96127d2894b3a47fd32b8f23d073ba}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!````~C\+A\+Builder2D@{$\sim$\+C\+A\+Builder2D}}
+\index{````~C\+A\+Builder2D@{$\sim$\+C\+A\+Builder2D}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+A\+Builder2\+D()}{~CABuilder2D()}}
+{\footnotesize\ttfamily C\+A\+Builder2\+D\+::$\sim$\+C\+A\+Builder2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_a55cdd6483a571b716890d73ce4356c91}\label{class_c_a_builder2_d_a55cdd6483a571b716890d73ce4356c91}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{C\+A\+Builder2\+D()}{CABuilder2D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily C\+A\+Builder2\+D\+::\+C\+A\+Builder2D (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_c_a_builder2_d_af1b276f92d8dd9a914d123b16cc518c7}\label{class_c_a_builder2_d_af1b276f92d8dd9a914d123b16cc518c7}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!Build\+Etat\+Depart@{Build\+Etat\+Depart}}
+\index{Build\+Etat\+Depart@{Build\+Etat\+Depart}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{Build\+Etat\+Depart()}{BuildEtatDepart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void C\+A\+Builder2\+D\+::\+Build\+Etat\+Depart (\begin{DoxyParamCaption}\item[{unsigned int}]{nb\+Lignes,  }\item[{unsigned int}]{nb\+Colonnes,  }\item[{\mbox{\hyperlink{class_generateur_etat}{Generateur\+Etat}} const \&}]{generateur,  }\item[{int}]{nb\+Etats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_aa447c4c66f830ea0dd552592eb606336}\label{class_c_a_builder2_d_aa447c4c66f830ea0dd552592eb606336}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!Build\+Etat\+Depart@{Build\+Etat\+Depart}}
+\index{Build\+Etat\+Depart@{Build\+Etat\+Depart}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{Build\+Etat\+Depart()}{BuildEtatDepart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void C\+A\+Builder2\+D\+::\+Build\+Etat\+Depart (\begin{DoxyParamCaption}\item[{unsigned int}]{nb\+Lignes,  }\item[{unsigned int}]{nb\+Colonnes,  }\item[{int $\ast$$\ast$}]{tab }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_a7300ec839baa5de1d8c3b9a044b6c3cb}\label{class_c_a_builder2_d_a7300ec839baa5de1d8c3b9a044b6c3cb}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!Build\+Etat\+Depart@{Build\+Etat\+Depart}}
+\index{Build\+Etat\+Depart@{Build\+Etat\+Depart}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{Build\+Etat\+Depart()}{BuildEtatDepart()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void C\+A\+Builder2\+D\+::\+Build\+Etat\+Depart (\begin{DoxyParamCaption}\item[{unsigned int}]{nb\+Lignes,  }\item[{unsigned int}]{nb\+Colonnes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_a71f988b3a445b18248661fc4c890a3a0}\label{class_c_a_builder2_d_a71f988b3a445b18248661fc4c890a3a0}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!Build\+Feu\+Foret@{Build\+Feu\+Foret}}
+\index{Build\+Feu\+Foret@{Build\+Feu\+Foret}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{Build\+Feu\+Foret()}{BuildFeuForet()}}
+{\footnotesize\ttfamily void C\+A\+Builder2\+D\+::\+Build\+Feu\+Foret (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_ac8a0719a1a51bfbc40f017808b4c05ed}\label{class_c_a_builder2_d_ac8a0719a1a51bfbc40f017808b4c05ed}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!Build\+Game\+Of\+Life@{Build\+Game\+Of\+Life}}
+\index{Build\+Game\+Of\+Life@{Build\+Game\+Of\+Life}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{Build\+Game\+Of\+Life()}{BuildGameOfLife()}}
+{\footnotesize\ttfamily void C\+A\+Builder2\+D\+::\+Build\+Game\+Of\+Life (\begin{DoxyParamCaption}\item[{unsigned int}]{min\+Voisins\+Vivants,  }\item[{unsigned int}]{max\+Voisins\+Vivants }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_abafd86f26de9ab72100212edc23fc7fc}\label{class_c_a_builder2_d_abafd86f26de9ab72100212edc23fc7fc}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!Build\+Voisinage\+Moore@{Build\+Voisinage\+Moore}}
+\index{Build\+Voisinage\+Moore@{Build\+Voisinage\+Moore}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{Build\+Voisinage\+Moore()}{BuildVoisinageMoore()}}
+{\footnotesize\ttfamily void C\+A\+Builder2\+D\+::\+Build\+Voisinage\+Moore (\begin{DoxyParamCaption}\item[{unsigned int}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_a0d31f87b74b5058fc60edd47ec372828}\label{class_c_a_builder2_d_a0d31f87b74b5058fc60edd47ec372828}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!Build\+Voisinage\+Von\+Neumann@{Build\+Voisinage\+Von\+Neumann}}
+\index{Build\+Voisinage\+Von\+Neumann@{Build\+Voisinage\+Von\+Neumann}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{Build\+Voisinage\+Von\+Neumann()}{BuildVoisinageVonNeumann()}}
+{\footnotesize\ttfamily void C\+A\+Builder2\+D\+::\+Build\+Voisinage\+Von\+Neumann (\begin{DoxyParamCaption}\item[{unsigned int}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_a013a50b0ebd4313516febd015db293c2}\label{class_c_a_builder2_d_a013a50b0ebd4313516febd015db293c2}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}}\& C\+A\+Builder2\+D\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_c_a_builder2_d_aa21c22e1d8f10b05bad1b13988adf49d}\label{class_c_a_builder2_d_aa21c22e1d8f10b05bad1b13988adf49d}} 
+\index{C\+A\+Builder2D@{C\+A\+Builder2D}!operator=@{operator=}}
+\index{operator=@{operator=}!C\+A\+Builder2D@{C\+A\+Builder2D}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}}\& C\+A\+Builder2\+D\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{cabuilder_8h}{cabuilder.\+h}}\end{DoxyCompactItemize}

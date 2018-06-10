@@ -1,0 +1,143 @@
+\hypertarget{class_c_a_builder1_d}{}\section{Référence de la classe C\+A\+Builder1D}
+\label{class_c_a_builder1_d}\index{C\+A\+Builder1D@{C\+A\+Builder1D}}
+
+
+Classe permettant de construire toutes les sous-\/parties nécessaires à la construction d\textquotesingle{}un automate cellulaire 1D.  
+
+
+
+
+{\ttfamily \#include $<$cabuilder.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de C\+A\+Builder1D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_a_builder1_d}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_a_builder1_d_aa82356e955ae82df3eec34cbb8b47758}{Build\+Voisinage\+Def}} (unsigned int ordre)
+\item 
+void \mbox{\hyperlink{class_c_a_builder1_d_a8fc01c130a00013416532d7e7b43957a}{Build\+Etat\+Depart}} (unsigned int taille, \mbox{\hyperlink{class_generateur_etat}{Generateur\+Etat}} const \&generateur, int nb\+Etats)
+\item 
+void \mbox{\hyperlink{class_c_a_builder1_d_a0a274571cddf774bd67fc786dcf1684c}{Build\+Etat\+Depart}} (unsigned int taille, int $\ast$$\ast$tab)
+\item 
+void \mbox{\hyperlink{class_c_a_builder1_d_a77fa7941654a3c41d68df447b1fd7e5f}{Build\+Etat\+Depart}} (unsigned int taille)
+\item 
+void \mbox{\hyperlink{class_c_a_builder1_d_a992326d218c98a824f006e6cb03ce011}{Build\+Elementary\+Rule}} (std\+::string const \&rule, unsigned int nb\+Etats)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}} \& \mbox{\hyperlink{class_c_a_builder1_d_a92c5780ec0e58f2d56ee28971a50b134}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_a_builder1_d_a8ce449e2418a22e39cf517baffde61de}{C\+A\+Builder1D}} ()
+\item 
+\mbox{\hyperlink{class_c_a_builder1_d_a376a4febba2304c52c1ac1c41c8a79a0}{$\sim$\+C\+A\+Builder1D}} ()
+\item 
+\mbox{\hyperlink{class_c_a_builder1_d_ae0dc5795982306cf2ce982cc2dc2eb22}{C\+A\+Builder1D}} (const \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}} \&)=delete
+\item 
+\mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}} \& \mbox{\hyperlink{class_c_a_builder1_d_a3fdf59ff606ba76be957049bc52f79cf}{operator=}} (const \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}} \&)=delete
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_c_a_builder1_d_a50193db158de49187b1a377fcbff6250}{m\+\_\+nb\+Etats}}
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Classe permettant de construire toutes les sous-\/parties nécessaires à la construction d\textquotesingle{}un automate cellulaire 1D. 
+
+\begin{DoxyRefDesc}{A faire}
+\item[\mbox{\hyperlink{todo__todo000002}{A faire}}]L\textquotesingle{}implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps 
+
+améliorer l\textquotesingle{}implémentation pour pouvoir gérer la construction de plusieurs automates en même temps On a décidé de mettre un design pattern singleton sur cette classe afin d\textquotesingle{}être sûr de n\textquotesingle{}avoir qu\textquotesingle{}une seule instance du builder pour créer un seul simulateur 1D car notre application ne peut gérer qu\textquotesingle{}un simulateur 1D à la fois Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de Cellular\+Automate, ce n\textquotesingle{}est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement Par exemple\+: la classe \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} construit des \mbox{\hyperlink{class_etat}{Etat}}. On aurait pu factoriser le code (héritage) des 2 Builder\end{DoxyRefDesc}
+
+
+C\textquotesingle{}est un singleton car dans notre application il est impossible de gérer plusieurs automates 1D en même temps 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_c_a_builder1_d_a8ce449e2418a22e39cf517baffde61de}\label{class_c_a_builder1_d_a8ce449e2418a22e39cf517baffde61de}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{C\+A\+Builder1\+D()}{CABuilder1D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily C\+A\+Builder1\+D\+::\+C\+A\+Builder1D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_a376a4febba2304c52c1ac1c41c8a79a0}\label{class_c_a_builder1_d_a376a4febba2304c52c1ac1c41c8a79a0}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!````~C\+A\+Builder1D@{$\sim$\+C\+A\+Builder1D}}
+\index{````~C\+A\+Builder1D@{$\sim$\+C\+A\+Builder1D}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+A\+Builder1\+D()}{~CABuilder1D()}}
+{\footnotesize\ttfamily C\+A\+Builder1\+D\+::$\sim$\+C\+A\+Builder1D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_ae0dc5795982306cf2ce982cc2dc2eb22}\label{class_c_a_builder1_d_ae0dc5795982306cf2ce982cc2dc2eb22}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{C\+A\+Builder1\+D()}{CABuilder1D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily C\+A\+Builder1\+D\+::\+C\+A\+Builder1D (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_c_a_builder1_d_a992326d218c98a824f006e6cb03ce011}\label{class_c_a_builder1_d_a992326d218c98a824f006e6cb03ce011}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!Build\+Elementary\+Rule@{Build\+Elementary\+Rule}}
+\index{Build\+Elementary\+Rule@{Build\+Elementary\+Rule}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{Build\+Elementary\+Rule()}{BuildElementaryRule()}}
+{\footnotesize\ttfamily void C\+A\+Builder1\+D\+::\+Build\+Elementary\+Rule (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{rule,  }\item[{unsigned int}]{nb\+Etats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_a8fc01c130a00013416532d7e7b43957a}\label{class_c_a_builder1_d_a8fc01c130a00013416532d7e7b43957a}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!Build\+Etat\+Depart@{Build\+Etat\+Depart}}
+\index{Build\+Etat\+Depart@{Build\+Etat\+Depart}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{Build\+Etat\+Depart()}{BuildEtatDepart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void C\+A\+Builder1\+D\+::\+Build\+Etat\+Depart (\begin{DoxyParamCaption}\item[{unsigned int}]{taille,  }\item[{\mbox{\hyperlink{class_generateur_etat}{Generateur\+Etat}} const \&}]{generateur,  }\item[{int}]{nb\+Etats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_a0a274571cddf774bd67fc786dcf1684c}\label{class_c_a_builder1_d_a0a274571cddf774bd67fc786dcf1684c}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!Build\+Etat\+Depart@{Build\+Etat\+Depart}}
+\index{Build\+Etat\+Depart@{Build\+Etat\+Depart}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{Build\+Etat\+Depart()}{BuildEtatDepart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void C\+A\+Builder1\+D\+::\+Build\+Etat\+Depart (\begin{DoxyParamCaption}\item[{unsigned int}]{taille,  }\item[{int $\ast$$\ast$}]{tab }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_a77fa7941654a3c41d68df447b1fd7e5f}\label{class_c_a_builder1_d_a77fa7941654a3c41d68df447b1fd7e5f}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!Build\+Etat\+Depart@{Build\+Etat\+Depart}}
+\index{Build\+Etat\+Depart@{Build\+Etat\+Depart}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{Build\+Etat\+Depart()}{BuildEtatDepart()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void C\+A\+Builder1\+D\+::\+Build\+Etat\+Depart (\begin{DoxyParamCaption}\item[{unsigned int}]{taille }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_aa82356e955ae82df3eec34cbb8b47758}\label{class_c_a_builder1_d_aa82356e955ae82df3eec34cbb8b47758}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!Build\+Voisinage\+Def@{Build\+Voisinage\+Def}}
+\index{Build\+Voisinage\+Def@{Build\+Voisinage\+Def}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{Build\+Voisinage\+Def()}{BuildVoisinageDef()}}
+{\footnotesize\ttfamily void C\+A\+Builder1\+D\+::\+Build\+Voisinage\+Def (\begin{DoxyParamCaption}\item[{unsigned int}]{ordre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_a92c5780ec0e58f2d56ee28971a50b134}\label{class_c_a_builder1_d_a92c5780ec0e58f2d56ee28971a50b134}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}}\& C\+A\+Builder1\+D\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_c_a_builder1_d_a3fdf59ff606ba76be957049bc52f79cf}\label{class_c_a_builder1_d_a3fdf59ff606ba76be957049bc52f79cf}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!operator=@{operator=}}
+\index{operator=@{operator=}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}}\& C\+A\+Builder1\+D\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_c_a_builder1_d_a50193db158de49187b1a377fcbff6250}\label{class_c_a_builder1_d_a50193db158de49187b1a377fcbff6250}} 
+\index{C\+A\+Builder1D@{C\+A\+Builder1D}!m\+\_\+nb\+Etats@{m\+\_\+nb\+Etats}}
+\index{m\+\_\+nb\+Etats@{m\+\_\+nb\+Etats}!C\+A\+Builder1D@{C\+A\+Builder1D}}
+\subsubsection{\texorpdfstring{m\+\_\+nb\+Etats}{m\_nbEtats}}
+{\footnotesize\ttfamily unsigned int C\+A\+Builder1\+D\+::m\+\_\+nb\+Etats\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{cabuilder_8h}{cabuilder.\+h}}\end{DoxyCompactItemize}

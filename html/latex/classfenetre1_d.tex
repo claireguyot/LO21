@@ -1,0 +1,391 @@
+\hypertarget{classfenetre1_d}{}\section{Référence de la classe fenetre1D}
+\label{classfenetre1_d}\index{fenetre1D@{fenetre1D}}
+
+
+{\ttfamily \#include $<$fenetre1d.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de fenetre1D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classfenetre1_d}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfenetre1_d_adb843e57f0ba835052dfd216c82991ed}{fenetre1D}} (Q\+Widget $\ast$parent=nullptr)
+\item 
+\mbox{\hyperlink{classfenetre1_d_ad8ea627db7d11c383717afaa815f8dd0}{$\sim$fenetre1D}} ()
+\item 
+const \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} $\ast$ \mbox{\hyperlink{classfenetre1_d_a28ab62ea0d20e9f9dd5b3135a385314b}{get\+Simulateur}} () const
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a13fdb7f89649288068f46b6aaf643053}{load\+Config}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_acc984ddd8dd83a65891a05b041614d21}{save\+Config}} ()
+\end{DoxyCompactItemize}
+\subsection*{Connecteurs privés}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a4ebfed6ec778e38de2039b077352d138}{cell\+Activation}} (const Q\+Model\+Index \&index)
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a65b4806314f4a9ae06480579b94fde19}{build\+Grille}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a26b1985ee0fdc3740a81844e38acd358}{generation\+Suivante}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a30a0daefde3939596d4a4a4008a3e123}{play}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_af5560aef0fb4dd20062b3e27d18735b8}{pause}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_ac3be489fd45189bb7fb2a0170fc261ec}{appel\+Config}} () const
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a32838578ed2cf59aa0fdb4115281ef3e}{Construire\+Etat}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a8e06b057016afe1f0751493beb053107}{reset}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a0f5127eb0216f22761ec7f57b8846cd8}{sauver\+Automate}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a812d2a814c96979138174c04137aa4fd}{charger\+Automate}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a120deb2f665cb65120c083d31c39a393}{sauver\+Etat}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a4e7c8a38df8987fd216c355a163d6c46}{charger\+Etat}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a3f9e0d5aaf29e45c7b04efb10ae450a1}{Construire\+Automate}} (int nb\+Etats=-\/1)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a8bf270f254fa50b992840f4b7d839893}{afficher\+Dernier\+Etat}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_a0af88e56b03b02ac2b1e7c44fe2699ce}{Construction\+Manuelle}} ()
+\item 
+void \mbox{\hyperlink{classfenetre1_d_aca92762c8a29d06ad95761dafce3a53f}{Update\+Info}} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_a4e9511c51c66123628cebe3023867050}{b\+Generer\+Etat}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_aae3db0f063b051302d8e18da12f9fcb2}{b\+Sauvegarder\+Etat}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_ab12151af3a2e3f13d4513601db9fb368}{b\+Charger\+Etat}}
+\item 
+Q\+Spin\+Box $\ast$ \mbox{\hyperlink{classfenetre1_d_a024d9127c0ae5296d1c68d3c33b4c401}{b\+Largeur}}
+\item 
+Q\+Spin\+Box $\ast$ \mbox{\hyperlink{classfenetre1_d_ae84e79655e68b75cfe5185a54d4ca4eb}{b\+Longueur}}
+\item 
+Q\+Label $\ast$ \mbox{\hyperlink{classfenetre1_d_ada6a80288e77c9dbb1c014c159800850}{l\+Longueur}}
+\item 
+Q\+Label $\ast$ \mbox{\hyperlink{classfenetre1_d_adb30de1d87787ee16dec63d83803dde8}{l\+Largeur}}
+\item 
+Q\+Combo\+Box $\ast$ \mbox{\hyperlink{classfenetre1_d_a0bae0071f7bbf60ad635dd08fd5f1187}{bchoix\+Generateur}}
+\item 
+Q\+Table\+Widget $\ast$ \mbox{\hyperlink{classfenetre1_d_a42814a3d95f84cf0e0641f27bd863812}{depart}}
+\item 
+Q\+Table\+Widget $\ast$ \mbox{\hyperlink{classfenetre1_d_a429744707e605b19ce6d45bef34bc72e}{grille}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_a9e0f7a6c615b709629e4604856776567}{b\+Start}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_a39c09794926927cefe8aa7de36208f91}{b\+Pause}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_aea5c5673c9078e25ab9870892b1f8f3f}{b\+Retour\+Depart}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_ae00d1bc33bf3c829dceb250e53f8bb29}{b\+Next\+Frame}}
+\item 
+Q\+Spin\+Box $\ast$ \mbox{\hyperlink{classfenetre1_d_abd00cd8a248ece9ac867f073ead9aa83}{b\+Select\+Vitesse}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_a355c71414f5f40cff800701a87d76068}{b\+Generer\+Automate}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_a42db8c1238f6269c273174f5df0d7d41}{b\+Sauvegarder\+Automate}}
+\item 
+Q\+Push\+Button $\ast$ \mbox{\hyperlink{classfenetre1_d_a2c7730b0c732d1e35c4c3700c6400db4}{b\+Charger\+Automate}}
+\item 
+Q\+Combo\+Box $\ast$ \mbox{\hyperlink{classfenetre1_d_ae8ef06b7830dba2841ab6f74f4db31aa}{choix\+Automate}}
+\item 
+\mbox{\hyperlink{classfenetre_elementary_rule}{fenetre\+Elementary\+Rule}} $\ast$ \mbox{\hyperlink{classfenetre1_d_ad002647d7b1b7dc00e55cc2c72fe9678}{config\+Elementary\+Rule}}
+\item 
+\mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} $\ast$ \mbox{\hyperlink{classfenetre1_d_a3eb4498daff2891b1f1a98a7cec26274}{simulateur}}
+\item 
+Q\+Timer $\ast$ \mbox{\hyperlink{classfenetre1_d_ad6bed04909cf6b10b5b944e370b5a0ef}{m\+\_\+timer}}
+\item 
+Q\+Label $\ast$ \mbox{\hyperlink{classfenetre1_d_afae5caa960edca0b17ed54681646432e}{m\+\_\+info}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classfenetre1_d_adb843e57f0ba835052dfd216c82991ed}\label{classfenetre1_d_adb843e57f0ba835052dfd216c82991ed}} 
+\index{fenetre1D@{fenetre1D}!fenetre1D@{fenetre1D}}
+\index{fenetre1D@{fenetre1D}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{fenetre1\+D()}{fenetre1D()}}
+{\footnotesize\ttfamily fenetre1\+D\+::fenetre1D (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ad8ea627db7d11c383717afaa815f8dd0}\label{classfenetre1_d_ad8ea627db7d11c383717afaa815f8dd0}} 
+\index{fenetre1D@{fenetre1D}!````~fenetre1D@{$\sim$fenetre1D}}
+\index{````~fenetre1D@{$\sim$fenetre1D}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{$\sim$fenetre1\+D()}{~fenetre1D()}}
+{\footnotesize\ttfamily fenetre1\+D\+::$\sim$fenetre1D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classfenetre1_d_a8bf270f254fa50b992840f4b7d839893}\label{classfenetre1_d_a8bf270f254fa50b992840f4b7d839893}} 
+\index{fenetre1D@{fenetre1D}!afficher\+Dernier\+Etat@{afficher\+Dernier\+Etat}}
+\index{afficher\+Dernier\+Etat@{afficher\+Dernier\+Etat}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{afficher\+Dernier\+Etat()}{afficherDernierEtat()}}
+{\footnotesize\ttfamily void fenetre1\+D\+::afficher\+Dernier\+Etat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ac3be489fd45189bb7fb2a0170fc261ec}\label{classfenetre1_d_ac3be489fd45189bb7fb2a0170fc261ec}} 
+\index{fenetre1D@{fenetre1D}!appel\+Config@{appel\+Config}}
+\index{appel\+Config@{appel\+Config}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{appel\+Config}{appelConfig}}
+{\footnotesize\ttfamily void fenetre1\+D\+::appel\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a65b4806314f4a9ae06480579b94fde19}\label{classfenetre1_d_a65b4806314f4a9ae06480579b94fde19}} 
+\index{fenetre1D@{fenetre1D}!build\+Grille@{build\+Grille}}
+\index{build\+Grille@{build\+Grille}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{build\+Grille}{buildGrille}}
+{\footnotesize\ttfamily void fenetre1\+D\+::build\+Grille (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a4ebfed6ec778e38de2039b077352d138}\label{classfenetre1_d_a4ebfed6ec778e38de2039b077352d138}} 
+\index{fenetre1D@{fenetre1D}!cell\+Activation@{cell\+Activation}}
+\index{cell\+Activation@{cell\+Activation}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{cell\+Activation}{cellActivation}}
+{\footnotesize\ttfamily void fenetre1\+D\+::cell\+Activation (\begin{DoxyParamCaption}\item[{const Q\+Model\+Index \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a812d2a814c96979138174c04137aa4fd}\label{classfenetre1_d_a812d2a814c96979138174c04137aa4fd}} 
+\index{fenetre1D@{fenetre1D}!charger\+Automate@{charger\+Automate}}
+\index{charger\+Automate@{charger\+Automate}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{charger\+Automate}{chargerAutomate}}
+{\footnotesize\ttfamily void fenetre1\+D\+::charger\+Automate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a4e7c8a38df8987fd216c355a163d6c46}\label{classfenetre1_d_a4e7c8a38df8987fd216c355a163d6c46}} 
+\index{fenetre1D@{fenetre1D}!charger\+Etat@{charger\+Etat}}
+\index{charger\+Etat@{charger\+Etat}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{charger\+Etat}{chargerEtat}}
+{\footnotesize\ttfamily void fenetre1\+D\+::charger\+Etat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a0af88e56b03b02ac2b1e7c44fe2699ce}\label{classfenetre1_d_a0af88e56b03b02ac2b1e7c44fe2699ce}} 
+\index{fenetre1D@{fenetre1D}!Construction\+Manuelle@{Construction\+Manuelle}}
+\index{Construction\+Manuelle@{Construction\+Manuelle}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{Construction\+Manuelle()}{ConstructionManuelle()}}
+{\footnotesize\ttfamily void fenetre1\+D\+::\+Construction\+Manuelle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a3f9e0d5aaf29e45c7b04efb10ae450a1}\label{classfenetre1_d_a3f9e0d5aaf29e45c7b04efb10ae450a1}} 
+\index{fenetre1D@{fenetre1D}!Construire\+Automate@{Construire\+Automate}}
+\index{Construire\+Automate@{Construire\+Automate}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{Construire\+Automate}{ConstruireAutomate}}
+{\footnotesize\ttfamily void fenetre1\+D\+::\+Construire\+Automate (\begin{DoxyParamCaption}\item[{int}]{nb\+Etats = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a32838578ed2cf59aa0fdb4115281ef3e}\label{classfenetre1_d_a32838578ed2cf59aa0fdb4115281ef3e}} 
+\index{fenetre1D@{fenetre1D}!Construire\+Etat@{Construire\+Etat}}
+\index{Construire\+Etat@{Construire\+Etat}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{Construire\+Etat}{ConstruireEtat}}
+{\footnotesize\ttfamily void fenetre1\+D\+::\+Construire\+Etat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a26b1985ee0fdc3740a81844e38acd358}\label{classfenetre1_d_a26b1985ee0fdc3740a81844e38acd358}} 
+\index{fenetre1D@{fenetre1D}!generation\+Suivante@{generation\+Suivante}}
+\index{generation\+Suivante@{generation\+Suivante}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{generation\+Suivante}{generationSuivante}}
+{\footnotesize\ttfamily void fenetre1\+D\+::generation\+Suivante (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a28ab62ea0d20e9f9dd5b3135a385314b}\label{classfenetre1_d_a28ab62ea0d20e9f9dd5b3135a385314b}} 
+\index{fenetre1D@{fenetre1D}!get\+Simulateur@{get\+Simulateur}}
+\index{get\+Simulateur@{get\+Simulateur}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{get\+Simulateur()}{getSimulateur()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} $\ast$ fenetre1\+D\+::get\+Simulateur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classfenetre1_d_a13fdb7f89649288068f46b6aaf643053}\label{classfenetre1_d_a13fdb7f89649288068f46b6aaf643053}} 
+\index{fenetre1D@{fenetre1D}!load\+Config@{load\+Config}}
+\index{load\+Config@{load\+Config}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{load\+Config()}{loadConfig()}}
+{\footnotesize\ttfamily void fenetre1\+D\+::load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classfenetre1_d_af5560aef0fb4dd20062b3e27d18735b8}\label{classfenetre1_d_af5560aef0fb4dd20062b3e27d18735b8}} 
+\index{fenetre1D@{fenetre1D}!pause@{pause}}
+\index{pause@{pause}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily void fenetre1\+D\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a30a0daefde3939596d4a4a4008a3e123}\label{classfenetre1_d_a30a0daefde3939596d4a4a4008a3e123}} 
+\index{fenetre1D@{fenetre1D}!play@{play}}
+\index{play@{play}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{play}{play}}
+{\footnotesize\ttfamily void fenetre1\+D\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a8e06b057016afe1f0751493beb053107}\label{classfenetre1_d_a8e06b057016afe1f0751493beb053107}} 
+\index{fenetre1D@{fenetre1D}!reset@{reset}}
+\index{reset@{reset}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{reset}{reset}}
+{\footnotesize\ttfamily void fenetre1\+D\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a0f5127eb0216f22761ec7f57b8846cd8}\label{classfenetre1_d_a0f5127eb0216f22761ec7f57b8846cd8}} 
+\index{fenetre1D@{fenetre1D}!sauver\+Automate@{sauver\+Automate}}
+\index{sauver\+Automate@{sauver\+Automate}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{sauver\+Automate}{sauverAutomate}}
+{\footnotesize\ttfamily void fenetre1\+D\+::sauver\+Automate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a120deb2f665cb65120c083d31c39a393}\label{classfenetre1_d_a120deb2f665cb65120c083d31c39a393}} 
+\index{fenetre1D@{fenetre1D}!sauver\+Etat@{sauver\+Etat}}
+\index{sauver\+Etat@{sauver\+Etat}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{sauver\+Etat}{sauverEtat}}
+{\footnotesize\ttfamily void fenetre1\+D\+::sauver\+Etat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classfenetre1_d_acc984ddd8dd83a65891a05b041614d21}\label{classfenetre1_d_acc984ddd8dd83a65891a05b041614d21}} 
+\index{fenetre1D@{fenetre1D}!save\+Config@{save\+Config}}
+\index{save\+Config@{save\+Config}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{save\+Config()}{saveConfig()}}
+{\footnotesize\ttfamily void fenetre1\+D\+::save\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classfenetre1_d_aca92762c8a29d06ad95761dafce3a53f}\label{classfenetre1_d_aca92762c8a29d06ad95761dafce3a53f}} 
+\index{fenetre1D@{fenetre1D}!Update\+Info@{Update\+Info}}
+\index{Update\+Info@{Update\+Info}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{Update\+Info()}{UpdateInfo()}}
+{\footnotesize\ttfamily void fenetre1\+D\+::\+Update\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classfenetre1_d_a2c7730b0c732d1e35c4c3700c6400db4}\label{classfenetre1_d_a2c7730b0c732d1e35c4c3700c6400db4}} 
+\index{fenetre1D@{fenetre1D}!b\+Charger\+Automate@{b\+Charger\+Automate}}
+\index{b\+Charger\+Automate@{b\+Charger\+Automate}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Charger\+Automate}{bChargerAutomate}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Charger\+Automate\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ab12151af3a2e3f13d4513601db9fb368}\label{classfenetre1_d_ab12151af3a2e3f13d4513601db9fb368}} 
+\index{fenetre1D@{fenetre1D}!b\+Charger\+Etat@{b\+Charger\+Etat}}
+\index{b\+Charger\+Etat@{b\+Charger\+Etat}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Charger\+Etat}{bChargerEtat}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Charger\+Etat\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a0bae0071f7bbf60ad635dd08fd5f1187}\label{classfenetre1_d_a0bae0071f7bbf60ad635dd08fd5f1187}} 
+\index{fenetre1D@{fenetre1D}!bchoix\+Generateur@{bchoix\+Generateur}}
+\index{bchoix\+Generateur@{bchoix\+Generateur}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{bchoix\+Generateur}{bchoixGenerateur}}
+{\footnotesize\ttfamily Q\+Combo\+Box$\ast$ fenetre1\+D\+::bchoix\+Generateur\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a355c71414f5f40cff800701a87d76068}\label{classfenetre1_d_a355c71414f5f40cff800701a87d76068}} 
+\index{fenetre1D@{fenetre1D}!b\+Generer\+Automate@{b\+Generer\+Automate}}
+\index{b\+Generer\+Automate@{b\+Generer\+Automate}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Generer\+Automate}{bGenererAutomate}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Generer\+Automate\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a4e9511c51c66123628cebe3023867050}\label{classfenetre1_d_a4e9511c51c66123628cebe3023867050}} 
+\index{fenetre1D@{fenetre1D}!b\+Generer\+Etat@{b\+Generer\+Etat}}
+\index{b\+Generer\+Etat@{b\+Generer\+Etat}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Generer\+Etat}{bGenererEtat}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Generer\+Etat\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a024d9127c0ae5296d1c68d3c33b4c401}\label{classfenetre1_d_a024d9127c0ae5296d1c68d3c33b4c401}} 
+\index{fenetre1D@{fenetre1D}!b\+Largeur@{b\+Largeur}}
+\index{b\+Largeur@{b\+Largeur}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Largeur}{bLargeur}}
+{\footnotesize\ttfamily Q\+Spin\+Box$\ast$ fenetre1\+D\+::b\+Largeur\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ae84e79655e68b75cfe5185a54d4ca4eb}\label{classfenetre1_d_ae84e79655e68b75cfe5185a54d4ca4eb}} 
+\index{fenetre1D@{fenetre1D}!b\+Longueur@{b\+Longueur}}
+\index{b\+Longueur@{b\+Longueur}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Longueur}{bLongueur}}
+{\footnotesize\ttfamily Q\+Spin\+Box$\ast$ fenetre1\+D\+::b\+Longueur\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ae00d1bc33bf3c829dceb250e53f8bb29}\label{classfenetre1_d_ae00d1bc33bf3c829dceb250e53f8bb29}} 
+\index{fenetre1D@{fenetre1D}!b\+Next\+Frame@{b\+Next\+Frame}}
+\index{b\+Next\+Frame@{b\+Next\+Frame}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Next\+Frame}{bNextFrame}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Next\+Frame\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a39c09794926927cefe8aa7de36208f91}\label{classfenetre1_d_a39c09794926927cefe8aa7de36208f91}} 
+\index{fenetre1D@{fenetre1D}!b\+Pause@{b\+Pause}}
+\index{b\+Pause@{b\+Pause}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Pause}{bPause}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Pause\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_aea5c5673c9078e25ab9870892b1f8f3f}\label{classfenetre1_d_aea5c5673c9078e25ab9870892b1f8f3f}} 
+\index{fenetre1D@{fenetre1D}!b\+Retour\+Depart@{b\+Retour\+Depart}}
+\index{b\+Retour\+Depart@{b\+Retour\+Depart}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Retour\+Depart}{bRetourDepart}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Retour\+Depart\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a42db8c1238f6269c273174f5df0d7d41}\label{classfenetre1_d_a42db8c1238f6269c273174f5df0d7d41}} 
+\index{fenetre1D@{fenetre1D}!b\+Sauvegarder\+Automate@{b\+Sauvegarder\+Automate}}
+\index{b\+Sauvegarder\+Automate@{b\+Sauvegarder\+Automate}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Sauvegarder\+Automate}{bSauvegarderAutomate}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Sauvegarder\+Automate\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_aae3db0f063b051302d8e18da12f9fcb2}\label{classfenetre1_d_aae3db0f063b051302d8e18da12f9fcb2}} 
+\index{fenetre1D@{fenetre1D}!b\+Sauvegarder\+Etat@{b\+Sauvegarder\+Etat}}
+\index{b\+Sauvegarder\+Etat@{b\+Sauvegarder\+Etat}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Sauvegarder\+Etat}{bSauvegarderEtat}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Sauvegarder\+Etat\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_abd00cd8a248ece9ac867f073ead9aa83}\label{classfenetre1_d_abd00cd8a248ece9ac867f073ead9aa83}} 
+\index{fenetre1D@{fenetre1D}!b\+Select\+Vitesse@{b\+Select\+Vitesse}}
+\index{b\+Select\+Vitesse@{b\+Select\+Vitesse}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Select\+Vitesse}{bSelectVitesse}}
+{\footnotesize\ttfamily Q\+Spin\+Box$\ast$ fenetre1\+D\+::b\+Select\+Vitesse\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a9e0f7a6c615b709629e4604856776567}\label{classfenetre1_d_a9e0f7a6c615b709629e4604856776567}} 
+\index{fenetre1D@{fenetre1D}!b\+Start@{b\+Start}}
+\index{b\+Start@{b\+Start}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{b\+Start}{bStart}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ fenetre1\+D\+::b\+Start\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ae8ef06b7830dba2841ab6f74f4db31aa}\label{classfenetre1_d_ae8ef06b7830dba2841ab6f74f4db31aa}} 
+\index{fenetre1D@{fenetre1D}!choix\+Automate@{choix\+Automate}}
+\index{choix\+Automate@{choix\+Automate}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{choix\+Automate}{choixAutomate}}
+{\footnotesize\ttfamily Q\+Combo\+Box$\ast$ fenetre1\+D\+::choix\+Automate\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ad002647d7b1b7dc00e55cc2c72fe9678}\label{classfenetre1_d_ad002647d7b1b7dc00e55cc2c72fe9678}} 
+\index{fenetre1D@{fenetre1D}!config\+Elementary\+Rule@{config\+Elementary\+Rule}}
+\index{config\+Elementary\+Rule@{config\+Elementary\+Rule}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{config\+Elementary\+Rule}{configElementaryRule}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfenetre_elementary_rule}{fenetre\+Elementary\+Rule}}$\ast$ fenetre1\+D\+::config\+Elementary\+Rule\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a42814a3d95f84cf0e0641f27bd863812}\label{classfenetre1_d_a42814a3d95f84cf0e0641f27bd863812}} 
+\index{fenetre1D@{fenetre1D}!depart@{depart}}
+\index{depart@{depart}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{depart}{depart}}
+{\footnotesize\ttfamily Q\+Table\+Widget$\ast$ fenetre1\+D\+::depart\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a429744707e605b19ce6d45bef34bc72e}\label{classfenetre1_d_a429744707e605b19ce6d45bef34bc72e}} 
+\index{fenetre1D@{fenetre1D}!grille@{grille}}
+\index{grille@{grille}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{grille}{grille}}
+{\footnotesize\ttfamily Q\+Table\+Widget$\ast$ fenetre1\+D\+::grille\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_adb30de1d87787ee16dec63d83803dde8}\label{classfenetre1_d_adb30de1d87787ee16dec63d83803dde8}} 
+\index{fenetre1D@{fenetre1D}!l\+Largeur@{l\+Largeur}}
+\index{l\+Largeur@{l\+Largeur}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{l\+Largeur}{lLargeur}}
+{\footnotesize\ttfamily Q\+Label$\ast$ fenetre1\+D\+::l\+Largeur\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ada6a80288e77c9dbb1c014c159800850}\label{classfenetre1_d_ada6a80288e77c9dbb1c014c159800850}} 
+\index{fenetre1D@{fenetre1D}!l\+Longueur@{l\+Longueur}}
+\index{l\+Longueur@{l\+Longueur}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{l\+Longueur}{lLongueur}}
+{\footnotesize\ttfamily Q\+Label$\ast$ fenetre1\+D\+::l\+Longueur\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_afae5caa960edca0b17ed54681646432e}\label{classfenetre1_d_afae5caa960edca0b17ed54681646432e}} 
+\index{fenetre1D@{fenetre1D}!m\+\_\+info@{m\+\_\+info}}
+\index{m\+\_\+info@{m\+\_\+info}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{m\+\_\+info}{m\_info}}
+{\footnotesize\ttfamily Q\+Label$\ast$ fenetre1\+D\+::m\+\_\+info\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_ad6bed04909cf6b10b5b944e370b5a0ef}\label{classfenetre1_d_ad6bed04909cf6b10b5b944e370b5a0ef}} 
+\index{fenetre1D@{fenetre1D}!m\+\_\+timer@{m\+\_\+timer}}
+\index{m\+\_\+timer@{m\+\_\+timer}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{m\+\_\+timer}{m\_timer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ fenetre1\+D\+::m\+\_\+timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre1_d_a3eb4498daff2891b1f1a98a7cec26274}\label{classfenetre1_d_a3eb4498daff2891b1f1a98a7cec26274}} 
+\index{fenetre1D@{fenetre1D}!simulateur@{simulateur}}
+\index{simulateur@{simulateur}!fenetre1D@{fenetre1D}}
+\subsubsection{\texorpdfstring{simulateur}{simulateur}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}}$\ast$ fenetre1\+D\+::simulateur\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{fenetre1d_8h}{fenetre1d.\+h}}\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{fenetre1d_8cpp}{fenetre1d.\+cpp}}\end{DoxyCompactItemize}

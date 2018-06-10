@@ -1,0 +1,88 @@
+\hypertarget{classfichier}{}\section{Référence de la classe fichier}
+\label{classfichier}\index{fichier@{fichier}}
+
+
+{\ttfamily \#include $<$fichier.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de fichier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classfichier}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfichier_a42004721e8f3931e39b12a513e12f48e}{fichier}} (const std\+::string nom)
+\item 
+virtual bool \mbox{\hyperlink{classfichier_ac54bfc9ea8c980c0b46bb291d3abdef4}{save}} (const \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} \&automate)=0
+\item 
+virtual bool \mbox{\hyperlink{classfichier_a6c246db929cf6532eb3f12c2b39574d5}{load}} (const \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} $\ast$automate)=0
+\item 
+virtual \mbox{\hyperlink{classfichier_aa9d389401e8d59b50377c472fb37b5da}{$\sim$fichier}} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classfichier_a5507421c34a4358be0d0f842f74293fc}{nomF}}
+\item 
+std\+::fstream \mbox{\hyperlink{classfichier_ad4aa9acd482d376366be3d488e6af0ad}{f}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classfichier_a42004721e8f3931e39b12a513e12f48e}\label{classfichier_a42004721e8f3931e39b12a513e12f48e}} 
+\index{fichier@{fichier}!fichier@{fichier}}
+\index{fichier@{fichier}!fichier@{fichier}}
+\subsubsection{\texorpdfstring{fichier()}{fichier()}}
+{\footnotesize\ttfamily fichier\+::fichier (\begin{DoxyParamCaption}\item[{const std\+::string}]{nom }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classfichier_aa9d389401e8d59b50377c472fb37b5da}\label{classfichier_aa9d389401e8d59b50377c472fb37b5da}} 
+\index{fichier@{fichier}!````~fichier@{$\sim$fichier}}
+\index{````~fichier@{$\sim$fichier}!fichier@{fichier}}
+\subsubsection{\texorpdfstring{$\sim$fichier()}{~fichier()}}
+{\footnotesize\ttfamily virtual fichier\+::$\sim$fichier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classfichier_a6c246db929cf6532eb3f12c2b39574d5}\label{classfichier_a6c246db929cf6532eb3f12c2b39574d5}} 
+\index{fichier@{fichier}!load@{load}}
+\index{load@{load}!fichier@{fichier}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily virtual bool fichier\+::load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} $\ast$}]{automate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \mbox{\hyperlink{classfichier_config2_d_a90761ac1866815bd59b0f1730ce6bd5f}{fichier\+Config2D}}, \mbox{\hyperlink{classfichier_config1_d_a598c6ad0c9c16735b6c5843198dcc682}{fichier\+Config1D}}, \mbox{\hyperlink{classfichier_etat2_d_a1509a84b133ea169370a46301f74739e}{fichier\+Etat2D}}, et \mbox{\hyperlink{classfichier_etat1_d_a06c7ac08352e595eda7df415e50e66f8}{fichier\+Etat1D}}.
+
+\mbox{\Hypertarget{classfichier_ac54bfc9ea8c980c0b46bb291d3abdef4}\label{classfichier_ac54bfc9ea8c980c0b46bb291d3abdef4}} 
+\index{fichier@{fichier}!save@{save}}
+\index{save@{save}!fichier@{fichier}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily virtual bool fichier\+::save (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} \&}]{automate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \mbox{\hyperlink{classfichier_config2_d_ac91d6cd20fd9edc6ed71684b8d5a1b40}{fichier\+Config2D}}, \mbox{\hyperlink{classfichier_config1_d_a759fa0735b22b3f5cceeb0fb414fc056}{fichier\+Config1D}}, \mbox{\hyperlink{classfichier_etat2_d_a0acba6c601772898383006d2c705a177}{fichier\+Etat2D}}, et \mbox{\hyperlink{classfichier_etat1_d_a120ee4b6234a18bdb88c5d60bd0ef5c0}{fichier\+Etat1D}}.
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classfichier_ad4aa9acd482d376366be3d488e6af0ad}\label{classfichier_ad4aa9acd482d376366be3d488e6af0ad}} 
+\index{fichier@{fichier}!f@{f}}
+\index{f@{f}!fichier@{fichier}}
+\subsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily std\+::fstream fichier\+::f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classfichier_a5507421c34a4358be0d0f842f74293fc}\label{classfichier_a5507421c34a4358be0d0f842f74293fc}} 
+\index{fichier@{fichier}!nomF@{nomF}}
+\index{nomF@{nomF}!fichier@{fichier}}
+\subsubsection{\texorpdfstring{nomF}{nomF}}
+{\footnotesize\ttfamily std\+::string fichier\+::nomF\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{fichier_8h}{fichier.\+h}}\end{DoxyCompactItemize}

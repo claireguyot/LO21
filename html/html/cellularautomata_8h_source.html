@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>AutoCell:  Fichier source de C:/Users/maxn0/git/LO21/AutoCell/cellularautomata.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">AutoCell
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('cellularautomata_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">cellularautomata.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="cellularautomata_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CELLULARAUTOMATA_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CELLULARAUTOMATA_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cell_8h.html">cell.h</a>&quot;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="generateuretat_8h.html">generateuretat.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="etat_8h.html">etat.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="voisinage_8h.html">voisinage.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transitionrule_8h.html">transitionrule.h</a>&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_cellular_automata.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cellular_automata.html">CellularAutomata</a></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#aac41608d613ea2ee9df3a55ad0a127f6">   12</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_transition_rule.html">TransitionRule</a>* <a class="code" href="class_cellular_automata.html#aac41608d613ea2ee9df3a55ad0a127f6">m_rule</a>;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a6990374e6bca2e228ff82ad5a3419833">   13</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_voisinage.html">Voisinage</a>* <a class="code" href="class_cellular_automata.html#a6990374e6bca2e228ff82ad5a3419833">m_voisinageDefinition</a>;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#aed4b142d4bbd1af6ea66db5c4b03cc9d">   14</a></span>&#160;    <a class="code" href="class_etat.html">Etat</a>** <a class="code" href="class_cellular_automata.html#aed4b142d4bbd1af6ea66db5c4b03cc9d">m_etats</a>;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#abfc701e73635828d67d45bdb8926440e">   15</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_etat.html">Etat</a>* <a class="code" href="class_cellular_automata.html#abfc701e73635828d67d45bdb8926440e">m_depart</a>;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a75bbb557cc4e2056da5265f242185e0a">   16</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_cellular_automata.html#a75bbb557cc4e2056da5265f242185e0a">m_nbEtats</a>;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a8d2cab9f275061f595fab6a12f8c84d9">   17</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_cellular_automata.html#a8d2cab9f275061f595fab6a12f8c84d9">m_buffer</a>;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#ac6d05bb0d1a0696c83253257f1047f8e">   18</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_cellular_automata.html#ac6d05bb0d1a0696c83253257f1047f8e">m_rang</a>;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cellular_automata.html#ad0c57645f11882d3290e6493f4773c3c">Build</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indice);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/*CellularAutomata(const CellularAutomata&amp; s);</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">    CellularAutomata&amp; operator=(const CellularAutomata&amp; s);*/</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//CellularAutomata( TransitionRule const* rule, unsigned int buffer = 2);</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_cellular_automata.html#af50a5ecce37ce634058c6cd8724f6732">CellularAutomata</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nbEtats,<span class="keyword">const</span> <a class="code" href="class_etat.html">Etat</a> *dep = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <a class="code" href="class_transition_rule.html">TransitionRule</a> *rule = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <a class="code" href="class_voisinage.html">Voisinage</a> *definitionVoisinage=<span class="keyword">nullptr</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> buffer = 2);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cellular_automata.html#a8ee6a9ee70fccd7987805e3d176fb3e1">setEtatDepart</a>(<span class="keyword">const</span> <a class="code" href="class_etat.html">Etat</a> &amp;dep);</div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a28ebffd21b4b0f297a0ceea6f8648421">   28</a></span>&#160;    <a class="code" href="class_etat.html">Etat</a> <span class="keyword">const</span>* <a class="code" href="class_cellular_automata.html#a28ebffd21b4b0f297a0ceea6f8648421">getEtatDepart</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="class_cellular_automata.html#abfc701e73635828d67d45bdb8926440e">m_depart</a>;}</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cellular_automata.html#aa704c475e0501f7db1f3bcb88211493a">Run</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nbSteps); <span class="comment">// génère les n prochains états</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cellular_automata.html#acfc9ced987c630324dcd70ceea348148">Next</a>(); <span class="comment">// génère le prochain état</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_etat.html">Etat</a>&amp; <a class="code" href="class_cellular_automata.html#a42291e2737e23c206e44f074d13323f7">Dernier</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a2c7e3542b8360a97f0166b5b75a11125">   32</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_cellular_automata.html#a2c7e3542b8360a97f0166b5b75a11125">GetRangDernier</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_cellular_automata.html#ac6d05bb0d1a0696c83253257f1047f8e">m_rang</a>; }</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a50fd8f8ee143b72c09107553d7ae04c8">   33</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_cellular_automata.html#a50fd8f8ee143b72c09107553d7ae04c8">GetNombreEtats</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_cellular_automata.html#a75bbb557cc4e2056da5265f242185e0a">m_nbEtats</a>; }</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cellular_automata.html#a0cbefb6072fea0aeb9458d81167c84d5">Reset</a>(); <span class="comment">// revenir à l&#39;état de départ</span></div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a75397ff49dc3b2042d922c2da9d7bf85">   35</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_transition_rule.html">TransitionRule</a>* <a class="code" href="class_cellular_automata.html#a75397ff49dc3b2042d922c2da9d7bf85">getTransition</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_cellular_automata.html#aac41608d613ea2ee9df3a55ad0a127f6">m_rule</a>;}</div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_cellular_automata.html#a6b579ee2708d749ec4073950d3593083">   36</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_voisinage.html">Voisinage</a>* <a class="code" href="class_cellular_automata.html#a6b579ee2708d749ec4073950d3593083">getVoisinage</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_cellular_automata.html#a6990374e6bca2e228ff82ad5a3419833">m_voisinageDefinition</a>;}</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cellular_automata.html#a894e9aaca0bae53d59494aab600bb11d">setRule</a>(<span class="keyword">const</span> <a class="code" href="class_transition_rule.html">TransitionRule</a> &amp;rule);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cellular_automata.html#aaa2d03eaa7b1b5349d67393fcad0a7fa">setVoisinageDefinition</a>(<span class="keyword">const</span> <a class="code" href="class_voisinage.html">Voisinage</a> &amp;voisinage);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_cellular_automata.html#a50e6daa1b843aeb3bcafc634ae219ed8">~CellularAutomata</a>();</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif // CELLULARAUTOMATA_H</span></div><div class="ttc" id="transitionrule_8h_html"><div class="ttname"><a href="transitionrule_8h.html">transitionrule.h</a></div></div>
+<div class="ttc" id="class_cellular_automata_html"><div class="ttname"><a href="class_cellular_automata.html">CellularAutomata</a></div><div class="ttdef"><b>Definition:</b> cellularautomata.h:9</div></div>
+<div class="ttc" id="class_cellular_automata_html_a75bbb557cc4e2056da5265f242185e0a"><div class="ttname"><a href="class_cellular_automata.html#a75bbb557cc4e2056da5265f242185e0a">CellularAutomata::m_nbEtats</a></div><div class="ttdeci">unsigned int m_nbEtats</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:16</div></div>
+<div class="ttc" id="class_cellular_automata_html_a6b579ee2708d749ec4073950d3593083"><div class="ttname"><a href="class_cellular_automata.html#a6b579ee2708d749ec4073950d3593083">CellularAutomata::getVoisinage</a></div><div class="ttdeci">const Voisinage * getVoisinage() const</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:36</div></div>
+<div class="ttc" id="class_voisinage_html"><div class="ttname"><a href="class_voisinage.html">Voisinage</a></div><div class="ttdef"><b>Definition:</b> voisinage.h:6</div></div>
+<div class="ttc" id="class_cellular_automata_html_a6990374e6bca2e228ff82ad5a3419833"><div class="ttname"><a href="class_cellular_automata.html#a6990374e6bca2e228ff82ad5a3419833">CellularAutomata::m_voisinageDefinition</a></div><div class="ttdeci">const Voisinage * m_voisinageDefinition</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:13</div></div>
+<div class="ttc" id="etat_8h_html"><div class="ttname"><a href="etat_8h.html">etat.h</a></div></div>
+<div class="ttc" id="class_cellular_automata_html_a2c7e3542b8360a97f0166b5b75a11125"><div class="ttname"><a href="class_cellular_automata.html#a2c7e3542b8360a97f0166b5b75a11125">CellularAutomata::GetRangDernier</a></div><div class="ttdeci">unsigned int GetRangDernier() const</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:32</div></div>
+<div class="ttc" id="class_cellular_automata_html_a42291e2737e23c206e44f074d13323f7"><div class="ttname"><a href="class_cellular_automata.html#a42291e2737e23c206e44f074d13323f7">CellularAutomata::Dernier</a></div><div class="ttdeci">const Etat &amp; Dernier() const</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:64</div></div>
+<div class="ttc" id="class_cellular_automata_html_aaa2d03eaa7b1b5349d67393fcad0a7fa"><div class="ttname"><a href="class_cellular_automata.html#aaa2d03eaa7b1b5349d67393fcad0a7fa">CellularAutomata::setVoisinageDefinition</a></div><div class="ttdeci">void setVoisinageDefinition(const Voisinage &amp;voisinage)</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:83</div></div>
+<div class="ttc" id="class_cellular_automata_html_a8ee6a9ee70fccd7987805e3d176fb3e1"><div class="ttname"><a href="class_cellular_automata.html#a8ee6a9ee70fccd7987805e3d176fb3e1">CellularAutomata::setEtatDepart</a></div><div class="ttdeci">void setEtatDepart(const Etat &amp;dep)</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:20</div></div>
+<div class="ttc" id="class_cellular_automata_html_aac41608d613ea2ee9df3a55ad0a127f6"><div class="ttname"><a href="class_cellular_automata.html#aac41608d613ea2ee9df3a55ad0a127f6">CellularAutomata::m_rule</a></div><div class="ttdeci">const TransitionRule * m_rule</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:12</div></div>
+<div class="ttc" id="class_cellular_automata_html_a8d2cab9f275061f595fab6a12f8c84d9"><div class="ttname"><a href="class_cellular_automata.html#a8d2cab9f275061f595fab6a12f8c84d9">CellularAutomata::m_buffer</a></div><div class="ttdeci">unsigned int m_buffer</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:17</div></div>
+<div class="ttc" id="voisinage_8h_html"><div class="ttname"><a href="voisinage_8h.html">voisinage.h</a></div></div>
+<div class="ttc" id="class_cellular_automata_html_af50a5ecce37ce634058c6cd8724f6732"><div class="ttname"><a href="class_cellular_automata.html#af50a5ecce37ce634058c6cd8724f6732">CellularAutomata::CellularAutomata</a></div><div class="ttdeci">CellularAutomata(unsigned int nbEtats, const Etat *dep=nullptr, const TransitionRule *rule=nullptr, const Voisinage *definitionVoisinage=nullptr, unsigned int buffer=2)</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:7</div></div>
+<div class="ttc" id="cell_8h_html"><div class="ttname"><a href="cell_8h.html">cell.h</a></div><div class="ttdoc">Déclaration de la classe Cell et déclaration des différents états que peut prendre les cellules et la...</div></div>
+<div class="ttc" id="class_cellular_automata_html_a50e6daa1b843aeb3bcafc634ae219ed8"><div class="ttname"><a href="class_cellular_automata.html#a50e6daa1b843aeb3bcafc634ae219ed8">CellularAutomata::~CellularAutomata</a></div><div class="ttdeci">~CellularAutomata()</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:70</div></div>
+<div class="ttc" id="class_cellular_automata_html_aa704c475e0501f7db1f3bcb88211493a"><div class="ttname"><a href="class_cellular_automata.html#aa704c475e0501f7db1f3bcb88211493a">CellularAutomata::Run</a></div><div class="ttdeci">void Run(unsigned int nbSteps)</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:60</div></div>
+<div class="ttc" id="class_cellular_automata_html_abfc701e73635828d67d45bdb8926440e"><div class="ttname"><a href="class_cellular_automata.html#abfc701e73635828d67d45bdb8926440e">CellularAutomata::m_depart</a></div><div class="ttdeci">const Etat * m_depart</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:15</div></div>
+<div class="ttc" id="class_cellular_automata_html_a75397ff49dc3b2042d922c2da9d7bf85"><div class="ttname"><a href="class_cellular_automata.html#a75397ff49dc3b2042d922c2da9d7bf85">CellularAutomata::getTransition</a></div><div class="ttdeci">const TransitionRule * getTransition() const</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:35</div></div>
+<div class="ttc" id="class_cellular_automata_html_a50fd8f8ee143b72c09107553d7ae04c8"><div class="ttname"><a href="class_cellular_automata.html#a50fd8f8ee143b72c09107553d7ae04c8">CellularAutomata::GetNombreEtats</a></div><div class="ttdeci">unsigned int GetNombreEtats() const</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:33</div></div>
+<div class="ttc" id="class_cellular_automata_html_aed4b142d4bbd1af6ea66db5c4b03cc9d"><div class="ttname"><a href="class_cellular_automata.html#aed4b142d4bbd1af6ea66db5c4b03cc9d">CellularAutomata::m_etats</a></div><div class="ttdeci">Etat ** m_etats</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:14</div></div>
+<div class="ttc" id="class_cellular_automata_html_a894e9aaca0bae53d59494aab600bb11d"><div class="ttname"><a href="class_cellular_automata.html#a894e9aaca0bae53d59494aab600bb11d">CellularAutomata::setRule</a></div><div class="ttdeci">void setRule(const TransitionRule &amp;rule)</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:79</div></div>
+<div class="ttc" id="class_cellular_automata_html_a28ebffd21b4b0f297a0ceea6f8648421"><div class="ttname"><a href="class_cellular_automata.html#a28ebffd21b4b0f297a0ceea6f8648421">CellularAutomata::getEtatDepart</a></div><div class="ttdeci">Etat const  * getEtatDepart() const</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:28</div></div>
+<div class="ttc" id="class_cellular_automata_html_ad0c57645f11882d3290e6493f4773c3c"><div class="ttname"><a href="class_cellular_automata.html#ad0c57645f11882d3290e6493f4773c3c">CellularAutomata::Build</a></div><div class="ttdeci">void Build(unsigned int indice)</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:25</div></div>
+<div class="ttc" id="class_transition_rule_html"><div class="ttname"><a href="class_transition_rule.html">TransitionRule</a></div><div class="ttdef"><b>Definition:</b> transitionrule.h:7</div></div>
+<div class="ttc" id="class_cellular_automata_html_ac6d05bb0d1a0696c83253257f1047f8e"><div class="ttname"><a href="class_cellular_automata.html#ac6d05bb0d1a0696c83253257f1047f8e">CellularAutomata::m_rang</a></div><div class="ttdeci">unsigned int m_rang</div><div class="ttdef"><b>Definition:</b> cellularautomata.h:18</div></div>
+<div class="ttc" id="class_cellular_automata_html_acfc9ced987c630324dcd70ceea348148"><div class="ttname"><a href="class_cellular_automata.html#acfc9ced987c630324dcd70ceea348148">CellularAutomata::Next</a></div><div class="ttdeci">void Next()</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:51</div></div>
+<div class="ttc" id="generateuretat_8h_html"><div class="ttname"><a href="generateuretat_8h.html">generateuretat.h</a></div><div class="ttdoc">Déclaration des diverses classes représentant des algorithmes permettant de générer des Etats...</div></div>
+<div class="ttc" id="class_cellular_automata_html_a0cbefb6072fea0aeb9458d81167c84d5"><div class="ttname"><a href="class_cellular_automata.html#a0cbefb6072fea0aeb9458d81167c84d5">CellularAutomata::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> cellularautomata.cpp:42</div></div>
+<div class="ttc" id="class_etat_html"><div class="ttname"><a href="class_etat.html">Etat</a></div><div class="ttdef"><b>Definition:</b> etat.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_d00832115a11414eee9d508c932e76cc.html">maxn0</a></li><li class="navelem"><a class="el" href="dir_2ebd892bc863745a1530816a4247e39d.html">git</a></li><li class="navelem"><a class="el" href="dir_2b75f7f782ea7031a50bd0491772aaa6.html">LO21</a></li><li class="navelem"><a class="el" href="dir_42c5af731aafeefa433926d984ddf325.html">AutoCell</a></li><li class="navelem"><a class="el" href="cellularautomata_8h.html">cellularautomata.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

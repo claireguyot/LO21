@@ -20,7 +20,7 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
     QFormLayout *formulaire = new QFormLayout;
     formulaire->addRow("nombre d'Etats",m_nombreEtats);
     formulaire->addRow("Regle de transition",m_regle);
-    QString text= "Informations: \n L'ordre du voisinage est de 1 obligatoirement car sinon la règle serait beaucoup trop longue pour un nombre d'Etats supérieur ou égal à 3.\n etats:\n 0 = blanc\n 1= noir\n 2 = vert\n 3= rouge\nRègle de transition :\n- doit avoir une taille égale à (nombre d'etats)^(nombre de voisins)\n- doit comporter que des chiffres de 0 à nombre d'Etats.";
+    QString text= "Informations: \n L'ordre du voisinage, distance entre la cellule et son plus lointain voisin, est de 1 obligatoirement car sinon la règle serait beaucoup trop longue pour un nombre d'Etats supérieur ou égal à 3.\n etats:\n 0 = blanc\n 1 = noir\n 2 = vert\n 3 = rouge\nRègle de transition :\n- doit avoir une taille égale à (nombre d'etats)^(nombre de voisins)\n- doit comporter que des chiffres de 0 à nombre d'Etats-1.";
     QPlainTextEdit* info = new QPlainTextEdit(text);
     info->setReadOnly(true);
 

@@ -1,0 +1,16 @@
+
+\begin{DoxyRefList}
+\item[\label{todo__todo000001}%
+\Hypertarget{todo__todo000001}%
+Classe \mbox{\hyperlink{class_c_a_builder}{C\+A\+Builder}} ]L\textquotesingle{}implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps  
+\item[\label{todo__todo000002}%
+\Hypertarget{todo__todo000002}%
+Classe \mbox{\hyperlink{class_c_a_builder1_d}{C\+A\+Builder1D}} ]L\textquotesingle{}implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps 
+
+améliorer l\textquotesingle{}implémentation pour pouvoir gérer la construction de plusieurs automates en même temps On a décidé de mettre un design pattern singleton sur cette classe afin d\textquotesingle{}être sûr de n\textquotesingle{}avoir qu\textquotesingle{}une seule instance du builder pour créer un seul simulateur 1D car notre application ne peut gérer qu\textquotesingle{}un simulateur 1D à la fois Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de Cellular\+Automate, ce n\textquotesingle{}est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement Par exemple\+: la classe \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} construit des \mbox{\hyperlink{class_etat}{Etat}}. On aurait pu factoriser le code (héritage) des 2 Builder 
+\item[\label{todo__todo000003}%
+\Hypertarget{todo__todo000003}%
+Classe \mbox{\hyperlink{class_c_a_builder2_d}{C\+A\+Builder2D}} ]L\textquotesingle{}implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps. On 
+
+améliorer l\textquotesingle{}implémentation pour pouvoir gérer la construction de plusieurs automates en même temps Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de Cellular\+Automate, ce n\textquotesingle{}est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement Par exemple\+: la classe \mbox{\hyperlink{class_cellular_automata}{Cellular\+Automata}} construit des \mbox{\hyperlink{class_etat}{Etat}}.
+\end{DoxyRefList}

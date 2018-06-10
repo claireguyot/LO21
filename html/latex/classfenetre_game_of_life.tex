@@ -1,0 +1,129 @@
+\hypertarget{classfenetre_game_of_life}{}\section{Référence de la classe fenetre\+Game\+Of\+Life}
+\label{classfenetre_game_of_life}\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+
+
+{\ttfamily \#include $<$fenetreconfig.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de fenetre\+Game\+Of\+Life\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classfenetre_game_of_life}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfenetre_game_of_life_a11bd76b5574d5bb2e0f1bb8114fab99f}{fenetre\+Game\+Of\+Life}} (Q\+Widget $\ast$parent=nullptr)
+\item 
+void \mbox{\hyperlink{classfenetre_game_of_life_a76bc46f313a3d3b39ab060702de0b614}{construction\+Automate}} () const override
+\item 
+\mbox{\hyperlink{classfenetre_game_of_life_a1cd09ff95e56f1b66b8a7a7f71fb44f2}{$\sim$fenetre\+Game\+Of\+Life}} ()
+\item 
+virtual void \mbox{\hyperlink{classfenetre_game_of_life_a336a5b5e63dcddc116cc7bfc96d21dd8}{load\+Config}} () override
+\item 
+virtual void \mbox{\hyperlink{classfenetre_game_of_life_aaa79df41aba182775dab13d42656220a}{save\+Config}} () override
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Combo\+Box $\ast$ \mbox{\hyperlink{classfenetre_game_of_life_a551b8c697797121124666e4917fa2df9}{m\+\_\+choix\+Voisinage}}
+\item 
+Q\+Spin\+Box $\ast$ \mbox{\hyperlink{classfenetre_game_of_life_a7267e755bb11b6949a049df4198f6a11}{m\+\_\+ordre\+Voisinage}}
+\item 
+Q\+Spin\+Box $\ast$ \mbox{\hyperlink{classfenetre_game_of_life_a54ed3c46d8409c0ec0f23a7b4aed11b0}{m\+\_\+min\+Vivants}}
+\item 
+Q\+Spin\+Box $\ast$ \mbox{\hyperlink{classfenetre_game_of_life_adfa79f81d5d2731529e046b338f4a481}{m\+\_\+max\+Vivants}}
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{classfenetre_game_of_life_a979b46087690c0ba75798fb3d3db7acf}{m\+\_\+nombre\+Etats}} = 2
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classfenetre_game_of_life_a11bd76b5574d5bb2e0f1bb8114fab99f}\label{classfenetre_game_of_life_a11bd76b5574d5bb2e0f1bb8114fab99f}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{fenetre\+Game\+Of\+Life()}{fenetreGameOfLife()}}
+{\footnotesize\ttfamily fenetre\+Game\+Of\+Life\+::fenetre\+Game\+Of\+Life (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{classfenetre_game_of_life_a1cd09ff95e56f1b66b8a7a7f71fb44f2}\label{classfenetre_game_of_life_a1cd09ff95e56f1b66b8a7a7f71fb44f2}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!````~fenetre\+Game\+Of\+Life@{$\sim$fenetre\+Game\+Of\+Life}}
+\index{````~fenetre\+Game\+Of\+Life@{$\sim$fenetre\+Game\+Of\+Life}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{$\sim$fenetre\+Game\+Of\+Life()}{~fenetreGameOfLife()}}
+{\footnotesize\ttfamily fenetre\+Game\+Of\+Life\+::$\sim$fenetre\+Game\+Of\+Life (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classfenetre_game_of_life_a76bc46f313a3d3b39ab060702de0b614}\label{classfenetre_game_of_life_a76bc46f313a3d3b39ab060702de0b614}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!construction\+Automate@{construction\+Automate}}
+\index{construction\+Automate@{construction\+Automate}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{construction\+Automate()}{constructionAutomate()}}
+{\footnotesize\ttfamily void fenetre\+Game\+Of\+Life\+::construction\+Automate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implémente \mbox{\hyperlink{classfenetre_config_a67e3561304b9c53dc01ae3f3b3713c11}{fenetre\+Config}}.
+
+\mbox{\Hypertarget{classfenetre_game_of_life_a336a5b5e63dcddc116cc7bfc96d21dd8}\label{classfenetre_game_of_life_a336a5b5e63dcddc116cc7bfc96d21dd8}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!load\+Config@{load\+Config}}
+\index{load\+Config@{load\+Config}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{load\+Config()}{loadConfig()}}
+{\footnotesize\ttfamily void fenetre\+Game\+Of\+Life\+::load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implémente \mbox{\hyperlink{classfenetre_config_afab21d3c10c4b7779614da983e1e9bd5}{fenetre\+Config}}.
+
+\mbox{\Hypertarget{classfenetre_game_of_life_aaa79df41aba182775dab13d42656220a}\label{classfenetre_game_of_life_aaa79df41aba182775dab13d42656220a}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!save\+Config@{save\+Config}}
+\index{save\+Config@{save\+Config}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{save\+Config()}{saveConfig()}}
+{\footnotesize\ttfamily void fenetre\+Game\+Of\+Life\+::save\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implémente \mbox{\hyperlink{classfenetre_config_a4bdf35ea6efe26c3e9b1cea487931ba1}{fenetre\+Config}}.
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classfenetre_game_of_life_a551b8c697797121124666e4917fa2df9}\label{classfenetre_game_of_life_a551b8c697797121124666e4917fa2df9}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!m\+\_\+choix\+Voisinage@{m\+\_\+choix\+Voisinage}}
+\index{m\+\_\+choix\+Voisinage@{m\+\_\+choix\+Voisinage}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{m\+\_\+choix\+Voisinage}{m\_choixVoisinage}}
+{\footnotesize\ttfamily Q\+Combo\+Box$\ast$ fenetre\+Game\+Of\+Life\+::m\+\_\+choix\+Voisinage\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre_game_of_life_adfa79f81d5d2731529e046b338f4a481}\label{classfenetre_game_of_life_adfa79f81d5d2731529e046b338f4a481}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!m\+\_\+max\+Vivants@{m\+\_\+max\+Vivants}}
+\index{m\+\_\+max\+Vivants@{m\+\_\+max\+Vivants}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{m\+\_\+max\+Vivants}{m\_maxVivants}}
+{\footnotesize\ttfamily Q\+Spin\+Box$\ast$ fenetre\+Game\+Of\+Life\+::m\+\_\+max\+Vivants\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre_game_of_life_a54ed3c46d8409c0ec0f23a7b4aed11b0}\label{classfenetre_game_of_life_a54ed3c46d8409c0ec0f23a7b4aed11b0}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!m\+\_\+min\+Vivants@{m\+\_\+min\+Vivants}}
+\index{m\+\_\+min\+Vivants@{m\+\_\+min\+Vivants}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{m\+\_\+min\+Vivants}{m\_minVivants}}
+{\footnotesize\ttfamily Q\+Spin\+Box$\ast$ fenetre\+Game\+Of\+Life\+::m\+\_\+min\+Vivants\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre_game_of_life_a979b46087690c0ba75798fb3d3db7acf}\label{classfenetre_game_of_life_a979b46087690c0ba75798fb3d3db7acf}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!m\+\_\+nombre\+Etats@{m\+\_\+nombre\+Etats}}
+\index{m\+\_\+nombre\+Etats@{m\+\_\+nombre\+Etats}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{m\+\_\+nombre\+Etats}{m\_nombreEtats}}
+{\footnotesize\ttfamily const unsigned int fenetre\+Game\+Of\+Life\+::m\+\_\+nombre\+Etats = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfenetre_game_of_life_a7267e755bb11b6949a049df4198f6a11}\label{classfenetre_game_of_life_a7267e755bb11b6949a049df4198f6a11}} 
+\index{fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}!m\+\_\+ordre\+Voisinage@{m\+\_\+ordre\+Voisinage}}
+\index{m\+\_\+ordre\+Voisinage@{m\+\_\+ordre\+Voisinage}!fenetre\+Game\+Of\+Life@{fenetre\+Game\+Of\+Life}}
+\subsubsection{\texorpdfstring{m\+\_\+ordre\+Voisinage}{m\_ordreVoisinage}}
+{\footnotesize\ttfamily Q\+Spin\+Box$\ast$ fenetre\+Game\+Of\+Life\+::m\+\_\+ordre\+Voisinage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{fenetreconfig_8h}{fenetreconfig.\+h}}\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{fenetreconfig_8cpp}{fenetreconfig.\+cpp}}\end{DoxyCompactItemize}

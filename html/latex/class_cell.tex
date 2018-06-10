@@ -1,0 +1,321 @@
+\hypertarget{class_cell}{}\section{Référence de la classe Cell}
+\label{class_cell}\index{Cell@{Cell}}
+
+
+classe représentant une cellule \+: élément de base du programme  
+
+
+
+
+{\ttfamily \#include $<$cell.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $\ast$ $>$ const  \& \mbox{\hyperlink{class_cell_a5c2a7b09dcb8afed0040ebdc4267408d}{Get\+Voisins}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur en lecture sur m\+\_\+voisins. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cell_a7640093c787979958fbb772e4fccdffa}{Get\+Etat}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur en lecture sur m\+\_\+etat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cell_a3af5ea9b9e031151e16009b22118b07a}{GetX}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur en lecture sur m\+\_\+x. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cell_a3668c9664cadb1b94a632d497fa493c5}{GetY}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur en lecture sur m\+\_\+y. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a33dac87ec7294fdb4c67b8b430ea0946}{Set\+Etat}} (int \mbox{\hyperlink{cell_8h_ae60adcb558b7f2142c3aa2dd94aaa535}{etat}})
+\begin{DoxyCompactList}\small\item\em modification de l\textquotesingle{}etat \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_aef5912d85e2ca3e034023fb0874896fa}{Ajouter\+Voisin}} (\mbox{\hyperlink{class_cell}{Cell}} $\ast$voisin)
+\begin{DoxyCompactList}\small\item\em ajout d\textquotesingle{}un voisin dans le voisinage de la cellule \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a4f07be87bb04bdc457726c51f2c69bcc}{Clear\+Voisinage}} ()
+\begin{DoxyCompactList}\small\item\em Suppression du voisinage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_a508f988fb5b1ef8358589363c1af3ee4}{$\sim$\+Cell}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructeur par défaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell_abfff4b378d15d85506663df528762eaf}{Cell}} (int \mbox{\hyperlink{cell_8h_ae60adcb558b7f2142c3aa2dd94aaa535}{etat}}, int x, int y)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell_aff4c807938a63e9469c1547e7c087e0b}{Cell}} (\mbox{\hyperlink{class_cell}{Cell}} const \&c)=default
+\begin{DoxyCompactList}\small\item\em Constructeur de recopie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a9aaedcce2daccb4aa070f870c1a207ed}{SetX}} (int x)
+\begin{DoxyCompactList}\small\item\em modification de la position X \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a48afb0c8c8d1ebe3409b9a166dcd507d}{SetY}} (int y)
+\begin{DoxyCompactList}\small\item\em modification de la position Y \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell}{Cell}} \& \mbox{\hyperlink{class_cell_ac1f905d4cd626cc32963ab7a6f76634e}{operator=}} (\mbox{\hyperlink{class_cell}{Cell}} const \&c)=default
+\begin{DoxyCompactList}\small\item\em surcharge de l\textquotesingle{}opérateur d\textquotesingle{}affectation (défaut) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_cell_a350cfee41db7450651de4e48543227c3}{m\+\_\+etat}}
+\begin{DoxyCompactList}\small\item\em état (valeur) de la cellule. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $\ast$ $>$ \mbox{\hyperlink{class_cell_a7d781cbf0f2a5dffd13313b8eab86732}{m\+\_\+voisins}}
+\begin{DoxyCompactList}\small\item\em vecteur de pointeurs sur les cellules voisines de la cellule \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cell_ae38c546e6fd703965c8b62f750e68417}{m\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em position en ligne de la cellule \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cell_a303c301e529e95ce1eadaf5b73ad41b2}{m\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em position en colonne de la cellule \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_cell_af495e82aa15594b628d4192e8ecb688b}{Etat}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+classe représentant une cellule \+: élément de base du programme 
+
+Un objet \mbox{\hyperlink{class_cell}{Cell}} est une cellule qui fait nécessairement partie d\textquotesingle{}un objet \mbox{\hyperlink{class_etat}{Etat}} car seule \mbox{\hyperlink{class_etat}{Etat}} peut construire des objets \mbox{\hyperlink{class_cell}{Cell}}. Une cellule est caractérisée par sa position, son état (sa valeur), un voisinage. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_cell_a508f988fb5b1ef8358589363c1af3ee4}\label{class_cell_a508f988fb5b1ef8358589363c1af3ee4}} 
+\index{Cell@{Cell}!````~Cell@{$\sim$\+Cell}}
+\index{````~Cell@{$\sim$\+Cell}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{$\sim$\+Cell()}{~Cell()}}
+{\footnotesize\ttfamily Cell\+::$\sim$\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+
+
+Destructeur par défaut. 
+
+\mbox{\Hypertarget{class_cell_a394510643e8664cf12b5efaf5cb99f71}\label{class_cell_a394510643e8664cf12b5efaf5cb99f71}} 
+\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Constructeur. 
+
+Constructeur par défault de la classe \mbox{\hyperlink{class_cell}{Cell}} \+: X, Y et l\textquotesingle{}état sont initialisés à 0. Seule la classe \mbox{\hyperlink{class_etat}{Etat}} peut construire des \mbox{\hyperlink{class_cell}{Cell}}. \mbox{\Hypertarget{class_cell_abfff4b378d15d85506663df528762eaf}\label{class_cell_abfff4b378d15d85506663df528762eaf}} 
+\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{int}]{etat,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Constructeur. 
+
+Constructeur de la classe \mbox{\hyperlink{class_cell}{Cell}}. Seule la classe \mbox{\hyperlink{class_etat}{Etat}} peut construire des \mbox{\hyperlink{class_cell}{Cell}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etat} & \+: valeur prise par la cellule \\
+\hline
+{\em x,y} & \+: positions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cell_aff4c807938a63e9469c1547e7c087e0b}\label{class_cell_aff4c807938a63e9469c1547e7c087e0b}} 
+\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cell}{Cell}} const \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+
+
+Constructeur de recopie. 
+
+Constructeur de recopie de la classe \mbox{\hyperlink{class_cell}{Cell}}. Seule la classe \mbox{\hyperlink{class_etat}{Etat}} peut construire des \mbox{\hyperlink{class_cell}{Cell}}. 
+\begin{DoxyParams}{Paramètres}
+{\em c} & \+: référence sur la \mbox{\hyperlink{class_cell}{Cell}} qu\textquotesingle{}on souhaite copier \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_cell_aef5912d85e2ca3e034023fb0874896fa}\label{class_cell_aef5912d85e2ca3e034023fb0874896fa}} 
+\index{Cell@{Cell}!Ajouter\+Voisin@{Ajouter\+Voisin}}
+\index{Ajouter\+Voisin@{Ajouter\+Voisin}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Ajouter\+Voisin()}{AjouterVoisin()}}
+{\footnotesize\ttfamily void Cell\+::\+Ajouter\+Voisin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cell}{Cell}} $\ast$}]{voisin }\end{DoxyParamCaption})}
+
+
+
+ajout d\textquotesingle{}un voisin dans le voisinage de la cellule 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em voisin} & = pointeur sur la cellule voisine à ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cell_a4f07be87bb04bdc457726c51f2c69bcc}\label{class_cell_a4f07be87bb04bdc457726c51f2c69bcc}} 
+\index{Cell@{Cell}!Clear\+Voisinage@{Clear\+Voisinage}}
+\index{Clear\+Voisinage@{Clear\+Voisinage}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Clear\+Voisinage()}{ClearVoisinage()}}
+{\footnotesize\ttfamily void Cell\+::\+Clear\+Voisinage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Suppression du voisinage. 
+
+\mbox{\Hypertarget{class_cell_a7640093c787979958fbb772e4fccdffa}\label{class_cell_a7640093c787979958fbb772e4fccdffa}} 
+\index{Cell@{Cell}!Get\+Etat@{Get\+Etat}}
+\index{Get\+Etat@{Get\+Etat}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Get\+Etat()}{GetEtat()}}
+{\footnotesize\ttfamily int Cell\+::\+Get\+Etat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accesseur en lecture sur m\+\_\+etat. 
+
+\begin{DoxyReturn}{Renvoie}
+etat de la cellule 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cell_a5c2a7b09dcb8afed0040ebdc4267408d}\label{class_cell_a5c2a7b09dcb8afed0040ebdc4267408d}} 
+\index{Cell@{Cell}!Get\+Voisins@{Get\+Voisins}}
+\index{Get\+Voisins@{Get\+Voisins}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Get\+Voisins()}{GetVoisins()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_cell}{Cell}}$\ast$$>$ const\& Cell\+::\+Get\+Voisins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accesseur en lecture sur m\+\_\+voisins. 
+
+Méthode permettant de récupérer une référence const sur l\textquotesingle{}ensemble des voisins d\textquotesingle{}une cellule. \begin{DoxyReturn}{Renvoie}
+référence const sur le voisinage de la cellule qui est un vector de pointeurs de type \mbox{\hyperlink{class_cell}{Cell}} pointant chacun sur une cellule voisine de la cellule. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cell_a3af5ea9b9e031151e16009b22118b07a}\label{class_cell_a3af5ea9b9e031151e16009b22118b07a}} 
+\index{Cell@{Cell}!GetX@{GetX}}
+\index{GetX@{GetX}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Get\+X()}{GetX()}}
+{\footnotesize\ttfamily int Cell\+::\+GetX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accesseur en lecture sur m\+\_\+x. 
+
+\begin{DoxyReturn}{Renvoie}
+position en X (ligne) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cell_a3668c9664cadb1b94a632d497fa493c5}\label{class_cell_a3668c9664cadb1b94a632d497fa493c5}} 
+\index{Cell@{Cell}!GetY@{GetY}}
+\index{GetY@{GetY}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Get\+Y()}{GetY()}}
+{\footnotesize\ttfamily int Cell\+::\+GetY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accesseur en lecture sur m\+\_\+y. 
+
+\begin{DoxyReturn}{Renvoie}
+position en Y (colonne) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cell_ac1f905d4cd626cc32963ab7a6f76634e}\label{class_cell_ac1f905d4cd626cc32963ab7a6f76634e}} 
+\index{Cell@{Cell}!operator=@{operator=}}
+\index{operator=@{operator=}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell}{Cell}}\& Cell\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cell}{Cell}} const \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+
+
+surcharge de l\textquotesingle{}opérateur d\textquotesingle{}affectation (défaut) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em c} & \+: référence sur la cellule qui va nous servir à affecter la cellule courante \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cell_a33dac87ec7294fdb4c67b8b430ea0946}\label{class_cell_a33dac87ec7294fdb4c67b8b430ea0946}} 
+\index{Cell@{Cell}!Set\+Etat@{Set\+Etat}}
+\index{Set\+Etat@{Set\+Etat}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Set\+Etat()}{SetEtat()}}
+{\footnotesize\ttfamily void Cell\+::\+Set\+Etat (\begin{DoxyParamCaption}\item[{int}]{etat }\end{DoxyParamCaption})}
+
+
+
+modification de l\textquotesingle{}etat 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etat} & \+: valeur prise par la cellule \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cell_a9aaedcce2daccb4aa070f870c1a207ed}\label{class_cell_a9aaedcce2daccb4aa070f870c1a207ed}} 
+\index{Cell@{Cell}!SetX@{SetX}}
+\index{SetX@{SetX}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Set\+X()}{SetX()}}
+{\footnotesize\ttfamily void Cell\+::\+SetX (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+modification de la position X 
+
+accesseur en écriture sur m\+\_\+x. Seule la classe \mbox{\hyperlink{class_etat}{Etat}} peut l\textquotesingle{}utiliser car il est illogique d\textquotesingle{}affecter une position X en dehors d\textquotesingle{}une grille. (Cet accesseur n\textquotesingle{}a pas grand intérêt car la classe \mbox{\hyperlink{class_etat}{Etat}} pourrait modifier m\+\_\+x directement vu que c\textquotesingle{}est une classe amie, mais nous avons pris la décision d\textquotesingle{}en faire une classe amie plus tard donc nous l\textquotesingle{}avons laissé afin de ne pas remodifier le code de la classe \mbox{\hyperlink{class_etat}{Etat}}) 
+\begin{DoxyParams}{Paramètres}
+{\em x} & \+: ligne \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cell_a48afb0c8c8d1ebe3409b9a166dcd507d}\label{class_cell_a48afb0c8c8d1ebe3409b9a166dcd507d}} 
+\index{Cell@{Cell}!SetY@{SetY}}
+\index{SetY@{SetY}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Set\+Y()}{SetY()}}
+{\footnotesize\ttfamily void Cell\+::\+SetY (\begin{DoxyParamCaption}\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+modification de la position Y 
+
+accesseur en écriture sur m\+\_\+y. Seule la classe \mbox{\hyperlink{class_etat}{Etat}} peut l\textquotesingle{}utiliser car il est illogique d\textquotesingle{}affecter une position Y en dehors d\textquotesingle{}une grille. (Cet accesseur n\textquotesingle{}a pas grand intérêt car la classe \mbox{\hyperlink{class_etat}{Etat}} pourrait modifier m\+\_\+y directement vu que c\textquotesingle{}est une classe amie, mais nous avons pris la décision d\textquotesingle{}en faire une classe amie plus tard donc nous l\textquotesingle{}avons laissé afin de ne pas remodifier le code de la classe \mbox{\hyperlink{class_etat}{Etat}}) 
+\begin{DoxyParams}{Paramètres}
+{\em y} & \+: colonne \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\mbox{\Hypertarget{class_cell_af495e82aa15594b628d4192e8ecb688b}\label{class_cell_af495e82aa15594b628d4192e8ecb688b}} 
+\index{Cell@{Cell}!Etat@{Etat}}
+\index{Etat@{Etat}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{Etat}{Etat}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_etat}{Etat}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_cell_a350cfee41db7450651de4e48543227c3}\label{class_cell_a350cfee41db7450651de4e48543227c3}} 
+\index{Cell@{Cell}!m\+\_\+etat@{m\+\_\+etat}}
+\index{m\+\_\+etat@{m\+\_\+etat}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{m\+\_\+etat}{m\_etat}}
+{\footnotesize\ttfamily int Cell\+::m\+\_\+etat\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+état (valeur) de la cellule. 
+
+\mbox{\Hypertarget{class_cell_a7d781cbf0f2a5dffd13313b8eab86732}\label{class_cell_a7d781cbf0f2a5dffd13313b8eab86732}} 
+\index{Cell@{Cell}!m\+\_\+voisins@{m\+\_\+voisins}}
+\index{m\+\_\+voisins@{m\+\_\+voisins}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{m\+\_\+voisins}{m\_voisins}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_cell}{Cell}}$\ast$$>$ Cell\+::m\+\_\+voisins\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vecteur de pointeurs sur les cellules voisines de la cellule 
+
+\mbox{\Hypertarget{class_cell_ae38c546e6fd703965c8b62f750e68417}\label{class_cell_ae38c546e6fd703965c8b62f750e68417}} 
+\index{Cell@{Cell}!m\+\_\+x@{m\+\_\+x}}
+\index{m\+\_\+x@{m\+\_\+x}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{m\+\_\+x}{m\_x}}
+{\footnotesize\ttfamily int Cell\+::m\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+position en ligne de la cellule 
+
+\mbox{\Hypertarget{class_cell_a303c301e529e95ce1eadaf5b73ad41b2}\label{class_cell_a303c301e529e95ce1eadaf5b73ad41b2}} 
+\index{Cell@{Cell}!m\+\_\+y@{m\+\_\+y}}
+\index{m\+\_\+y@{m\+\_\+y}!Cell@{Cell}}
+\subsubsection{\texorpdfstring{m\+\_\+y}{m\_y}}
+{\footnotesize\ttfamily int Cell\+::m\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+position en colonne de la cellule 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{cell_8h}{cell.\+h}}\item 
+C\+:/\+Users/maxn0/git/\+L\+O21/\+Auto\+Cell/\mbox{\hyperlink{cell_8cpp}{cell.\+cpp}}\end{DoxyCompactItemize}

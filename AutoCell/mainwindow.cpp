@@ -11,11 +11,12 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 
     switchDim->setCurrentIndex(0);
 
+
     /*
      * Définition des boutons de sélection 1D / 2D
      */
 
-    choixDimension = new QComboBox;
+    choixDimension = new QComboBox();
 
     choixDimension->addItem("Automate 1D");
     choixDimension->addItem("Automate 2D");
@@ -43,6 +44,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     dim2->saveConfig();
     event->accept();
 }
+
 
 void MainWindow::loadConfig()
 {
