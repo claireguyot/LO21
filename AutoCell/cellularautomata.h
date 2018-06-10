@@ -1,11 +1,23 @@
 #ifndef CELLULARAUTOMATA_H
 #define CELLULARAUTOMATA_H
+
+/*!
+ * \file cellularautomata.h
+ * \brief Déclaration de la classe CellularAutomata et définition de ses méthodes inline
+ */
+
 #include "cell.h"
 #include "generateuretat.h"
 #include "etat.h"
 #include "voisinage.h"
 #include "transitionrule.h"
 
+/*! \class CellularAutomata
+  * \brief Classe représentant un automate cellulaire
+  * \sa Etat, TransitionRule, Voisinage
+  *
+  * \details Un objet \a Cell est une cellule qui fait nécessairement partie d'un objet \a Etat car seule la classe \a Etat peut construire des objets \a Cell. Une cellule est caractérisée par sa position (sur la ligne et la colonne), son état (sa valeur) et un voisinage.
+  */
 class CellularAutomata
 {
 private:
