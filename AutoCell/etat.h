@@ -190,13 +190,8 @@ public:
              *
              * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a iterator est détruit.
              */
-            ~iterator() {}
-            /*!
-             * \brief Destructeur de la classe iterator
-             *
-             * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a iterator est détruit.
-             */
-            ~iterator() {}
+            ~iterator() = default;
+
             /*!
              * \brief Surcharge de l'opérateur d'incrémentation de la classe iterator
              *
@@ -294,7 +289,7 @@ public:
              *
              * Ce destructeur permet de supprimer les attributs \a i et \a j qui sont automatiques. L'attribut \a etat n'est pas détruit puisqu'il subsiste quand un objet \a const_iterator est détruit.
              */
-            ~const_iterator() {}
+            ~const_iterator() = default;
             /*!
              * \brief Surcharge de l'opérateur d'incrémentation de la classe const_iterator
              *
