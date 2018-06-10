@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_c_a_builder1_d.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 1D.  
+<p>Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 1D en utilisant le Design Pattern <em>Singleton</em>.  
  <a href="class_c_a_builder1_d.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="cabuilder_8h_source.html">cabuilder.h</a>&gt;</code></p>
@@ -106,84 +106,108 @@ Graphe d'héritage de CABuilder1D:</div>
  <div class="center">
   <img src="class_c_a_builder1_d.png" usemap="#CABuilder1D_map" alt=""/>
   <map id="CABuilder1D_map" name="CABuilder1D_map">
-<area href="class_c_a_builder.html" title="Classe de base qui permet de construire les sous-parties nécessaire à la construction d&#39;un CellularAu..." alt="CABuilder" shape="rect" coords="0,0,86,24"/>
+<area href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA..." alt="CABuilder" shape="rect" coords="0,0,86,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:aa82356e955ae82df3eec34cbb8b47758"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#aa82356e955ae82df3eec34cbb8b47758">BuildVoisinageDef</a> (unsigned int ordre)</td></tr>
+<tr class="memdesc:aa82356e955ae82df3eec34cbb8b47758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir le voisinage d'un automate 1D.  <a href="#aa82356e955ae82df3eec34cbb8b47758">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa82356e955ae82df3eec34cbb8b47758"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fc01c130a00013416532d7e7b43957a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a8fc01c130a00013416532d7e7b43957a">BuildEtatDepart</a> (unsigned int taille, <a class="el" href="class_generateur_etat.html">GenerateurEtat</a> const &amp;generateur, int nbEtats)</td></tr>
+<tr class="memdesc:a8fc01c130a00013416532d7e7b43957a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de la méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir l'état de départ d'un automate 1D.  <a href="#a8fc01c130a00013416532d7e7b43957a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8fc01c130a00013416532d7e7b43957a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a274571cddf774bd67fc786dcf1684c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a0a274571cddf774bd67fc786dcf1684c">BuildEtatDepart</a> (unsigned int taille, int **tab)</td></tr>
+<tr class="memdesc:a0a274571cddf774bd67fc786dcf1684c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de la méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir l'état de départ d'un automate 1D.  <a href="#a0a274571cddf774bd67fc786dcf1684c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0a274571cddf774bd67fc786dcf1684c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77fa7941654a3c41d68df447b1fd7e5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a77fa7941654a3c41d68df447b1fd7e5f">BuildEtatDepart</a> (unsigned int taille)</td></tr>
+<tr class="memdesc:a77fa7941654a3c41d68df447b1fd7e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de la méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir l'état de départ d'un automate 1D.  <a href="#a77fa7941654a3c41d68df447b1fd7e5f">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a77fa7941654a3c41d68df447b1fd7e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a992326d218c98a824f006e6cb03ce011"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a992326d218c98a824f006e6cb03ce011">BuildElementaryRule</a> (std::string const &amp;rule, unsigned int nbEtats)</td></tr>
+<tr class="memdesc:a992326d218c98a824f006e6cb03ce011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir la règle de transition d'un automate 1D.  <a href="#a992326d218c98a824f006e6cb03ce011">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a992326d218c98a824f006e6cb03ce011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_c_a_builder"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_c_a_builder')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_c_a_builder.html">CABuilder</a></td></tr>
 <tr class="memitem:a1be1b3d758b2aa2f5798680a8264ca1e inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_voisinage.html">Voisinage</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a1be1b3d758b2aa2f5798680a8264ca1e">GetVoisinageDefinition</a> () const</td></tr>
+<tr class="memdesc:a1be1b3d758b2aa2f5798680a8264ca1e inherit pub_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en lecture de l'attribut <em>m_voisinageDefinition</em> de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#a1be1b3d758b2aa2f5798680a8264ca1e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1be1b3d758b2aa2f5798680a8264ca1e inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39da3ad55920be3648c8353f17d12bed inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transition_rule.html">TransitionRule</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a39da3ad55920be3648c8353f17d12bed">GetTransitionRule</a> () const</td></tr>
+<tr class="memdesc:a39da3ad55920be3648c8353f17d12bed inherit pub_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en lecture de l'attribut <em>m_transitionRule</em> de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#a39da3ad55920be3648c8353f17d12bed">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a39da3ad55920be3648c8353f17d12bed inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95deea41d8e12b5c5d18cb3c8e24d736 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_etat.html">Etat</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a95deea41d8e12b5c5d18cb3c8e24d736">GetEtatDepart</a> () const</td></tr>
+<tr class="memdesc:a95deea41d8e12b5c5d18cb3c8e24d736 inherit pub_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en lecture de l'attribut <em>m_etatDepart</em> de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#a95deea41d8e12b5c5d18cb3c8e24d736">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a95deea41d8e12b5c5d18cb3c8e24d736 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae304de3db7f44b1192f5a1ae021036a6 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_generateur_etat.html">GenerateurEtat</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#ae304de3db7f44b1192f5a1ae021036a6">GetGenerateurEtat</a> () const</td></tr>
+<tr class="memdesc:ae304de3db7f44b1192f5a1ae021036a6 inherit pub_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en lecture de l'attribut <em>m_generateurEtat</em> de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#ae304de3db7f44b1192f5a1ae021036a6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae304de3db7f44b1192f5a1ae021036a6 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89fe25fa1d52a13756ff47f6b163e7c0 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a89fe25fa1d52a13756ff47f6b163e7c0">BuildGenerateurEtatRandom</a> ()</td></tr>
+<tr class="memdesc:a89fe25fa1d52a13756ff47f6b163e7c0 inherit pub_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> permettant de construire un automate ayant un générateur d'état aléatoire.  <a href="class_c_a_builder.html#a89fe25fa1d52a13756ff47f6b163e7c0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a89fe25fa1d52a13756ff47f6b163e7c0 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbc115fc71d6b17c362e724e5bbcc781 inherit pub_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#afbc115fc71d6b17c362e724e5bbcc781">BuildGenerateurEtatSymetrieAxeVertical</a> ()</td></tr>
+<tr class="memdesc:afbc115fc71d6b17c362e724e5bbcc781 inherit pub_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> permettant de construire un automate ayant un générateur d'état symétrique selon l'axe vertical.  <a href="class_c_a_builder.html#afbc115fc71d6b17c362e724e5bbcc781">Plus de détails...</a><br /></td></tr>
 <tr class="separator:afbc115fc71d6b17c362e724e5bbcc781 inherit pub_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Fonctions membres publiques statiques</h2></td></tr>
 <tr class="memitem:a92c5780ec0e58f2d56ee28971a50b134"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a92c5780ec0e58f2d56ee28971a50b134">getInstance</a> ()</td></tr>
+<tr class="memdesc:a92c5780ec0e58f2d56ee28971a50b134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode statique de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de retourner un automate de la classe.  <a href="#a92c5780ec0e58f2d56ee28971a50b134">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a92c5780ec0e58f2d56ee28971a50b134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Fonctions membres privées</h2></td></tr>
 <tr class="memitem:a8ce449e2418a22e39cf517baffde61de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a8ce449e2418a22e39cf517baffde61de">CABuilder1D</a> ()</td></tr>
+<tr class="memdesc:a8ce449e2418a22e39cf517baffde61de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a>.  <a href="#a8ce449e2418a22e39cf517baffde61de">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8ce449e2418a22e39cf517baffde61de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a376a4febba2304c52c1ac1c41c8a79a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a376a4febba2304c52c1ac1c41c8a79a0">~CABuilder1D</a> ()</td></tr>
+<tr class="memdesc:a376a4febba2304c52c1ac1c41c8a79a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a>.  <a href="#a376a4febba2304c52c1ac1c41c8a79a0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a376a4febba2304c52c1ac1c41c8a79a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0dc5795982306cf2ce982cc2dc2eb22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#ae0dc5795982306cf2ce982cc2dc2eb22">CABuilder1D</a> (const <a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ae0dc5795982306cf2ce982cc2dc2eb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de recopie par défaut supprimé pour s'assurer que l'automate 1D construit est unique.  <a href="#ae0dc5795982306cf2ce982cc2dc2eb22">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae0dc5795982306cf2ce982cc2dc2eb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fdf59ff606ba76be957049bc52f79cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a3fdf59ff606ba76be957049bc52f79cf">operator=</a> (const <a class="el" href="class_c_a_builder1_d.html">CABuilder1D</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a3fdf59ff606ba76be957049bc52f79cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opérateur d'affectation par défaut supprimé pour s'assurer que l'automate 1D construit est unique.  <a href="#a3fdf59ff606ba76be957049bc52f79cf">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3fdf59ff606ba76be957049bc52f79cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr class="memitem:a50193db158de49187b1a377fcbff6250"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder1_d.html#a50193db158de49187b1a377fcbff6250">m_nbEtats</a></td></tr>
+<tr class="memdesc:a50193db158de49187b1a377fcbff6250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a>.  <a href="#a50193db158de49187b1a377fcbff6250">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a50193db158de49187b1a377fcbff6250"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Membres hérités additionnels</h2></td></tr>
 <tr class="inherit_header pro_methods_class_c_a_builder"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_c_a_builder')"><img src="closed.png" alt="-"/>&#160;Fonctions membres protégées hérités de <a class="el" href="class_c_a_builder.html">CABuilder</a></td></tr>
-<tr class="memitem:a83d89eba527bee907d22d657fab5fbf6 inherit pro_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a83d89eba527bee907d22d657fab5fbf6">CABuilder</a> ()</td></tr>
-<tr class="separator:a83d89eba527bee907d22d657fab5fbf6 inherit pro_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f917ce136fc4a5d84a89734039f720d inherit pro_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a9f917ce136fc4a5d84a89734039f720d">~CABuilder</a> ()</td></tr>
-<tr class="separator:a9f917ce136fc4a5d84a89734039f720d inherit pro_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af725c741fdb6c5304763638c72d1aa52 inherit pro_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#af725c741fdb6c5304763638c72d1aa52">CABuilder</a> (const <a class="el" href="class_c_a_builder.html">CABuilder</a> &amp;)=delete</td></tr>
+<tr class="memdesc:af725c741fdb6c5304763638c72d1aa52 inherit pro_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de recopie par défaut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> supprimé pour s'assurer que l'automate construit est unique.  <a href="class_c_a_builder.html#af725c741fdb6c5304763638c72d1aa52">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af725c741fdb6c5304763638c72d1aa52 inherit pro_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96af5f657cd2b3bebb17c9ce730583a0 inherit pro_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_a_builder.html">CABuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a96af5f657cd2b3bebb17c9ce730583a0">operator=</a> (const <a class="el" href="class_c_a_builder.html">CABuilder</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a96af5f657cd2b3bebb17c9ce730583a0 inherit pro_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opérateur d'affectation par défaut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> supprimé pour s'assurer que l'automate construit est unique.  <a href="class_c_a_builder.html#a96af5f657cd2b3bebb17c9ce730583a0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a96af5f657cd2b3bebb17c9ce730583a0 inherit pro_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83d89eba527bee907d22d657fab5fbf6 inherit pro_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a83d89eba527bee907d22d657fab5fbf6">CABuilder</a> ()</td></tr>
+<tr class="memdesc:a83d89eba527bee907d22d657fab5fbf6 inherit pro_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#a83d89eba527bee907d22d657fab5fbf6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a83d89eba527bee907d22d657fab5fbf6 inherit pro_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c515cbff4eec5d8222c1428ed75072 inherit pro_methods_class_c_a_builder"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a50c515cbff4eec5d8222c1428ed75072">~CABuilder</a> ()</td></tr>
+<tr class="memdesc:a50c515cbff4eec5d8222c1428ed75072 inherit pro_methods_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#a50c515cbff4eec5d8222c1428ed75072">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a50c515cbff4eec5d8222c1428ed75072 inherit pro_methods_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_c_a_builder"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_c_a_builder')"><img src="closed.png" alt="-"/>&#160;Attributs protégés hérités de <a class="el" href="class_c_a_builder.html">CABuilder</a></td></tr>
 <tr class="memitem:a8c08002f200d7369f116e2ea1c468ab4 inherit pro_attribs_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_generateur_etat.html">GenerateurEtat</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a8c08002f200d7369f116e2ea1c468ab4">m_generateurEtat</a></td></tr>
+<tr class="memdesc:a8c08002f200d7369f116e2ea1c468ab4 inherit pro_attribs_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#a8c08002f200d7369f116e2ea1c468ab4">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8c08002f200d7369f116e2ea1c468ab4 inherit pro_attribs_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac84f3fee62f37c9ae4b78eeff17e6af4 inherit pro_attribs_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_etat.html">Etat</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#ac84f3fee62f37c9ae4b78eeff17e6af4">m_etatDepart</a></td></tr>
+<tr class="memdesc:ac84f3fee62f37c9ae4b78eeff17e6af4 inherit pro_attribs_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#ac84f3fee62f37c9ae4b78eeff17e6af4">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac84f3fee62f37c9ae4b78eeff17e6af4 inherit pro_attribs_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9b64de3a92d0eeef2e7bad30f945ee8 inherit pro_attribs_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transition_rule.html">TransitionRule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#af9b64de3a92d0eeef2e7bad30f945ee8">m_transitionRule</a></td></tr>
+<tr class="memdesc:af9b64de3a92d0eeef2e7bad30f945ee8 inherit pro_attribs_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#af9b64de3a92d0eeef2e7bad30f945ee8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af9b64de3a92d0eeef2e7bad30f945ee8 inherit pro_attribs_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d030d6b0bf0ca88d2bd5b88e1f1b041 inherit pro_attribs_class_c_a_builder"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_voisinage.html">Voisinage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a8d030d6b0bf0ca88d2bd5b88e1f1b041">m_voisinageDefinition</a></td></tr>
+<tr class="memdesc:a8d030d6b0bf0ca88d2bd5b88e1f1b041 inherit pro_attribs_class_c_a_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="class_c_a_builder.html#a8d030d6b0bf0ca88d2bd5b88e1f1b041">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8d030d6b0bf0ca88d2bd5b88e1f1b041 inherit pro_attribs_class_c_a_builder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 1D. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">A faire:</a></b></dt><dd><p class="startdd">L'implémentation ne permet pas de pouvoir éxécuter plusieurs automates cellulaires différents en même temps </p>
-<p class="enddd">améliorer l'implémentation pour pouvoir gérer la construction de plusieurs automates en même temps On a décidé de mettre un design pattern singleton sur cette classe afin d'être sûr de n'avoir qu'une seule instance du builder pour créer un seul simulateur 1D car notre application ne peut gérer qu'un simulateur 1D à la fois Les constructeurs et destructeurs des classes construitent ne sont pas en private car cette Classe permet juste de stocker les éléments nécessaire à la construction de CellularAutomate, ce n'est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement Par exemple: la classe <a class="el" href="class_cellular_automata.html">CellularAutomata</a> construit des <a class="el" href="class_etat.html">Etat</a>. On aurait pu factoriser le code (héritage) des 2 Builder</p>
-</dd></dl>
-<p>C'est un singleton car dans notre application il est impossible de gérer plusieurs automates 1D en même temps </p>
+<div class="textblock"><p>Classe permettant de construire toutes les sous-parties nécessaires à la construction d'un automate cellulaire 1D en utilisant le Design Pattern <em>Singleton</em>. </p>
+<p>On a décidé d'utiliser le Design Pattern <em>Singleton</em> sur cette classe afin d'être sûrs de n'avoir qu'une seule instance du <em>builder</em> pour créer un seul simulateur 1D car notre application ne peut gérer qu'un simulateur 1D à la fois.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">A faire:</a></b></dt><dd>Améliorer l'implémentation pour pouvoir gérer la construction de plusieurs automates en même temps. </dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>L'implémentation ne permet pas de pouvoir exécuter plusieurs automates cellulaires différents en même temps. </dd></dl>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a8ce449e2418a22e39cf517baffde61de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ce449e2418a22e39cf517baffde61de">&#9670;&nbsp;</a></span>CABuilder1D() <span class="overload">[1/2]</span></h2>
@@ -207,6 +231,9 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructeur de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a>. </p>
+<p>Ce constructeur permet de mettre tous les attributs à <em>nullptr</em> pour initialiser un automate 1D car il fait appel au constructeur de la classe mère <em><a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a></em>. </p>
 
 </div>
 </div>
@@ -233,6 +260,9 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructeur de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a>. </p>
+<p>Ce destructeur est appelé lors de la destruction d'un objet de la classe <em><a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a></em>. Il permet de supprimer l'attribut automatique <em>m_nbEtats</em>, et de désallouer, en faisant appel au destructeur de la classe mère <em><a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a></em>, la mémoire pour les autres attributs d'un automate 1D qui sont des pointeurs. </p>
+
 </div>
 </div>
 <a id="ae0dc5795982306cf2ce982cc2dc2eb22"></a>
@@ -258,6 +288,8 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructeur de recopie par défaut supprimé pour s'assurer que l'automate 1D construit est unique. </p>
 
 </div>
 </div>
@@ -295,6 +327,17 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir la règle de transition d'un automate 1D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rule</td><td>Paramètre de type <em>std::string</em> <em>const&amp;</em> permettant de définir la règle à suivre de la règle de transition d'un automate 1D. </td></tr>
+    <tr><td class="paramname">nbEtats</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir le nombre d'états d'un automate 1D. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_elementary_rule.html">ElementaryRule</a></dd></dl>
+<p>Cette méthode permet de définir la règle de transition d'un automate 1D en faisant notamment appel à un des constructeurs de la classe <em><a class="el" href="class_elementary_rule.html">ElementaryRule</a></em>. Si la règle de transition existe déjà, la règle de transition actuelle <em>m_transitionRule</em> est alors supprimée en désallouant la mémoire et en créant une règle de transition de règle <em>rule</em>, et de nombre d'états <em>nbEtats</em>. </p>
 
 </div>
 </div>
@@ -338,6 +381,18 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Surcharge de la méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir l'état de départ d'un automate 1D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taille</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir la taille de l'état de départ d'un automate 1D. </td></tr>
+    <tr><td class="paramname">generateur</td><td>Paramètre de type <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em> <em>const&amp;</em> permettant de définir le générateur d'état associé à l'état de départ d'un automate 1D. </td></tr>
+    <tr><td class="paramname">nbEtats</td><td>Paramètre de type <em>int</em> permettant de définir le nombre d'états associé l'état de départ d'un automate 1D. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></dd></dl>
+<p>Cette méthode permet de définir l'état de départ d'un automate 1D en faisant notamment appel à un des constructeurs de la classe <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. Si l'état de départ existe déjà, l'état de départ actuel <em>m_etatDepart</em> est alors supprimé en désallouant la mémoire et en créant un état de départ de taille <em>taille</em>, de générateur d'états <em>générateur</em>, et de nombre d'états <em>nbEtats</em>. </p>
+
 </div>
 </div>
 <a id="a0a274571cddf774bd67fc786dcf1684c"></a>
@@ -374,6 +429,17 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Surcharge de la méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir l'état de départ d'un automate 1D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taille</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir la taille de l'état de départ d'un automate 1D. </td></tr>
+    <tr><td class="paramname">tab</td><td>Paramètre de type <em>int**</em> permettant de définir l'état associé à l'état de départ d'un automate 1D, à partir d'un état stocké dans un tableau d' <em>int</em> à double entrée. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></dd></dl>
+<p>Cette méthode permet de définir l'état de départ d'un automate 1D en faisant notamment appel à un des constructeurs de la classe <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. Si l'état de départ existe déjà, l'état de départ actuel <em>m_etatDepart</em> est alors supprimé en désallouant la mémoire et en créant un état de départ de taille <em>taille</em>, et d'état celui contenu dans <em>tab</em>. </p>
+
 </div>
 </div>
 <a id="a77fa7941654a3c41d68df447b1fd7e5f"></a>
@@ -399,6 +465,16 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Surcharge de la méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir l'état de départ d'un automate 1D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taille</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir la taille de l'état de départ d'un automate 1D. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></dd></dl>
+<p>Cette méthode permet de définir l'état de départ d'un automate 1D en faisant notamment appel à un des constructeurs de la classe <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. Si l'état de départ existe déjà, l'état de départ actuel <em>m_etatDepart</em> est alors supprimé en désallouant la mémoire et en créant un état de départ de taille <em>taille</em>. </p>
 
 </div>
 </div>
@@ -426,6 +502,16 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Méthode de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de définir le voisinage d'un automate 1D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordre</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir l'ordre du voisinage d'un automate 1D. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_voisinage1_d.html">Voisinage1D</a></dd></dl>
+<p>Cette méthode permet de définir l'ordre du voisinage d'un automate 1D, si celui-ci existe et n'a pas le même ordre, en faisant notamment appel au constructeur de la classe <em><a class="el" href="class_voisinage1_d.html">Voisinage1D</a></em>. Si le voisinage existe déjà mais qu'il n'est pas du même ordre que l'ordre passé en paramètre de la méthode, le voisinage actuel <em>m_voisinageDefinition</em> est alors supprimé en désallouant la mémoire et en créant un voisinage d'ordre <em>ordre</em>. </p>
+
 </div>
 </div>
 <a id="a92c5780ec0e58f2d56ee28971a50b134"></a>
@@ -450,6 +536,9 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Méthode statique de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> permettant de retourner un automate de la classe. </p>
+<p>Cette méthode retourne une référence sur un automate 1D unique, qui est instancié au sein même de cette méthode. Cette méthode est statique car il s'agit d'une caractéristique commune et partagée par tous les objets de la classe <em><a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a></em>. </p>
 
 </div>
 </div>
@@ -477,6 +566,8 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Opérateur d'affectation par défaut supprimé pour s'assurer que l'automate 1D construit est unique. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Documentation des données membres</h2>
@@ -500,10 +591,13 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Attribut de la classe <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a>. </p>
+<p>Cet attribut est un <em>unsigned</em> <em>int</em>. Il permet d'attribuer un nombre d'états à l'automate construit à l'aide des classes Builder. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
+
 </div>
 </div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
-<li>C:/Users/maxn0/git/LO21/AutoCell/<a class="el" href="cabuilder_8h_source.html">cabuilder.h</a></li>
+<li>git/LO21/AutoCell/<a class="el" href="cabuilder_8h_source.html">cabuilder.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

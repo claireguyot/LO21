@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_automate_exception.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Classe de base des exceptions liées au projet qui est utilisée en cas d'erreur.  
+ <a href="class_automate_exception.html#details">Plus de dÃ©tails...</a></p>
+
 <p><code>#include &lt;<a class="el" href="automateexception_8h_source.html">automateexception.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe d'hÃ©ritage de AutomateException:</div>
@@ -107,18 +110,25 @@ Graphe d'hÃ©ritage de AutomateException:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a324660f942b04229a4795cc80c3dbe82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_exception.html#a324660f942b04229a4795cc80c3dbe82">AutomateException</a> (const std::string &amp;message)  throw ()</td></tr>
+<tr class="memdesc:a324660f942b04229a4795cc80c3dbe82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>.  <a href="#a324660f942b04229a4795cc80c3dbe82">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a324660f942b04229a4795cc80c3dbe82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec651fff04401e5d6eb3ee1804f1afcd"><td class="memItemLeft" align="right" valign="top">char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_exception.html#aec651fff04401e5d6eb3ee1804f1afcd">what</a> () const  throw ()</td></tr>
+<tr class="memdesc:aec651fff04401e5d6eb3ee1804f1afcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en lecture de l'attribut <em>info</em> de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>.  <a href="#aec651fff04401e5d6eb3ee1804f1afcd">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:aec651fff04401e5d6eb3ee1804f1afcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac1e142017119bf9116fac7cdd6b0a07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_exception.html#aac1e142017119bf9116fac7cdd6b0a07">~AutomateException</a> ()</td></tr>
+<tr class="memdesc:aac1e142017119bf9116fac7cdd6b0a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>.  <a href="#aac1e142017119bf9116fac7cdd6b0a07">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:aac1e142017119bf9116fac7cdd6b0a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privÃ©s</h2></td></tr>
 <tr class="memitem:a016b50d51f7b0ff70ce26394e4004760"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_exception.html#a016b50d51f7b0ff70ce26394e4004760">info</a></td></tr>
+<tr class="memdesc:a016b50d51f7b0ff70ce26394e4004760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>.  <a href="#a016b50d51f7b0ff70ce26394e4004760">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a016b50d51f7b0ff70ce26394e4004760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description dÃ©taillÃ©e</h2>
+<div class="textblock"><p>Classe de base des exceptions liées au projet qui est utilisée en cas d'erreur. </p>
+<p>Cette classe instancie toutes les erreurs provoquées par le code en attribuant une chaîne de caractères décrivant l'erreur en question. Elle hérite de la class <em>exception</em> de la blibliothèque standard <em>std</em>. Il est donc possible d'utiliser les fonctions disponibles pour cette dernière dans notre classe <em><a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a></em>. </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a324660f942b04229a4795cc80c3dbe82"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a324660f942b04229a4795cc80c3dbe82">&#9670;&nbsp;</a></span>AutomateException()</h2>
 
@@ -149,6 +159,15 @@ Attributs privÃ©s</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructeur de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Ce paramètre permet d'initialiser l'attribut <em>info</em> avec une chaîne de caractère passée en argument lors de l'appel du constructeur.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ce constructeur est appelé à l'aide de l'instruction <em>throw</em> lorsqu'il y a une erreur. <em>Ex:</em> dans le fichier "cellularautomata.cpp" &lt; em&gt;if (m_depart==nullptr) throw <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>("etat depart indefini");&lt; /em&gt; La fonction <em>throw()</em> issue de la classe <em>exception</em> permet d'éviter les boucles d'erreurs liées à l'initialisation de l'attribut &lt; em&gt;info&lt; /em&gt; avec une chaîne non conforme. </p>
+
 </div>
 </div>
 <a id="aac1e142017119bf9116fac7cdd6b0a07"></a>
@@ -173,6 +192,9 @@ Attributs privÃ©s</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructeur de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>. </p>
+<p>Ce destructeur est appelé lors de la destruction d'un objet de la classe <em><a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a></em>. Les attributs de la classe étant automatiques, il n'est pas nécessaire de désallouer la mémoire. </p>
 
 </div>
 </div>
@@ -206,6 +228,9 @@ Attributs privÃ©s</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Accesseur en lecture de l'attribut <em>info</em> de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>. </p>
+<p>Cet accesseur permet d'accéder en lecture à l'attribut privé <em>info</em>, en renvoyant un pointeur <em>const</em> de celui-ci. Cette méthode ne modifie par l'attribut, c'est pourquoi elle est <em>const</em>. La fonction <em>c_str()</em> de la blibliothèque standard retourne un tableau contenant la même séquence de caractères composant <em>info</em> en ajoutant &lt; em&gt;"\0"&lt; /em&gt; à la fin. La fonction <em>throw()</em> issue de la classe <em>exception</em> permet d'éviter les boucles d'erreurs liées à ce que renvoie &lt; em&gt;info.c_str()&lt; /em&gt;. La fonction <em><a class="el" href="class_automate_exception.html#aec651fff04401e5d6eb3ee1804f1afcd" title="Accesseur en lecture de l&#39;attribut info de la classe AutomateException. ">what()</a></em> issue de la classe <em>exception</em> permet de s'assurer que la chaine retourner par &lt; em&gt;info.c_str()&lt; /em&gt; se termine avec <em>null</em>. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Documentation des donnÃ©es membres</h2>
@@ -229,10 +254,13 @@ Attributs privÃ©s</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Attribut de la classe <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a>. </p>
+<p>Cet attribut est de type string afin de recevoir un string. En effet, il permet de stocker la description de l'erreur lorsque <a class="el" href="class_automate_exception.html" title="Classe de base des exceptions liées au projet qui est utilisée en cas d&#39;erreur. ">AutomateException</a> est appelée et qu'une nouvelle instance de cette classe est créé. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
+
 </div>
 </div>
 <hr/>La documentation de cette classe a Ã©tÃ© gÃ©nÃ©rÃ©e Ã  partir du fichier suivant :<ul>
-<li>C:/Users/maxn0/git/LO21/AutoCell/<a class="el" href="automateexception_8h_source.html">automateexception.h</a></li>
+<li>git/LO21/AutoCell/<a class="el" href="automateexception_8h_source.html">automateexception.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
