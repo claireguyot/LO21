@@ -53,7 +53,7 @@ bool sauvegarde(const CellularAutomata& automate, TypeFichier t, DimType d)
         return false;
 }
 
-bool chargement(const CellularAutomata& automate, TypeFichier t, DimType d)
+bool chargement(CellularAutomata*& automate, TypeFichier t, DimType d)
 {
     fichier *f = nullptr;
     QString nomDoc;
@@ -90,7 +90,7 @@ bool chargement(const CellularAutomata& automate, TypeFichier t, DimType d)
 
     if(f != nullptr)
     {
-        if(f->load(&automate))
+        if(f->load(automate))
         {
             delete f;
             return true;

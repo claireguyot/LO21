@@ -24,8 +24,8 @@ enum TypeFichier {ETAT, CONFIG};
 
 enum DimType {_1D,_2D};
 
-bool sauvegarde(const CellularAutomata& automate, TypeFichier t, DimType d);
+bool sauvegarde(const CellularAutomata &automate, TypeFichier t, DimType d);
 
-bool chargement(const CellularAutomata& automate, TypeFichier t, DimType d);
+bool chargement(CellularAutomata *&automate, TypeFichier t, DimType d);
 
 #endif // SAUVEGARDE_H

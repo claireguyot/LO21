@@ -190,9 +190,18 @@ void fenetre2D::sauverAutomate()
 void fenetre2D::chargerAutomate()
 {
     pause();
-    if(chargement(*simulateur,CONFIG,_2D))
+    if(chargement(simulateur,CONFIG,_2D))
     {
-        ConstruireAutomate();
+        bLongueur->setVisible(true);
+        lLongueur->setVisible(true);
+        bLargeur->setVisible(true);
+        lLargeur->setVisible(true);
+        buildGrille();
+
+
+        if(simulateur->getTransition() == nullptr)
+                QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
+        UpdateInfo();
     }
 }
 void fenetre2D::sauverEtat()
@@ -211,7 +220,7 @@ void fenetre2D::chargerEtat()
         QMessageBox::critical(this,"Erreur","L'automate n'a pas été généré");
     else
     {
-        if(chargement(*simulateur,ETAT,_2D))
+        if(chargement(simulateur,ETAT,_2D))
         {
             CABuilder2D &m = CABuilder2D::getInstance();
             if(m.GetEtatDepart() == nullptr)
@@ -221,7 +230,7 @@ void fenetre2D::chargerEtat()
             else
             {
                 bLongueur->setValue(m.GetEtatDepart()->GetLongueur());
-                simulateur->setEtatDepart(*m.GetEtatDepart());
+
                 buildGrille();
 
                 afficherDernierEtat();
@@ -417,7 +426,7 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
         simulateur = nullptr;
     }
     CABuilder2D& builder = CABuilder2D::getInstance();
-    if(nbEtats<0) nbEtats = builder.GetTransitionRule()->getNbEtats();
+    //if(nbEtats<0) nbEtats = builder.GetTransitionRule()->getNbEtats();
     simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
     bLongueur->setVisible(true);

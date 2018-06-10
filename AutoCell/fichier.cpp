@@ -40,7 +40,7 @@ bool fichierEtat2D::save(const CellularAutomata& automate) //sauvegarde d'un ét
     return true;
 }
 
-bool fichierEtat1D::load(const CellularAutomata* automate) //chargement état 1D //argument pas nécessaire si CABuilder
+bool fichierEtat1D::load(CellularAutomata *&automate) //chargement état 1D //argument pas nécessaire si CABuilder
 {
     f.open(nomF,std::ofstream::in);
     if(f.is_open()==false)
@@ -94,10 +94,11 @@ bool fichierEtat1D::load(const CellularAutomata* automate) //chargement état 1D
         delete[] tab[i];
     }
     delete[] tab;
+    automate->setEtatDepart(*m.GetEtatDepart());
     return true;
 }
 
-bool fichierEtat2D::load(const CellularAutomata* automate) //chargement état 2D //idem pour argument
+bool fichierEtat2D::load(CellularAutomata*& automate) //chargement état 2D //idem pour argument
 {
     f.open(nomF,std::ofstream::in);
     if(f.is_open()==false)
@@ -161,6 +162,7 @@ bool fichierEtat2D::load(const CellularAutomata* automate) //chargement état 2D
         delete[] tab[i];
     }
     delete[] tab;
+    automate->setEtatDepart(*m.GetEtatDepart());
     return true;
 }
 
@@ -208,7 +210,7 @@ bool fichierConfig2D::save(const CellularAutomata& automate) //sauvegarde config
     return true;
 }
 
-bool fichierConfig1D::load(const CellularAutomata* automate) //chargement config 1D //argument pas nécessaire
+bool fichierConfig1D::load(CellularAutomata*& automate) //chargement config 1D //argument pas nécessaire
 {
     f.open(nomF,std::ofstream::in);
     if(f.is_open()==false)
@@ -218,6 +220,7 @@ bool fichierConfig1D::load(const CellularAutomata* automate) //chargement config
     std::string mot, rule;
     char st[TAILLE_BUF];
     int a=0;
+    int nbEtats = 0;
     a=0;
     f.getline(st,TAILLE_BUF,',');
     mot = st;
@@ -273,12 +276,15 @@ bool fichierConfig1D::load(const CellularAutomata* automate) //chargement config
         }
         a=std::stoi(mot);
         m.BuildElementaryRule(rule,a);
+        nbEtats = a;
     }
+    delete automate;
+    automate = new CellularAutomata(nbEtats,nullptr,m.GetTransitionRule(),m.GetVoisinageDefinition());
     f.close();
     return true;
 }
 
-bool fichierConfig2D::load(const CellularAutomata *automate) //chargement config 2D //argument pas nécessaire
+bool fichierConfig2D::load(CellularAutomata*& automate) //chargement config 2D //argument pas nécessaire
 {
     f.open(nomF,std::ofstream::in);
     if(f.is_open()==false)
@@ -288,6 +294,7 @@ bool fichierConfig2D::load(const CellularAutomata *automate) //chargement config
     std::string mot, rule, mode;
     char st[TAILLE_BUF];
     int a=0, b=0;
+    int nbEtats = 0;
 
     f.getline(st,TAILLE_BUF,',');
     mot = st;
@@ -365,10 +372,12 @@ bool fichierConfig2D::load(const CellularAutomata *automate) //chargement config
             }
             b=std::stoi(mot);
             m.BuildGameOfLife(a,b);
+            nbEtats = 2;
         }
         else if(mode == "FeuForet")
         {
             m.BuildFeuForet();
+            nbEtats = 4;
         }
         else
         {
@@ -377,6 +386,9 @@ bool fichierConfig2D::load(const CellularAutomata *automate) //chargement config
             return false;
         }
     }
+
+    delete automate;
+    automate = new CellularAutomata(nbEtats,nullptr,m.GetTransitionRule(),m.GetVoisinageDefinition());
     f.close();
     return true;
 }
