@@ -49,15 +49,38 @@ private:
      * \brief Attribut de la classe CellularAutomata
      *
      * Cet attribut est de type \a const \a Etat*. Il s'agit d'un pointeur sur l'état de départ associé à l'automate.
-     * Cet attribut sera détruit lors de la destruction de l'automate puisque cet ensemble d'états générés est propre à l'automate.
+     * Cet attribut ne sera pas détruit lors de la destruction de l'automate puisque cet état peut exister sans l'automate.
      * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
      */
     const Etat* m_depart;
+    /*!
+     * \brief Attribut de la classe CellularAutomata
+     *
+     * Cet attribut est de type \a unsigned \a int. Il représente le nombre d'états possibles pour une cellule, associé à l'automate.
+     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+     */
     unsigned int m_nbEtats;
+    /*!
+     * \brief Attribut de la classe CellularAutomata
+     *
+     * Cet attribut est de type \a unsigned \a int. Il représente le nombre maximum d'états générés qui peuvent être stockés dans \a m_etats, associé à l'automate.
+     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+     */
     unsigned int m_buffer;
+    /*!
+     * \brief Attribut de la classe CellularAutomata
+     *
+     * Cet attribut est de type \a unsigned \a int. Il représente le nombre d'états générés dans \a m_etats, associé à l'automate.
+     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+     */
     unsigned int m_rang;
-
-
+    /*!
+     * \brief Méthode de la classe CellularAutomata
+     * \param indice Paramètre de type \a unsigned \a int représentant le nombre d'états du générateur d'états associé à l'état
+     *
+     * Cette méthode permet de revenir à l'état initial, et de remettre à 0 le générateur d'états associé à l'état avec le nombre d'états passé en paramètre.
+     * L'interface laisse la possibilité de régénérer l'état initial uniquement si il y a une algorithme de génération.
+     */
     void Build(unsigned int indice);
     /*CellularAutomata(const CellularAutomata& s);
     CellularAutomata& operator=(const CellularAutomata& s);*/
