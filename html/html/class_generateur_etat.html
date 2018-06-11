@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('class_generateur_etat.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Classe déclarée dans le fichier &lt; em&gt;"generateuretat.h"&lt; /em&gt;  
+<p>Classe abstraite permettant de générer des états.  
  <a href="class_generateur_etat.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="generateuretat_8h_source.html">generateuretat.h</a>&gt;</code></p>
@@ -103,24 +103,27 @@ Graphe d'héritage de GenerateurEtat:</div>
  <div class="center">
   <img src="class_generateur_etat.png" usemap="#GenerateurEtat_map" alt=""/>
   <map id="GenerateurEtat_map" name="GenerateurEtat_map">
-<area href="class_generateur_random.html" alt="GenerateurRandom" shape="rect" coords="0,56,191,80"/>
-<area href="class_generateur_symetrie_axe_vertical.html" alt="GenerateurSymetrieAxeVertical" shape="rect" coords="201,56,392,80"/>
+<area href="class_generateur_random.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : aléato..." alt="GenerateurRandom" shape="rect" coords="0,56,191,80"/>
+<area href="class_generateur_symetrie_axe_vertical.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : symétr..." alt="GenerateurSymetrieAxeVertical" shape="rect" coords="201,56,392,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a6ecebc169446d7f5fa40ed37af5abdaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generateur_etat.html#a6ecebc169446d7f5fa40ed37af5abdaf">GenerateurEtat</a> ()=default</td></tr>
+<tr class="memdesc:a6ecebc169446d7f5fa40ed37af5abdaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>.  <a href="#a6ecebc169446d7f5fa40ed37af5abdaf">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6ecebc169446d7f5fa40ed37af5abdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0698d6706e0aaa2e597bdaf280806835"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generateur_etat.html#a0698d6706e0aaa2e597bdaf280806835">GenererEtat</a> (int nbEtats, <a class="el" href="class_etat.html">Etat</a> &amp;grille) const =0</td></tr>
+<tr class="memdesc:a0698d6706e0aaa2e597bdaf280806835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>.  <a href="#a0698d6706e0aaa2e597bdaf280806835">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0698d6706e0aaa2e597bdaf280806835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ba21b5a12fa8855136363e338209d34"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generateur_etat.html#a1ba21b5a12fa8855136363e338209d34">~GenerateurEtat</a> ()=default</td></tr>
+<tr class="memdesc:a1ba21b5a12fa8855136363e338209d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>.  <a href="#a1ba21b5a12fa8855136363e338209d34">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1ba21b5a12fa8855136363e338209d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Classe déclarée dans le fichier &lt; em&gt;"generateuretat.h"&lt; /em&gt; </p>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></dd></dl>
-<p>Le déclaration de cette classe dans le fichier &lt; em&gt;"etat.h"&lt; /em&gt; est nécessaire afin de régler le problème de dépendance circulaire. </p>
+<div class="textblock"><p>Classe abstraite permettant de générer des états. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></dd></dl>
+<p>Cette classe permet d'affecter à chaque cellule de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em> contenue dans un objet <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>, qui représente une grille de cellules, une valeur qui sera l'état de la cellule. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a6ecebc169446d7f5fa40ed37af5abdaf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ecebc169446d7f5fa40ed37af5abdaf">&#9670;&nbsp;</a></span>GenerateurEtat()</h2>
@@ -144,6 +147,9 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructeur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>. </p>
+<p>Constructeur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>, qui est celui par défaut. </p>
 
 </div>
 </div>
@@ -169,6 +175,9 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructeur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>. </p>
+<p>Destructeur virtuel de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>, qui est celui par défaut. </p>
 
 </div>
 </div>
@@ -206,6 +215,10 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructeur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_generateur_random.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : aléato...">GenerateurRandom</a>, <a class="el" href="class_generateur_symetrie_axe_vertical.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : symétr...">GenerateurSymetrieAxeVertical</a></dd></dl>
+<p>Constructeur virtuel pur de la classe <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>. </p>
 
 <p>Implémenté dans <a class="el" href="class_generateur_symetrie_axe_vertical.html#ae782046a73fc7624212c3c5988de949f">GenerateurSymetrieAxeVertical</a>, et <a class="el" href="class_generateur_random.html#ab110072502487c78f0b7dc0c7f2241c7">GenerateurRandom</a>.</p>
 

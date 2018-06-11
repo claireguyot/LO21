@@ -15,7 +15,7 @@ private:
     fenetre1D* dim1;
     fenetre2D* dim2;
     QStackedWidget *switchDim;
-    void loadConfig();
+    void loadContexte();
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 

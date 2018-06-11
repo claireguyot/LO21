@@ -385,7 +385,7 @@ Membres hérités additionnels</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">taille</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir la taille de l'état de départ d'un automate 1D. </td></tr>
-    <tr><td class="paramname">generateur</td><td>Paramètre de type <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em> <em>const&amp;</em> permettant de définir le générateur d'état associé à l'état de départ d'un automate 1D. </td></tr>
+    <tr><td class="paramname">generateur</td><td>Paramètre de type <em><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></em> <em>const&amp;</em> permettant de définir le générateur d'état associé à l'état de départ d'un automate 1D. </td></tr>
     <tr><td class="paramname">nbEtats</td><td>Paramètre de type <em>int</em> permettant de définir le nombre d'états associé l'état de départ d'un automate 1D. </td></tr>
   </table>
   </dd>
@@ -509,8 +509,8 @@ Membres hérités additionnels</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_voisinage1_d.html">Voisinage1D</a></dd></dl>
-<p>Cette méthode permet de définir l'ordre du voisinage d'un automate 1D, si celui-ci existe et n'a pas le même ordre, en faisant notamment appel au constructeur de la classe <em><a class="el" href="class_voisinage1_d.html">Voisinage1D</a></em>. Si le voisinage existe déjà mais qu'il n'est pas du même ordre que l'ordre passé en paramètre de la méthode, le voisinage actuel <em>m_voisinageDefinition</em> est alors supprimé en désallouant la mémoire et en créant un voisinage d'ordre <em>ordre</em>. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_voisinage1_d.html" title="Classe représentant le voisinage d&#39;une cellule de type Cell dans un automate cellulaire 1D...">Voisinage1D</a></dd></dl>
+<p>Cette méthode permet de définir l'ordre du voisinage d'un automate 1D, si celui-ci existe et n'a pas le même ordre, en faisant notamment appel au constructeur de la classe <em><a class="el" href="class_voisinage1_d.html" title="Classe représentant le voisinage d&#39;une cellule de type Cell dans un automate cellulaire 1D...">Voisinage1D</a></em>. Si le voisinage existe déjà mais qu'il n'est pas du même ordre que l'ordre passé en paramètre de la méthode, le voisinage actuel <em>m_voisinageDefinition</em> est alors supprimé en désallouant la mémoire et en créant un voisinage d'ordre <em>ordre</em>. </p>
 
 </div>
 </div>

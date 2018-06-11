@@ -173,7 +173,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), simulateur(nullptr)
     connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
     connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
-    loadConfig();
+    loadContexte();
 
 }
 
@@ -562,7 +562,7 @@ const CellularAutomata* fenetre1D::getSimulateur() const
     return simulateur;
 }
 
-void fenetre1D::saveConfig()
+void fenetre1D::saveContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -575,7 +575,7 @@ void fenetre1D::saveConfig()
     settings.setValue("Timer",bSelectVitesse->value());
     settings.endGroup();
 
-    configElementaryRule->saveConfig();
+    configElementaryRule->saveContexte();
 
     remove("dEtatGen1D.bn");
     remove("dConfigGen1D.csv");
@@ -588,7 +588,7 @@ void fenetre1D::saveConfig()
         f2.save(*simulateur);
 }
 
-void fenetre1D::loadConfig()
+void fenetre1D::loadContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -604,7 +604,16 @@ void fenetre1D::loadConfig()
     fichierConfig1D f2("dConfigGen1D.csv");
     if(f2.load(simulateur)) //on charge le simulateur
     {
-        ConstruireAutomate(); //on peut construire un automate
+        bLongueur->setVisible(true);
+        lLongueur->setVisible(true);
+        bLargeur->setVisible(true);
+        lLargeur->setVisible(true);
+        buildGrille();
+
+
+        if(simulateur->getTransition() == nullptr)
+                QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
+        UpdateInfo();
         fichierEtat1D f("dEtatGen1D.bn");
         if(f.load(simulateur)) //on charge le premier état
         {

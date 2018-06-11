@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_voisinage.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Classe abstraite représentant le voisinage d'une cellule de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>.  
+ <a href="class_voisinage.html#details">Plus de détails...</a></p>
+
 <p><code>#include &lt;<a class="el" href="voisinage_8h_source.html">voisinage.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe d'héritage de Voisinage:</div>
@@ -101,31 +104,41 @@ Graphe d'héritage de Voisinage:</div>
  <div class="center">
   <img src="class_voisinage.png" usemap="#Voisinage_map" alt=""/>
   <map id="Voisinage_map" name="Voisinage_map">
-<area href="class_moore.html" alt="Moore" shape="rect" coords="0,56,88,80"/>
-<area href="class_voisinage1_d.html" alt="Voisinage1D" shape="rect" coords="98,56,186,80"/>
-<area href="class_von_neumann.html" alt="VonNeumann" shape="rect" coords="196,56,284,80"/>
+<area href="class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D..." alt="Moore" shape="rect" coords="0,56,88,80"/>
+<area href="class_voisinage1_d.html" title="Classe représentant le voisinage d&#39;une cellule de type Cell dans un automate cellulaire 1D..." alt="Voisinage1D" shape="rect" coords="98,56,186,80"/>
+<area href="class_von_neumann.html" title="Classe représentant un voisinage en croix d&#39;une cellule de type Cell dans un automate cellulaire 2D..." alt="VonNeumann" shape="rect" coords="196,56,284,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a9e27105f5e2dcd5e97d2fb86836dd2c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voisinage.html#a9e27105f5e2dcd5e97d2fb86836dd2c5">Voisinage</a> (int ordre)</td></tr>
+<tr class="memdesc:a9e27105f5e2dcd5e97d2fb86836dd2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>.  <a href="#a9e27105f5e2dcd5e97d2fb86836dd2c5">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a9e27105f5e2dcd5e97d2fb86836dd2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab96dc57aa577e3c00d9a65b71c538f17"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voisinage.html#ab96dc57aa577e3c00d9a65b71c538f17">~Voisinage</a> ()=default</td></tr>
+<tr class="memdesc:ab96dc57aa577e3c00d9a65b71c538f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>.  <a href="#ab96dc57aa577e3c00d9a65b71c538f17">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab96dc57aa577e3c00d9a65b71c538f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac12f70bf8e971cbc8eaf8394de270d07"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voisinage.html#ac12f70bf8e971cbc8eaf8394de270d07">definirVoisinage</a> (<a class="el" href="class_etat.html">Etat</a> &amp;e) const =0</td></tr>
+<tr class="memdesc:ac12f70bf8e971cbc8eaf8394de270d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>.  <a href="#ac12f70bf8e971cbc8eaf8394de270d07">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac12f70bf8e971cbc8eaf8394de270d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a589264908cd4f82538e950eb4659893a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voisinage.html#a589264908cd4f82538e950eb4659893a">GetOrdre</a> () const</td></tr>
+<tr class="memdesc:a589264908cd4f82538e950eb4659893a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en lecture de l'attribut <em>m_ordre</em>.  <a href="#a589264908cd4f82538e950eb4659893a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a589264908cd4f82538e950eb4659893a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9853dfde1a68f5bb6333a8db001411a0"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voisinage.html#a9853dfde1a68f5bb6333a8db001411a0">getType</a> () const =0</td></tr>
+<tr class="memdesc:a9853dfde1a68f5bb6333a8db001411a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de retourner le type de voisinage.  <a href="#a9853dfde1a68f5bb6333a8db001411a0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a9853dfde1a68f5bb6333a8db001411a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Attributs protégés</h2></td></tr>
 <tr class="memitem:a336bf2df48d4ee7c8a32c6d583bb10aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voisinage.html#a336bf2df48d4ee7c8a32c6d583bb10aa">m_ordre</a></td></tr>
+<tr class="memdesc:a336bf2df48d4ee7c8a32c6d583bb10aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>.  <a href="#a336bf2df48d4ee7c8a32c6d583bb10aa">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a336bf2df48d4ee7c8a32c6d583bb10aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Classe abstraite représentant le voisinage d'une cellule de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a>, <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></dd></dl>
+<p>Cette classe permet de construire le voisinage de chaque cellule de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em> d'un état de type <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a9e27105f5e2dcd5e97d2fb86836dd2c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e27105f5e2dcd5e97d2fb86836dd2c5">&#9670;&nbsp;</a></span>Voisinage()</h2>
 
@@ -149,6 +162,15 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructeur de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordre</td><td>Paramètre de type <em>int</em> permettant d'initialiser l'attribut <em>m_ordre</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ce constructeur permet d'initialiser l'attribut <em>m_ordre</em> avec la valeur passée en paramètre. </p>
 
 </div>
 </div>
@@ -174,6 +196,9 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructeur de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>. </p>
+<p>Destructeur virtuel de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>, qui est celui par défaut. </p>
 
 </div>
 </div>
@@ -202,6 +227,16 @@ Attributs protégés</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Méthode de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Paramètre de type <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a>&amp;</em> étant une référence sur l'état pour lequel on veut définir le voisinage de chaque cellule de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_voisinage1_d.html" title="Classe représentant le voisinage d&#39;une cellule de type Cell dans un automate cellulaire 1D...">Voisinage1D</a>, <a class="el" href="class_von_neumann.html" title="Classe représentant un voisinage en croix d&#39;une cellule de type Cell dans un automate cellulaire 2D...">VonNeumann</a>, <a class="el" href="class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D...">Moore</a></dd></dl>
+<p>Cette méthode virtuelle pure permet de définir le voisinage de chaque cellule contenue dans l'état passé en paramètre. Le voisinage est centré sur le cellule courante. </p>
+
 <p>Implémenté dans <a class="el" href="class_moore.html#a29a0a8f7b132429b5cbea4fdafcfd045">Moore</a>, <a class="el" href="class_von_neumann.html#a7e85faf5f9bedb3d1fef9b9536aeba4f">VonNeumann</a>, et <a class="el" href="class_voisinage1_d.html#afdc267252af9b94fe26f5414d1472265">Voisinage1D</a>.</p>
 
 </div>
@@ -229,6 +264,9 @@ Attributs protégés</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Accesseur en lecture de l'attribut <em>m_ordre</em>. </p>
+<p>Méthode permettant de récupérer un <em>unsigned</em> <em>int</em> représentant l'ordre du voisinage. </p><dl class="section return"><dt>Renvoie</dt><dd><em>Unsigned</em> <em>int</em> représentant l'ordre du voisinage. </dd></dl>
+
 </div>
 </div>
 <a id="a9853dfde1a68f5bb6333a8db001411a0"></a>
@@ -254,6 +292,10 @@ Attributs protégés</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Méthode permettant de retourner le type de voisinage. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="sauvegarde_8h.html">sauvegarde.h</a>, <a class="el" href="sauvegarde_8cpp.html">sauvegarde.cpp</a></dd></dl>
+<p>Méthode virtuelle pure permettant de récupérer un <em>std::string</em> contenant le nom du type de voisinage. Cette méthode est utilisée seulement dans le cadre de la sauvegarde. </p><dl class="section return"><dt>Renvoie</dt><dd><em>std::string</em> contenant le nom du type de voisinage </dd></dl>
+
 <p>Implémenté dans <a class="el" href="class_moore.html#af0398509c1540f611c000579714fbce7">Moore</a>, <a class="el" href="class_von_neumann.html#ab969490492cff92c8e0efcfc72e492b9">VonNeumann</a>, et <a class="el" href="class_voisinage1_d.html#a92cc6dea76b6426d3cdaf849d18d205c">Voisinage1D</a>.</p>
 
 </div>
@@ -278,6 +320,9 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Attribut de la classe <a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a>. </p>
+<p>Cet attribut est de type <em>int</em>. Il représente la distance maximale entre la cellule courante et une cellule voisine. Il est au minimum de 1. Par exemple : si l'ordre est de 2, le voisinage comprendra la cellule courante ainsi que ses deux cellules voisines de chaque côté (selon de type de voisinage bien évidemment). Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
 
 </div>
 </div>

@@ -10,8 +10,7 @@ public:
     TransitionRule() = default;
     virtual void EffectuerTransition(Etat const& depart, Etat& arrivee) const;
     virtual void TransitionCellule(Cell const& depart, Cell& arrivee) const = 0;
-    virtual std::string getTransition() const {return "";}
-    virtual unsigned int getNbEtats() const = 0;
+    virtual std::string getTransition() const {return "";} 
     virtual ~TransitionRule()= default;
 };
 
@@ -28,7 +27,6 @@ public:
     std::string getTransition() const override;
     ~ElementaryRule() = default;
     std::string const& GetRule() const {return m_rule;}
-    unsigned int getNbEtats() const{return m_nbEtats;}
 protected:
     std::string m_rule;
     unsigned int m_nbEtats;
@@ -45,7 +43,6 @@ public:
 
     }
     std::string getTransition() const override;
-    unsigned int getNbEtats() const {return 2;}
     ~GameOfLife() = default;
 protected:
     unsigned int m_minVoisinsVivants;
@@ -57,7 +54,6 @@ public:
     void TransitionCellule(Cell const& depart,Cell& arrivee) const override;
     FeuForet() = default;
     std::string getTransition() const override;
-    unsigned int getNbEtats() const {return 4;}
     ~FeuForet() = default;
 };
 

@@ -64,8 +64,8 @@ public:
         delete simulateur;
     }
     const CellularAutomata* getSimulateur() const;
-    void loadConfig();
-    void saveConfig();
+    void loadContexte();
+    void saveContexte();
 
 private slots:
     void cellActivation(const QModelIndex& index);

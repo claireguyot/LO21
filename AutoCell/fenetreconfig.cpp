@@ -37,7 +37,7 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementLabel()));
     connect(m_regle,SIGNAL(textChanged(QString)),this,SLOT(changementLabel()));
 
-    loadConfig();
+    loadContexte();
 }
 
 void fenetreElementaryRule::constructionAutomate() const
@@ -110,7 +110,7 @@ fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
     layoutPrincipal->addWidget(info);
     setLayout(layoutPrincipal);
 
-    loadConfig();
+    loadContexte();
 
 }
 
@@ -166,7 +166,7 @@ fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
     layoutPrincipal->addWidget(info);
     setLayout(layoutPrincipal);
 
-    loadConfig();
+    loadContexte();
 
 }
 
@@ -203,7 +203,7 @@ unsigned int puissance(unsigned int a, unsigned int b)
 }
 
 
-void fenetreElementaryRule::saveConfig()
+void fenetreElementaryRule::saveContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -214,7 +214,7 @@ void fenetreElementaryRule::saveConfig()
     settings.endGroup();
 }
 
-void fenetreElementaryRule::loadConfig()
+void fenetreElementaryRule::loadContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -226,7 +226,7 @@ void fenetreElementaryRule::loadConfig()
     settings.endGroup();
 }
 
-void fenetreGameOfLife::saveConfig()
+void fenetreGameOfLife::saveContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -240,7 +240,7 @@ void fenetreGameOfLife::saveConfig()
     settings.endGroup();
 }
 
-void fenetreGameOfLife::loadConfig()
+void fenetreGameOfLife::loadContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -254,7 +254,7 @@ void fenetreGameOfLife::loadConfig()
     settings.endGroup();
 }
 
-void fenetreFeuForet::saveConfig()
+void fenetreFeuForet::saveContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -265,7 +265,7 @@ void fenetreFeuForet::saveConfig()
     settings.endGroup();
 }
 
-void fenetreFeuForet::loadConfig()
+void fenetreFeuForet::loadContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 

@@ -13,7 +13,7 @@ var searchData=
   ['cellularautomata_2eh',['cellularautomata.h',['../cellularautomata_8h.html',1,'']]],
   ['changementlabel',['changementLabel',['../classfenetre_elementary_rule.html#a7f6fed3ef71ae9a0d2264477690d3908',1,'fenetreElementaryRule']]],
   ['changementregexp',['changementRegExp',['../classfenetre_elementary_rule.html#ab662e4e95dd973b399b9fc0182f80c8c',1,'fenetreElementaryRule']]],
-  ['chargement',['chargement',['../sauvegarde_8cpp.html#a1c2fd1001592255e8b3f9a7a3108519f',1,'chargement(const CellularAutomata &amp;automate, TypeFichier t, DimType d):&#160;sauvegarde.cpp'],['../sauvegarde_8h.html#a1c2fd1001592255e8b3f9a7a3108519f',1,'chargement(const CellularAutomata &amp;automate, TypeFichier t, DimType d):&#160;sauvegarde.cpp']]],
+  ['chargement',['chargement',['../sauvegarde_8cpp.html#ad1485a8038899cd83dc86ff5d04bee3a',1,'chargement(CellularAutomata *&amp;automate, TypeFichier t, DimType d):&#160;sauvegarde.cpp'],['../sauvegarde_8h.html#ad1485a8038899cd83dc86ff5d04bee3a',1,'chargement(CellularAutomata *&amp;automate, TypeFichier t, DimType d):&#160;sauvegarde.cpp']]],
   ['chargerautomate',['chargerAutomate',['../classfenetre1_d.html#a812d2a814c96979138174c04137aa4fd',1,'fenetre1D::chargerAutomate()'],['../classfenetre2_d.html#a01cea5868b15fc22c037902189f909c2',1,'fenetre2D::chargerAutomate()']]],
   ['chargeretat',['chargerEtat',['../classfenetre1_d.html#a4e7c8a38df8987fd216c355a163d6c46',1,'fenetre1D::chargerEtat()'],['../classfenetre2_d.html#ac300cc61b3bcec7a09e254c7aba0600e',1,'fenetre2D::chargerEtat()']]],
   ['choixautomate',['choixAutomate',['../classfenetre1_d.html#ae8ef06b7830dba2841ab6f74f4db31aa',1,'fenetre1D::choixAutomate()'],['../classfenetre2_d.html#a13283eb23bc6f7a4c737342afab1e729',1,'fenetre2D::choixAutomate()']]],

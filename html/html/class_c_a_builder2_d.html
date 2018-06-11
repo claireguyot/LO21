@@ -115,7 +115,7 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memdesc:a0d31f87b74b5058fc60edd47ec372828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a> permettant de définir le voisinage selon Von Neumann d'un automate 2D.  <a href="#a0d31f87b74b5058fc60edd47ec372828">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0d31f87b74b5058fc60edd47ec372828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abafd86f26de9ab72100212edc23fc7fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder2_d.html#abafd86f26de9ab72100212edc23fc7fc">BuildVoisinageMoore</a> (unsigned int ordre)</td></tr>
-<tr class="memdesc:abafd86f26de9ab72100212edc23fc7fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a> permettant de définir le voisinage selon <a class="el" href="class_moore.html">Moore</a> d'un automate 2D.  <a href="#abafd86f26de9ab72100212edc23fc7fc">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:abafd86f26de9ab72100212edc23fc7fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a> permettant de définir le voisinage selon <a class="el" href="class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D...">Moore</a> d'un automate 2D.  <a href="#abafd86f26de9ab72100212edc23fc7fc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abafd86f26de9ab72100212edc23fc7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1b276f92d8dd9a914d123b16cc518c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder2_d.html#af1b276f92d8dd9a914d123b16cc518c7">BuildEtatDepart</a> (unsigned int nbLignes, unsigned int nbColonnes, <a class="el" href="class_generateur_etat.html">GenerateurEtat</a> const &amp;generateur, int nbEtats)</td></tr>
 <tr class="memdesc:af1b276f92d8dd9a914d123b16cc518c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de la méthode de la classe <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a> permettant de définir l'état de départ d'un automate 2D.  <a href="#af1b276f92d8dd9a914d123b16cc518c7">Plus de détails...</a><br /></td></tr>
@@ -344,7 +344,7 @@ Membres hérités additionnels</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">nbLignes</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir le nombre de lignes de l'état de départ d'un automate 2D. </td></tr>
     <tr><td class="paramname">nbColonnes</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir le nombre de colonnes de l'état de départ d'un automate 2D. </td></tr>
-    <tr><td class="paramname">generateur</td><td>Paramètre de type <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em> <em>const&amp;</em> permettant de définir le générateur d'état associé à l'état de départ d'un automate 2D. </td></tr>
+    <tr><td class="paramname">generateur</td><td>Paramètre de type <em><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></em> <em>const&amp;</em> permettant de définir le générateur d'état associé à l'état de départ d'un automate 2D. </td></tr>
     <tr><td class="paramname">nbEtats</td><td>Paramètre de type <em>int</em> permettant de définir le nombre d'états associé l'état de départ d'un automate 2D. </td></tr>
   </table>
   </dd>
@@ -555,15 +555,15 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Méthode de la classe <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a> permettant de définir le voisinage selon <a class="el" href="class_moore.html">Moore</a> d'un automate 2D. </p>
+<p>Méthode de la classe <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a> permettant de définir le voisinage selon <a class="el" href="class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D...">Moore</a> d'un automate 2D. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">ordre</td><td>Paramètre de type <em>unsigned</em> <em>int</em> permettant de définir l'ordre du voisinage d'un automate 2D. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_moore.html">Moore</a></dd></dl>
-<p>Cette méthode permet de définir l'ordre du voisinage d'un automate 2D en faisant notamment appel au constructeur de la classe <em><a class="el" href="class_moore.html">Moore</a></em>. Si le voisinage existe déjà mais qu'il n'est pas du même ordre que l'ordre passé en paramètre de la méthode, le voisinage actuel <em>m_voisinageDefinition</em> est alors supprimé en désallouant la mémoire et en créant un voisinage d'ordre <em>ordre</em>. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D...">Moore</a></dd></dl>
+<p>Cette méthode permet de définir l'ordre du voisinage d'un automate 2D en faisant notamment appel au constructeur de la classe <em><a class="el" href="class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D...">Moore</a></em>. Si le voisinage existe déjà mais qu'il n'est pas du même ordre que l'ordre passé en paramètre de la méthode, le voisinage actuel <em>m_voisinageDefinition</em> est alors supprimé en désallouant la mémoire et en créant un voisinage d'ordre <em>ordre</em>. </p>
 
 </div>
 </div>
@@ -598,8 +598,8 @@ Membres hérités additionnels</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_von_neumann.html">VonNeumann</a></dd></dl>
-<p>Cette méthode permet de définir l'ordre du voisinage d'un automate 2D en faisant notamment appel au constructeur de la classe <em><a class="el" href="class_von_neumann.html">VonNeumann</a></em>. Si le voisinage existe déjà mais qu'il n'est pas du même ordre que l'ordre passé en paramètre de la méthode, le voisinage actuel <em>m_voisinageDefinition</em> est alors supprimé en désallouant la mémoire et en créant un voisinage d'ordre <em>ordre</em>. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_von_neumann.html" title="Classe représentant un voisinage en croix d&#39;une cellule de type Cell dans un automate cellulaire 2D...">VonNeumann</a></dd></dl>
+<p>Cette méthode permet de définir l'ordre du voisinage d'un automate 2D en faisant notamment appel au constructeur de la classe <em><a class="el" href="class_von_neumann.html" title="Classe représentant un voisinage en croix d&#39;une cellule de type Cell dans un automate cellulaire 2D...">VonNeumann</a></em>. Si le voisinage existe déjà mais qu'il n'est pas du même ordre que l'ordre passé en paramètre de la méthode, le voisinage actuel <em>m_voisinageDefinition</em> est alors supprimé en désallouant la mémoire et en créant un voisinage d'ordre <em>ordre</em>. </p>
 
 </div>
 </div>

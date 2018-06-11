@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('class_c_a_builder.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Classe de base permettant de construire les sous-parties nécessaires à la construction d'un <em><a class="el" href="class_cellular_automata.html">CellularAutomata</a></em>.  
+<p>Classe de base permettant de construire les sous-parties nécessaires à la construction d'un <em><a class="el" href="class_cellular_automata.html" title="Classe représentant un automate cellulaire. ">CellularAutomata</a></em>.  
  <a href="class_c_a_builder.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="cabuilder_8h_source.html">cabuilder.h</a>&gt;</code></p>
@@ -162,8 +162,8 @@ Attributs protégés</h2></td></tr>
 <tr class="separator:a8d030d6b0bf0ca88d2bd5b88e1f1b041"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Classe de base permettant de construire les sous-parties nécessaires à la construction d'un <em><a class="el" href="class_cellular_automata.html">CellularAutomata</a></em>. </p>
-<p>Les accesseurs sur les attributs et méthodes permettant de construire les éléments. Les constructeurs et destructeurs des classes construites ne sont pas en <em>private</em> car cette classe permet seulement de stocker les éléments nécessaires à la construction de <em><a class="el" href="class_cellular_automata.html">CellularAutomata</a></em>, ce n'est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement. <em>Ex:</em> la classe <em><a class="el" href="class_cellular_automata.html">CellularAutomata</a></em> construit des <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. On aurait pu factoriser le code (héritage) des deux <em>Builder</em>.</p>
+<div class="textblock"><p>Classe de base permettant de construire les sous-parties nécessaires à la construction d'un <em><a class="el" href="class_cellular_automata.html" title="Classe représentant un automate cellulaire. ">CellularAutomata</a></em>. </p>
+<p>Les accesseurs sur les attributs et méthodes permettant de construire les éléments. Les constructeurs et destructeurs des classes construites ne sont pas en <em>private</em> car cette classe permet seulement de stocker les éléments nécessaires à la construction de <em><a class="el" href="class_cellular_automata.html" title="Classe représentant un automate cellulaire. ">CellularAutomata</a></em>, ce n'est pas une fabrique à proprement parlé et il pourrait être possible de construire ces éléments autrement. <em>Ex:</em> la classe <em><a class="el" href="class_cellular_automata.html" title="Classe représentant un automate cellulaire. ">CellularAutomata</a></em> construit des <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. On aurait pu factoriser le code (héritage) des deux <em>Builder</em>.</p>
 <p>Cette classe n'est pas instanciable car elle ne sert qu'à "factoriser" du code commun à <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> et <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a> pour éviter de copier-coller le même morceau de code. Elle n'est cependant pas virtuelle pure (car toutes les méthodes sont bien définies et il est impossible de déclarer une méthode virtuelle pure qui pourra être utile à la fois dans <a class="el" href="class_c_a_builder1_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder1D</a> et <a class="el" href="class_c_a_builder2_d.html" title="Classe permettant de construire toutes les sous-parties nécessaires à la construction d&#39;un automate c...">CABuilder2D</a>).</p>
 <p>L'implémentation nécessite de bloquer l'utilisation du <em>Simulateur</em> lorsque l'on fait une modification du <em>Simulateur</em> car lorsque l'on modifie une sous-partie, on supprime l'ancienne.</p>
 <dl class="section warning"><dt>Avertissement</dt><dd>L'implémentation ne permet pas de pouvoir exécuter plusieurs automates cellulaires différents en même temps. </dd></dl>
@@ -277,7 +277,7 @@ Attributs protégés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Méthode de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> permettant de construire un automate ayant un générateur d'état aléatoire. </p>
-<p>Cette méthode attribut un nouveau générateur d'état aléatoire (avec la classe <em><a class="el" href="class_generateur_random.html">GenerateurRandom</a></em>) à un automate, également si le générateur d'état de celui-ci est déjà existant. </p>
+<p>Cette méthode attribut un nouveau générateur d'état aléatoire (avec la classe <em><a class="el" href="class_generateur_random.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : aléato...">GenerateurRandom</a></em>) à un automate, également si le générateur d'état de celui-ci est déjà existant. </p>
 
 </div>
 </div>
@@ -305,7 +305,7 @@ Attributs protégés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Méthode de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> permettant de construire un automate ayant un générateur d'état symétrique selon l'axe vertical. </p>
-<p>Cette méthode attribut un nouveau générateur d'état symétrique selon l'axe vertical (avec la classe <em><a class="el" href="class_generateur_symetrie_axe_vertical.html">GenerateurSymetrieAxeVertical</a></em>) à un automate, également si le générateur d'état de celui-ci est déjà existant. </p>
+<p>Cette méthode attribut un nouveau générateur d'état symétrique selon l'axe vertical (avec la classe <em><a class="el" href="class_generateur_symetrie_axe_vertical.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : symétr...">GenerateurSymetrieAxeVertical</a></em>) à un automate, également si le générateur d'état de celui-ci est déjà existant. </p>
 
 </div>
 </div>
@@ -496,7 +496,7 @@ Attributs protégés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Attribut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>. </p>
-<p>Cet attribut est un pointeur sur <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em>. Il permet d'attribuer un générateur d'état à l'automate construit à l'aide des classes Builder. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
+<p>Cet attribut est un pointeur sur <em><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></em>. Il permet d'attribuer un générateur d'état à l'automate construit à l'aide des classes Builder. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
 
 </div>
 </div>
@@ -546,7 +546,7 @@ Attributs protégés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Attribut de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>. </p>
-<p>Cet attribut est un pointeur sur <em><a class="el" href="class_voisinage.html">Voisinage</a></em>. Il permet d'attribuer un voisinage à l'automate construit à l'aide des classes Builder. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
+<p>Cet attribut est un pointeur sur <em><a class="el" href="class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. ">Voisinage</a></em>. Il permet d'attribuer un voisinage à l'automate construit à l'aide des classes Builder. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
 
 </div>
 </div>

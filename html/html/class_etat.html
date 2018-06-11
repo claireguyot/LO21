@@ -185,8 +185,11 @@ Amis</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Classe représentant un état de la grille de cellules. </p>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a>, <a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></dd></dl>
-<p>Cette classe permet de construire des objets <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>. Un objet <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em> est représenté par une longueur, une largeur, un tableau de <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em> à deux entrées, et un générateur d'état. </p>
+<p>Classe déclarée dans le fichier &lt; em&gt;"etat.h"&lt; /em&gt;</p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a>, <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></dd></dl>
+<p>Cette classe permet de construire des objets <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>. Un objet <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em> est représenté par une longueur, une largeur, un tableau de <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em> à deux entrées, et un générateur d'état.</p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></dd></dl>
+<p>Le déclaration de cette classe dans le fichier &lt; em&gt;"generateuretat.h"&lt; /em&gt; est nécessaire afin de régler le problème de dépendance circulaire. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a419cff1c3aa750391d0aa71fe0c84446"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a419cff1c3aa750391d0aa71fe0c84446">&#9670;&nbsp;</a></span>Etat() <span class="overload">[1/4]</span></h2>
@@ -231,13 +234,13 @@ Amis</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">largeur</td><td>Paramètre de type <em>unsigned</em> <em>int</em> représentant la largeur de la grille <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a> </td></tr>
     <tr><td class="paramname">longueur</td><td>Paramètre de type <em>unsigned</em> <em>int</em> représentant la longueur de la grille <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a> </td></tr>
-    <tr><td class="paramname">générateur</td><td>Paramètre de type <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em> <em>const&amp;</em> représentant le générateur d'états associé à l'état </td></tr>
+    <tr><td class="paramname">générateur</td><td>Paramètre de type <em><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></em> <em>const&amp;</em> représentant le générateur d'états associé à l'état </td></tr>
     <tr><td class="paramname">nbEtats</td><td>Paramètre de type <em>unsigned</em> <em>int</em> représentant le nombre d'états du générateur d'états associé à l'état </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a>, <a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></dd></dl>
-<p>Constructeur de la classe <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a> permettant d'initaliser les attributs <em>m_largeur</em>, <em>m_longueur</em> et <em>m_generateur</em> d'un état avec les valeurs passées en paramètre. L'attribut <em>m_cellules</em> sera initialisé à l'aide de <em>largeur</em> et <em>longueur</em> pour définir la taille du tableau 2D. Les positions X et Y de chacun sont initialisées par la même occasion. Le nombre d'états du générateur d'états n'est pas stocké dans <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em> car cela ne concerne que la classe <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em>, il est stocké dans le simulateur à savoir <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em>. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>, <a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></dd></dl>
+<p>Constructeur de la classe <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a> permettant d'initaliser les attributs <em>m_largeur</em>, <em>m_longueur</em> et <em>m_generateur</em> d'un état avec les valeurs passées en paramètre. L'attribut <em>m_cellules</em> sera initialisé à l'aide de <em>largeur</em> et <em>longueur</em> pour définir la taille du tableau 2D. Les positions X et Y de chacun sont initialisées par la même occasion. Le nombre d'états du générateur d'états n'est pas stocké dans <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em> car cela ne concerne que la classe <em><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></em>, il est stocké dans le simulateur à savoir <em><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></em>. </p>
 
 </div>
 </div>
@@ -474,7 +477,7 @@ Amis</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Méthode de la classe iterator. </p>
-<p>Cette méthode permet de retourner un <em>iterator</em> pointant sur la dernière case de la grille d'un objet <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. </p>
+<p>Cette méthode permet de retourner un <em>iterator</em> pointant sur la première case ne correspondant pas à une cellule de la grille d'un objet <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. </p>
 
 </div>
 </div>
@@ -502,7 +505,7 @@ Amis</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Méthode de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>. </p>
-<p>Cette méthode permet de retourner un <em><a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a></em> pointant sur la dernière case de la grille d'un objet <em>const</em> <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. </p>
+<p>Cette méthode permet de retourner un <em><a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a></em> pointant sur la première case ne correspondant pas à une cellule de la grille d'un objet <em>const</em> <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. </p>
 
 </div>
 </div>
@@ -777,7 +780,7 @@ Amis</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Attribut de la classe <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a>. </p>
-<p>Cet attribut est de type <em>Cell**</em>. Il représente un tableau 2D de cellules de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>, et les durées de vie des cellules sont liées à la durée de vie de la grille <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. Le type de cet attribut n'est pas <em>Cell*</em> car pour chaque grille, il est nécessaire d'avoir des cellules différentes. Ainsi, si on supprime une grille, les informations de celle-ci sont concervées. De plus, comme l'on dispose d'un constructeur par défaut de la classe <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>, on peut utiliser <em>Cell**</em> au lieu de <em>Cell*</em> qui nous aurait obligés à utiliser <em>Cell***</em> <em>tab</em> au lieu de <em>Cell**</em>. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
+<p>Cet attribut est de type <em>Cell**</em>. Il représente un tableau 2D de cellules de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>, et les durées de vie des cellules sont liées à la durée de vie de la grille <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>. De plus, comme l'on dispose d'un constructeur par défaut de la classe <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em>, on peut utiliser <em>Cell**</em> au lieu de <em>Cell*</em> qui nous aurait obligés à utiliser <em>Cell***</em> <em>tab</em> au lieu de <em>Cell**</em>. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
 
 </div>
 </div>
@@ -802,7 +805,7 @@ Amis</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Attribut de la classe <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a>. </p>
-<p>Cet attribut est de type <em><a class="el" href="class_generateur_etat.html" title="Classe déclarée dans le fichier &lt; em&gt;&quot;generateuretat.h&quot;&lt; /em&gt; ">GenerateurEtat</a></em> <em>const*</em>. Il s'agit d'un pointeur sur le générateur d'états associé à l'état. Cet attribut ne sera pas détruit lors de la destruction de l'état puisque le générateur d'états peut exister sans l'état. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
+<p>Cet attribut est de type <em><a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a></em> <em>const*</em>. Il s'agit d'un pointeur sur le générateur d'états associé à l'état. Cet attribut ne sera pas détruit lors de la destruction de l'état puisque le générateur d'états peut exister sans l'état. Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe. </p>
 
 </div>
 </div>

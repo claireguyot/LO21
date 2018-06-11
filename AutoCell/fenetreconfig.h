@@ -15,11 +15,19 @@
 #include <QSettings>
 #include "cabuilder.h"
 
-class fenetreConfig : public QWidget
+class SousFenetre : public QWidget//cette classe fournie seulement une interface (pas de comportement) pour la sauvegarde du contexte de toutes les fenetres inclues dans MainWindow
+{
+public:
+    virtual void loadContexte() = 0;
+    virtual void saveContexte() = 0;
+    SousFenetre(QWidget *parent = nullptr): QWidget(parent) {}
+    virtual ~SousFenetre() {}
+};
+class fenetreConfig : public SousFenetre
 {
     Q_OBJECT
 public:
-    explicit fenetreConfig(QWidget *parent = nullptr): QWidget(parent)
+    explicit fenetreConfig(QWidget *parent = nullptr): SousFenetre(parent)
     {
 
     }
@@ -29,8 +37,8 @@ public:
     {
 
     }
-    virtual void loadConfig() = 0;
-    virtual void saveConfig() = 0;
+    virtual void loadContexte() = 0;
+    virtual void saveContexte() = 0;
 
 signals:
     void configConstruite(int) const;
@@ -58,8 +66,8 @@ public:
     {
 
     }
-    virtual void loadConfig() override;
-    virtual void saveConfig() override;
+    virtual void loadContexte() override;
+    virtual void saveContexte() override;
 
 private slots:
     void changementRegExp();
@@ -91,8 +99,8 @@ public:
     {
 
     }
-    virtual void loadConfig() override;
-    virtual void saveConfig() override;
+    virtual void loadContexte() override;
+    virtual void saveContexte() override;
 };
 
 class fenetreFeuForet : public fenetreConfig
@@ -114,8 +122,8 @@ public:
     {
 
     }
-    virtual void loadConfig() override;
-    virtual void saveConfig() override;
+    virtual void loadContexte() override;
+    virtual void saveContexte() override;
 };
 
 #endif // FENETRECONFIG_H

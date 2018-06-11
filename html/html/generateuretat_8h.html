@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('generateuretat_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Déclaration des diverses classes représentant des algorithmes permettant de générer des Etats.  
+<p>Déclaration des classes <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>, <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a> et <a class="el" href="class_generateur_symetrie_axe_vertical.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : symétr...">GenerateurSymetrieAxeVertical</a>, représentant des algorithmes permettant de générer des Etats.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
@@ -104,16 +104,19 @@ $(document).ready(function(){initNavTree('generateuretat_8h.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generateur_etat.html">GenerateurEtat</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe déclarée dans le fichier &lt; em&gt;"generateuretat.h"&lt; /em&gt;  <a href="class_generateur_etat.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe abstraite permettant de générer des états.  <a href="class_generateur_etat.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generateur_random.html">GenerateurRandom</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe héritant de <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a> permettant de générer des états à partir d'un certain mode : aléatoire.  <a href="class_generateur_random.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generateur_symetrie_axe_vertical.html">GenerateurSymetrieAxeVertical</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe héritant de <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a> permettant de générer des états à partir d'un certain mode : symétrique selon l'axe vertical.  <a href="class_generateur_symetrie_axe_vertical.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Déclaration des diverses classes représentant des algorithmes permettant de générer des Etats. </p>
-<p>chaque algorithme permet d'affecter à chaque <a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a> contenue dans un objet <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a>, qui représente une grille de cellules, une valeur précise qui sera l'état de la cellule </p>
+<div class="textblock"><p>Déclaration des classes <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a>, <a class="el" href="class_generateur_etat.html" title="Classe abstraite permettant de générer des états. ">GenerateurEtat</a> et <a class="el" href="class_generateur_symetrie_axe_vertical.html" title="Classe héritant de GenerateurEtat permettant de générer des états à partir d&#39;un certain mode : symétr...">GenerateurSymetrieAxeVertical</a>, représentant des algorithmes permettant de générer des Etats. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a>, <a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></dd></dl>
+<p>Chaque algorithme permet d'affecter à chaque cellule de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em> contenue dans un objet <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em>, qui représente une grille de cellules, une valeur précise qui sera l'état de la cellule </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

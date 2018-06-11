@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     layout->addWidget(switchDim);
 
     setLayout(layout);
-    loadConfig();
+    loadContexte();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -40,13 +40,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
     settings.setValue("DimChoice",choixDimension->currentIndex());
     settings.endGroup();
 
-    dim1->saveConfig();
-    dim2->saveConfig();
+    dim1->saveContexte();
+    dim2->saveContexte();
     event->accept();
 }
 
 
-void MainWindow::loadConfig()
+void MainWindow::loadContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 

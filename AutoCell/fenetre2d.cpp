@@ -175,7 +175,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
     connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
     connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
-    loadConfig();
+    loadContexte();
 
 }
 
@@ -539,7 +539,7 @@ const CellularAutomata* fenetre2D::getSimulateur() const //pareil que fenetre1D
     return simulateur;
 }
 
-void fenetre2D::saveConfig() //change par rapport à fenetre 1D
+void fenetre2D::saveContexte() //change par rapport à fenetre 1D
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -552,8 +552,8 @@ void fenetre2D::saveConfig() //change par rapport à fenetre 1D
     settings.setValue("Timer",bSelectVitesse->value());
     settings.endGroup();
 
-    configFeuForet->saveConfig();
-    configGameOfLife->saveConfig();
+    configFeuForet->saveContexte();
+    configGameOfLife->saveContexte();
 
     remove("dEtatGen2D.bn");
     remove("dConfigGen2D.csv");
@@ -566,7 +566,7 @@ void fenetre2D::saveConfig() //change par rapport à fenetre 1D
         f2.save(*simulateur);
 }
 
-void fenetre2D::loadConfig() //change par rapport à fenetre 1D
+void fenetre2D::loadContexte() //change par rapport à fenetre 1D
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -582,7 +582,16 @@ void fenetre2D::loadConfig() //change par rapport à fenetre 1D
     fichierConfig2D f2("dConfigGen2D.csv");
     if(f2.load(simulateur)) //on charge le simulateur
     {
-        ConstruireAutomate(); //on peut construire un automate
+        bLongueur->setVisible(true);
+        lLongueur->setVisible(true);
+        bLargeur->setVisible(true);
+        lLargeur->setVisible(true);
+        buildGrille();
+
+
+        if(simulateur->getTransition() == nullptr)
+                QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
+        UpdateInfo();
         fichierEtat2D f("dEtatGen2D.bn");
         if(f.load(simulateur)) //on charge le premier état
         {
