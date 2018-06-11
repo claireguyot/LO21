@@ -16,14 +16,42 @@
   * \brief Classe représentant un automate cellulaire
   * \sa Etat, TransitionRule, Voisinage
   *
-  * \details Un objet \a Cell est une cellule qui fait nécessairement partie d'un objet \a Etat car seule la classe \a Etat peut construire des objets \a Cell. Une cellule est caractérisée par sa position (sur la ligne et la colonne), son état (sa valeur) et un voisinage.
+  * Cette classe permet de construire des automates qu'ils soient 1D ou 2D en leur associant une règle de transition, un voisingage particulier choisi par l'utilisateur, et un tableau contenant l'ensemble des états générés.
   */
 class CellularAutomata
 {
 private:
+    /*!
+     * \brief Attribut de la classe CellularAutomata
+     *
+     * Cet attribut est de type \a const \a TransitionRule*. Il s'agit d'un pointeur sur la règle de transition associée à l'automate.
+     * Cet attribut ne sera pas détruit lors de la destruction de l'automate puisque la règle de transition peut exister sans l'automate.
+     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+     */
     const TransitionRule* m_rule;
+    /*!
+     * \brief Attribut de la classe CellularAutomata
+     *
+     * Cet attribut est de type \a const \a Voisinage*. Il s'agit d'un pointeur sur le type de voisinage associé à l'automate.
+     * Cet attribut ne sera pas détruit lors de la destruction de l'automate puisque le type de voisinage peut exister sans l'automate.
+     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+     */
     const Voisinage* m_voisinageDefinition;
+    /*!
+     * \brief Attribut de la classe CellularAutomata
+     *
+     * Cet attribut est de type \a Etat**. Il s'agit d'un tableau contenant l'ensemble des états générés et associés à l'automate.
+     * Cet attribut sera détruit lors de la destruction de l'automate puisque cet ensemble d'états générés est propre à l'automate.
+     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+     */
     Etat** m_etats;
+    /*!
+     * \brief Attribut de la classe CellularAutomata
+     *
+     * Cet attribut est de type \a const \a Etat*. Il s'agit d'un pointeur sur l'état de départ associé à l'automate.
+     * Cet attribut sera détruit lors de la destruction de l'automate puisque cet ensemble d'états générés est propre à l'automate.
+     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
+     */
     const Etat* m_depart;
     unsigned int m_nbEtats;
     unsigned int m_buffer;
