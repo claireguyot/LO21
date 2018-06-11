@@ -1,5 +1,13 @@
+/*!
+ * \file transitionrule.cpp
+ * \brief Implémentation des méthodes non inline des classes de < em>"transitionrule.h"< /em>
+ * \version 1.0
+ * \sa transitionrule.h
+ */
+
 #include "transitionrule.h"
 using namespace std;
+
 void TransitionRule::EffectuerTransition(const Etat &depart, Etat &arrivee) const
 {
     for(int i = 0;i<depart.GetLargeur();i++)
