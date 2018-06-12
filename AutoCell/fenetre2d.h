@@ -17,28 +17,23 @@ class fenetre2D : public FenetreAutomate
 public:
     explicit fenetre2D(QWidget* parent = nullptr);
     ~fenetre2D(){}
-    const CellularAutomata* getSimulateur() const;
-    void loadContexte();
-    void saveContexte();
+    void loadContexte() override;
+    void saveContexte() override;
 
 private slots:
-    void cellActivation(const QModelIndex& index);
-    void buildGrille();
-    void generationSuivante();
-    void play();
-    void pause();
-    void appelConfig() const;
-    void ConstruireEtat();
-    void reset();
-    void sauverAutomate();
-    void chargerAutomate();
-    void sauverEtat();
-    void chargerEtat();
-    void ConstruireAutomate(int nbEtats=-1);
+    void cellActivation(const QModelIndex& index) override;
+    void buildGrille() override;
+    void appelConfig() const override;
+    void ConstruireEtat() override;
+    void sauverAutomate() override;
+    void chargerAutomate() override;
+    void sauverEtat() override;
+    void chargerEtat() override;
+    void ConstruireAutomate(int nbEtats) override;
 
 private:
-    void afficherDernierEtat();
-    void ConstructionManuelle();
-    void UpdateInfo();
+    void afficherDernierEtat() override;
+    void ConstructionManuelle()override;
+    void UpdateInfo() override;
 };
 #endif // fenetre2D_H

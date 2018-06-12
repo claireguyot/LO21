@@ -74,6 +74,25 @@ protected:
 public:
     FenetreAutomate(QWidget* parent = nullptr) : SousFenetre(parent), m_simulateur(nullptr) {}
     virtual ~FenetreAutomate() {delete m_simulateur;}
+    virtual const CellularAutomata* getSimulateur() const;
+protected slots:
+    virtual void cellActivation(const QModelIndex& index) = 0;
+    virtual void buildGrille() = 0;
+    virtual void generationSuivante();
+    virtual void play();
+    virtual void pause();
+    virtual void appelConfig() const = 0;
+    virtual void ConstruireEtat() = 0;
+    virtual void reset();
+    virtual void sauverAutomate()  = 0;
+    virtual void chargerAutomate() = 0;
+    virtual void sauverEtat() = 0;
+    virtual void chargerEtat() = 0;
+    virtual void ConstruireAutomate(int nbEtats) = 0;
+protected:
+    virtual void afficherDernierEtat() = 0;
+    virtual void ConstructionManuelle() = 0;
+    virtual void UpdateInfo() = 0;
 };
 
 #endif // FENETRESIMULATION_H

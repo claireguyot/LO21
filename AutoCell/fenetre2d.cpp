@@ -364,39 +364,10 @@ void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
 
 }
 
-void fenetre2D::generationSuivante() //ne change pas par rapport à la fenetre 1D
-{
-    if (m_simulateur== nullptr || m_simulateur->getTransition() == nullptr )
-    {
-            pause();
-            QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
-    }
-    else if (m_simulateur->getEtatDepart() == nullptr)
-    {
-        pause();
-        QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
 
 
-    }
-    else
-    {
-        m_simulateur->Next();
-        afficherDernierEtat();
-    }
 
-}
 
-void fenetre2D::play() //ne change pas par rapport à la fenetre1D
-{
-
-    m_timer->start(m_selectVitesse->value()*1000);
-    generationSuivante();
-}
-
-void fenetre2D::pause() //ne change pas par rapport à la fenetre1D
-{
-    m_timer->stop();
-}
 
 void fenetre2D::appelConfig() const //change par rapport à la fenetre 1D
 {
@@ -487,28 +458,7 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
     }
 }
 
-void fenetre2D::reset() //ne change pas par rapport à fenetre1D
-{
-    if (m_simulateur== nullptr )
-    {
-            pause();
-            QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
-    }
-    else if (m_simulateur->getEtatDepart() == nullptr)
-    {
-        pause();
-        QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
 
-
-    }
-    else
-    {
-        pause();
-        m_simulateur->Reset();
-        buildGrille();
-        afficherDernierEtat();
-    }
-}
 
 void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
 {
@@ -529,12 +479,7 @@ void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
     delete[] etats;
 }
 
-const CellularAutomata* fenetre2D::getSimulateur() const //pareil que fenetre1D
-{
-    return m_simulateur;
-}
-
-void fenetre2D::saveContexte() //change par rapport à fenetre 1D
+void fenetre2D::saveContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -561,7 +506,7 @@ void fenetre2D::saveContexte() //change par rapport à fenetre 1D
         f2.save(*m_simulateur);
 }
 
-void fenetre2D::loadContexte() //change par rapport à fenetre 1D
+void fenetre2D::loadContexte()
 {
     QSettings settings("options.ini", QSettings::IniFormat);
 
@@ -604,7 +549,7 @@ void fenetre2D::loadContexte() //change par rapport à fenetre 1D
     }
 }
 
-void fenetre2D::UpdateInfo() //change par rapport à fenetre 1D
+void fenetre2D::UpdateInfo()
 {
     std::stringstream flux;
     if (m_simulateur == nullptr || m_simulateur->getTransition()==nullptr)

@@ -399,39 +399,6 @@ void fenetre1D::afficherDernierEtat()
 
 }
 
-void fenetre1D::generationSuivante()
-{
-    if (m_simulateur== nullptr || m_simulateur->getTransition()==nullptr )
-    {
-            pause();
-            QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
-    }
-    else if (m_simulateur->getEtatDepart() == nullptr)
-    {
-        pause();
-        QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
-
-
-    }
-    else
-    {
-        m_simulateur->Next();
-        afficherDernierEtat();
-    }
-
-}
-
-void fenetre1D::play()
-{
-
-    m_timer->start(m_selectVitesse->value()*1000);
-    generationSuivante();
-}
-
-void fenetre1D::pause()
-{
-    m_timer->stop();
-}
 
 void fenetre1D::appelConfig() const
 {
@@ -519,28 +486,6 @@ void fenetre1D::ConstruireEtat()
     }
 }
 
-void fenetre1D::reset()
-{
-    if (m_simulateur== nullptr )
-    {
-            pause();
-            QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
-    }
-    else if (m_simulateur->getEtatDepart() == nullptr)
-    {
-        pause();
-        QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
-
-
-    }
-    else
-    {
-        pause();
-        m_simulateur->Reset();
-        buildGrille();
-        afficherDernierEtat();
-    }
-}
 
 void fenetre1D::ConstructionManuelle()
 {
@@ -556,11 +501,6 @@ void fenetre1D::ConstructionManuelle()
     builder.BuildEtatDepart(m_longueur->value(),etats);
     delete[] etats[0];
     delete[] etats;
-}
-
-const CellularAutomata* fenetre1D::getSimulateur() const
-{
-    return m_simulateur;
 }
 
 void fenetre1D::saveContexte()
