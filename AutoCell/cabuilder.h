@@ -36,18 +36,21 @@ protected:
     CABuilder& operator=(const CABuilder&) = delete;
     /*!
      * \brief Constructeur de la classe abstraite CABuilder.
+     * \sa ~CABuilder(), CellularAutomata
      *
      * Ce constructeur permet de mettre tous les attributs à \a nullptr pour initialiser un automate.
+     * Il est en privé afin d'empêcher l'utilisateur d'instancier CABuilder sinon la classe serait instanciable, et cela n'aurait pas de sens de l'instancier étant donné qu'elle ne permet de construire qu'une sous partie d'un automate.
      */
     CABuilder(): m_etatDepart(nullptr),m_generateurEtat(nullptr),m_transitionRule(nullptr),m_voisinageDefinition(nullptr)
     {
 
     }
     /*!
-     * \fn virtual ~CABuilder()
      * \brief Destructeur virtuel de la classe abstraite CABuilder.
+     * \sa CABuilder(), CellularAutomata
      *
      * Ce destructeur est appelé lors de la destruction d'un objet de la classe \a CABuilder. Il permet de désallouer la mémoire pour les attributs d'un automate qui sont des pointeurs.
+     * Il est en privé afin d'empêcher l'utilisateur d'instancier CABuilder sinon la classe serait instanciable, et cela n'aurait pas de sens de l'instancier étant donné qu'elle ne permet de construire qu'une sous partie d'un automate.
      */
     virtual ~CABuilder()
     {
