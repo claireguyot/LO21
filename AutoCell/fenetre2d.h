@@ -51,7 +51,7 @@ class fenetre2D : public QWidget{
 
     fenetreGameOfLife* configGameOfLife;
     fenetreFeuForet* configFeuForet;
-    CellularAutomata* simulateur;
+    CellularAutomata* m_simulateur;
 
     QTimer* m_timer;
     QLabel* m_info;
@@ -61,7 +61,7 @@ public:
     explicit fenetre2D(QWidget* parent = nullptr);
     ~fenetre2D()
     {
-        delete simulateur;
+        delete m_simulateur;
     }
     const CellularAutomata* getSimulateur() const;
     void loadContexte();

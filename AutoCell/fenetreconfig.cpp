@@ -28,10 +28,10 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
 
     changementLabel();
     m_layoutPrincipal = new QVBoxLayout();
-    m_layoutPrincipal->addLayout(formulaire);
+    m_layoutPrincipal->addLayout(m_formulaire);
     m_layoutPrincipal->addWidget(nbCaract);
-    m_layoutPrincipal->addWidget(info);
-    setLayout(layoutPrincipal);
+    m_layoutPrincipal->addWidget(m_info);
+    setLayout(m_layoutPrincipal);
 
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementRegExp()));
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementLabel()));

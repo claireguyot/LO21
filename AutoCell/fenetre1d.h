@@ -28,33 +28,33 @@ class gest_fich;
 class fenetre1D : public QWidget{
     Q_OBJECT
 
-    QPushButton* bGenererEtat;
-    QPushButton* bSauvegarderEtat;
-    QPushButton* bChargerEtat;
-    QSpinBox* bLargeur;
-    QSpinBox* bLongueur;
-    QLabel* lLongueur;
-    QLabel* lLargeur;
-    QComboBox* bchoixGenerateur;
-    QTableWidget* depart;
+    QPushButton* m_genererEtat;
+    QPushButton* m_sauvegarderEtat;
+    QPushButton* m_chargerEtat;
+    QSpinBox* m_largeur;
+    QSpinBox* m_longueur;
+    QLabel* m_lLongueur;
+    QLabel* m_lLargeur;
+    QComboBox* m_choixGenerateur;
+    QTableWidget* m_depart;
     //QVBoxLayout *layout;
-    QTableWidget* grille;
-    QPushButton* bStart;
-    QPushButton* bPause;
-    QPushButton* bRetourDepart;
-    QPushButton* bNextFrame;
-    QSpinBox* bSelectVitesse;
+    QTableWidget* m_grille;
+    QPushButton* m_start;
+    QPushButton* m_pause;
+    QPushButton* m_retourDepart;
+    QPushButton* m_nextFrame;
+    QSpinBox* m_selectVitesse;
 
-    QPushButton* bGenererAutomate;
-    QPushButton* bSauvegarderAutomate;
-    QPushButton* bChargerAutomate;
+    QPushButton* m_genererAutomate;
+    QPushButton* m_sauvegarderAutomate;
+    QPushButton* m_chargerAutomate;
 
-    QComboBox* choixAutomate;
+    QComboBox* m_choixAutomate;
     //QHBoxLayout* menuInferieur;
     //QHBoxLayout* layoutGlobal;
 
-    fenetreElementaryRule* configElementaryRule;
-    CellularAutomata* simulateur;
+    fenetreElementaryRule* m_configElementaryRule;
+    CellularAutomata* m_simulateur;
 
     QTimer* m_timer;
     QLabel* m_info;
@@ -64,7 +64,7 @@ public:
     explicit fenetre1D(QWidget* parent = nullptr);
     ~fenetre1D()
     {
-        delete simulateur;
+        delete m_simulateur;
     }
     const CellularAutomata* getSimulateur() const;
     void loadContexte();

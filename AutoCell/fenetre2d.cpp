@@ -1,5 +1,5 @@
 #include "fenetre2D.h"
-fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //modifier par rapport à fenetre1D
+fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) //modifier par rapport à fenetre1D
 {
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la grille
@@ -182,15 +182,15 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), simulateur(nullptr) //m
 void fenetre2D::sauverAutomate()
 {
     pause();
-    if(simulateur==nullptr)
-        QMessageBox::critical(this,"Erreur","Veuillez construire un simulateur avant de sauver une config!");
+    if(m_simulateur==nullptr)
+        QMessageBox::critical(this,"Erreur","Veuillez construire un m_simulateur avant de sauver une config!");
     else
-        sauvegarde(*simulateur,CONFIG,_2D);
+        sauvegarde(*m_simulateur,CONFIG,_2D);
 }
 void fenetre2D::chargerAutomate()
 {
     pause();
-    if(chargement(simulateur,CONFIG,_2D))
+    if(chargement(m_simulateur,CONFIG,_2D))
     {
         bLongueur->setVisible(true);
         lLongueur->setVisible(true);
@@ -199,7 +199,7 @@ void fenetre2D::chargerAutomate()
         buildGrille();
 
 
-        if(simulateur->getTransition() == nullptr)
+        if(m_simulateur->getTransition() == nullptr)
                 QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
         UpdateInfo();
     }
@@ -209,20 +209,20 @@ void fenetre2D::chargerAutomate()
 void fenetre2D::sauverEtat()
 {
     pause();
-    if(simulateur == nullptr || simulateur->getEtatDepart() == nullptr)
-        QMessageBox::warning(this,"erreur","Veuillez générer le simulateur et l'état de départ.");
+    if(m_simulateur == nullptr || m_simulateur->getEtatDepart() == nullptr)
+        QMessageBox::warning(this,"erreur","Veuillez générer le m_simulateur et l'état de départ.");
     else
-        sauvegarde(*simulateur,ETAT,_2D);
+        sauvegarde(*m_simulateur,ETAT,_2D);
 
 }
 void fenetre2D::chargerEtat()
 {
     pause();
-    if(simulateur==nullptr || simulateur->getTransition() == nullptr)
+    if(m_simulateur==nullptr || m_simulateur->getTransition() == nullptr)
         QMessageBox::critical(this,"Erreur","L'automate n'a pas été généré");
     else
     {
-        if(chargement(simulateur,ETAT,_2D))
+        if(chargement(m_simulateur,ETAT,_2D))
         {
             CABuilder2D &m = CABuilder2D::getInstance();
             if(m.GetEtatDepart() == nullptr)
@@ -256,7 +256,7 @@ void fenetre2D::cellActivation(const QModelIndex& index) //changée par rapport 
     }
     else if (grille->item(index.row(),index.column())->text()=="1")
     {
-        if(simulateur != nullptr && simulateur->GetNombreEtats() >=3)
+        if(m_simulateur != nullptr && m_simulateur->GetNombreEtats() >=3)
         {
             grille->item(index.row(),index.column())->setText("2");
             grille->item(index.row(),index.column())->setBackgroundColor("green");
@@ -272,7 +272,7 @@ void fenetre2D::cellActivation(const QModelIndex& index) //changée par rapport 
     }
     else if (grille->item(index.row(),index.column())->text()=="2")
     {
-        if(simulateur != nullptr && simulateur->GetNombreEtats() ==4)
+        if(m_simulateur != nullptr && m_simulateur->GetNombreEtats() ==4)
         {
             grille->item(index.row(),index.column())->setText("3");
             grille->item(index.row(),index.column())->setBackgroundColor("red");
@@ -329,9 +329,9 @@ void fenetre2D::buildGrille() //changer par rapport à fenetre1D
 
 void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
 {
-    if (simulateur!= nullptr)
+    if (m_simulateur!= nullptr)
     {
-        Etat const& etat = simulateur->Dernier();
+        Etat const& etat = m_simulateur->Dernier();
         for(Etat::const_iterator it = etat.begin();it!=etat.end();++it)
         {
             const Cell& cellule = *it;
@@ -371,12 +371,12 @@ void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
 
 void fenetre2D::generationSuivante() //ne change pas par rapport à la fenetre 1D
 {
-    if (simulateur== nullptr || simulateur->getTransition() == nullptr )
+    if (m_simulateur== nullptr || m_simulateur->getTransition() == nullptr )
     {
             pause();
             QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
     }
-    else if (simulateur->getEtatDepart() == nullptr)
+    else if (m_simulateur->getEtatDepart() == nullptr)
     {
         pause();
         QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
@@ -385,7 +385,7 @@ void fenetre2D::generationSuivante() //ne change pas par rapport à la fenetre 1
     }
     else
     {
-        simulateur->Next();
+        m_simulateur->Next();
         afficherDernierEtat();
     }
 
@@ -422,14 +422,14 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
 {
     pause();
 
-    if(simulateur != nullptr)
+    if(m_simulateur != nullptr)
     {
-        delete simulateur;
-        simulateur = nullptr;
+        delete m_simulateur;
+        m_simulateur = nullptr;
     }
     CABuilder2D& builder = CABuilder2D::getInstance();
     //if(nbEtats<0) nbEtats = builder.GetTransitionRule()->getNbEtats();
-    simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
+    m_simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
     bLongueur->setVisible(true);
     lLongueur->setVisible(true);
@@ -437,7 +437,7 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
     lLargeur->setVisible(true);
 
     buildGrille();
-    if(simulateur->getTransition() == nullptr)
+    if(m_simulateur->getTransition() == nullptr)
             QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
     UpdateInfo();
 
@@ -447,7 +447,7 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
 {
 
 
-    if(simulateur == nullptr || simulateur->getTransition() == nullptr)
+    if(m_simulateur == nullptr || m_simulateur->getTransition() == nullptr)
     {
         QMessageBox::warning(0,"erreur","L'automate n'est pas généré !");
     }
@@ -465,11 +465,11 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
             break;
         case 1:
             builder.BuildGenerateurEtatRandom();
-            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),m_simulateur->GetNombreEtats());
             break;
         case 2:
             builder.BuildGenerateurEtatSymetrieAxeVertical();
-            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),m_simulateur->GetNombreEtats());
             break;
         }
 
@@ -484,7 +484,7 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
             lLargeur->setVisible(false);
 
             buildGrille();
-            simulateur->setEtatDepart((*builder.GetEtatDepart()));
+            m_simulateur->setEtatDepart((*builder.GetEtatDepart()));
             afficherDernierEtat();
         }
 
@@ -494,12 +494,12 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
 
 void fenetre2D::reset() //ne change pas par rapport à fenetre1D
 {
-    if (simulateur== nullptr )
+    if (m_simulateur== nullptr )
     {
             pause();
             QMessageBox::critical(0,"erreur","L'automate n'est pas généré !");
     }
-    else if (simulateur->getEtatDepart() == nullptr)
+    else if (m_simulateur->getEtatDepart() == nullptr)
     {
         pause();
         QMessageBox::critical(0,"erreur","L'état de départ n'est pas généré !");
@@ -509,7 +509,7 @@ void fenetre2D::reset() //ne change pas par rapport à fenetre1D
     else
     {
         pause();
-        simulateur->Reset();
+        m_simulateur->Reset();
         buildGrille();
         afficherDernierEtat();
     }
@@ -536,7 +536,7 @@ void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
 
 const CellularAutomata* fenetre2D::getSimulateur() const //pareil que fenetre1D
 {
-    return simulateur;
+    return m_simulateur;
 }
 
 void fenetre2D::saveContexte() //change par rapport à fenetre 1D
@@ -559,11 +559,11 @@ void fenetre2D::saveContexte() //change par rapport à fenetre 1D
     remove("dConfigGen2D.csv");
 
     fichierEtat2D f("dEtatGen2D.bn");
-    if(simulateur!=nullptr && simulateur->getEtatDepart()!=nullptr)
-        f.save(*simulateur);
+    if(m_simulateur!=nullptr && m_simulateur->getEtatDepart()!=nullptr)
+        f.save(*m_simulateur);
     fichierConfig2D f2("dConfigGen2D.csv");
-    if(simulateur!=nullptr)
-        f2.save(*simulateur);
+    if(m_simulateur!=nullptr)
+        f2.save(*m_simulateur);
 }
 
 void fenetre2D::loadContexte() //change par rapport à fenetre 1D
@@ -580,7 +580,7 @@ void fenetre2D::loadContexte() //change par rapport à fenetre 1D
     settings.endGroup();
 
     fichierConfig2D f2("dConfigGen2D.csv");
-    if(f2.load(simulateur)) //on charge le simulateur
+    if(f2.load(m_simulateur)) //on charge le m_simulateur
     {
         bLongueur->setVisible(true);
         lLongueur->setVisible(true);
@@ -589,15 +589,15 @@ void fenetre2D::loadContexte() //change par rapport à fenetre 1D
         buildGrille();
 
 
-        if(simulateur->getTransition() == nullptr)
+        if(m_simulateur->getTransition() == nullptr)
                 QMessageBox::warning(0,"Erreur","La règle de transition ne s'est pas créée correctement");
         UpdateInfo();
         fichierEtat2D f("dEtatGen2D.bn");
-        if(f.load(simulateur)) //on charge le premier état
+        if(f.load(m_simulateur)) //on charge le premier état
         {
             CABuilder2D &m = CABuilder2D::getInstance();
             bLongueur->setValue(m.GetEtatDepart()->GetLongueur()); //on met le premier état
-            simulateur->setEtatDepart(*m.GetEtatDepart());
+            m_simulateur->setEtatDepart(*m.GetEtatDepart());
             buildGrille();
 
             afficherDernierEtat();
@@ -612,15 +612,15 @@ void fenetre2D::loadContexte() //change par rapport à fenetre 1D
 void fenetre2D::UpdateInfo() //change par rapport à fenetre 1D
 {
     std::stringstream flux;
-    if (simulateur == nullptr || simulateur->getTransition()==nullptr)
+    if (m_simulateur == nullptr || m_simulateur->getTransition()==nullptr)
         flux << "Aucun automate généré";
     else
     {
-        flux <<"Automate généré: "<< simulateur->getTransition()->getTransition();
+        flux <<"Automate généré: "<< m_simulateur->getTransition()->getTransition();
 
 
-        if(simulateur->getVoisinage() != nullptr)
-            flux << "\nVoisinage : "<< simulateur->getVoisinage()->getType() << ", ordre : " << simulateur->getVoisinage()->GetOrdre();
+        if(m_simulateur->getVoisinage() != nullptr)
+            flux << "\nVoisinage : "<< m_simulateur->getVoisinage()->getType() << ", ordre : " << m_simulateur->getVoisinage()->GetOrdre();
 
     }
     m_info->setText(QString(flux.str().c_str()));
