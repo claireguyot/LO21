@@ -110,7 +110,7 @@ public:
          * \return \a std::string contenant les attributs définissant la transition.
          */
     std::string const& GetRule() const {return m_rule;}
-protected:
+private:
     /*!
      * \brief Attribut de la classe ElementaryRule
      *
@@ -175,7 +175,7 @@ public:
          * Destructeur de la classe GameOfLife, qui est celui par défaut.
          */
     ~GameOfLife() = default;
-protected:
+private:
     /*!
      * \brief Attribut de la classe GameOfLife
      *

@@ -10,52 +10,52 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
 
 
 
-    bChargerEtat = new QPushButton("Charger état",this);
-    bLargeur = new QSpinBox(this);
-    bLargeur->setRange(1,50);
-    bLargeur->setValue(10);
-    QObject::connect(bLargeur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
-    bLongueur = new QSpinBox(this);
-    bLongueur->setRange(1,50);
-    bLongueur->setValue(10);
-    lLargeur = new QLabel("Largeur",this);
-    lLongueur = new QLabel("Longueur",this);
-    QObject::connect(bLongueur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+    m_chargerEtat = new QPushButton("Charger état",this);
+    m_largeur = new QSpinBox(this);
+    m_largeur->setRange(1,50);
+    m_largeur->setValue(10);
+    QObject::connect(m_largeur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+    m_longueur = new QSpinBox(this);
+    m_longueur->setRange(1,50);
+    m_longueur->setValue(10);
+    m_lLargeur = new QLabel("Largeur",this);
+    m_lLongueur = new QLabel("Longueur",this);
+    QObject::connect(m_longueur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
 
-    bchoixGenerateur = new QComboBox();
-    bchoixGenerateur->addItem("Génération manuelle");
-    bchoixGenerateur->addItem("Génération aléatoire");
-    bchoixGenerateur->addItem("Génération aléatoire symétrie axiale verticale");
+    m_choixGenerateur = new QComboBox();
+    m_choixGenerateur->addItem("Génération manuelle");
+    m_choixGenerateur->addItem("Génération aléatoire");
+    m_choixGenerateur->addItem("Génération aléatoire symétrie axiale verticale");
 
 
 
     QHBoxLayout* menuSuperieur = new QHBoxLayout();
-    menuSuperieur->addWidget(bchoixGenerateur);
-    menuSuperieur->addWidget(bChargerEtat);
-    menuSuperieur->addWidget(lLargeur);
-    menuSuperieur->addWidget(bLargeur);
-    menuSuperieur->addWidget(lLongueur);
-    menuSuperieur->addWidget(bLongueur);
+    menuSuperieur->addWidget(m_choixGenerateur);
+    menuSuperieur->addWidget(m_chargerEtat);
+    menuSuperieur->addWidget(m_lLargeur);
+    menuSuperieur->addWidget(m_largeur);
+    menuSuperieur->addWidget(m_lLongueur);
+    menuSuperieur->addWidget(m_longueur);
 
 
-    bGenererEtat = new QPushButton("Générer état",this);
+    m_genererEtat = new QPushButton("Générer état",this);
 
 
-    grille  = new QTableWidget(this);
-    grille->horizontalHeader()->setVisible(false);
-    grille->verticalHeader()->setVisible(false);
-    grille->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_grille  = new QTableWidget(this);
+    m_grille->horizontalHeader()->setVisible(false);
+    m_grille->verticalHeader()->setVisible(false);
+    m_grille->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
-    //grille->setFixedSize(this->width(),this->height());
+    //m_grille->setFixedSize(this->width(),this->height());
 
     int width = QApplication::desktop()->width()*0.4;
-    grille->setFixedSize(width,width);
+    m_grille->setFixedSize(width,width);
 
-    connect(grille,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+    connect(m_grille,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
 
     //non éditable
-    grille->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_grille->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 
     buildGrille();
@@ -68,24 +68,24 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
 
 
 
-    bSauvegarderEtat = new QPushButton("Sauvegarder dernier état");
-    bStart = new QPushButton("Start");
-    bPause = new QPushButton("Pause");
-    bRetourDepart = new QPushButton("Retour départ");
-    bNextFrame = new QPushButton("Prochain état");
-    bSelectVitesse = new QSpinBox();
-    bSelectVitesse->setSuffix(" s");
-    bSelectVitesse->setRange(1,50);
-    bSelectVitesse->setValue(2);
+    m_sauvegarderEtat = new QPushButton("Sauvegarder dernier état");
+    m_start = new QPushButton("Start");
+    m_pause = new QPushButton("Pause");
+    m_retourDepart = new QPushButton("Retour départ");
+    m_nextFrame = new QPushButton("Prochain état");
+    m_selectVitesse = new QSpinBox();
+    m_selectVitesse->setSuffix(" s");
+    m_selectVitesse->setRange(1,50);
+    m_selectVitesse->setValue(2);
 
     QHBoxLayout* menuInferieur = new QHBoxLayout();
 
-    menuInferieur->addWidget(bSauvegarderEtat);
-    menuInferieur->addWidget(bRetourDepart);
-    menuInferieur->addWidget(bNextFrame);
-    menuInferieur->addWidget(bPause);
-    menuInferieur->addWidget(bStart);
-    menuInferieur->addWidget(bSelectVitesse);
+    menuInferieur->addWidget(m_sauvegarderEtat);
+    menuInferieur->addWidget(m_retourDepart);
+    menuInferieur->addWidget(m_nextFrame);
+    menuInferieur->addWidget(m_pause);
+    menuInferieur->addWidget(m_start);
+    menuInferieur->addWidget(m_selectVitesse);
 
     /*
      * layout menu droit
@@ -93,8 +93,8 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
     QVBoxLayout* layout = new QVBoxLayout();
 
     layout->addLayout(menuSuperieur);
-    layout->addWidget(bGenererEtat);
-    layout->addWidget(grille);
+    layout->addWidget(m_genererEtat);
+    layout->addWidget(m_grille);
     layout->addLayout(menuInferieur);
 
     /*
@@ -102,31 +102,31 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
      */
 
 
-    configGameOfLife = new fenetreGameOfLife();
-    configFeuForet = new fenetreFeuForet();
+    m_configGameOfLife = new fenetreGameOfLife();
+    m_configFeuForet = new fenetreFeuForet();
     QStackedWidget* automates = new QStackedWidget(this);
 
 
-    automates->addWidget(configGameOfLife);
-    automates->addWidget(configFeuForet);
+    automates->addWidget(m_configGameOfLife);
+    automates->addWidget(m_configFeuForet);
     automates->setCurrentIndex(0);
 
-    choixAutomate = new QComboBox();
-    choixAutomate->addItem("Jeu de la vie");
-    choixAutomate->addItem("Feu de Forêt");
+    m_choixAutomate = new QComboBox();
+    m_choixAutomate->addItem("Jeu de la vie");
+    m_choixAutomate->addItem("Feu de Forêt");
 
-    connect(choixAutomate,SIGNAL(currentIndexChanged(int)),automates, SLOT(setCurrentIndex(int)));
+    connect(m_choixAutomate,SIGNAL(currentIndexChanged(int)),automates, SLOT(setCurrentIndex(int)));
 
-    bGenererAutomate = new QPushButton("Générer automate");
-    bSauvegarderAutomate = new QPushButton("Sauvegarder automate");
-    bChargerAutomate = new QPushButton("Charger automate");
+    m_genererAutomate = new QPushButton("Générer automate");
+    m_sauvegarderAutomate = new QPushButton("Sauvegarder automate");
+    m_chargerAutomate = new QPushButton("Charger automate");
 
 
     QHBoxLayout* menuAutomate = new QHBoxLayout();
 
-    menuAutomate->addWidget(bGenererAutomate);
-    menuAutomate->addWidget(bSauvegarderAutomate);
-    menuAutomate->addWidget(bChargerAutomate);
+    menuAutomate->addWidget(m_genererAutomate);
+    menuAutomate->addWidget(m_sauvegarderAutomate);
+    menuAutomate->addWidget(m_chargerAutomate);
 
     m_info = new QLabel(this);
     UpdateInfo();
@@ -136,7 +136,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
 
 
 
-    menuGauche->addWidget(choixAutomate);
+    menuGauche->addWidget(m_choixAutomate);
     menuGauche->addWidget(automates);
     menuGauche->addLayout(menuAutomate);
     menuGauche->addWidget(m_info);
@@ -159,21 +159,21 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
      * toutes les connections entre SIGNALs et SLOTs
      */
     connect(m_timer,SIGNAL(timeout()),this,SLOT(generationSuivante()));
-    connect(bStart,SIGNAL(clicked(bool)),this,SLOT(play()));
-    connect(bPause,SIGNAL(clicked(bool)),this,SLOT(pause()));
-    connect(bGenererAutomate,SIGNAL(clicked(bool)),this,SLOT(appelConfig()));
+    connect(m_start,SIGNAL(clicked(bool)),this,SLOT(play()));
+    connect(m_pause,SIGNAL(clicked(bool)),this,SLOT(pause()));
+    connect(m_genererAutomate,SIGNAL(clicked(bool)),this,SLOT(appelConfig()));
 
-    connect(bNextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
-    connect(bGenererEtat,SIGNAL(clicked(bool)),this,SLOT(ConstruireEtat()));
-    connect(bRetourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
+    connect(m_nextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
+    connect(m_genererEtat,SIGNAL(clicked(bool)),this,SLOT(ConstruireEtat()));
+    connect(m_retourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
 
-    connect(configGameOfLife,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
-    connect(configFeuForet,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
+    connect(m_configGameOfLife,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
+    connect(m_configFeuForet,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
 
-    connect(bSauvegarderAutomate,SIGNAL(clicked(bool)),this,SLOT(sauverAutomate()));
-    connect(bSauvegarderEtat,SIGNAL(clicked(bool)),this,SLOT(sauverEtat()));
-    connect(bChargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
-    connect(bChargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
+    connect(m_sauvegarderAutomate,SIGNAL(clicked(bool)),this,SLOT(sauverAutomate()));
+    connect(m_sauvegarderEtat,SIGNAL(clicked(bool)),this,SLOT(sauverEtat()));
+    connect(m_chargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
+    connect(m_chargerEtat,SIGNAL(clicked(bool)),this,SLOT(chargerEtat()));
 
     loadContexte();
 
@@ -192,10 +192,10 @@ void fenetre2D::chargerAutomate()
     pause();
     if(chargement(m_simulateur,CONFIG,_2D))
     {
-        bLongueur->setVisible(true);
-        lLongueur->setVisible(true);
-        bLargeur->setVisible(true);
-        lLargeur->setVisible(true);
+        m_longueur->setVisible(true);
+        m_lLongueur->setVisible(true);
+        m_largeur->setVisible(true);
+        m_lLargeur->setVisible(true);
         buildGrille();
 
 
@@ -231,15 +231,15 @@ void fenetre2D::chargerEtat()
             }
             else
             {
-                bLongueur->setValue(m.GetEtatDepart()->GetLongueur());
+                m_longueur->setValue(m.GetEtatDepart()->GetLongueur());
 
                 buildGrille();
 
                 afficherDernierEtat();
-                bLongueur->setVisible(false);
-                bLargeur->setVisible(false);
-                lLongueur->setVisible(false);
-                lLargeur->setVisible(false);
+                m_longueur->setVisible(false);
+                m_largeur->setVisible(false);
+                m_lLongueur->setVisible(false);
+                m_lLargeur->setVisible(false);
             }
         }
     }
@@ -248,50 +248,50 @@ void fenetre2D::chargerEtat()
 
 void fenetre2D::cellActivation(const QModelIndex& index) //changée par rapport à fenetre1D
 {
-    if (grille->item(index.row(),index.column())->text()=="0")
+    if (m_grille->item(index.row(),index.column())->text()=="0")
     {
-        grille->item(index.row(),index.column())->setText("1");
-        grille->item(index.row(),index.column())->setBackgroundColor("black");
-        grille->item(index.row(),index.column())->setTextColor("black");
+        m_grille->item(index.row(),index.column())->setText("1");
+        m_grille->item(index.row(),index.column())->setBackgroundColor("black");
+        m_grille->item(index.row(),index.column())->setTextColor("black");
     }
-    else if (grille->item(index.row(),index.column())->text()=="1")
+    else if (m_grille->item(index.row(),index.column())->text()=="1")
     {
         if(m_simulateur != nullptr && m_simulateur->GetNombreEtats() >=3)
         {
-            grille->item(index.row(),index.column())->setText("2");
-            grille->item(index.row(),index.column())->setBackgroundColor("green");
-            grille->item(index.row(),index.column())->setTextColor("green");
+            m_grille->item(index.row(),index.column())->setText("2");
+            m_grille->item(index.row(),index.column())->setBackgroundColor("green");
+            m_grille->item(index.row(),index.column())->setTextColor("green");
         }
         else
         {
-            grille->item(index.row(),index.column())->setText("0");
-            grille->item(index.row(),index.column())->setBackgroundColor("white");
-            grille->item(index.row(),index.column())->setTextColor("white");
+            m_grille->item(index.row(),index.column())->setText("0");
+            m_grille->item(index.row(),index.column())->setBackgroundColor("white");
+            m_grille->item(index.row(),index.column())->setTextColor("white");
         }
 
     }
-    else if (grille->item(index.row(),index.column())->text()=="2")
+    else if (m_grille->item(index.row(),index.column())->text()=="2")
     {
         if(m_simulateur != nullptr && m_simulateur->GetNombreEtats() ==4)
         {
-            grille->item(index.row(),index.column())->setText("3");
-            grille->item(index.row(),index.column())->setBackgroundColor("red");
-            grille->item(index.row(),index.column())->setTextColor("red");
+            m_grille->item(index.row(),index.column())->setText("3");
+            m_grille->item(index.row(),index.column())->setBackgroundColor("red");
+            m_grille->item(index.row(),index.column())->setTextColor("red");
         }
         else
         {
-            grille->item(index.row(),index.column())->setText("0");
-            grille->item(index.row(),index.column())->setBackgroundColor("white");
-            grille->item(index.row(),index.column())->setTextColor("white");
+            m_grille->item(index.row(),index.column())->setText("0");
+            m_grille->item(index.row(),index.column())->setBackgroundColor("white");
+            m_grille->item(index.row(),index.column())->setTextColor("white");
         }
     }
     else
     {
-        grille->item(index.row(),index.column())->setText("0");
-        grille->item(index.row(),index.column())->setBackgroundColor("white");
-        grille->item(index.row(),index.column())->setTextColor("white");
+        m_grille->item(index.row(),index.column())->setText("0");
+        m_grille->item(index.row(),index.column())->setBackgroundColor("white");
+        m_grille->item(index.row(),index.column())->setTextColor("white");
     }
-    grille->item(index.row(),index.column())->setSelected(false);
+    m_grille->item(index.row(),index.column())->setSelected(false);
 }
 
 
@@ -302,25 +302,25 @@ void fenetre2D::buildGrille() //changer par rapport à fenetre1D
 
 
 
-    grille->clear();
-    grille->setColumnCount(bLongueur->value());
-    grille->setRowCount(bLargeur->value());
+    m_grille->clear();
+    m_grille->setColumnCount(m_longueur->value());
+    m_grille->setRowCount(m_largeur->value());
 
-    unsigned int tailleLongueur = grille->height()/bLongueur->value();
-    unsigned int tailleLargeur = grille->width()/bLargeur->value();
+    unsigned int tailleLongueur = m_grille->height()/m_longueur->value();
+    unsigned int tailleLargeur = m_grille->width()/m_largeur->value();
 
 
 
-    for(unsigned int i=0;i<bLongueur->value();i++)
+    for(unsigned int i=0;i<m_longueur->value();i++)
     {
-     grille->setColumnWidth(i,tailleLongueur);
+     m_grille->setColumnWidth(i,tailleLongueur);
 
-     for(unsigned int j = 0;j<bLargeur->value();j++)
+     for(unsigned int j = 0;j<m_largeur->value();j++)
      {
-         if(i==0) grille->setRowHeight(j,tailleLargeur);
-         grille->setItem(j,i,new QTableWidgetItem(""));
-         grille->item(j,i)->setBackgroundColor("white");
-         grille->item(j,i)->setTextColor("white");
+         if(i==0) m_grille->setRowHeight(j,tailleLargeur);
+         m_grille->setItem(j,i,new QTableWidgetItem(""));
+         m_grille->item(j,i)->setBackgroundColor("white");
+         m_grille->item(j,i)->setTextColor("white");
      }
     }
 
@@ -338,31 +338,31 @@ void fenetre2D::afficherDernierEtat() //change par rapport à la fenetre 1D
             switch(cellule.GetEtat())
             {
             case BLANC:
-                grille->item(cellule.GetX(),cellule.GetY())->setText("0");
-                grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("white");
-                grille->item(cellule.GetX(),cellule.GetY())->setTextColor("white");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setText("0");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("white");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setTextColor("white");
             break;
             case NOIR:
-                grille->item(cellule.GetX(),cellule.GetY())->setText("1");
-                grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("black");
-                grille->item(cellule.GetX(),cellule.GetY())->setTextColor("black");;
+                m_grille->item(cellule.GetX(),cellule.GetY())->setText("1");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("black");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setTextColor("black");;
             break;
             case VERT:
-                grille->item(cellule.GetX(),cellule.GetY())->setText("2");
-                grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("green");
-                grille->item(cellule.GetX(),cellule.GetY())->setTextColor("green");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setText("2");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("green");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setTextColor("green");
             break;
             case ROUGE:
-                grille->item(cellule.GetX(),cellule.GetY())->setText("3");
-                grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("red");
-                grille->item(cellule.GetX(),cellule.GetY())->setTextColor("red");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setText("3");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setBackgroundColor("red");
+                m_grille->item(cellule.GetX(),cellule.GetY())->setTextColor("red");
             break;
             default:
                 std::stringstream flux;
                 flux << cellule.GetEtat();
-                grille->item(0,cellule.GetY())->setText(flux.str().c_str());
-                grille->item(0,cellule.GetY())->setBackgroundColor("white");
-                grille->item(0,cellule.GetY())->setTextColor("white");
+                m_grille->item(0,cellule.GetY())->setText(flux.str().c_str());
+                m_grille->item(0,cellule.GetY())->setBackgroundColor("white");
+                m_grille->item(0,cellule.GetY())->setTextColor("white");
             }
         }
     }
@@ -394,7 +394,7 @@ void fenetre2D::generationSuivante() //ne change pas par rapport à la fenetre 1
 void fenetre2D::play() //ne change pas par rapport à la fenetre1D
 {
 
-    m_timer->start(bSelectVitesse->value()*1000);
+    m_timer->start(m_selectVitesse->value()*1000);
     generationSuivante();
 }
 
@@ -405,16 +405,16 @@ void fenetre2D::pause() //ne change pas par rapport à la fenetre1D
 
 void fenetre2D::appelConfig() const //change par rapport à la fenetre 1D
 {
-    switch(choixAutomate->currentIndex())
+    switch(m_choixAutomate->currentIndex())
     {
     case 0:
-        configGameOfLife->constructionAutomate();
+        m_configGameOfLife->constructionAutomate();
         break;
     case 1:
-        configFeuForet->constructionAutomate();
+        m_configFeuForet->constructionAutomate();
         break;
     default:
-        configGameOfLife->constructionAutomate();
+        m_configGameOfLife->constructionAutomate();
     }
 }
 
@@ -431,10 +431,10 @@ void fenetre2D::ConstruireAutomate(int nbEtats) //change par rapport à la fenet
     //if(nbEtats<0) nbEtats = builder.GetTransitionRule()->getNbEtats();
     m_simulateur = new CellularAutomata(nbEtats,nullptr,builder.GetTransitionRule(),builder.GetVoisinageDefinition());
 
-    bLongueur->setVisible(true);
-    lLongueur->setVisible(true);
-    bLargeur->setVisible(true);
-    lLargeur->setVisible(true);
+    m_longueur->setVisible(true);
+    m_lLongueur->setVisible(true);
+    m_largeur->setVisible(true);
+    m_lLargeur->setVisible(true);
 
     buildGrille();
     if(m_simulateur->getTransition() == nullptr)
@@ -457,7 +457,7 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
         pause();
 
 
-        switch(bchoixGenerateur->currentIndex())
+        switch(m_choixGenerateur->currentIndex())
         {
         case 0:
 
@@ -465,11 +465,11 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
             break;
         case 1:
             builder.BuildGenerateurEtatRandom();
-            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),m_simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(m_largeur->value(),m_longueur->value(),*builder.GetGenerateurEtat(),m_simulateur->GetNombreEtats());
             break;
         case 2:
             builder.BuildGenerateurEtatSymetrieAxeVertical();
-            builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),*builder.GetGenerateurEtat(),m_simulateur->GetNombreEtats());
+            builder.BuildEtatDepart(m_largeur->value(),m_longueur->value(),*builder.GetGenerateurEtat(),m_simulateur->GetNombreEtats());
             break;
         }
 
@@ -478,10 +478,10 @@ void fenetre2D::ConstruireEtat() //change par rapport à fenetre1D
             QMessageBox::warning(0,"Erreur","Erreur dans la création du dernier état.");
         else
         {
-            bLongueur->setVisible(false);
-            lLongueur->setVisible(false);
-            bLargeur->setVisible(false);
-            lLargeur->setVisible(false);
+            m_longueur->setVisible(false);
+            m_lLongueur->setVisible(false);
+            m_largeur->setVisible(false);
+            m_lLargeur->setVisible(false);
 
             buildGrille();
             m_simulateur->setEtatDepart((*builder.GetEtatDepart()));
@@ -518,18 +518,18 @@ void fenetre2D::reset() //ne change pas par rapport à fenetre1D
 void fenetre2D::ConstructionManuelle() //change par rapport à fenetre 1D
 {
     CABuilder2D& builder = CABuilder2D::getInstance();
-    int** etats = new int*[bLargeur->value()];
-    for(unsigned int i = 0;i<bLargeur->value();i++)
-        etats[i] = new int[bLongueur->value()];
-    for(unsigned int i=0;i<bLongueur->value();i++)
-        for(unsigned int j=0;j<bLargeur->value();j++)
+    int** etats = new int*[m_largeur->value()];
+    for(unsigned int i = 0;i<m_largeur->value();i++)
+        etats[i] = new int[m_longueur->value()];
+    for(unsigned int i=0;i<m_longueur->value();i++)
+        for(unsigned int j=0;j<m_largeur->value();j++)
         {
-            unsigned int k = grille->item(j,i)->text().toInt();
+            unsigned int k = m_grille->item(j,i)->text().toInt();
             etats[j][i]=k;
         }
 
-    builder.BuildEtatDepart(bLargeur->value(),bLongueur->value(),etats);
-    for(unsigned int i = 0;i<bLargeur->value();i++)
+    builder.BuildEtatDepart(m_largeur->value(),m_longueur->value(),etats);
+    for(unsigned int i = 0;i<m_largeur->value();i++)
         delete[] etats[i];
     delete[] etats;
 }
@@ -545,15 +545,15 @@ void fenetre2D::saveContexte() //change par rapport à fenetre 1D
 
     settings.beginGroup("2DWindow");
 
-    settings.setValue("AutomataChoice",choixAutomate->currentIndex());
-    settings.setValue("GeneratorChoice",bchoixGenerateur->currentIndex());
-    settings.setValue("LargeurGrille",bLargeur->value());
-    settings.setValue("LongueurGrille",bLongueur->value());
-    settings.setValue("Timer",bSelectVitesse->value());
+    settings.setValue("AutomataChoice",m_choixAutomate->currentIndex());
+    settings.setValue("GeneratorChoice",m_choixGenerateur->currentIndex());
+    settings.setValue("LargeurGrille",m_largeur->value());
+    settings.setValue("LongueurGrille",m_longueur->value());
+    settings.setValue("Timer",m_selectVitesse->value());
     settings.endGroup();
 
-    configFeuForet->saveContexte();
-    configGameOfLife->saveContexte();
+    m_configFeuForet->saveContexte();
+    m_configGameOfLife->saveContexte();
 
     remove("dEtatGen2D.bn");
     remove("dConfigGen2D.csv");
@@ -572,20 +572,20 @@ void fenetre2D::loadContexte() //change par rapport à fenetre 1D
 
     settings.beginGroup("2DWindow");
 
-    choixAutomate->setCurrentIndex(settings.value("AutomataChoice",choixAutomate->currentIndex()).toInt());
-    bchoixGenerateur->setCurrentIndex(settings.value("GeneratorChoice",choixAutomate->currentIndex()).toInt());
-    bLargeur->setValue(settings.value("LargeurGrille",bLargeur->value()).toInt());
-    bLongueur->setValue(settings.value("LongueurGrille",bLongueur->value()).toInt());
-    bSelectVitesse->setValue(settings.value("Timer",bSelectVitesse->value()).toInt());
+    m_choixAutomate->setCurrentIndex(settings.value("AutomataChoice",m_choixAutomate->currentIndex()).toInt());
+    m_choixGenerateur->setCurrentIndex(settings.value("GeneratorChoice",m_choixAutomate->currentIndex()).toInt());
+    m_largeur->setValue(settings.value("LargeurGrille",m_largeur->value()).toInt());
+    m_longueur->setValue(settings.value("LongueurGrille",m_longueur->value()).toInt());
+    m_selectVitesse->setValue(settings.value("Timer",m_selectVitesse->value()).toInt());
     settings.endGroup();
 
     fichierConfig2D f2("dConfigGen2D.csv");
     if(f2.load(m_simulateur)) //on charge le m_simulateur
     {
-        bLongueur->setVisible(true);
-        lLongueur->setVisible(true);
-        bLargeur->setVisible(true);
-        lLargeur->setVisible(true);
+        m_longueur->setVisible(true);
+        m_lLongueur->setVisible(true);
+        m_largeur->setVisible(true);
+        m_lLargeur->setVisible(true);
         buildGrille();
 
 
@@ -596,15 +596,15 @@ void fenetre2D::loadContexte() //change par rapport à fenetre 1D
         if(f.load(m_simulateur)) //on charge le premier état
         {
             CABuilder2D &m = CABuilder2D::getInstance();
-            bLongueur->setValue(m.GetEtatDepart()->GetLongueur()); //on met le premier état
+            m_longueur->setValue(m.GetEtatDepart()->GetLongueur()); //on met le premier état
             m_simulateur->setEtatDepart(*m.GetEtatDepart());
             buildGrille();
 
             afficherDernierEtat();
-            bLongueur->setVisible(false);
-            bLargeur->setVisible(false);
-            lLongueur->setVisible(false);
-            lLargeur->setVisible(false);
+            m_longueur->setVisible(false);
+            m_largeur->setVisible(false);
+            m_lLongueur->setVisible(false);
+            m_lLargeur->setVisible(false);
         }
     }
 }
