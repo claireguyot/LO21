@@ -1,13 +1,12 @@
 #ifndef SAUVEGARDE_H
 #define SAUVEGARDE_H
 
-<<<<<<< HEAD
-=======
+
 /*!
  * \file sauvegarde.h
  * \brief Déclaration des méthodes liées à la sauvegarde du contexte d'un automate
  */
->>>>>>> 830695642cd0dec4ce5b22223f09a73d31cedebf
+
 
 #include <QObject>
 #include <QWidget>
