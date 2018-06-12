@@ -15,7 +15,6 @@ var searchData=
   ['getinstance',['getInstance',['../class_c_a_builder1_d.html#a92c5780ec0e58f2d56ee28971a50b134',1,'CABuilder1D::getInstance()'],['../class_c_a_builder2_d.html#a013a50b0ebd4313516febd015db293c2',1,'CABuilder2D::getInstance()']]],
   ['getlargeur',['GetLargeur',['../class_etat.html#a6c67137de7313e23c40a77f10417c70e',1,'Etat']]],
   ['getlongueur',['GetLongueur',['../class_etat.html#ac0ecddd03a3429934f91a0fb44ef071e',1,'Etat']]],
-  ['getnbetats',['getNbEtats',['../class_transition_rule.html#ad5bbcc6ef292bb079d8980f00d011a90',1,'TransitionRule::getNbEtats()'],['../class_elementary_rule.html#aab53797244e56188202958798458a409',1,'ElementaryRule::getNbEtats()'],['../class_game_of_life.html#afb8e0ee780b7e187266060cf9bec0578',1,'GameOfLife::getNbEtats()'],['../class_feu_foret.html#a5ad4bbdbb10a73abf63e15698d678bbd',1,'FeuForet::getNbEtats()']]],
   ['getnombreetats',['GetNombreEtats',['../class_cellular_automata.html#a50fd8f8ee143b72c09107553d7ae04c8',1,'CellularAutomata']]],
   ['getordre',['GetOrdre',['../class_voisinage.html#a589264908cd4f82538e950eb4659893a',1,'Voisinage']]],
   ['getrangdernier',['GetRangDernier',['../class_cellular_automata.html#a2c7e3542b8360a97f0166b5b75a11125',1,'CellularAutomata']]],

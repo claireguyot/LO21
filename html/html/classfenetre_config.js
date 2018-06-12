@@ -4,6 +4,6 @@ var classfenetre_config =
     [ "~fenetreConfig", "classfenetre_config.html#a84bee3769f0b8e5b38bc1f09449689e1", null ],
     [ "configConstruite", "classfenetre_config.html#a9bec5e0d532367badb669f28eb3cad0d", null ],
     [ "constructionAutomate", "classfenetre_config.html#a67e3561304b9c53dc01ae3f3b3713c11", null ],
-    [ "loadConfig", "classfenetre_config.html#afab21d3c10c4b7779614da983e1e9bd5", null ],
-    [ "saveConfig", "classfenetre_config.html#a4bdf35ea6efe26c3e9b1cea487931ba1", null ]
+    [ "loadContexte", "classfenetre_config.html#a9bace1f74e24aeb4f66c542164e30f7e", null ],
+    [ "saveContexte", "classfenetre_config.html#a0a85954f221fb5ddcb5e1929e51a3eb5", null ]
 ];

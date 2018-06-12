@@ -23,6 +23,7 @@ var searchData=
   ['_7egenerateursymetrieaxevertical',['~GenerateurSymetrieAxeVertical',['../class_generateur_symetrie_axe_vertical.html#ae2a3a066dba020c68a91739956fb01ac',1,'GenerateurSymetrieAxeVertical']]],
   ['_7eiterator',['~iterator',['../class_etat_1_1iterator.html#a6b4fd12608ed9428bc84d5f27a1b81d8',1,'Etat::iterator']]],
   ['_7emoore',['~Moore',['../class_moore.html#a18c2281db2524fff1559b5861cd2e3dc',1,'Moore']]],
+  ['_7esousfenetre',['~SousFenetre',['../class_sous_fenetre.html#a0a3eb79b6697214ad3f85d002ec6389a',1,'SousFenetre']]],
   ['_7etransitionrule',['~TransitionRule',['../class_transition_rule.html#a3d373f682379d3569ddf0cd3d8819422',1,'TransitionRule']]],
   ['_7evoisinage',['~Voisinage',['../class_voisinage.html#ab96dc57aa577e3c00d9a65b71c538f17',1,'Voisinage']]],
   ['_7evoisinage1d',['~Voisinage1D',['../class_voisinage1_d.html#acb729fcae98b25a67d33098ef4a38260',1,'Voisinage1D']]],

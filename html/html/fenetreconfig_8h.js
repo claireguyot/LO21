@@ -1,5 +1,6 @@
 var fenetreconfig_8h =
 [
+    [ "SousFenetre", "class_sous_fenetre.html", "class_sous_fenetre" ],
     [ "fenetreConfig", "classfenetre_config.html", "classfenetre_config" ],
     [ "fenetreElementaryRule", "classfenetre_elementary_rule.html", "classfenetre_elementary_rule" ],
     [ "fenetreGameOfLife", "classfenetre_game_of_life.html", "classfenetre_game_of_life" ],

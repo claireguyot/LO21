@@ -25,12 +25,14 @@ var hierarchy =
     [ "QWidget", null, [
       [ "fenetre1D", "classfenetre1_d.html", null ],
       [ "fenetre2D", "classfenetre2_d.html", null ],
-      [ "fenetreConfig", "classfenetre_config.html", [
-        [ "fenetreElementaryRule", "classfenetre_elementary_rule.html", null ],
-        [ "fenetreFeuForet", "classfenetre_feu_foret.html", null ],
-        [ "fenetreGameOfLife", "classfenetre_game_of_life.html", null ]
-      ] ],
-      [ "MainWindow", "class_main_window.html", null ]
+      [ "MainWindow", "class_main_window.html", null ],
+      [ "SousFenetre", "class_sous_fenetre.html", [
+        [ "fenetreConfig", "classfenetre_config.html", [
+          [ "fenetreElementaryRule", "classfenetre_elementary_rule.html", null ],
+          [ "fenetreFeuForet", "classfenetre_feu_foret.html", null ],
+          [ "fenetreGameOfLife", "classfenetre_game_of_life.html", null ]
+        ] ]
+      ] ]
     ] ],
     [ "TransitionRule", "class_transition_rule.html", [
       [ "ElementaryRule", "class_elementary_rule.html", null ],

@@ -129,7 +129,7 @@ protected:
 
 
 /*! \class GameOfLife
-  * \brief Classe héritant de TransitionRule représentant une règle de transition pour un état d'un automate 1D
+  * \brief Classe héritant de TransitionRule représentant une règle de transition pour un état d'un automate 2D
   * \sa Cell, Etat, TransitionRule
   * \details Cette classe héritant de TransitionRule permet d'associer une règle de transition à un état d'un automate 2D du Jeu de la Vie.
   */
@@ -194,7 +194,7 @@ protected:
 
 
 /*! \class FeuForet
-  * \brief Classe héritant de TransitionRule représentant une règle de transition pour un état d'un automate 1D
+  * \brief Classe héritant de TransitionRule représentant une règle de transition pour un état d'un automate 2D
   * \sa Cell, Etat, TransitionRule
   * \details Cette classe héritant de TransitionRule permet d'associer une règle de transition à un état d'un automate 2D du Feu de Forêt.
   */

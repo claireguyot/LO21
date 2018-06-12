@@ -1,6 +1,6 @@
 /*!
  * \file etat.cpp
- * \brief Implémentation des méthodes non inline de la classe Etat
+ * \brief Implementation des methodes non inline de la classe Etat
  * \version 1.0
  * \sa etat.h
  */

@@ -11,10 +11,11 @@ class MainWindow : public QWidget
 {
     Q_OBJECT
 private:
-    QComboBox *choixDimension;
-    fenetre1D* dim1;
-    fenetre2D* dim2;
-    QStackedWidget *switchDim;
+    QComboBox *m_choixDimension;
+    fenetre1D* m_dim1;
+    fenetre2D* m_dim2;
+    QStackedWidget *m_switchDim;
+    QVBoxLayout *m_layout;
     void loadContexte();
 public:
     explicit MainWindow(QWidget *parent = nullptr);

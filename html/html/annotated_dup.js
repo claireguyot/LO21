@@ -26,6 +26,7 @@ var annotated_dup =
     [ "GenerateurSymetrieAxeVertical", "class_generateur_symetrie_axe_vertical.html", "class_generateur_symetrie_axe_vertical" ],
     [ "MainWindow", "class_main_window.html", "class_main_window" ],
     [ "Moore", "class_moore.html", "class_moore" ],
+    [ "SousFenetre", "class_sous_fenetre.html", "class_sous_fenetre" ],
     [ "TransitionRule", "class_transition_rule.html", "class_transition_rule" ],
     [ "Voisinage", "class_voisinage.html", "class_voisinage" ],
     [ "Voisinage1D", "class_voisinage1_d.html", "class_voisinage1_d" ],

@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('class_transition_rule.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Classe abstraite représentant une règle de transition pour un état.  
+ <a href="class_transition_rule.html#details">Plus de détails...</a></p>
+
 <p><code>#include &lt;<a class="el" href="transitionrule_8h_source.html">transitionrule.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe d'héritage de TransitionRule:</div>
@@ -100,28 +103,35 @@ Graphe d'héritage de TransitionRule:</div>
  <div class="center">
   <img src="class_transition_rule.png" usemap="#TransitionRule_map" alt=""/>
   <map id="TransitionRule_map" name="TransitionRule_map">
-<area href="class_elementary_rule.html" alt="ElementaryRule" shape="rect" coords="0,56,100,80"/>
-<area href="class_feu_foret.html" alt="FeuForet" shape="rect" coords="110,56,210,80"/>
-<area href="class_game_of_life.html" alt="GameOfLife" shape="rect" coords="220,56,320,80"/>
+<area href="class_elementary_rule.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D..." alt="ElementaryRule" shape="rect" coords="0,56,100,80"/>
+<area href="class_feu_foret.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D..." alt="FeuForet" shape="rect" coords="110,56,210,80"/>
+<area href="class_game_of_life.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D..." alt="GameOfLife" shape="rect" coords="220,56,320,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a591c4ae5d292f814e4a72ac8576c9a9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transition_rule.html#a591c4ae5d292f814e4a72ac8576c9a9e">TransitionRule</a> ()=default</td></tr>
+<tr class="memdesc:a591c4ae5d292f814e4a72ac8576c9a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>.  <a href="#a591c4ae5d292f814e4a72ac8576c9a9e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a591c4ae5d292f814e4a72ac8576c9a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8570188a32e648ce3c08e76065f88fb7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transition_rule.html#a8570188a32e648ce3c08e76065f88fb7">EffectuerTransition</a> (<a class="el" href="class_etat.html">Etat</a> const &amp;depart, <a class="el" href="class_etat.html">Etat</a> &amp;arrivee) const</td></tr>
+<tr class="memdesc:a8570188a32e648ce3c08e76065f88fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>.  <a href="#a8570188a32e648ce3c08e76065f88fb7">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8570188a32e648ce3c08e76065f88fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b82a75ef494adc91b28755d55666e7a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transition_rule.html#a2b82a75ef494adc91b28755d55666e7a">TransitionCellule</a> (<a class="el" href="class_cell.html">Cell</a> const &amp;depart, <a class="el" href="class_cell.html">Cell</a> &amp;arrivee) const =0</td></tr>
+<tr class="memdesc:a2b82a75ef494adc91b28755d55666e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>.  <a href="#a2b82a75ef494adc91b28755d55666e7a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2b82a75ef494adc91b28755d55666e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac16d0e3aa7f4c392155210831b40e5a6"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transition_rule.html#ac16d0e3aa7f4c392155210831b40e5a6">getTransition</a> () const</td></tr>
+<tr class="memdesc:ac16d0e3aa7f4c392155210831b40e5a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en lecture des attributs de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>.  <a href="#ac16d0e3aa7f4c392155210831b40e5a6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac16d0e3aa7f4c392155210831b40e5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5bbcc6ef292bb079d8980f00d011a90"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transition_rule.html#ad5bbcc6ef292bb079d8980f00d011a90">getNbEtats</a> () const =0</td></tr>
-<tr class="separator:ad5bbcc6ef292bb079d8980f00d011a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d373f682379d3569ddf0cd3d8819422"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transition_rule.html#a3d373f682379d3569ddf0cd3d8819422">~TransitionRule</a> ()=default</td></tr>
+<tr class="memdesc:a3d373f682379d3569ddf0cd3d8819422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>.  <a href="#a3d373f682379d3569ddf0cd3d8819422">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3d373f682379d3569ddf0cd3d8819422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Classe abstraite représentant une règle de transition pour un état. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a>, <a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></dd></dl>
+<p>Cette classe abstraite permet d'associer une règle de transition à un état. </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a591c4ae5d292f814e4a72ac8576c9a9e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a591c4ae5d292f814e4a72ac8576c9a9e">&#9670;&nbsp;</a></span>TransitionRule()</h2>
 
@@ -144,6 +154,9 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructeur de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>. </p>
+<p>Constructeur de la classe abstraite <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>, qui est celui par défaut. </p>
 
 </div>
 </div>
@@ -169,6 +182,9 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructeur de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>. </p>
+<p>Destructeur de la classe abstraite <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>, qui est celui par défaut. </p>
 
 </div>
 </div>
@@ -207,32 +223,16 @@ Fonctions membres publiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ad5bbcc6ef292bb079d8980f00d011a90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5bbcc6ef292bb079d8980f00d011a90">&#9670;&nbsp;</a></span>getNbEtats()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual unsigned int TransitionRule::getNbEtats </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implémenté dans <a class="el" href="class_feu_foret.html#a5ad4bbdbb10a73abf63e15698d678bbd">FeuForet</a>, <a class="el" href="class_game_of_life.html#afb8e0ee780b7e187266060cf9bec0578">GameOfLife</a>, et <a class="el" href="class_elementary_rule.html#aab53797244e56188202958798458a409">ElementaryRule</a>.</p>
+<p>Méthode de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">depart</td><td>Paramètre de type <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a></em> <em>const&amp;</em> représentant l'état de départ avant la transition </td></tr>
+    <tr><td class="paramname">arrivee</td><td>Paramètre de type <em><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a>&amp;</em> représentant l'état d'arrivée après la transition </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_etat.html" title="Classe représentant un état de la grille de cellules. ">Etat</a>, <a class="el" href="class_transition_rule.html#a2b82a75ef494adc91b28755d55666e7a" title="Méthode de la classe TransitionRule. ">TransitionCellule</a>, <a class="el" href="class_elementary_rule.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">ElementaryRule</a>, <a class="el" href="class_game_of_life.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">GameOfLife</a>, <a class="el" href="class_feu_foret.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">FeuForet</a></dd></dl>
+<p>Cette méthode virtuelle permet de parcourir la grille de cellules de l'état de départ et de modifier l'état de chaque cellule selon la règle de transition à l'aide de TransitionCellule propre à chaque type de transition (1D, Jeu de la Vie, Feu de Forêt). </p>
 
 </div>
 </div>
@@ -258,6 +258,10 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Accesseur en lecture des attributs de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_elementary_rule.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">ElementaryRule</a>, <a class="el" href="class_game_of_life.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">GameOfLife</a>, <a class="el" href="class_feu_foret.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">FeuForet</a></dd></dl>
+<p>Méthode virtuelle permettant de récupérer un <em>std::string</em> contenant les attributs définissant la transition. Cette méthode est utilisée seulement dans le cadre de la sauvegarde. </p><dl class="section return"><dt>Renvoie</dt><dd><em>std::string</em> contenant les attributs définissant la transition. </dd></dl>
 
 <p>Réimplémentée dans <a class="el" href="class_feu_foret.html#ab793aa05ae4163ac380a6ce1a43ce19c">FeuForet</a>, <a class="el" href="class_game_of_life.html#a636421a27cb52e9f7ec161d141809919">GameOfLife</a>, et <a class="el" href="class_elementary_rule.html#aa214ba2de95a61390947a550a39937bb">ElementaryRule</a>.</p>
 
@@ -296,6 +300,17 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Méthode de la classe <a class="el" href="class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. ">TransitionRule</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">depart</td><td>Paramètre de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a></em> <em>const&amp;</em> représentant la cellule de départ avant la transition </td></tr>
+    <tr><td class="paramname">arrivee</td><td>Paramètre de type <em><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a>&amp;</em> représentant la cellule d'arrivée après la transition </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. ">Cell</a>, <a class="el" href="class_transition_rule.html#a2b82a75ef494adc91b28755d55666e7a" title="Méthode de la classe TransitionRule. ">TransitionCellule</a>, <a class="el" href="class_elementary_rule.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">ElementaryRule</a>, <a class="el" href="class_game_of_life.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">GameOfLife</a>, <a class="el" href="class_feu_foret.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D...">FeuForet</a></dd></dl>
+<p>Cette méthode virtuelle pure permet de modifier l'état de chaque cellule selon la règle de transition propre à chaque type de transition (1D, Jeu de la Vie, Feu de Forêt). </p>
 
 <p>Implémenté dans <a class="el" href="class_feu_foret.html#a1fb3642690cc586faf0cbc6e9fae64cf">FeuForet</a>, <a class="el" href="class_game_of_life.html#a12e6db1719e64adc023e1a7d2976d38d">GameOfLife</a>, et <a class="el" href="class_elementary_rule.html#a38451269153546c9d374f7f6df8cde6d">ElementaryRule</a>.</p>
 
