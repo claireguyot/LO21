@@ -1,6 +1,7 @@
 #ifndef SAUVEGARDE_H
 #define SAUVEGARDE_H
 
+
 #include <QObject>
 #include <QWidget>
 #include <QPushButton>
@@ -13,12 +14,10 @@
 #include <QString>
 #include "cellularautomata.h"
 #include "fichier.h"
-#include "fenetre1d.h"
-#include "fenetre2d.h"
+
 
 class fichier;
-class fenetre1D;
-class fenetre2D;
+
 
 enum TypeFichier {ETAT, CONFIG};
 

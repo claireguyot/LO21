@@ -1,5 +1,5 @@
 #include "fenetre2D.h"
-fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) //modifier par rapport à fenetre1D
+fenetre2D::fenetre2D(QWidget *parent) : FenetreAutomate(parent)//modifier par rapport à fenetre1D
 {
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la grille
@@ -39,7 +39,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
 
 
     m_genererEtat = new QPushButton("Générer état",this);
-
+    int width = QApplication::desktop()->width()*0.4;
     //grille servant à afficher les états et à paramétrer manuellement l'état de départ
     m_grille  = new QTableWidget(this);
     m_grille->horizontalHeader()->setVisible(false);
@@ -48,7 +48,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
     m_grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
 
-    int width = QApplication::desktop()->width()*0.4;
+
     m_grille->setFixedSize(width,width);
 
 

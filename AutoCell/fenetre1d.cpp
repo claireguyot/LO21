@@ -1,6 +1,6 @@
 #include "fenetre1D.h"
 #include <QDebug>
-fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr)
+fenetre1D::fenetre1D(QWidget *parent) : FenetreAutomate(parent)
 {
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la m_grille

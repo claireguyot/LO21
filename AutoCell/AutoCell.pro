@@ -18,7 +18,8 @@ HEADERS += \
     mainwindow.h \
     sauvegarde.h \
     transitionrule.h \
-    voisinage.h
+    voisinage.h \
+    fenetresimulation.h
 
 SOURCES += \
     cell.cpp \
@@ -33,4 +34,5 @@ SOURCES += \
     mainwindow.cpp \
     sauvegarde.cpp \
     transitionrule.cpp \
-    voisinage.cpp
+    voisinage.cpp \
+    fenetresimulation.cpp

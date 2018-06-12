@@ -7,13 +7,11 @@
 #include <QMessageBox>
 #include "cellularautomata.h"
 #include "cabuilder.h"
-#include "fenetre1d.h"
-#include "fenetre2d.h"
+
 
 #define TAILLE_BUF 100
 
-class fenetre1D;
-class fenetre2D;
+
 
 class fichier
 {
