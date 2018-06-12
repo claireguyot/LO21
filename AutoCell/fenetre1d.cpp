@@ -30,13 +30,13 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr)
 
 
 
-    QHBoxLayout* menuSuperieur = new QHBoxLayout();
-    menuSuperieur->addWidget(m_choixGenerateur);
-    menuSuperieur->addWidget(m_chargerEtat);
-    menuSuperieur->addWidget(m_lLargeur);
-    menuSuperieur->addWidget(m_largeur);
-    menuSuperieur->addWidget(m_lLongueur);
-    menuSuperieur->addWidget(m_longueur);
+    m_menuSuperieur = new QHBoxLayout();
+    m_menuSuperieur->addWidget(m_choixGenerateur);
+    m_menuSuperieur->addWidget(m_chargerEtat);
+    m_menuSuperieur->addWidget(m_lLargeur);
+    m_menuSuperieur->addWidget(m_largeur);
+    m_menuSuperieur->addWidget(m_lLongueur);
+    m_menuSuperieur->addWidget(m_longueur);
 
     //construction des grilles
 
@@ -72,12 +72,7 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr)
 
 
 
-
-
-
-    // Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
-
-
+    // Boutons inférieurs : start, pause, retour au début, prochaine étape, sélecteur de vitesse, ...
 
 
     m_sauvegarderEtat = new QPushButton("Sauvegarder dernier état");
@@ -91,14 +86,14 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr)
     m_selectVitesse->setValue(2);
 
     //menu organisant les boutons nécessaires à la simulation
-    QHBoxLayout* menuInferieur = new QHBoxLayout();
+    m_menuInferieur = new QHBoxLayout();
 
-    menuInferieur->addWidget(m_sauvegarderEtat);
-    menuInferieur->addWidget(m_retourDepart);
-    menuInferieur->addWidget(m_nextFrame);
-    menuInferieur->addWidget(m_pause);
-    menuInferieur->addWidget(m_start);
-    menuInferieur->addWidget(m_selectVitesse);
+    m_menuInferieur->addWidget(m_sauvegarderEtat);
+    m_menuInferieur->addWidget(m_retourDepart);
+    m_menuInferieur->addWidget(m_nextFrame);
+    m_menuInferieur->addWidget(m_pause);
+    m_menuInferieur->addWidget(m_start);
+    m_menuInferieur->addWidget(m_selectVitesse);
 
     /*
      * Définition des éléments nécessaires à la génération d'automates
@@ -106,61 +101,53 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr)
 
 
     m_configElementaryRule = new fenetreElementaryRule();
-    QStackedWidget* automates = new QStackedWidget(this);
-    automates->addWidget(m_configElementaryRule);
-    automates->setCurrentIndex(0);
+    m_automates = new QStackedWidget(this);
+    m_automates->addWidget(m_configElementaryRule);
+    m_automates->setCurrentIndex(0);
     m_choixAutomate = new QComboBox();
     m_choixAutomate->addItem("automates élémentaires revisités");
-
-
-
-
-
-
-
-
 
     m_genererAutomate = new QPushButton("Générer automate");
     m_sauvegarderAutomate = new QPushButton("Sauvegarder automate");
     m_chargerAutomate = new QPushButton("Charger automate");
 
     //agencement du menu pour générer les automates
-    QHBoxLayout* menuAutomate = new QHBoxLayout();
+    m_menuAutomate = new QHBoxLayout();
 
-    menuAutomate->addWidget(m_genererAutomate);
-    menuAutomate->addWidget(m_sauvegarderAutomate);
-    menuAutomate->addWidget(m_chargerAutomate);
+    m_menuAutomate->addWidget(m_genererAutomate);
+    m_menuAutomate->addWidget(m_sauvegarderAutomate);
+    m_menuAutomate->addWidget(m_chargerAutomate);
 
     //chaine de caractères donnant des infos sur l'automate utilisé
     m_info = new QLabel(this);
     UpdateInfo();
 
     //agencement côté paramètrage d'automate de la fenêtre
-    QVBoxLayout* menuGauche = new QVBoxLayout();
+    m_menuGauche = new QVBoxLayout();
 
-    menuGauche->addWidget(m_choixAutomate);
-    menuGauche->addWidget(automates);
+    m_menuGauche->addWidget(m_choixAutomate);
+    m_menuGauche->addWidget(m_automates);
 
-    menuGauche->addLayout(menuAutomate);
-    menuGauche->addWidget(m_info);
+    m_menuGauche->addLayout(m_menuAutomate);
+    m_menuGauche->addWidget(m_info);
 
 
     // agencement du côté simulateur de la fenetre
-    QVBoxLayout* layout = new QVBoxLayout();
+    m_layoutSimulation = new QVBoxLayout();
 
-    layout->addLayout(menuSuperieur);
-    layout->addWidget(m_depart);
-    layout->addWidget(m_genererEtat);
-    layout->addWidget(m_grille);
-    layout->addLayout(menuInferieur);
+    m_layoutSimulation->addLayout(m_menuSuperieur);
+    m_layoutSimulation->addWidget(m_depart);
+    m_layoutSimulation->addWidget(m_genererEtat);
+    m_layoutSimulation->addWidget(m_grille);
+    m_layoutSimulation->addLayout(m_menuInferieur);
 
 
 
     //agencement du layout global
-    QHBoxLayout* layoutGlobal = new QHBoxLayout();
-    layoutGlobal->addLayout(menuGauche);
-    layoutGlobal->addLayout(layout);
-    setLayout(layoutGlobal);
+    m_layoutGlobal = new QHBoxLayout();
+    m_layoutGlobal->addLayout(m_menuGauche);
+    m_layoutGlobal->addLayout(m_layoutSimulation);
+    setLayout(m_layoutGlobal);
 
     //definition du timer
     m_timer = new QTimer(this);
@@ -170,10 +157,10 @@ fenetre1D::fenetre1D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr)
      * toutes les connections entre SIGNALs et SLOTs
      */
 
-    connect(m_largeur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
-    connect(m_longueur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+    connect(m_largeur,SIGNAL(valueChanged(int)),this,SLOT(buildGrille()));
+    connect(m_longueur,SIGNAL(valueChanged(int)),this,SLOT(buildGrille()));
     connect(m_depart,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
-    connect(m_choixAutomate,SIGNAL(currentIndexChanged(int)),automates, SLOT(setCurrentIndex(int)));
+    connect(m_choixAutomate,SIGNAL(currentIndexChanged(int)),m_automates, SLOT(setCurrentIndex(int)));
     connect(m_timer,SIGNAL(timeout()),this,SLOT(generationSuivante()));
     connect(m_start,SIGNAL(clicked(bool)),this,SLOT(play()));
     connect(m_pause,SIGNAL(clicked(bool)),this,SLOT(pause()));

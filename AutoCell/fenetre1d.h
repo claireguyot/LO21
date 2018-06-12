@@ -37,7 +37,6 @@ class fenetre1D : public QWidget{
     QLabel* m_lLargeur;
     QComboBox* m_choixGenerateur;
     QTableWidget* m_depart;
-    //QVBoxLayout *layout;
     QTableWidget* m_grille;
     QPushButton* m_start;
     QPushButton* m_pause;
@@ -50,8 +49,16 @@ class fenetre1D : public QWidget{
     QPushButton* m_chargerAutomate;
 
     QComboBox* m_choixAutomate;
-    //QHBoxLayout* menuInferieur;
-    //QHBoxLayout* layoutGlobal;
+
+
+    QHBoxLayout* m_layoutGlobal;
+    QVBoxLayout* m_layoutSimulation;
+    QVBoxLayout* m_menuGauche;
+    QHBoxLayout* m_menuAutomate;
+    QHBoxLayout* m_menuInferieur;
+    QHBoxLayout* m_menuSuperieur ;
+
+    QStackedWidget* m_automates;
 
     fenetreElementaryRule* m_configElementaryRule;
     CellularAutomata* m_simulateur;

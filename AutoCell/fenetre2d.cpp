@@ -14,13 +14,13 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
     m_largeur = new QSpinBox(this);
     m_largeur->setRange(1,50);
     m_largeur->setValue(10);
-    QObject::connect(m_largeur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+
     m_longueur = new QSpinBox(this);
     m_longueur->setRange(1,50);
     m_longueur->setValue(10);
     m_lLargeur = new QLabel("Largeur",this);
     m_lLongueur = new QLabel("Longueur",this);
-    QObject::connect(m_longueur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+
 
     m_choixGenerateur = new QComboBox();
     m_choixGenerateur->addItem("Génération manuelle");
@@ -29,30 +29,29 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
 
 
 
-    QHBoxLayout* menuSuperieur = new QHBoxLayout();
-    menuSuperieur->addWidget(m_choixGenerateur);
-    menuSuperieur->addWidget(m_chargerEtat);
-    menuSuperieur->addWidget(m_lLargeur);
-    menuSuperieur->addWidget(m_largeur);
-    menuSuperieur->addWidget(m_lLongueur);
-    menuSuperieur->addWidget(m_longueur);
+    m_menuSuperieur = new QHBoxLayout();
+    m_menuSuperieur->addWidget(m_choixGenerateur);
+    m_menuSuperieur->addWidget(m_chargerEtat);
+    m_menuSuperieur->addWidget(m_lLargeur);
+    m_menuSuperieur->addWidget(m_largeur);
+    m_menuSuperieur->addWidget(m_lLongueur);
+    m_menuSuperieur->addWidget(m_longueur);
 
 
     m_genererEtat = new QPushButton("Générer état",this);
 
-
+    //grille servant à afficher les états et à paramétrer manuellement l'état de départ
     m_grille  = new QTableWidget(this);
     m_grille->horizontalHeader()->setVisible(false);
     m_grille->verticalHeader()->setVisible(false);
     m_grille->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_grille->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
-    //m_grille->setFixedSize(this->width(),this->height());
 
     int width = QApplication::desktop()->width()*0.4;
     m_grille->setFixedSize(width,width);
 
-    connect(m_grille,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+
 
     //non éditable
     m_grille->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -62,10 +61,7 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
 
 
 
-
-    // Boutons inférieurs : start, pause, retour au début (?), prochaine étape, sélecteur de vitesse
-
-
+    // Boutons inférieurs : start, pause, retour au début, prochaine étape, sélecteur de vitesse, ...
 
 
     m_sauvegarderEtat = new QPushButton("Sauvegarder dernier état");
@@ -78,98 +74,97 @@ fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) /
     m_selectVitesse->setRange(1,50);
     m_selectVitesse->setValue(2);
 
-    QHBoxLayout* menuInferieur = new QHBoxLayout();
+    //menu organisant les boutons nécessaires à la simulation
+    m_menuInferieur = new QHBoxLayout();
 
-    menuInferieur->addWidget(m_sauvegarderEtat);
-    menuInferieur->addWidget(m_retourDepart);
-    menuInferieur->addWidget(m_nextFrame);
-    menuInferieur->addWidget(m_pause);
-    menuInferieur->addWidget(m_start);
-    menuInferieur->addWidget(m_selectVitesse);
-
-    /*
-     * layout menu droit
-     */
-    QVBoxLayout* layout = new QVBoxLayout();
-
-    layout->addLayout(menuSuperieur);
-    layout->addWidget(m_genererEtat);
-    layout->addWidget(m_grille);
-    layout->addLayout(menuInferieur);
+    m_menuInferieur->addWidget(m_sauvegarderEtat);
+    m_menuInferieur->addWidget(m_retourDepart);
+    m_menuInferieur->addWidget(m_nextFrame);
+    m_menuInferieur->addWidget(m_pause);
+    m_menuInferieur->addWidget(m_start);
+    m_menuInferieur->addWidget(m_selectVitesse);
 
     /*
-     * Menu de gauche : choix des règles
+     * Définition des éléments nécessaires à la génération d'automates
      */
 
 
     m_configGameOfLife = new fenetreGameOfLife();
     m_configFeuForet = new fenetreFeuForet();
-    QStackedWidget* automates = new QStackedWidget(this);
+    m_automates = new QStackedWidget(this);
 
 
-    automates->addWidget(m_configGameOfLife);
-    automates->addWidget(m_configFeuForet);
-    automates->setCurrentIndex(0);
+    m_automates->addWidget(m_configGameOfLife);
+    m_automates->addWidget(m_configFeuForet);
+    m_automates->setCurrentIndex(0);
 
     m_choixAutomate = new QComboBox();
     m_choixAutomate->addItem("Jeu de la vie");
     m_choixAutomate->addItem("Feu de Forêt");
 
-    connect(m_choixAutomate,SIGNAL(currentIndexChanged(int)),automates, SLOT(setCurrentIndex(int)));
+
 
     m_genererAutomate = new QPushButton("Générer automate");
     m_sauvegarderAutomate = new QPushButton("Sauvegarder automate");
     m_chargerAutomate = new QPushButton("Charger automate");
 
+    //agencement du menu pour générer les automates
+    m_menuAutomate = new QHBoxLayout();
 
-    QHBoxLayout* menuAutomate = new QHBoxLayout();
+    m_menuAutomate->addWidget(m_genererAutomate);
+    m_menuAutomate->addWidget(m_sauvegarderAutomate);
+    m_menuAutomate->addWidget(m_chargerAutomate);
 
-    menuAutomate->addWidget(m_genererAutomate);
-    menuAutomate->addWidget(m_sauvegarderAutomate);
-    menuAutomate->addWidget(m_chargerAutomate);
-
+    //chaine de caractères donnant des infos sur l'automate utilisé
     m_info = new QLabel(this);
     UpdateInfo();
 
-    QVBoxLayout* menuGauche = new QVBoxLayout();
+    //agencement côté paramètrage d'automate de la fenêtre
+    m_menuGauche = new QVBoxLayout();
+
+
+    m_menuGauche->addWidget(m_choixAutomate);
+    m_menuGauche->addWidget(m_automates);
+    m_menuGauche->addLayout(m_menuAutomate);
+    m_menuGauche->addWidget(m_info);
+
+
+    //agencement du côté simulateur de la fenêtre
+    m_layoutSimulation = new QVBoxLayout();
+
+    m_layoutSimulation->addLayout(m_menuSuperieur);
+    m_layoutSimulation->addWidget(m_genererEtat);
+    m_layoutSimulation->addWidget(m_grille);
+    m_layoutSimulation->addLayout(m_menuInferieur);
 
 
 
+    //agencement du layout global
+    m_layoutGlobal = new QHBoxLayout();
+    m_layoutGlobal->addLayout(m_menuGauche);
+    m_layoutGlobal->addLayout(m_layoutSimulation);
+    setLayout(m_layoutGlobal);
 
-    menuGauche->addWidget(m_choixAutomate);
-    menuGauche->addWidget(automates);
-    menuGauche->addLayout(menuAutomate);
-    menuGauche->addWidget(m_info);
-
-
-
-
-
-
-
-    QHBoxLayout* layoutGlobal = new QHBoxLayout();
-    layoutGlobal->addLayout(menuGauche);
-    layoutGlobal->addLayout(layout);
-    setLayout(layoutGlobal);
-
+    //définition du timer
     m_timer = new QTimer(this);
     m_timer->stop();
 
     /*
      * toutes les connections entre SIGNALs et SLOTs
      */
+    connect(m_largeur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+    connect(m_longueur,SIGNAL(valueChanged(int)),SLOT(buildGrille()));
+    connect(m_grille,SIGNAL(clicked(QModelIndex)),this,SLOT(cellActivation(QModelIndex)));
+    connect(m_choixAutomate,SIGNAL(currentIndexChanged(int)),m_automates, SLOT(setCurrentIndex(int)));
     connect(m_timer,SIGNAL(timeout()),this,SLOT(generationSuivante()));
     connect(m_start,SIGNAL(clicked(bool)),this,SLOT(play()));
     connect(m_pause,SIGNAL(clicked(bool)),this,SLOT(pause()));
     connect(m_genererAutomate,SIGNAL(clicked(bool)),this,SLOT(appelConfig()));
-
     connect(m_nextFrame,SIGNAL(clicked(bool)),this,SLOT(generationSuivante()));
     connect(m_genererEtat,SIGNAL(clicked(bool)),this,SLOT(ConstruireEtat()));
     connect(m_retourDepart,SIGNAL(clicked(bool)),this,SLOT(reset()));
-
     connect(m_configGameOfLife,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
     connect(m_configFeuForet,SIGNAL(configConstruite(int)),this,SLOT(ConstruireAutomate(int)));
-
     connect(m_sauvegarderAutomate,SIGNAL(clicked(bool)),this,SLOT(sauverAutomate()));
     connect(m_sauvegarderEtat,SIGNAL(clicked(bool)),this,SLOT(sauverEtat()));
     connect(m_chargerAutomate,SIGNAL(clicked(bool)),this,SLOT(chargerAutomate()));
