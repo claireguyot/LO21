@@ -1,5 +1,17 @@
+/*!
+ * \file fenetre2d.cpp
+ * \brief Implementation des methodes non inline de la classe fenetre2D
+ * \version 1.0
+ * \sa fenetre2d.h
+ */
+
 #include "fenetre2D.h"
+<<<<<<< HEAD
 fenetre2D::fenetre2D(QWidget *parent) : FenetreAutomate(parent)//modifier par rapport à fenetre1D
+=======
+
+fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) //modifier par rapport à fenetre1D
+>>>>>>> 830695642cd0dec4ce5b22223f09a73d31cedebf
 {
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la grille

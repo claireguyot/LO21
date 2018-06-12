@@ -1,5 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
+/*!
+ * \file mainwindow.h
+ * \brief Déclaration de la classe MainWindow, et définition de ses méthodes inline
+ */
+
 #include "fenetre1d.h"
 #include "fenetre2d.h"
 #include <QWidget>

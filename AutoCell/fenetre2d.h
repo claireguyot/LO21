@@ -1,7 +1,32 @@
 #ifndef fenetre2D_H
 #define fenetre2D_H
 
+<<<<<<< HEAD
 #include "fenetresimulation.h"
+=======
+/*!
+ * \file fenetre2d.h
+ * \brief Déclaration de la classes fenetre2D, et définition de ses méthodes inline
+ */
+
+#include <QApplication>
+#include <QWidget>
+#include <QSpinBox>
+#include <QLineEdit>
+#include <QLabel>
+#include <QIntValidator>
+#include <QString>
+#include <QLayout>
+#include <QTableWidget>
+#include <QTableWidgetItem>
+#include <QPushButton>
+#include <QHeaderView>
+#include <QComboBox>
+#include <QStackedWidget>
+#include "cellularautomata.h"
+#include "automateexception.h"
+#include "fenetreconfig.h"
+>>>>>>> 830695642cd0dec4ce5b22223f09a73d31cedebf
 #include "sauvegarde.h"
 
 

@@ -1,8 +1,12 @@
 #ifndef FENETRE1D_H
 #define FENETRE1D_H
+
+/*!
+ * \file fenetre1d.h
+ * \brief Déclaration de la classes fenetre1D, et définition de ses méthodes inline
+ */
+
 #include "fenetresimulation.h"
-
-
 
 class fenetre1D : public FenetreAutomate
 {

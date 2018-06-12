@@ -1,6 +1,11 @@
 #ifndef FENETRECONFIG_H
 #define FENETRECONFIG_H
 
+/*!
+ * \file fenetreconfig.h
+ * \brief Déclaration des classes SousFenetre, fenetreConfig, fenetreElementaryRule, fenetreGameOfLife et fenetreFeuForet, et définition de leurs méthodes inline
+ */
+
 #include <QWidget>
 #include <QSpinBox>
 #include <QLineEdit>
@@ -23,6 +28,7 @@ public:
     SousFenetre(QWidget *parent = nullptr): QWidget(parent) {}
     virtual ~SousFenetre() {}
 };
+
 class fenetreConfig : public SousFenetre
 {
     Q_OBJECT

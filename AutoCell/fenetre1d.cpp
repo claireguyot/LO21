@@ -1,6 +1,15 @@
-#include "fenetre1D.h"
+/*!
+ * \file fenetre1d.cpp
+ * \brief Implementation des methodes non inline des classes fichier, fichierEtat1D, fichierEtat2D, fichierConfig1D et fichierConfig2D
+ * \version 1.0
+ * \sa fenetre1d.h
+ */
+
+#include "fenetre1d.h"
 #include <QDebug>
+
 fenetre1D::fenetre1D(QWidget *parent) : FenetreAutomate(parent)
+
 {
     /*
      * Boutons supérieurs : générer, sauvegarder, charger, dimensions de la m_grille
