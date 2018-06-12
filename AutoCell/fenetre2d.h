@@ -56,6 +56,15 @@ class fenetre2D : public QWidget{
     QTimer* m_timer;
     QLabel* m_info;
 
+    QHBoxLayout* m_layoutGlobal;
+    QVBoxLayout* m_layoutSimulation;
+    QVBoxLayout* m_menuGauche;
+    QHBoxLayout* m_menuAutomate;
+    QHBoxLayout* m_menuInferieur;
+    QHBoxLayout* m_menuSuperieur ;
+
+    QStackedWidget* m_automates;
+
 
 public:
     explicit fenetre2D(QWidget* parent = nullptr);
