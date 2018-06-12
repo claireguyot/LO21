@@ -1,3 +1,9 @@
+/*!
+ * \file main.cpp
+ * \brief Définition de la fonction \a main nécessaire pour exécuter le projet
+ * \version 1.0
+ */
+
 #include <iostream>
 #include <QApplication>
 #include "cell.h"

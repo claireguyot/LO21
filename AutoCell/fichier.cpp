@@ -1,3 +1,10 @@
+/*!
+ * \file fichier.cpp
+ * \brief Implementation des methodes non inline des classes fichier, fichierEtat1D, fichierEtat2D, fichierConfig1D et fichierConfig2D
+ * \version 1.0
+ * \sa fichier.h
+ */
+
 #include "fichier.h"
 #include <QDebug>
 #include <QMessageBox>

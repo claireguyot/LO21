@@ -1,6 +1,11 @@
 #ifndef SAUVEGARDE_H
 #define SAUVEGARDE_H
 
+/*!
+ * \file sauvegarde.h
+ * \brief Déclaration des méthodes liées à la sauvegarde du contexte d'un automate
+ */
+
 #include <QObject>
 #include <QWidget>
 #include <QPushButton>

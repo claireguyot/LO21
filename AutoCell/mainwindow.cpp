@@ -1,3 +1,10 @@
+/*!
+ * \file mainwindow.cpp
+ * \brief Implementation des methodes non inline de la classe MainWindow
+ * \version 1.0
+ * \sa mainwindow.h
+ */
+
 #include "mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)

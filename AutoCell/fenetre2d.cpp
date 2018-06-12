@@ -1,4 +1,12 @@
+/*!
+ * \file fenetre2d.cpp
+ * \brief Implementation des methodes non inline de la classe fenetre2D
+ * \version 1.0
+ * \sa fenetre2d.h
+ */
+
 #include "fenetre2D.h"
+
 fenetre2D::fenetre2D(QWidget *parent) : QWidget(parent), m_simulateur(nullptr) //modifier par rapport à fenetre1D
 {
     /*

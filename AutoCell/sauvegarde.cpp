@@ -1,3 +1,10 @@
+/*!
+ * \file sauvegarde.cpp
+ * \brief Implementation des methodes définies dans le fichier < em>"sauvegarde.h"< /em>
+ * \version 1.0
+ * \sa sauvegarde.h
+ */
+
 #include "sauvegarde.h"
 #include <QDebug>
 

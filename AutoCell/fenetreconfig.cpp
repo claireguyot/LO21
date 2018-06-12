@@ -1,3 +1,10 @@
+/*!
+ * \file fenetreconfig.cpp
+ * \brief Implementation des methodes non inline des classes SousFenetre, fenetreConfig, fenetreElementaryRule, fenetreGameOfLife et fenetreFeuForet
+ * \version 1.0
+ * \sa fenetreconfig.h
+ */
+
 #include "fenetreconfig.h"
 #include "fichier.h"
 

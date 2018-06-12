@@ -1,6 +1,11 @@
 #ifndef FICHIER_H
 #define FICHIER_H
 
+/*!
+ * \file fichier.h
+ * \brief Déclaration des classes fichier, fichierEtat1D, fichierEtat2D, fichierConfig1D et fichierConfig2D, et définition de leurs méthodes inline
+ */
+
 #include <iostream>
 #include <fstream>
 #include <vector>

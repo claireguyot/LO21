@@ -1,5 +1,11 @@
 #ifndef fenetre2D_H
 #define fenetre2D_H
+
+/*!
+ * \file fenetre2d.h
+ * \brief Déclaration de la classes fenetre2D, et définition de ses méthodes inline
+ */
+
 #include <QApplication>
 #include <QWidget>
 #include <QSpinBox>
