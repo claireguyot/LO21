@@ -43,6 +43,9 @@ public:
 signals:
     void configConstruite(int) const;
 protected:
+    QFormLayout* m_formulaire;
+    QPlainTextEdit* m_info;
+    QVBoxLayout* m_layoutPrincipal;
 
 
 };
@@ -56,10 +59,6 @@ private:
     QLineEdit* m_regle;
     QRegExpValidator* m_regleValidator;
     QLabel* nbCaract;
-    QFormLayout* m_formulaire;
-    QPlainTextEdit* m_info;
-    QVBoxLayout* m_layoutPrincipal;
-
 
 
 
@@ -94,10 +93,6 @@ private:
     static const unsigned int m_nombreEtats;
     QSpinBox* m_minVivants;
     QSpinBox* m_maxVivants;
-    QFormLayout* m_formulaire;
-    QPlainTextEdit* m_info;
-    QVBoxLayout* m_layoutPrincipal;
-
 
 
 
