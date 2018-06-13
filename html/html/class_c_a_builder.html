@@ -142,9 +142,9 @@ Fonctions membres protégées</h2></td></tr>
 <tr class="memitem:a83d89eba527bee907d22d657fab5fbf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a83d89eba527bee907d22d657fab5fbf6">CABuilder</a> ()</td></tr>
 <tr class="memdesc:a83d89eba527bee907d22d657fab5fbf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="#a83d89eba527bee907d22d657fab5fbf6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a83d89eba527bee907d22d657fab5fbf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50c515cbff4eec5d8222c1428ed75072"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a50c515cbff4eec5d8222c1428ed75072">~CABuilder</a> ()</td></tr>
-<tr class="memdesc:a50c515cbff4eec5d8222c1428ed75072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="#a50c515cbff4eec5d8222c1428ed75072">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a50c515cbff4eec5d8222c1428ed75072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f917ce136fc4a5d84a89734039f720d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_a_builder.html#a9f917ce136fc4a5d84a89734039f720d">~CABuilder</a> ()</td></tr>
+<tr class="memdesc:a9f917ce136fc4a5d84a89734039f720d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>.  <a href="#a9f917ce136fc4a5d84a89734039f720d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9f917ce136fc4a5d84a89734039f720d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Attributs protégés</h2></td></tr>
@@ -220,12 +220,13 @@ Attributs protégés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructeur de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>. </p>
-<p>Ce constructeur permet de mettre tous les attributs à <em>nullptr</em> pour initialiser un automate. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_c_a_builder.html#a9f917ce136fc4a5d84a89734039f720d" title="Destructeur virtuel de la classe abstraite CABuilder. ">~CABuilder()</a>, <a class="el" href="class_cellular_automata.html" title="Classe représentant un automate cellulaire. ">CellularAutomata</a></dd></dl>
+<p>Ce constructeur permet de mettre tous les attributs à <em>nullptr</em> pour initialiser un automate. Il est en privé afin d'empêcher l'utilisateur d'instancier <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> sinon la classe serait instanciable, et cela n'aurait pas de sens de l'instancier étant donné qu'elle ne permet de construire qu'une sous partie d'un automate. </p>
 
 </div>
 </div>
-<a id="a50c515cbff4eec5d8222c1428ed75072"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50c515cbff4eec5d8222c1428ed75072">&#9670;&nbsp;</a></span>~CABuilder()</h2>
+<a id="a9f917ce136fc4a5d84a89734039f720d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f917ce136fc4a5d84a89734039f720d">&#9670;&nbsp;</a></span>~CABuilder()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,7 +235,7 @@ Attributs protégés</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CABuilder::~CABuilder </td>
+          <td class="memname">virtual CABuilder::~CABuilder </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -248,7 +249,8 @@ Attributs protégés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destructeur virtuel de la classe abstraite <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a>. </p>
-<p>Ce destructeur est appelé lors de la destruction d'un objet de la classe <em><a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a></em>. Il permet de désallouer la mémoire pour les attributs d'un automate qui sont des pointeurs. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_c_a_builder.html#a83d89eba527bee907d22d657fab5fbf6" title="Constructeur de la classe abstraite CABuilder. ">CABuilder()</a>, <a class="el" href="class_cellular_automata.html" title="Classe représentant un automate cellulaire. ">CellularAutomata</a></dd></dl>
+<p>Ce destructeur est appelé lors de la destruction d'un objet de la classe <em><a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a></em>. Il permet de désallouer la mémoire pour les attributs d'un automate qui sont des pointeurs. Il est en privé afin d'empêcher l'utilisateur d'instancier <a class="el" href="class_c_a_builder.html" title="Classe de base permettant de construire les sous-parties nécessaires à la construction d&#39;un CellularA...">CABuilder</a> sinon la classe serait instanciable, et cela n'aurait pas de sens de l'instancier étant donné qu'elle ne permet de construire qu'une sous partie d'un automate. </p>
 
 </div>
 </div>

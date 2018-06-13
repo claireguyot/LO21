@@ -129,12 +129,7 @@ public:
          * Le générateur d'état associé \a m_generateur n'est pas supprimé puisqu'il subsite après la destruction de l'objet \a Etat.
          */
     ~Etat();
-        /*!
-         * \brief Méthode de la classe Etat
-         *
-         * Cette méthode permet d'afficher la grille de cellules de l'état. La couleur associée à l'état d'une cellule est attribuée au niveau de l'interface.
-         */
-    void afficher() const;
+
 
     friend class iterator;
     /*! \class iterator
@@ -191,7 +186,7 @@ public:
              */
             ~iterator() = default;
             /*!
-             * \brief Surcharge de l'opérateur d'incrémentation de la classe iterator
+             * \brief Surcharge de l'opérateur d'incrémentation préfixe de la classe iterator
              *
              * Cet opérateur permet de passer à la cellule suivante dans la grille de l'état courant. Lorsque l'iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe.
              */
@@ -203,6 +198,21 @@ public:
                     i++;
                 }
                 return *this;
+            }
+            /*!
+             * \brief Surcharge de l'opérateur d'incrémentation postfixe de la classe iterator
+             *
+             * Cet opérateur permet de passer à la cellule suivante dans la grille de l'état courant. Lorsque l'iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe.
+             */
+            iterator operator++(int) {
+                iterator old = *this;
+                j++;
+                if (j==etat->m_longueur && i<etat->m_largeur)
+                {
+                    j=0;
+                    i++;
+                }
+                return old;
             }
             /*!
              * \brief Surcharge de l'opérateur de référencement de la classe iterator
@@ -288,11 +298,11 @@ public:
              */
             ~const_iterator() = default;
             /*!
-             * \brief Surcharge de l'opérateur d'incrémentation de la classe const_iterator
+             * \brief Surcharge de l'opérateur d'incrémentation préfixe de la classe const_iterator
              *
              * Cet opérateur permet de passer à la case suivante dans la grille de l'état courant. Lorsque le const_iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe.
              */
-            const_iterator & operator++() {
+            const_iterator& operator++() {
                 j++;
                 if (j==etat->m_longueur)
                 {
@@ -300,6 +310,21 @@ public:
                     i++;
                 }
                 return *this;
+            }
+            /*!
+             * \brief Surcharge de l'opérateur d'incrémentation postfixe de la classe const_iterator
+             *
+             * Cet opérateur permet de passer à la case suivante dans la grille de l'état courant. Lorsque le const_iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe.
+             */
+            const_iterator  operator++(int) {
+                const_iterator old = *this;
+                j++;
+                if (j==etat->m_longueur)
+                {
+                    j=0;
+                    i++;
+                }
+                return old;
             }
             /*!
              * \brief Surcharge de l'opérateur de référencement de la classe const_iterator

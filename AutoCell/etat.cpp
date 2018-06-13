@@ -112,19 +112,6 @@ Etat::Etat(const Etat &e) : m_largeur(e.m_largeur), m_longueur(e.m_longueur),m_g
         }
     }
 }
-void Etat::afficher() const
-{
-    for (int i=0;i<m_largeur;i++)
-    {
-
-        for(int j=0; j<m_longueur;j++)
-        {
-            cout << m_cellules[i][j].GetEtat();
-        }
-        cout << endl;
-
-    }
-}
 
 void Etat::Regenerer(int nbEtats)
 {

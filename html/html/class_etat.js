@@ -7,7 +7,6 @@ var class_etat =
     [ "Etat", "class_etat.html#a690a6c35d4d7fedecfe918de910abdde", null ],
     [ "Etat", "class_etat.html#a21ca902ddcaf660a4d8ab6a0b5daa414", null ],
     [ "~Etat", "class_etat.html#ae3c7932b18a7da0f8cf85f7527ba744e", null ],
-    [ "afficher", "class_etat.html#aeb0c23cfb166db846e567466dae0ebd1", null ],
     [ "begin", "class_etat.html#ad158b354ea61ec2f0577e801ebdef02d", null ],
     [ "begin", "class_etat.html#ac19ab230b9856966eb149364c8045065", null ],
     [ "end", "class_etat.html#a20bb403d8e9e056511559ecd2090c458", null ],

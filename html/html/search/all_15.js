@@ -1,7 +1,7 @@
 var searchData=
 [
   ['_7eautomateexception',['~AutomateException',['../class_automate_exception.html#aac1e142017119bf9116fac7cdd6b0a07',1,'AutomateException']]],
-  ['_7ecabuilder',['~CABuilder',['../class_c_a_builder.html#a50c515cbff4eec5d8222c1428ed75072',1,'CABuilder']]],
+  ['_7ecabuilder',['~CABuilder',['../class_c_a_builder.html#a9f917ce136fc4a5d84a89734039f720d',1,'CABuilder']]],
   ['_7ecabuilder1d',['~CABuilder1D',['../class_c_a_builder1_d.html#a376a4febba2304c52c1ac1c41c8a79a0',1,'CABuilder1D']]],
   ['_7ecabuilder2d',['~CABuilder2D',['../class_c_a_builder2_d.html#a8f96127d2894b3a47fd32b8f23d073ba',1,'CABuilder2D']]],
   ['_7ecell',['~Cell',['../class_cell.html#a508f988fb5b1ef8358589363c1af3ee4',1,'Cell']]],
@@ -11,6 +11,7 @@ var searchData=
   ['_7eetat',['~Etat',['../class_etat.html#ae3c7932b18a7da0f8cf85f7527ba744e',1,'Etat']]],
   ['_7efenetre1d',['~fenetre1D',['../classfenetre1_d.html#ad8ea627db7d11c383717afaa815f8dd0',1,'fenetre1D']]],
   ['_7efenetre2d',['~fenetre2D',['../classfenetre2_d.html#a2638afe65581b117673f7133cfbbdc9c',1,'fenetre2D']]],
+  ['_7efenetreautomate',['~FenetreAutomate',['../class_fenetre_automate.html#a0dafeed572eab0023f4b4beca5fbace2',1,'FenetreAutomate']]],
   ['_7efenetreconfig',['~fenetreConfig',['../classfenetre_config.html#a84bee3769f0b8e5b38bc1f09449689e1',1,'fenetreConfig']]],
   ['_7efenetreelementaryrule',['~fenetreElementaryRule',['../classfenetre_elementary_rule.html#a28139807cf1f5d842ca7fadf7df494f4',1,'fenetreElementaryRule']]],
   ['_7efenetrefeuforet',['~fenetreFeuForet',['../classfenetre_feu_foret.html#a0dcccc1dc84cb39e97c50933265785c2',1,'fenetreFeuForet']]],

@@ -107,8 +107,11 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memdesc:ab49917c3bb610c967c9d9413b3cefbac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>.  <a href="#ab49917c3bb610c967c9d9413b3cefbac">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab49917c3bb610c967c9d9413b3cefbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15cb0937b31235e6cf68023792202bc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_etat_1_1const__iterator.html">const_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_etat_1_1const__iterator.html#a15cb0937b31235e6cf68023792202bc3">operator++</a> ()</td></tr>
-<tr class="memdesc:a15cb0937b31235e6cf68023792202bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur d'incrémentation de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>.  <a href="#a15cb0937b31235e6cf68023792202bc3">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a15cb0937b31235e6cf68023792202bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur d'incrémentation préfixe de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>.  <a href="#a15cb0937b31235e6cf68023792202bc3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a15cb0937b31235e6cf68023792202bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b1dd742669b80670eb4c66d8077108"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_etat_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_etat_1_1const__iterator.html#af3b1dd742669b80670eb4c66d8077108">operator++</a> (int)</td></tr>
+<tr class="memdesc:af3b1dd742669b80670eb4c66d8077108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur d'incrémentation postfixe de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>.  <a href="#af3b1dd742669b80670eb4c66d8077108">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af3b1dd742669b80670eb4c66d8077108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea6521664f712dd1a464a36fddbb72a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cell.html">Cell</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_etat_1_1const__iterator.html#aea6521664f712dd1a464a36fddbb72a8">operator*</a> () const</td></tr>
 <tr class="memdesc:aea6521664f712dd1a464a36fddbb72a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur de référencement de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>.  <a href="#aea6521664f712dd1a464a36fddbb72a8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aea6521664f712dd1a464a36fddbb72a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -327,7 +330,7 @@ Amis</h2></td></tr>
 </div>
 </div>
 <a id="a15cb0937b31235e6cf68023792202bc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15cb0937b31235e6cf68023792202bc3">&#9670;&nbsp;</a></span>operator++()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a15cb0937b31235e6cf68023792202bc3">&#9670;&nbsp;</a></span>operator++() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +352,36 @@ Amis</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Surcharge de l'opérateur d'incrémentation de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>. </p>
+<p>Surcharge de l'opérateur d'incrémentation préfixe de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>. </p>
+<p>Cet opérateur permet de passer à la case suivante dans la grille de l'état courant. Lorsque le <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a> arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe. </p>
+
+</div>
+</div>
+<a id="af3b1dd742669b80670eb4c66d8077108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3b1dd742669b80670eb4c66d8077108">&#9670;&nbsp;</a></span>operator++() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_etat_1_1const__iterator.html">const_iterator</a> Etat::const_iterator::operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Surcharge de l'opérateur d'incrémentation postfixe de la classe <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a>. </p>
 <p>Cet opérateur permet de passer à la case suivante dans la grille de l'état courant. Lorsque le <a class="el" href="class_etat_1_1const__iterator.html" title="Classe déclarée au sein de la classe Etat. ">const_iterator</a> arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe. </p>
 
 </div>

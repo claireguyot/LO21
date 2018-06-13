@@ -107,8 +107,11 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memdesc:a6b4fd12608ed9428bc84d5f27a1b81d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe iterator.  <a href="#a6b4fd12608ed9428bc84d5f27a1b81d8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6b4fd12608ed9428bc84d5f27a1b81d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e2fe0cbe54ffc96b76aef84721d10fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_etat_1_1iterator.html">iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_etat_1_1iterator.html#a7e2fe0cbe54ffc96b76aef84721d10fc">operator++</a> ()</td></tr>
-<tr class="memdesc:a7e2fe0cbe54ffc96b76aef84721d10fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur d'incrémentation de la classe iterator.  <a href="#a7e2fe0cbe54ffc96b76aef84721d10fc">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a7e2fe0cbe54ffc96b76aef84721d10fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur d'incrémentation préfixe de la classe iterator.  <a href="#a7e2fe0cbe54ffc96b76aef84721d10fc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a7e2fe0cbe54ffc96b76aef84721d10fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78201412be51d13643fdc8c13cbe68d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_etat_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_etat_1_1iterator.html#a78201412be51d13643fdc8c13cbe68d1">operator++</a> (int)</td></tr>
+<tr class="memdesc:a78201412be51d13643fdc8c13cbe68d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur d'incrémentation postfixe de la classe iterator.  <a href="#a78201412be51d13643fdc8c13cbe68d1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a78201412be51d13643fdc8c13cbe68d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9a283bfd82bf15cac4f21422ceee680"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cell.html">Cell</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_etat_1_1iterator.html#ab9a283bfd82bf15cac4f21422ceee680">operator*</a> () const</td></tr>
 <tr class="memdesc:ab9a283bfd82bf15cac4f21422ceee680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'opérateur de référencement de la classe iterator.  <a href="#ab9a283bfd82bf15cac4f21422ceee680">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab9a283bfd82bf15cac4f21422ceee680"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -327,7 +330,7 @@ Amis</h2></td></tr>
 </div>
 </div>
 <a id="a7e2fe0cbe54ffc96b76aef84721d10fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e2fe0cbe54ffc96b76aef84721d10fc">&#9670;&nbsp;</a></span>operator++()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e2fe0cbe54ffc96b76aef84721d10fc">&#9670;&nbsp;</a></span>operator++() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +352,36 @@ Amis</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Surcharge de l'opérateur d'incrémentation de la classe iterator. </p>
+<p>Surcharge de l'opérateur d'incrémentation préfixe de la classe iterator. </p>
+<p>Cet opérateur permet de passer à la cellule suivante dans la grille de l'état courant. Lorsque l'iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe. </p>
+
+</div>
+</div>
+<a id="a78201412be51d13643fdc8c13cbe68d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78201412be51d13643fdc8c13cbe68d1">&#9670;&nbsp;</a></span>operator++() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_etat_1_1iterator.html">iterator</a> Etat::iterator::operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Surcharge de l'opérateur d'incrémentation postfixe de la classe iterator. </p>
 <p>Cet opérateur permet de passer à la cellule suivante dans la grille de l'état courant. Lorsque l'iterator arrive au bout d'une ligne de la grille, il passe à la ligne du dessous si elle existe. </p>
 
 </div>
