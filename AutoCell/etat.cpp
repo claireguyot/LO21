@@ -66,7 +66,7 @@ Etat& Etat::operator=(const Etat &e)
 {
     if (this != &e)
     {
-        if(m_longueur != e.m_longueur && m_largeur != e.m_largeur)
+        if(m_longueur != e.m_longueur || m_largeur != e.m_largeur)
         {
             for(unsigned int i = 0; i< m_largeur;i++)
                 delete[] m_cellules[i];
