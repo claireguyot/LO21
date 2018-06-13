@@ -62,7 +62,7 @@
 										"$ref": "AAAAAAFj+intRs8/DvE="
 									},
 									"name": "ordre",
-									"type": "unsigned int"
+									"type": "int"
 								}
 							]
 						},
@@ -185,7 +185,7 @@
 										"$ref": "AAAAAAFj+ihju8mSe7o="
 									},
 									"name": "ordre",
-									"type": "unsigned int"
+									"type": "int"
 								}
 							]
 						},
@@ -2184,7 +2184,7 @@
 										"$ref": "AAAAAAFj+jMa1dijijs="
 									},
 									"name": "ordre",
-									"type": "unsigned int"
+									"type": "int"
 								}
 							]
 						},
@@ -2304,7 +2304,7 @@
 							},
 							"name": "m_ordre",
 							"visibility": "protected",
-							"type": "unsigned int"
+							"type": "int"
 						}
 					],
 					"operations": [
@@ -2323,7 +2323,7 @@
 										"$ref": "AAAAAAFj+h0iT7yMdJ8="
 									},
 									"name": "ordre ",
-									"type": "unsigned int"
+									"type": "int"
 								}
 							]
 						},
@@ -2390,7 +2390,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFj+iBHRcMGSdE="
 									},
-									"type": "unsigned int <<const>>",
+									"type": "int <<const>>",
 									"direction": "return"
 								}
 							]
@@ -3773,7 +3773,7 @@
 											"top": 550,
 											"width": 269.42626953125,
 											"height": 13,
-											"text": "#m_ordre: unsigned int",
+											"text": "#m_ordre: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3807,7 +3807,7 @@
 											"top": 573,
 											"width": 269.42626953125,
 											"height": 13,
-											"text": "+Voisinage(ordre : unsigned int)",
+											"text": "+Voisinage(ordre : int)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3858,7 +3858,7 @@
 											"top": 618,
 											"width": 269.42626953125,
 											"height": 13,
-											"text": "+GetOrdre(): unsigned int <<const>>",
+											"text": "+GetOrdre(): int <<const>>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4347,7 +4347,7 @@
 											"top": 768,
 											"width": 250.40869140625,
 											"height": 13,
-											"text": "+Voisinage1D(ordre: unsigned int)",
+											"text": "+Voisinage1D(ordre: int)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4686,7 +4686,7 @@
 											"top": 768,
 											"width": 250.40869140625,
 											"height": 13,
-											"text": "+VonNeumann(ordre: unsigned int)",
+											"text": "+VonNeumann(ordre: int)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4932,7 +4932,7 @@
 											"top": 904,
 											"width": 250.40869140625,
 											"height": 13,
-											"text": "+Moore(ordre: unsigned int)",
+											"text": "+Moore(ordre: int)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10199,9 +10199,9 @@
 										"$ref": "AAAAAAFj+lXCizYqmnA="
 									},
 									"font": "Arial;13;0",
-									"left": 1266,
+									"left": 1265,
 									"top": 641,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
