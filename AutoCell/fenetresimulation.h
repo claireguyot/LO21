@@ -1,6 +1,10 @@
 #ifndef FENETRESIMULATION_H
 #define FENETRESIMULATION_H
 
+/*!
+ * \file fenetresimulation.h
+ * \brief Déclaration de la classe abstraite FenetreAutomate
+ */
 
 #include "fenetreconfig.h"
 #include "cellularautomata.h"
