@@ -23,7 +23,7 @@ protected:
      * Par exemple : si l'ordre est de 2, le voisinage comprendra la cellule courante ainsi que ses deux cellules voisines de chaque côté (selon de type de voisinage bien évidemment).
      * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
      */
-    int m_ordre;
+    unsigned int m_ordre;
 public:
         /*!
          * \brief Constructeur de la classe Voisinage
@@ -31,7 +31,7 @@ public:
          *
          * Ce constructeur permet d'initialiser l'attribut \a m_ordre avec la valeur passée en paramètre.
          */
-    Voisinage(int ordre): m_ordre(ordre)
+    Voisinage(int unsigned ordre): m_ordre(ordre)
     {
 
     }
@@ -63,7 +63,7 @@ public:
          * \details Méthode virtuelle pure permettant de récupérer un \a std::string contenant le nom du type de voisinage. Cette méthode est utilisée seulement dans le cadre de la sauvegarde.
          * \return \a std::string contenant le nom du type de voisinage
          */
-    virtual std::string getType() const = 0;
+    virtual std::string getType() const {return "";}
 };
 
 
@@ -81,7 +81,7 @@ public:
          *
          * Ce constructeur fait appel au constructeur de Voisinage qui permet d'initialiser l'attribut \a m_ordre avec la valeur passée en paramètre.
          */
-    Voisinage1D(int ordre) : Voisinage(ordre)
+    Voisinage1D(unsigned int ordre) : Voisinage(ordre)
     {
 
     }
@@ -126,7 +126,7 @@ public:
          *
          * Ce constructeur fait appel au constructeur de Voisinage qui permet d'initialiser l'attribut \a m_ordre avec la valeur passée en paramètre.
          */
-    VonNeumann(int ordre): Voisinage(ordre)
+    VonNeumann(unsigned int ordre): Voisinage(ordre)
     {
 
     }
@@ -171,7 +171,7 @@ public:
          *
          * Ce constructeur fait appel au constructeur de Voisinage qui permet d'initialiser l'attribut \a m_ordre avec la valeur passée en paramètre.
          */
-    Moore(int ordre): Voisinage(ordre)
+    Moore(unsigned int ordre): Voisinage(ordre)
     {
 
     }
