@@ -175,13 +175,6 @@ private:
      * \brief Opérateur d'affectation par défaut supprimé pour s'assurer que l'automate 1D construit est unique.
      */
     CABuilder1D& operator=(const CABuilder1D&) = delete;
-    /*!
-     * \brief Attribut de la classe CABuilder1D.
-     *
-     * Cet attribut est un \a unsigned \a int. Il permet d'attribuer un nombre d'états à l'automate construit à l'aide des classes Builder.
-     * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
-     */
-    unsigned int m_nbEtats;
 public:
         /*!
          * \brief Méthode statique de la classe CABuilder1D permettant de retourner un automate de la classe.
