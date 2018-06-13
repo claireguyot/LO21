@@ -1,3 +1,10 @@
+/*!
+ * \file fenetre1d.cpp
+ * \brief Implementation des methodes non inline des classes fichier, fichierEtat1D, fichierEtat2D, fichierConfig1D et fichierConfig2D
+ * \version 1.0
+ * \sa fenetre1d.h
+ */
+
 #include "fenetresimulation.h"
 
 void FenetreAutomate::generationSuivante() //ne change pas par rapport à la fenetre 1D
