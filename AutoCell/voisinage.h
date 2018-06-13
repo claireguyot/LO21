@@ -31,7 +31,7 @@ public:
          *
          * Ce constructeur permet d'initialiser l'attribut \a m_ordre avec la valeur passée en paramètre.
          */
-    Voisinage(int unsigned ordre): m_ordre(ordre)
+    Voisinage(unsigned int ordre): m_ordre(ordre)
     {
 
     }
