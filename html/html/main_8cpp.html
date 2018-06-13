@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <div class="title">Référence du fichier main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Définition de la fonction <em>main</em> nécessaire pour exécuter le programme du projet.  
+<a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;QApplication&gt;</code><br />
 <code>#include &quot;<a class="el" href="cell_8h_source.html">cell.h</a>&quot;</code><br />
@@ -106,9 +109,13 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction permettant d'exécuter le programme du projet.  <a href="#a0ddf1224851353fc92bfbff6f499fa97">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des fonctions</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Définition de la fonction <em>main</em> nécessaire pour exécuter le programme du projet. </p>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -134,6 +141,10 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Fonction permettant d'exécuter le programme du projet. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="class_main_window.html">MainWindow</a></dd></dl>
+<p>Cette fonction permet d'exécuter le programme du projet en créant les variables et en appelant les fonctions nécessaires. Ainsi, elle va construire une variable <em>app</em> de type <em>QApplication</em> qui exécute l'application du programme à l'aide de la fonction <em>exec()</em>. Elle va construire une variable <em>window</em> de type <em><a class="el" href="class_main_window.html">MainWindow</a></em>, puis elle va lancer l'affichage associé grâce à la fonction <em>show()</em>. </p>
 
 </div>
 </div>

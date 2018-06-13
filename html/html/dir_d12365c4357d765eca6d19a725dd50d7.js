@@ -30,6 +30,10 @@ var dir_d12365c4357d765eca6d19a725dd50d7 =
     ] ],
     [ "fenetreconfig.cpp", "fenetreconfig_8cpp.html", "fenetreconfig_8cpp" ],
     [ "fenetreconfig.h", "fenetreconfig_8h.html", "fenetreconfig_8h" ],
+    [ "fenetresimulation.cpp", "fenetresimulation_8cpp.html", null ],
+    [ "fenetresimulation.h", "fenetresimulation_8h.html", [
+      [ "FenetreAutomate", "class_fenetre_automate.html", "class_fenetre_automate" ]
+    ] ],
     [ "fichier.cpp", "fichier_8cpp.html", null ],
     [ "fichier.h", "fichier_8h.html", "fichier_8h" ],
     [ "generateuretat.cpp", "generateuretat_8cpp.html", null ],

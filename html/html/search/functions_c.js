@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pause',['pause',['../classfenetre1_d.html#af5560aef0fb4dd20062b3e27d18735b8',1,'fenetre1D::pause()'],['../classfenetre2_d.html#adbc8e3e644842494a6512373e0b82a98',1,'fenetre2D::pause()']]],
-  ['play',['play',['../classfenetre1_d.html#a30a0daefde3939596d4a4a4008a3e123',1,'fenetre1D::play()'],['../classfenetre2_d.html#a8cba1977fee440949f2711bbc15f7f63',1,'fenetre2D::play()']]],
+  ['pause',['pause',['../class_fenetre_automate.html#aee20c4ab6a43b44e7fd122fce4fcf7d0',1,'FenetreAutomate']]],
+  ['play',['play',['../class_fenetre_automate.html#a5317be0f570dad12847e2d5c664c332d',1,'FenetreAutomate']]],
   ['puissance',['puissance',['../fenetreconfig_8cpp.html#af04728d84267736942106ac7bda1a774',1,'puissance(unsigned int a, unsigned int b):&#160;fenetreconfig.cpp'],['../fenetreconfig_8h.html#af04728d84267736942106ac7bda1a774',1,'puissance(unsigned int a, unsigned int b):&#160;fenetreconfig.cpp']]]
 ];

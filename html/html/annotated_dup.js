@@ -10,6 +10,7 @@ var annotated_dup =
     [ "Etat", "class_etat.html", "class_etat" ],
     [ "fenetre1D", "classfenetre1_d.html", "classfenetre1_d" ],
     [ "fenetre2D", "classfenetre2_d.html", "classfenetre2_d" ],
+    [ "FenetreAutomate", "class_fenetre_automate.html", "class_fenetre_automate" ],
     [ "fenetreConfig", "classfenetre_config.html", "classfenetre_config" ],
     [ "fenetreElementaryRule", "classfenetre_elementary_rule.html", "classfenetre_elementary_rule" ],
     [ "fenetreFeuForet", "classfenetre_feu_foret.html", "classfenetre_feu_foret" ],

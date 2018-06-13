@@ -2,6 +2,7 @@ var searchData=
 [
   ['fenetre1d',['fenetre1D',['../classfenetre1_d.html#adb843e57f0ba835052dfd216c82991ed',1,'fenetre1D']]],
   ['fenetre2d',['fenetre2D',['../classfenetre2_d.html#af1d21292db6ff26d9746374c916039a4',1,'fenetre2D']]],
+  ['fenetreautomate',['FenetreAutomate',['../class_fenetre_automate.html#a595657f7473e20992618fe47167c1982',1,'FenetreAutomate']]],
   ['fenetreconfig',['fenetreConfig',['../classfenetre_config.html#ac1515d010b54334e6a6bd121d5756f35',1,'fenetreConfig']]],
   ['fenetreelementaryrule',['fenetreElementaryRule',['../classfenetre_elementary_rule.html#a6230faa9586917afbe72a85555581da9',1,'fenetreElementaryRule']]],
   ['fenetrefeuforet',['fenetreFeuForet',['../classfenetre_feu_foret.html#a31576258d5cd4214d9a04d0735db5a70',1,'fenetreFeuForet']]],

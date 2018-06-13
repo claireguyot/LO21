@@ -23,10 +23,12 @@ var hierarchy =
     ] ],
     [ "Etat::iterator", "class_etat_1_1iterator.html", null ],
     [ "QWidget", null, [
-      [ "fenetre1D", "classfenetre1_d.html", null ],
-      [ "fenetre2D", "classfenetre2_d.html", null ],
       [ "MainWindow", "class_main_window.html", null ],
       [ "SousFenetre", "class_sous_fenetre.html", [
+        [ "FenetreAutomate", "class_fenetre_automate.html", [
+          [ "fenetre1D", "classfenetre1_d.html", null ],
+          [ "fenetre2D", "classfenetre2_d.html", null ]
+        ] ],
         [ "fenetreConfig", "classfenetre_config.html", [
           [ "fenetreElementaryRule", "classfenetre_elementary_rule.html", null ],
           [ "fenetreFeuForet", "classfenetre_feu_foret.html", null ],
