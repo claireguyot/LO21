@@ -25,7 +25,7 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
     changementRegExp();
 
     m_formulaire = new QFormLayout;
-    m_formulaire->addRow("nombre d'Etats",m_nombreEtats);
+    m_formulaire->addRow("Nombre d'Etats",m_nombreEtats);
     m_formulaire->addRow("Regle de transition",m_regle);
     QString text= "Informations: \n L'ordre du voisinage, distance entre la cellule et son plus lointain voisin, est de 1 obligatoirement car sinon la règle serait beaucoup trop longue pour un nombre d'Etats supérieur ou égal à 3.\n etats:\n 0 = blanc\n 1 = noir\n 2 = vert\n 3 = rouge\nRègle de transition :\n- doit avoir une taille égale à (nombre d'etats)^(nombre de voisins)\n- doit comporter que des chiffres de 0 à nombre d'Etats-1.";
     m_info = new QPlainTextEdit(text);
@@ -104,10 +104,10 @@ fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
 
 
     QFormLayout *m_formulaire = new QFormLayout;
-    m_formulaire->addRow("type de voisinage",m_choixVoisinage);
-    m_formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
-    m_formulaire->addRow("nombre minimum de voisins vivants", m_minVivants);
-    m_formulaire->addRow("nombre maximum de Voisins vivants", m_maxVivants);
+    m_formulaire->addRow("Type de voisinage",m_choixVoisinage);
+    m_formulaire->addRow("Ordre du voisinage",m_ordreVoisinage);
+    m_formulaire->addRow("Nombre minimum de voisins vivants", m_minVivants);
+    m_formulaire->addRow("Nombre maximum de Voisins vivants", m_maxVivants);
     QString text= "Informations Jeu de la vie: \n- 2 etats possibles:\n blanc = mort\n noir = vivant\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- nombre minimum de voisins et nombre maximum de voisins:\n - Nombre minimum et maximum de voisins vivants au temps t pour que la cellule soit vivante au temps t+1 si la cellule était vivante au temps t (sinon elle meurt d'isolement ou de surpopulation).\n - si une cellule est 'morte' à l'instant t, elle repasse vivante à l'instant t+1 si il y exactements 'nombre max de voisins' cellules voisines vivantes à l'instant t.\n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
     QPlainTextEdit* m_info = new QPlainTextEdit(text);
     m_info->setReadOnly(true);
@@ -161,8 +161,8 @@ fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
 
 
     QFormLayout *m_formulaire = new QFormLayout;
-    m_formulaire->addRow("type de voisinage",m_choixVoisinage);
-    m_formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
+    m_formulaire->addRow("Type de voisinage",m_choixVoisinage);
+    m_formulaire->addRow("Ordre du voisinage",m_ordreVoisinage);
 
     QString text= "Informations Feu de Forêt: \n- 4 etats possibles:\n blanc = vide\n noir= arbre mort\n rouge = arbre en feu\n vert = arbre vivant\n- Règle de transition\n - vide->vide\n - Feu->arbre mort\n - Arbre mort-> Arbre mort\n - Arbre vivant -> Feu si un voisin est en feu vivant sinon\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
     QPlainTextEdit* m_info = new QPlainTextEdit(text,this);
