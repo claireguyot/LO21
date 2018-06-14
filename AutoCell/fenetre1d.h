@@ -8,6 +8,12 @@
 
 #include "fenetresimulation.h"
 
+/*! \class fenetre1D
+  * \brief Classe héritant de FenetreAutomate et permettant de sauvegarder le contexte de la fenêtre de simulation 1D inclue dans MainWindow, ainsi que de générer la simulation d'un automate 1D
+  * \sa MainWindow, FenetreAutomate
+  *
+  * Cette classe fourni une interface et un comportement permettant de sauvegarder le contexte de la fenêtre de simulation 1D inclue dans MainWindow, ainsi que de générer la simulation d'un automate 1D.
+  */
 class fenetre1D : public FenetreAutomate
 {
     Q_OBJECT
@@ -30,7 +36,7 @@ class fenetre1D : public FenetreAutomate
      * \brief Attribut de la classe fenetre1D
      * \sa fenetreElementaryRule
      *
-     * Cet attribut est de type \a fenetreElementaryRule*. Il permet de stocker l'ensemble de l'interface et du comportement de l'automate 1D du simulateur dans la fenêtre 1D.
+     * Cet attribut est de type \a fenetreElementaryRule*. Il permet de stocker l'ensemble de l'interface et du comportement de l'automate 1D du simulateur.
      * Il est privé afin de respecter le principe d'encapsulation et d'empêcher la modification de la structure de données par l'utilisateur. Ainsi, il est uniquement accessible au travers des méthodes de la classe.
      */
     fenetreElementaryRule* m_configElementaryRule;
@@ -133,7 +139,7 @@ private slots:
          * \brief Méthode slot de la classe fenetre1D
          * \sa CABuilder1D, CellularAutomata
          *
-         * Cette méthode permet de construire les sous parties d'un automate 1D puis l'automate 1D entier dans \a m_simulateur, à l'aide des méthodes des classes \a CABuilder1D, puis \a CellularAutomata.
+         * Cette méthode permet de construire les sous parties d'un automate 1D puis l'automate 1D entier dans \a m_simulateur, à l'aide des méthodes des classes \a CABuilder1D puis \a CellularAutomata.
          * Le mot clé \a override permet de s'assurer que le prototype est conforme à celui de la classe mère.
          */
     void ConstruireAutomate(int nbEtats) override;
