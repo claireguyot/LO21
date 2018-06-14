@@ -41,10 +41,10 @@ var searchData=
   ['m_5fmenusuperieur',['m_menuSuperieur',['../class_fenetre_automate.html#af009d07b975bcc646abba0abe775b0de',1,'FenetreAutomate']]],
   ['m_5fminvivants',['m_minVivants',['../classfenetre_game_of_life.html#a54ed3c46d8409c0ec0f23a7b4aed11b0',1,'fenetreGameOfLife']]],
   ['m_5fminvoisinsvivants',['m_minVoisinsVivants',['../class_game_of_life.html#a851bf99201f554c12cdedf9fa227c321',1,'GameOfLife']]],
-  ['m_5fnbetats',['m_nbEtats',['../class_c_a_builder1_d.html#a50193db158de49187b1a377fcbff6250',1,'CABuilder1D::m_nbEtats()'],['../class_cellular_automata.html#a75bbb557cc4e2056da5265f242185e0a',1,'CellularAutomata::m_nbEtats()'],['../class_elementary_rule.html#ad43275c71994202ab057d35953e8bd23',1,'ElementaryRule::m_nbEtats()']]],
+  ['m_5fnbetats',['m_nbEtats',['../class_cellular_automata.html#a75bbb557cc4e2056da5265f242185e0a',1,'CellularAutomata::m_nbEtats()'],['../class_elementary_rule.html#ad43275c71994202ab057d35953e8bd23',1,'ElementaryRule::m_nbEtats()']]],
   ['m_5fnextframe',['m_nextFrame',['../class_fenetre_automate.html#aa407e409d4087edafc86aae3ae5710eb',1,'FenetreAutomate']]],
   ['m_5fnombreetats',['m_nombreEtats',['../classfenetre_elementary_rule.html#a2283bd95c86db69e65abd4939360d30a',1,'fenetreElementaryRule::m_nombreEtats()'],['../classfenetre_game_of_life.html#a979b46087690c0ba75798fb3d3db7acf',1,'fenetreGameOfLife::m_nombreEtats()'],['../classfenetre_feu_foret.html#a5dc92976b1fd63f7e23be877c2904947',1,'fenetreFeuForet::m_nombreEtats()']]],
-  ['m_5fordre',['m_ordre',['../class_voisinage.html#ab13492a798a278b207bb4742773c909b',1,'Voisinage']]],
+  ['m_5fordre',['m_ordre',['../class_voisinage.html#a336bf2df48d4ee7c8a32c6d583bb10aa',1,'Voisinage']]],
   ['m_5fordrevoisinage',['m_ordreVoisinage',['../classfenetre_elementary_rule.html#aa60ec0fd673b59b9d52c70bea37f212f',1,'fenetreElementaryRule::m_ordreVoisinage()'],['../classfenetre_game_of_life.html#a7267e755bb11b6949a049df4198f6a11',1,'fenetreGameOfLife::m_ordreVoisinage()'],['../classfenetre_feu_foret.html#a9be2039cf42d85e672b8505f60a53629',1,'fenetreFeuForet::m_ordreVoisinage()']]],
   ['m_5fpause',['m_pause',['../class_fenetre_automate.html#a2f780d3dc4f9def090aa24e18344e06b',1,'FenetreAutomate']]],
   ['m_5frang',['m_rang',['../class_cellular_automata.html#ac6d05bb0d1a0696c83253257f1047f8e',1,'CellularAutomata']]],
@@ -69,5 +69,5 @@ var searchData=
   ['mainwindow',['MainWindow',['../class_main_window.html',1,'MainWindow'],['../class_main_window.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow::MainWindow()']]],
   ['mainwindow_2ecpp',['mainwindow.cpp',['../mainwindow_8cpp.html',1,'']]],
   ['mainwindow_2eh',['mainwindow.h',['../mainwindow_8h.html',1,'']]],
-  ['moore',['Moore',['../class_moore.html',1,'Moore'],['../class_moore.html#ae4447acb5d208e5be1c7cfaeadb22b1a',1,'Moore::Moore()']]]
+  ['moore',['Moore',['../class_moore.html',1,'Moore'],['../class_moore.html#a8b87d2d9c29ccbd0d8ed0081b4b58096',1,'Moore::Moore()']]]
 ];
