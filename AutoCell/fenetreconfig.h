@@ -81,7 +81,7 @@ public:
         /*!
          * \brief Méthode de la classe fenetreConfig
          *
-         * Cette méthode virtuelle pure permet de construire un automate 1D ou 2D selon la fenêtre dans laquelle on se situe dans l'interface.
+         * Cette méthode virtuelle pure permet de construire les sous parties d'un automate 1D ou 2D selon la fenêtre dans laquelle on se situe dans l'interface.
          */
     virtual void constructionAutomate() const = 0;
         /*!
@@ -201,7 +201,7 @@ public:
          * \brief Méthode de la classe fenetreElementaryRule
          * \sa CABuilder1D
          *
-         * Cette méthode permet de construire un automate 1D selon les données saisies par l'utilisateur, en faisant notamment appel à la classe \a CABuilder1D.
+         * Cette méthode permet de construire les sous parties d'un automate 1D selon les données saisies par l'utilisateur, en faisant notamment appel à la classe \a CABuilder1D.
          * Le mot clé \a override permet de s'assurer que le prototype est conforme à celui de la classe mère.
          */
     void constructionAutomate() const override;
@@ -311,7 +311,7 @@ public:
          * \brief Méthode de la classe fenetreGameOfLife
          * \sa CABuilder2D
          *
-         * Cette méthode permet de construire un automate 2D de type Jeu de la Vie selon les données saisies par l'utilisateur, en faisant notamment appel à la classe \a CABuilder2D.
+         * Cette méthode permet de construire les sous parties d'un automate 2D de type Jeu de la Vie selon les données saisies par l'utilisateur, en faisant notamment appel à la classe \a CABuilder2D.
          * Le mot clé \a override permet de s'assurer que le prototype est conforme à celui de la classe mère.
          */
     void constructionAutomate() const override;
@@ -391,7 +391,7 @@ public:
          * \brief Méthode de la classe fenetreFeuForet
          * \sa CABuilder2D
          *
-         * Cette méthode permet de construire un automate 2D de type Feu de Forêt selon les données saisies par l'utilisateur, en faisant notamment appel à la classe \a CABuilder2D.
+         * Cette méthode permet de construire les sous parties d'un automate 2D de type Feu de Forêt selon les données saisies par l'utilisateur, en faisant notamment appel à la classe \a CABuilder2D.
          * Le mot clé \a override permet de s'assurer que le prototype est conforme à celui de la classe mère.
          */
     void constructionAutomate() const override;

@@ -1,8 +1,8 @@
 /*!
- * \file fenetre1d.cpp
- * \brief Implementation des methodes non inline des classes fichier, fichierEtat1D, fichierEtat2D, fichierConfig1D et fichierConfig2D
+ * \file fenetresimulation.cpp
+ * \brief Implementation des methodes non inline de la classe FenetreAutomate
  * \version 1.0
- * \sa fenetre1d.h
+ * \sa fenetresimulation.h
  */
 
 #include "fenetresimulation.h"
