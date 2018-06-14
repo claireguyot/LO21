@@ -310,7 +310,7 @@ protected slots:
          * \brief Méthode slot de la classe FenetreAutomate
          * \sa CABuilder
          *
-         * Cette méthode virtuelle pure permet de construire l'état de départ de l'automate 1D ou 2D dans la fenêtre active selon les paramètres entrés par l'utilisateur, notamment à l'aide des méthodes \a buildGrille(), \a afficherDernierEtat() et des méthodes de \a CABuilder.
+         * Cette méthode virtuelle pure permet de construire l'état de départ de l'automate 1D ou 2D dans la fenêtre active selon les paramètres entrés par l'utilisateur, notamment à l'aide des méthodes \a buildGrille(), \a afficherDernierEtat() et des méthodes de \a CABuilder1D ou \a CABuilder2D.
          */
     virtual void ConstruireEtat() = 0;
         /*!
