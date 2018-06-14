@@ -178,9 +178,7 @@ bool fichierConfig1D::save(const CellularAutomata& automate) //sauvegarde config
     f.open(nomF,std::ofstream::out|std::ofstream::trunc);
     CABuilder1D &m = CABuilder1D::getInstance();
     const Voisinage* voi = m.GetVoisinageDefinition();
-    const TransitionRule* tra = m.GetTransitionRule(); //AVEC CABuilder
-    /*const Voisinage* voi = automate.getVoisinage();
-    const TransitionRule* tra = automate.getTransition();*/ //AVEC automate
+    const TransitionRule* tra = m.GetTransitionRule();
     if(voi!=nullptr)
     {
         f << "voisinage," << voi->getType() << "," << voi->GetOrdre();
@@ -217,7 +215,7 @@ bool fichierConfig2D::save(const CellularAutomata& automate) //sauvegarde config
     return true;
 }
 
-bool fichierConfig1D::load(CellularAutomata*& automate) //chargement config 1D //argument pas nécessaire
+bool fichierConfig1D::load(CellularAutomata*& automate) //chargement config 1D
 {
     f.open(nomF,std::ofstream::in);
     if(f.is_open()==false)
@@ -297,7 +295,7 @@ bool fichierConfig1D::load(CellularAutomata*& automate) //chargement config 1D /
     return true;
 }
 
-bool fichierConfig2D::load(CellularAutomata*& automate) //chargement config 2D //argument pas nécessaire
+bool fichierConfig2D::load(CellularAutomata*& automate) //chargement config 2D
 {
     f.open(nomF,std::ofstream::in);
     if(f.is_open()==false)
