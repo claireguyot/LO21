@@ -1,6 +1,11 @@
+/*!
+ * \file voisinage.cpp
+ * \brief Implémentation des méthodes non inline des classes du fichier < em>"voisinage.h"< /em>
+ * \version 1.0
+ * \sa voisinage.h
+ */
+
 #include "voisinage.h"
-
-
 
 void Voisinage1D::definirVoisinage(Etat &e) const //nombre de Voisins minimum  = 3 (la cellule est comprise dans son propre voisinage)
 {

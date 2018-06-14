@@ -1,7 +1,8 @@
 /*!
  * \file cell.cpp
- * \brief implémentation des méthodes non inline de la classe Cell
+ * \brief Implémentation des méthodes non inline de la classe Cell
  * \version 1.0
+ * \sa cell.h
  */
 
 #include "cell.h"

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>AutoCell:  Fichier source de git/LO21/AutoCell/mainwindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">AutoCell
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('mainwindow_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">mainwindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mainwindow_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MAINWINDOW_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MAINWINDOW_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fenetre1d_8h.html">fenetre1d.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fenetre2d_8h.html">fenetre2d.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QStackedWidget&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QComboBox&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_main_window.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_window.html">MainWindow</a> : <span class="keyword">public</span> QWidget</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_main_window.html#a749ddd597e98ef9e19d452dd5347d234">   32</a></span>&#160;    QComboBox *<a class="code" href="class_main_window.html#a749ddd597e98ef9e19d452dd5347d234">m_choixDimension</a>;</div><div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_main_window.html#ae7e866bc4f290f5d8ae01278eb92546c">   39</a></span>&#160;    <a class="code" href="classfenetre1_d.html">fenetre1D</a>* <a class="code" href="class_main_window.html#ae7e866bc4f290f5d8ae01278eb92546c">m_dim1</a>;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_main_window.html#ac1f544696b6a61cf9d8cd82c77bbe55e">   46</a></span>&#160;    <a class="code" href="classfenetre2_d.html">fenetre2D</a>* <a class="code" href="class_main_window.html#ac1f544696b6a61cf9d8cd82c77bbe55e">m_dim2</a>;</div><div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_main_window.html#ac9121bd1f24fc0acd48f75ee43b622e1">   53</a></span>&#160;    QStackedWidget *<a class="code" href="class_main_window.html#ac9121bd1f24fc0acd48f75ee43b622e1">m_switchDim</a>;</div><div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_main_window.html#ac961cba11d0024b723f52b4b8f3b98cc">   60</a></span>&#160;    QVBoxLayout *<a class="code" href="class_main_window.html#ac961cba11d0024b723f52b4b8f3b98cc">m_layout</a>;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#afa1e9f5645f15704bdafd4f3fb4e646b">loadContexte</a>();</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;signals:</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">public</span> slots:</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#a05fb9d72c044aa3bb7d187b994704e2f">closeEvent</a>(QCloseEvent *event) <span class="keyword">override</span>;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif // MAINWINDOW_H</span></div><div class="ttc" id="fenetre2d_8h_html"><div class="ttname"><a href="fenetre2d_8h.html">fenetre2d.h</a></div><div class="ttdoc">Déclaration de la classes fenetre2D, et définition de ses méthodes inline. </div></div>
+<div class="ttc" id="class_main_window_html_a749ddd597e98ef9e19d452dd5347d234"><div class="ttname"><a href="class_main_window.html#a749ddd597e98ef9e19d452dd5347d234">MainWindow::m_choixDimension</a></div><div class="ttdeci">QComboBox * m_choixDimension</div><div class="ttdoc">Attribut de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:32</div></div>
+<div class="ttc" id="fenetre1d_8h_html"><div class="ttname"><a href="fenetre1d_8h.html">fenetre1d.h</a></div><div class="ttdoc">Déclaration de la classes fenetre1D, et définition de ses méthodes inline. </div></div>
+<div class="ttc" id="class_main_window_html_ac961cba11d0024b723f52b4b8f3b98cc"><div class="ttname"><a href="class_main_window.html#ac961cba11d0024b723f52b4b8f3b98cc">MainWindow::m_layout</a></div><div class="ttdeci">QVBoxLayout * m_layout</div><div class="ttdoc">Attribut de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:60</div></div>
+<div class="ttc" id="class_main_window_html_a996c5a2b6f77944776856f08ec30858d"><div class="ttname"><a href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(QWidget *parent=nullptr)</div><div class="ttdoc">Constructeur de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:10</div></div>
+<div class="ttc" id="class_main_window_html_ac9121bd1f24fc0acd48f75ee43b622e1"><div class="ttname"><a href="class_main_window.html#ac9121bd1f24fc0acd48f75ee43b622e1">MainWindow::m_switchDim</a></div><div class="ttdeci">QStackedWidget * m_switchDim</div><div class="ttdoc">Attribut de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:53</div></div>
+<div class="ttc" id="class_main_window_html_ac1f544696b6a61cf9d8cd82c77bbe55e"><div class="ttname"><a href="class_main_window.html#ac1f544696b6a61cf9d8cd82c77bbe55e">MainWindow::m_dim2</a></div><div class="ttdeci">fenetre2D * m_dim2</div><div class="ttdoc">Attribut de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:46</div></div>
+<div class="ttc" id="classfenetre2_d_html"><div class="ttname"><a href="classfenetre2_d.html">fenetre2D</a></div><div class="ttdef"><b>Definition:</b> fenetre2d.h:14</div></div>
+<div class="ttc" id="classfenetre1_d_html"><div class="ttname"><a href="classfenetre1_d.html">fenetre1D</a></div><div class="ttdef"><b>Definition:</b> fenetre1d.h:11</div></div>
+<div class="ttc" id="class_main_window_html_afa1e9f5645f15704bdafd4f3fb4e646b"><div class="ttname"><a href="class_main_window.html#afa1e9f5645f15704bdafd4f3fb4e646b">MainWindow::loadContexte</a></div><div class="ttdeci">void loadContexte()</div><div class="ttdoc">Méthode de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:56</div></div>
+<div class="ttc" id="class_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Classe représentant la fenetre principale de l&amp;#39;interface. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:22</div></div>
+<div class="ttc" id="class_main_window_html_ae7e866bc4f290f5d8ae01278eb92546c"><div class="ttname"><a href="class_main_window.html#ae7e866bc4f290f5d8ae01278eb92546c">MainWindow::m_dim1</a></div><div class="ttdeci">fenetre1D * m_dim1</div><div class="ttdoc">Attribut de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:39</div></div>
+<div class="ttc" id="class_main_window_html_a05fb9d72c044aa3bb7d187b994704e2f"><div class="ttname"><a href="class_main_window.html#a05fb9d72c044aa3bb7d187b994704e2f">MainWindow::closeEvent</a></div><div class="ttdeci">void closeEvent(QCloseEvent *event) override</div><div class="ttdoc">Méthode de la classe MainWindow. </div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:41</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_9bec7083027963d9f9ceae2cc7474de5.html">git</a></li><li class="navelem"><a class="el" href="dir_233fee3a6115149564f60179f0d02b53.html">LO21</a></li><li class="navelem"><a class="el" href="dir_d12365c4357d765eca6d19a725dd50d7.html">AutoCell</a></li><li class="navelem"><a class="el" href="mainwindow_8h.html">mainwindow.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

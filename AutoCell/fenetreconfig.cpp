@@ -1,5 +1,15 @@
+/*!
+ * \file fenetreconfig.cpp
+ * \brief Implementation des methodes non inline des classes SousFenetre, fenetreConfig, fenetreElementaryRule, fenetreGameOfLife et fenetreFeuForet
+ * \version 1.0
+ * \sa fenetreconfig.h
+ */
+
 #include "fenetreconfig.h"
-unsigned int fenetreElementaryRule::m_ordreVoisinage = 1;
+#include "fichier.h"
+
+const unsigned int fenetreElementaryRule::m_ordreVoisinage = 1;
+
 fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(parent)
 {
     m_nombreEtats = new QSpinBox(this);
@@ -14,25 +24,27 @@ fenetreElementaryRule::fenetreElementaryRule(QWidget *parent): fenetreConfig(par
 
     changementRegExp();
 
-    QFormLayout *formulaire = new QFormLayout;
-    formulaire->addRow("nombre d'Etats",m_nombreEtats);
-    formulaire->addRow("Regle de transition",m_regle);
-    QString text= "Informations: \n L'ordre du voisinage est de 1 obligatoirement car sinon la règle serait beaucoup trop longue pour un nombre d'Etats supérieur ou égal à 3.\n etats:\n 0 = blanc\n 1= noir\n 2 = vert\n 3= rouge\nRègle de transition :\n- doit avoir une taille égale à (nombre d'etats)^(nombre de voisins)\n- doit comporter que des chiffres de 0 à nombre d'Etats.";
-    QPlainTextEdit* info = new QPlainTextEdit(text);
-    info->setReadOnly(true);
+    m_formulaire = new QFormLayout;
+    m_formulaire->addRow("nombre d'Etats",m_nombreEtats);
+    m_formulaire->addRow("Regle de transition",m_regle);
+    QString text= "Informations: \n L'ordre du voisinage, distance entre la cellule et son plus lointain voisin, est de 1 obligatoirement car sinon la règle serait beaucoup trop longue pour un nombre d'Etats supérieur ou égal à 3.\n etats:\n 0 = blanc\n 1 = noir\n 2 = vert\n 3 = rouge\nRègle de transition :\n- doit avoir une taille égale à (nombre d'etats)^(nombre de voisins)\n- doit comporter que des chiffres de 0 à nombre d'Etats-1.";
+    m_info = new QPlainTextEdit(text);
+    m_info->setReadOnly(true);
 
     nbCaract = new QLabel();
 
     changementLabel();
-    QVBoxLayout* layoutPrincipal = new QVBoxLayout();
-    layoutPrincipal->addLayout(formulaire);
-    layoutPrincipal->addWidget(nbCaract);
-    layoutPrincipal->addWidget(info);
-    setLayout(layoutPrincipal);
+    m_layoutPrincipal = new QVBoxLayout();
+    m_layoutPrincipal->addLayout(m_formulaire);
+    m_layoutPrincipal->addWidget(nbCaract);
+    m_layoutPrincipal->addWidget(m_info);
+    setLayout(m_layoutPrincipal);
 
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementRegExp()));
     connect(m_nombreEtats,SIGNAL(valueChanged(int)),this,SLOT(changementLabel()));
     connect(m_regle,SIGNAL(textChanged(QString)),this,SLOT(changementLabel()));
+
+    loadContexte();
 }
 
 void fenetreElementaryRule::constructionAutomate() const
@@ -54,36 +66,25 @@ void fenetreElementaryRule::constructionAutomate() const
 
 void fenetreElementaryRule::changementRegExp()
 {
-   switch(m_nombreEtats->value())
-   {
-   case 2:
-       m_regleValidator->setRegExp(QRegExp("[0-1]+"));
-       break;
-   case 3:
-       m_regleValidator->setRegExp(QRegExp("[0-2]+"));
-       break;
-   case 4:
-       m_regleValidator->setRegExp(QRegExp("[0-3]+"));
-       break;
-   default:
-       m_regleValidator->setRegExp(QRegExp("[0-1]+"));
-   }
+
    m_regle->clear();
+   std::stringstream flux;
+   flux << "[0-"<<m_nombreEtats->value()-1<<"]+";
+
+   m_regleValidator->setRegExp(QRegExp(flux.str().c_str()));
 }
 
 void fenetreElementaryRule::changementLabel()
 {
     nbCaract->clear();
     unsigned int nombreVoisins = 2*m_ordreVoisinage+1;
-    unsigned int nbCarac =puissance(m_nombreEtats->value(),nombreVoisins)- m_regle->text().length();
-    QString test("Nombre de caractères nécessaires: ");
-    test += nbCarac/10 + '0';
-    nbCarac = nbCarac%10;
-    test += nbCarac + '0';
-    nbCaract->setText(test);
+    int nbCarac =puissance(m_nombreEtats->value(),nombreVoisins)- m_regle->text().length();
+    std::stringstream flux;
+    flux << "Nombre de caractères nécessaires:"<<nbCarac;
+    nbCaract->setText(QString(flux.str().c_str()));
 }
 
-unsigned int fenetreGameOfLife::m_nombreEtats = 2;
+const unsigned int fenetreGameOfLife::m_nombreEtats = 2;
 
 fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
 {
@@ -102,19 +103,21 @@ fenetreGameOfLife::fenetreGameOfLife(QWidget *parent): fenetreConfig(parent)
 
 
 
-    QFormLayout *formulaire = new QFormLayout;
-    formulaire->addRow("type de voisinage",m_choixVoisinage);
-    formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
-    formulaire->addRow("nombre minimum de voisins vivants", m_minVivants);
-    formulaire->addRow("nombre maximum de Voisins vivants", m_maxVivants);
-    QString text= "Informations Jeu de la vie: \n- 2 etats possibles:\n blanc = vivant\n noir= mort\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- nombre minimum de voisins et nombre maximum de voisins:\n Nombre minimum et maximum de voisins vivants au temps t pour que la cellule soit vivante au temps t+1.\n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
-    QPlainTextEdit* info = new QPlainTextEdit(text);
-    info->setReadOnly(true);
+    QFormLayout *m_formulaire = new QFormLayout;
+    m_formulaire->addRow("type de voisinage",m_choixVoisinage);
+    m_formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
+    m_formulaire->addRow("nombre minimum de voisins vivants", m_minVivants);
+    m_formulaire->addRow("nombre maximum de Voisins vivants", m_maxVivants);
+    QString text= "Informations Jeu de la vie: \n- 2 etats possibles:\n blanc = mort\n noir = vivant\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- nombre minimum de voisins et nombre maximum de voisins:\n - Nombre minimum et maximum de voisins vivants au temps t pour que la cellule soit vivante au temps t+1 si la cellule était vivante au temps t (sinon elle meurt d'isolement ou de surpopulation).\n - si une cellule est 'morte' à l'instant t, elle repasse vivante à l'instant t+1 si il y exactements 'nombre max de voisins' cellules voisines vivantes à l'instant t.\n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
+    QPlainTextEdit* m_info = new QPlainTextEdit(text);
+    m_info->setReadOnly(true);
 
-    QVBoxLayout* layoutPrincipal = new QVBoxLayout();
-    layoutPrincipal->addLayout(formulaire);
-    layoutPrincipal->addWidget(info);
-    setLayout(layoutPrincipal);
+    QVBoxLayout* m_layoutPrincipal = new QVBoxLayout();
+    m_layoutPrincipal->addLayout(m_formulaire);
+    m_layoutPrincipal->addWidget(m_info);
+    setLayout(m_layoutPrincipal);
+
+    loadContexte();
 
 }
 
@@ -142,7 +145,7 @@ void fenetreGameOfLife::constructionAutomate() const
     }
 }
 
-unsigned int fenetreFeuForet::m_nombreEtats = 4;
+const unsigned int fenetreFeuForet::m_nombreEtats = 4;
 
 fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
 {
@@ -157,18 +160,20 @@ fenetreFeuForet::fenetreFeuForet(QWidget *parent): fenetreConfig(parent)
 
 
 
-    QFormLayout *formulaire = new QFormLayout;
-    formulaire->addRow("type de voisinage",m_choixVoisinage);
-    formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
+    QFormLayout *m_formulaire = new QFormLayout;
+    m_formulaire->addRow("type de voisinage",m_choixVoisinage);
+    m_formulaire->addRow("ordre du voisinage",m_ordreVoisinage);
 
     QString text= "Informations Feu de Forêt: \n- 4 etats possibles:\n blanc = vide\n noir= arbre mort\n rouge = arbre en feu\n vert = arbre vivant\n- Règle de transition\n - vide->vide\n - Feu->arbre mort\n - Arbre mort-> Arbre mort\n - Arbre vivant -> Feu si un voisin est en feu vivant sinon\n- Ordre du voisinage = distance maximum possible entre une cellule et le voisin le plus lointain \n - Entrer un ordre plus grand que la taille de la grille ne pose pas de problème les 'voisins' qui n'existent pas ne seront pas ajoutés \n- Type de voisinage:\n - Moore: carré centré autour de la cellule\n - Von Neumann: Croix(+) centrée autour de la cellule ";
-    QPlainTextEdit* info = new QPlainTextEdit(text);
-    info->setReadOnly(true);
+    QPlainTextEdit* m_info = new QPlainTextEdit(text,this);
+    m_info->setReadOnly(true);
 
-    QVBoxLayout* layoutPrincipal = new QVBoxLayout();
-    layoutPrincipal->addLayout(formulaire);
-    layoutPrincipal->addWidget(info);
-    setLayout(layoutPrincipal);
+    QVBoxLayout* m_layoutPrincipal = new QVBoxLayout();
+    m_layoutPrincipal->addLayout(m_formulaire);
+    m_layoutPrincipal->addWidget(m_info);
+    setLayout(m_layoutPrincipal);
+
+    loadContexte();
 
 }
 
@@ -205,3 +210,78 @@ unsigned int puissance(unsigned int a, unsigned int b)
 }
 
 
+//SAUVEGARDE ET CHARGEMENT DU CONTEXTE
+
+void fenetreElementaryRule::saveContexte()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ElementaryRuleWindow");
+
+    settings.setValue("nbEtats",m_nombreEtats->value());
+    settings.setValue("rule",m_regle->text());
+    settings.endGroup();
+}
+
+void fenetreElementaryRule::loadContexte()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ElementaryRuleWindow");
+
+    m_nombreEtats->setValue(settings.value("nbEtats",m_nombreEtats->value()).toInt());
+    m_regle->setText(settings.value("rule",m_regle->text()).toString());
+
+    settings.endGroup();
+}
+
+void fenetreGameOfLife::saveContexte()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("GameOfLifeWindow");
+
+    settings.setValue("choixVoisinage",m_choixVoisinage->currentIndex());
+    settings.setValue("ordreVoisinage",m_ordreVoisinage->value());
+    settings.setValue("minVivants",m_minVivants->value());
+    settings.setValue("maxVivants",m_maxVivants->value());
+
+    settings.endGroup();
+}
+
+void fenetreGameOfLife::loadContexte()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("GameOfLifeWindow");
+
+    m_choixVoisinage->setCurrentIndex(settings.value("choixVoisinage",m_choixVoisinage->currentIndex()).toInt());
+    m_ordreVoisinage->setValue(settings.value("ordreVoisinage",m_ordreVoisinage->value()).toInt());
+    m_minVivants->setValue(settings.value("minVivants",m_minVivants->value()).toInt());
+    m_maxVivants->setValue(settings.value("maxVivants",m_maxVivants->value()).toInt());
+
+    settings.endGroup();
+}
+
+void fenetreFeuForet::saveContexte()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ForestFireWindow");
+
+    settings.setValue("choixVoisinage",m_choixVoisinage->currentIndex());
+    settings.setValue("ordreVoisinage",m_ordreVoisinage->value());
+    settings.endGroup();
+}
+
+void fenetreFeuForet::loadContexte()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("ForestFireWindow");
+
+    m_choixVoisinage->setCurrentIndex(settings.value("choixVoisinage",m_choixVoisinage->currentIndex()).toInt());
+    m_ordreVoisinage->setValue(settings.value("ordreVoisinage",m_ordreVoisinage->value()).toInt());
+
+    settings.endGroup();
+}

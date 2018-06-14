@@ -1,81 +1,41 @@
 #ifndef FENETRE1D_H
 #define FENETRE1D_H
-#include <QApplication>
-#include <QWidget>
-#include <QSpinBox>
-#include <QLineEdit>
-#include <QLabel>
-#include <QIntValidator>
-#include <QString>
-#include <QLayout>
-#include <QTableWidget>
-#include <QTableWidgetItem>
-#include <QPushButton>
-#include <QHeaderView>
-#include <QComboBox>
-#include <QStackedWidget>
-#include "cellularautomata.h"
-#include "automateexception.h"
-#include "fenetreconfig.h"
-#include <QTimer>
-//#include "automate.h"
 
+/*!
+ * \file fenetre1d.h
+ * \brief Déclaration de la classes fenetre1D, et définition de ses méthodes inline
+ */
 
+#include "fenetresimulation.h"
 
-class fenetre1D : public QWidget{
+class fenetre1D : public FenetreAutomate
+{
     Q_OBJECT
 
-    QPushButton* bGenererEtat;
-    QPushButton* bSauvegarderEtat;
-    QPushButton* bChargerEtat;
-    QSpinBox* bLargeur;
-    QSpinBox* bLongueur;
-    QLabel* lLongueur;
-    QLabel* lLargeur;
-    QComboBox* bchoixGenerateur;
-    QTableWidget* depart;
-    //QVBoxLayout *layout;
-    QTableWidget* grille;
-    QPushButton* bStart;
-    QPushButton* bPause;
-    QPushButton* bRetourDepart;
-    QPushButton* bNextFrame;
-    QSpinBox* bSelectVitesse;
+    QTableWidget* m_depart;
+    QComboBox* m_choixAutomate;
+    fenetreElementaryRule* m_configElementaryRule;
 
-    QPushButton* bGenererAutomate;
-    QPushButton* bSauvegarderAutomate;
-    QPushButton* bChargerAutomate;
-
-    QComboBox* choixAutomate;
-    //QHBoxLayout* menuInferieur;
-    //QHBoxLayout* layoutGlobal;
-
-    fenetreElementaryRule* configElementaryRule;
-    CellularAutomata* simulateur;
-
-    QTimer* m_timer;
 
 
 public:
     explicit fenetre1D(QWidget* parent = nullptr);
-    ~fenetre1D()
-    {
-        delete simulateur;
-    }
+    ~fenetre1D() {}
+    void loadContexte() override;
+    void saveContexte() override;
 private slots:
-    void cellActivation(const QModelIndex& index);
-    void buildGrille();
-    void generationSuivante();
-    void play();
-    void pause();
-    void appelConfig() const;
-    void ConstruireEtat();
-    void reset();
-
-public slots:
-    void ConstruireAutomate(int nbEtats);
+    void cellActivation(const QModelIndex& index) override;
+    void buildGrille() override;
+    void appelConfig() const override;
+    void ConstruireEtat() override;
+    void sauverAutomate() override;
+    void chargerAutomate() override;
+    void sauverEtat() override;
+    void chargerEtat() override;
+    void ConstruireAutomate(int nbEtats) override;
 private:
-    void afficherDernierEtat();
-    void ConstructionManuelle();
+    void afficherDernierEtat() override;
+    void ConstructionManuelle() override;
+    void UpdateInfo() override;
 };
 #endif // FENETRE1D_H

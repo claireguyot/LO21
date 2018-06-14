@@ -1,30 +1,64 @@
+/*!
+ * \file mainwindow.cpp
+ * \brief Implementation des methodes non inline de la classe MainWindow
+ * \version 1.0
+ * \sa mainwindow.h
+ */
+
 #include "mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
-    fenetre1D* dim1 = new fenetre1D();
-    fenetre2D* dim2 = new fenetre2D();
+    m_dim1 = new fenetre1D();
+    m_dim2 = new fenetre2D();
 
-    QStackedWidget *switchDim = new QStackedWidget(this);
-    switchDim->addWidget(dim1);
-    switchDim->addWidget(dim2);
+    m_switchDim = new QStackedWidget(this);
+    m_switchDim->addWidget(m_dim1);
+    m_switchDim->addWidget(m_dim2);
 
-    switchDim->setCurrentIndex(0);
+    m_switchDim->setCurrentIndex(0);
+
 
     /*
      * Définition des boutons de sélection 1D / 2D
      */
 
-    QComboBox *choixDimension = new QComboBox;
+    m_choixDimension = new QComboBox();
 
-    choixDimension->addItem("Automate 1D");
-    choixDimension->addItem("Automate 2D");
-    connect(choixDimension, SIGNAL(activated(int)), switchDim, SLOT(setCurrentIndex(int)));
+    m_choixDimension->addItem("Automate 1D");
+    m_choixDimension->addItem("Automate 2D");
+    connect(m_choixDimension, SIGNAL(currentIndexChanged(int)), m_switchDim, SLOT(setCurrentIndex(int)));
 
-    QVBoxLayout *layout = new QVBoxLayout();
+    m_layout = new QVBoxLayout();
 
-    layout->addWidget(choixDimension);
-    layout->addWidget(switchDim);
+    m_layout->addWidget(m_choixDimension);
+    m_layout->addWidget(m_switchDim);
 
-    setLayout(layout);
+    setLayout(m_layout);
+    loadContexte();
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("MainWindow");
+    settings.setValue("geometry",saveGeometry());
+    settings.setValue("DimChoice",m_choixDimension->currentIndex());
+    settings.endGroup();
+
+    m_dim1->saveContexte();
+    m_dim2->saveContexte();
+    event->accept();
+}
+
+
+void MainWindow::loadContexte()
+{
+    QSettings settings("options.ini", QSettings::IniFormat);
+
+    settings.beginGroup("MainWindow");
+    restoreGeometry(settings.value("geometry").toByteArray());
+    m_choixDimension->setCurrentIndex(settings.value("DimChoice",m_choixDimension->currentIndex()).toInt());
+    settings.endGroup();
 }

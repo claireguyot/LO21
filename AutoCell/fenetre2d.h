@@ -1,78 +1,45 @@
 #ifndef fenetre2D_H
 #define fenetre2D_H
-#include <QApplication>
-#include <QWidget>
-#include <QSpinBox>
-#include <QLineEdit>
-#include <QLabel>
-#include <QIntValidator>
-#include <QString>
-#include <QLayout>
-#include <QTableWidget>
-#include <QTableWidgetItem>
-#include <QPushButton>
-#include <QHeaderView>
-#include <QComboBox>
-#include <QStackedWidget>
-#include "cellularautomata.h"
-#include "automateexception.h"
-#include "fenetreconfig.h"
-#include <QTimer>
+/*!
+ * \file fenetre2d.h
+ * \brief Déclaration de la classes fenetre2D, et définition de ses méthodes inline
+ */
+
+#include "fenetresimulation.h"
 
 
+#include "sauvegarde.h"
 
-class fenetre2D : public QWidget{
+
+class fenetre2D : public FenetreAutomate
+{
     Q_OBJECT
 
-    QPushButton* bGenererEtat;
-    QPushButton* bSauvegarderEtat;
-    QPushButton* bChargerEtat;
-    QSpinBox* bLargeur;
-    QSpinBox* bLongueur;
-    QLabel* lLongueur;
-    QLabel* lLargeur;
-    QComboBox* bchoixGenerateur;
+    fenetreGameOfLife* m_configGameOfLife;
+    fenetreFeuForet* m_configFeuForet;
 
-    QTableWidget* grille;
-    QPushButton* bStart;
-    QPushButton* bPause;
-    QPushButton* bRetourDepart;
-    QPushButton* bNextFrame;
-    QSpinBox* bSelectVitesse;
-
-    QPushButton* bGenererAutomate;
-    QPushButton* bSauvegarderAutomate;
-    QPushButton* bChargerAutomate;
-
-    QComboBox* choixAutomate;
-
-    fenetreGameOfLife* configGameOfLife;
-    fenetreFeuForet* configFeuForet;
-    CellularAutomata* simulateur;
-
-    QTimer* m_timer;
 
 
 public:
     explicit fenetre2D(QWidget* parent = nullptr);
-    ~fenetre2D()
-    {
-        delete simulateur;
-    }
-private slots:
-    void cellActivation(const QModelIndex& index);
-    void buildGrille();
-    void generationSuivante();
-    void play();
-    void pause();
-    void appelConfig() const;
-    void ConstruireEtat();
-    void reset();
+    ~fenetre2D(){}
+    void loadContexte() override;
+    void saveContexte() override;
 
-public slots:
-    void ConstruireAutomate(int nbEtats);
+private slots:
+    void cellActivation(const QModelIndex& index) override;
+    void buildGrille() override;
+    void appelConfig() const override;
+    void ConstruireEtat() override;
+    void sauverAutomate() override;
+    void chargerAutomate() override;
+    void sauverEtat() override;
+    void chargerEtat() override;
+    void ConstruireAutomate(int nbEtats) override;
+
 private:
-    void afficherDernierEtat();
-    void ConstructionManuelle();
+    void afficherDernierEtat() override;
+    void ConstructionManuelle()override;
+    void UpdateInfo() override;
 };
 #endif // fenetre2D_H

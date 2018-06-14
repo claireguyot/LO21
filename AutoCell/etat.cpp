@@ -1,4 +1,12 @@
+/*!
+ * \file etat.cpp
+ * \brief Implementation des methodes non inline de la classe Etat
+ * \version 1.0
+ * \sa etat.h
+ */
+
 #include "etat.h"
+#include "generateuretat.h"
 
 using namespace std;
 Etat::Etat(unsigned int largeur, unsigned int longueur, const GenerateurEtat &generateur, unsigned int nbEtats ) : m_largeur(largeur), m_longueur(longueur), m_generateur(&generateur), m_cellules()
@@ -14,7 +22,7 @@ Etat::Etat(unsigned int largeur, unsigned int longueur, const GenerateurEtat &ge
         }
     }
 
-    m_generateur->GenererEtat(nbEtats,m_cellules,m_largeur,m_longueur);
+    m_generateur->GenererEtat(nbEtats,*this);
 }
 
 Etat::Etat(unsigned int largeur, unsigned int longueur, int **tab) : m_largeur(largeur), m_longueur(longueur), m_cellules()
@@ -58,7 +66,7 @@ Etat& Etat::operator=(const Etat &e)
 {
     if (this != &e)
     {
-        if(m_longueur != e.m_longueur && m_largeur != e.m_largeur)
+        if(m_longueur != e.m_longueur || m_largeur != e.m_largeur)
         {
             for(unsigned int i = 0; i< m_largeur;i++)
                 delete[] m_cellules[i];
@@ -104,16 +112,9 @@ Etat::Etat(const Etat &e) : m_largeur(e.m_largeur), m_longueur(e.m_longueur),m_g
         }
     }
 }
-void Etat::afficher() const
+
+void Etat::Regenerer(int nbEtats)
 {
-    for (int i=0;i<m_largeur;i++)
-    {
-
-        for(int j=0; j<m_longueur;j++)
-        {
-            cout << m_cellules[i][j].GetEtat();
-        }
-        cout << endl;
-
-    }
+    if (m_generateur!= nullptr)
+        m_generateur->GenererEtat(nbEtats,*this);
 }

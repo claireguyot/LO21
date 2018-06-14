@@ -1,34 +1,40 @@
+/*!
+ * \file generateuretat.cpp
+ * \brief Implémentation des méthodes non inline des classes du fichier < em>"generateuretat.h"< /em>
+ * \version 1.0
+ * \sa generateuretat.h
+ */
+
 #include "generateuretat.h"
-
-
 using namespace std;
 
-void GenerateurRandom::GenererEtat(int nbEtat, Cell** tab, int nbLigne, int nbColonne) const
+void GenerateurRandom::GenererEtat(int nbEtats, Etat& grille) const
 {
     srand(time(NULL)); // initialisation de rand
-    for(int i = 0; i<nbLigne; i++)
+    for(int i = 0; i<grille.GetLargeur(); i++)
     {
-        for(int j=0; j<nbColonne; j++)
+        for(int j=0; j<grille.GetLongueur(); j++)
         {
 
-            int n = rand()%(nbEtat);
+            int n = rand()%(nbEtats);
 
-            tab[i][j].SetEtat(n);
+            grille.GetCellule(i,j).SetEtat(n);
         }
     }
 }
 
-void GenerateurSymetrieAxeLargeur::GenererEtat(int nbEtat, Cell **tab, int nbLigne, int nbColonne) const
+void GenerateurSymetrieAxeVertical::GenererEtat(int nbEtats, Etat& grille) const
 {
     srand(time(NULL)); // initialisation de rand
-    for(int i = 0; i<nbLigne; i++)
+    for(int i = 0; i<grille.GetLargeur(); i++)
     {
-        for(int j=0; j<=nbColonne/2; j++)
+        for(int j=0; j<=grille.GetLongueur()/2; j++)
         {
 
-            int n = rand()%(nbEtat);
-            tab[i][nbColonne-j-1].SetEtat(n);
-            tab[i][j].SetEtat(n);
+            int n = rand()%(nbEtats);
+            grille.GetCellule(i,grille.GetLongueur()-j-1).SetEtat(n);
+            grille.GetCellule(i,j).SetEtat(n);
         }
     }
+
 }

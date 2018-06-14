@@ -2,30 +2,37 @@ QT += widgets
 
 QMAKE_CXXFLAGS = -std=c++11
 QMAKE_LFLAGS = -std=c++11
-SOURCES += \
-    main.cpp \
-    cell.cpp \
-    generateuretat.cpp \
-    etat.cpp \
-    voisinage.cpp \
-    transitionrule.cpp \
-    cellularautomata.cpp \
-    mainwindow.cpp \
-    fenetre1d.cpp \
-    fenetre2d.cpp \
-    fenetreconfig.cpp
 
 
 HEADERS += \
-    cell.h \
-    generateuretat.h \
-    etat.h \
-    voisinage.h \
-    transitionrule.h \
-    cellularautomata.h \
     automateexception.h \
     cabuilder.h \
-    mainwindow.h \
+    cell.h \
+    cellularautomata.h \
+    etat.h \
     fenetre1d.h \
     fenetre2d.h \
-    fenetreconfig.h
+    fenetreconfig.h \
+    fichier.h \
+    generateuretat.h \
+    mainwindow.h \
+    sauvegarde.h \
+    transitionrule.h \
+    voisinage.h \
+    fenetresimulation.h
+
+SOURCES += \
+    cell.cpp \
+    cellularautomata.cpp \
+    etat.cpp \
+    fenetre1d.cpp \
+    fenetre2d.cpp \
+    fenetreconfig.cpp \
+    fichier.cpp \
+    generateuretat.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    sauvegarde.cpp \
+    transitionrule.cpp \
+    voisinage.cpp \
+    fenetresimulation.cpp
