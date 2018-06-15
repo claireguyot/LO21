@@ -1,6 +1,0 @@
-<map id="fenetre1D::afficherDernierEtat" name="fenetre1D::afficherDernierEtat">
-<area shape="rect" id="node2" href="$class_cellular_automata.html#a2c7e3542b8360a97f0166b5b75a11125" title="Accesseur en lecture de l&#39;attribut m_rang. " alt="" coords="244,5,424,47"/>
-<area shape="rect" id="node3" href="$class_cellular_automata.html#a42291e2737e23c206e44f074d13323f7" title="Méthode de la classe CellularAutomata. " alt="" coords="249,71,419,98"/>
-<area shape="rect" id="node4" href="$class_cell.html#a7640093c787979958fbb772e4fccdffa" title="Accesseur en lecture de l&#39;attribut m_etat. " alt="" coords="285,122,383,149"/>
-<area shape="rect" id="node5" href="$class_cell.html#a3668c9664cadb1b94a632d497fa493c5" title="Accesseur en lecture de l&#39;attribut m_y. " alt="" coords="293,173,375,199"/>
-</map>

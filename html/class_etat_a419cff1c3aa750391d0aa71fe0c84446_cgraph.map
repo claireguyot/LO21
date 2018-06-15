@@ -1,5 +1,0 @@
-<map id="Etat::Etat" name="Etat::Etat">
-<area shape="rect" id="node2" href="$class_cell.html#a9aaedcce2daccb4aa070f870c1a207ed" title="Modification de la position de la cellule sur la ligne. " alt="" coords="187,5,265,32"/>
-<area shape="rect" id="node3" href="$class_cell.html#a48afb0c8c8d1ebe3409b9a166dcd507d" title="Modification de la position de la cellule sur la colonne. " alt="" coords="185,56,267,83"/>
-<area shape="rect" id="node4" href="$class_generateur_etat.html#a0698d6706e0aaa2e597bdaf280806835" title="Constructeur de la classe GenerateurEtat. " alt="" coords="132,107,320,133"/>
-</map>

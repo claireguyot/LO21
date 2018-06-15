@@ -1,6 +1,0 @@
-<map id="fenetre1D::sauverEtat" name="fenetre1D::sauverEtat">
-<area shape="rect" id="node2" href="$class_fenetre_automate.html#aee20c4ab6a43b44e7fd122fce4fcf7d0" title="Méthode slot de la classe FenetreAutomate. " alt="" coords="203,5,368,32"/>
-<area shape="rect" id="node3" href="$class_cellular_automata.html#a28ebffd21b4b0f297a0ceea6f8648421" title="Accesseur en lecture de l&#39;attribut m_depart. " alt="" coords="200,57,371,98"/>
-<area shape="rect" id="node4" href="$sauvegarde_8cpp.html#a9d16542dcc8a340e36e363d5a3fa1a88" title="Fonction liée à la sauvegarde des données d&#39;un automate 1D ou 2D. " alt="" coords="242,123,329,149"/>
-<area shape="rect" id="node5" href="$classfichier.html#ac54bfc9ea8c980c0b46bb291d3abdef4" title="Méthode de la classe fichier. " alt="" coords="419,123,509,149"/>
-</map>

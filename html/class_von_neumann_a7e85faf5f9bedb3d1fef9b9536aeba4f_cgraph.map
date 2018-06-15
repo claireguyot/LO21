@@ -1,5 +1,0 @@
-<map id="VonNeumann::definirVoisinage" name="VonNeumann::definirVoisinage">
-<area shape="rect" id="node2" href="$class_cell.html#a5c2a7b09dcb8afed0040ebdc4267408d" title="Accesseur en lecture de l&#39;attribut m_voisins. " alt="" coords="263,5,379,32"/>
-<area shape="rect" id="node3" href="$class_cell.html#a4f07be87bb04bdc457726c51f2c69bcc" title="Suppression du voisinage d&#39;une cellule. " alt="" coords="252,56,391,83"/>
-<area shape="rect" id="node4" href="$class_cell.html#aef5912d85e2ca3e034023fb0874896fa" title="Ajout d&#39;un voisin dans le voisinage de la cellule. " alt="" coords="257,107,386,133"/>
-</map>

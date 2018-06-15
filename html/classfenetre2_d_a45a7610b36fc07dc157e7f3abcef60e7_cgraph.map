@@ -1,9 +1,0 @@
-<map id="fenetre2D::appelConfig" name="fenetre2D::appelConfig">
-<area shape="rect" id="node2" href="$classfenetre_game_of_life.html#a76bc46f313a3d3b39ab060702de0b614" title="Méthode de la classe fenetreGameOfLife. " alt="" coords="227,143,376,185"/>
-<area shape="rect" id="node7" href="$classfenetre_feu_foret.html#a41d2078bf781a32157d526f623a55b28" title="Méthode de la classe fenetreFeuForet. " alt="" coords="205,78,397,119"/>
-<area shape="rect" id="node3" href="$class_c_a_builder2_d.html#a013a50b0ebd4313516febd015db293c2" title="Méthode statique de la classe CABuilder2D permettant de retourner un automate de la classe..." alt="" coords="461,56,631,83"/>
-<area shape="rect" id="node4" href="$class_c_a_builder2_d.html#abafd86f26de9ab72100212edc23fc7fc" title="Méthode de la classe CABuilder2D permettant de définir le voisinage selon Moore d&#39;un automate 2D..." alt="" coords="451,107,641,149"/>
-<area shape="rect" id="node5" href="$class_c_a_builder2_d.html#a0d31f87b74b5058fc60edd47ec372828" title="Méthode de la classe CABuilder2D permettant de définir le voisinage selon Von Neumann d&#39;un automate 2..." alt="" coords="451,173,641,214"/>
-<area shape="rect" id="node6" href="$class_c_a_builder2_d.html#ac8a0719a1a51bfbc40f017808b4c05ed" title="Méthode de la classe CABuilder2D permettant de définir la règle de transition d&#39;un automate 2D de typ..." alt="" coords="445,239,647,265"/>
-<area shape="rect" id="node8" href="$class_c_a_builder2_d.html#a71f988b3a445b18248661fc4c890a3a0" title="Méthode de la classe CABuilder2D permettant de définir la règle de transition d&#39;un automate 2D de typ..." alt="" coords="453,5,639,32"/>
-</map>

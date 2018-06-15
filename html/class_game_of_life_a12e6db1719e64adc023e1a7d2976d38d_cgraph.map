@@ -1,5 +1,0 @@
-<map id="GameOfLife::TransitionCellule" name="GameOfLife::TransitionCellule">
-<area shape="rect" id="node2" href="$class_cell.html#a5c2a7b09dcb8afed0040ebdc4267408d" title="Accesseur en lecture de l&#39;attribut m_voisins. " alt="" coords="247,5,363,32"/>
-<area shape="rect" id="node3" href="$class_cell.html#a7640093c787979958fbb772e4fccdffa" title="Accesseur en lecture de l&#39;attribut m_etat. " alt="" coords="256,56,353,83"/>
-<area shape="rect" id="node4" href="$class_cell.html#a33dac87ec7294fdb4c67b8b430ea0946" title="Modification de l&#39;état d&#39;une cellule. " alt="" coords="257,107,353,133"/>
-</map>

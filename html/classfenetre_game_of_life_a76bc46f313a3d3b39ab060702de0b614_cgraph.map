@@ -1,6 +1,0 @@
-<map id="fenetreGameOfLife::constructionAutomate" name="fenetreGameOfLife::constructionAutomate">
-<area shape="rect" id="node2" href="$class_c_a_builder2_d.html#a013a50b0ebd4313516febd015db293c2" title="Méthode statique de la classe CABuilder2D permettant de retourner un automate de la classe..." alt="" coords="218,5,389,32"/>
-<area shape="rect" id="node3" href="$class_c_a_builder2_d.html#abafd86f26de9ab72100212edc23fc7fc" title="Méthode de la classe CABuilder2D permettant de définir le voisinage selon Moore d&#39;un automate 2D..." alt="" coords="208,57,399,98"/>
-<area shape="rect" id="node4" href="$class_c_a_builder2_d.html#a0d31f87b74b5058fc60edd47ec372828" title="Méthode de la classe CABuilder2D permettant de définir le voisinage selon Von Neumann d&#39;un automate 2..." alt="" coords="208,122,399,163"/>
-<area shape="rect" id="node5" href="$class_c_a_builder2_d.html#ac8a0719a1a51bfbc40f017808b4c05ed" title="Méthode de la classe CABuilder2D permettant de définir la règle de transition d&#39;un automate 2D de typ..." alt="" coords="203,188,404,215"/>
-</map>

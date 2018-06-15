@@ -1,6 +1,0 @@
-<map id="C:/Users/Chris/Documents/GitHub/LO21/AutoCell/transitionrule.cpp" name="C:/Users/Chris/Documents/GitHub/LO21/AutoCell/transitionrule.cpp">
-<area shape="rect" id="node2" href="$transitionrule_8h.html" title="Déclaration des classes TransitionRule, ElementaryRule, GameOfLife et FeuForet, et définition de leur..." alt="" coords="154,95,261,121"/>
-<area shape="rect" id="node3" href="$etat_8h.html" title="Déclaration de la classe Etat et définition de ses méthodes inline. " alt="" coords="115,169,169,196"/>
-<area shape="rect" id="node4" href="$cell_8h.html" title="Déclaration de la classe Cell, définition de ses méthodes inline, et déclaration des différents états..." alt="" coords="115,244,169,271"/>
-<area shape="rect" id="node6" href="$automateexception_8h.html" title="Fichier entete contenant la classe AutomateException. " alt="" coords="5,319,148,345"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="TransitionRule::EffectuerTransition" name="TransitionRule::EffectuerTransition">
-<area shape="rect" id="node2" href="$class_etat.html#a6c67137de7313e23c40a77f10417c70e" title="Accesseur en lecture de l&#39;attribut m_largeur. " alt="" coords="221,5,339,32"/>
-<area shape="rect" id="node3" href="$class_etat.html#ac0ecddd03a3429934f91a0fb44ef071e" title="Accesseur en lecture de l&#39;attribut m_longueur. " alt="" coords="216,56,344,83"/>
-<area shape="rect" id="node4" href="$class_etat.html#acff1910bf647fb62c9f4d9e726be7290" title="Accesseur en lecture de l&#39;attribut m_cellules. " alt="" coords="223,107,337,133"/>
-</map>

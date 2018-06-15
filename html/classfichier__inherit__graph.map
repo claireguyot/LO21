@@ -1,6 +1,0 @@
-<map id="fichier" name="fichier">
-<area shape="rect" id="node2" href="$classfichier_config1_d.html" title="Classe héritant de fichier permettant de sauvegarder la configuration d&#39;un automate 1D..." alt="" coords="5,189,133,296"/>
-<area shape="rect" id="node3" href="$classfichier_config2_d.html" title="Classe héritant de fichier permettant de sauvegarder la configuration d&#39;un automate 2D..." alt="" coords="157,189,285,296"/>
-<area shape="rect" id="node4" href="$classfichier_etat1_d.html" title="Classe héritant de fichier permettant de sauvegarder le dernier état d&#39;un automate 1D..." alt="" coords="310,189,426,296"/>
-<area shape="rect" id="node5" href="$classfichier_etat2_d.html" title="Classe héritant de fichier permettant de sauvegarder le dernier état d&#39;un automate 2D..." alt="" coords="450,189,566,296"/>
-</map>

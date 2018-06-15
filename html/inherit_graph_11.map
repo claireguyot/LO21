@@ -1,6 +1,0 @@
-<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. " alt="" coords="5,56,84,83"/>
-<area shape="rect" id="node2" href="$class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D..." alt="" coords="153,5,211,32"/>
-<area shape="rect" id="node3" href="$class_voisinage1_d.html" title="Classe représentant le voisinage d&#39;une cellule de type Cell dans un automate cellulaire 1D..." alt="" coords="135,56,229,83"/>
-<area shape="rect" id="node4" href="$class_von_neumann.html" title="Classe représentant un voisinage en croix d&#39;une cellule de type Cell dans un automate cellulaire 2D..." alt="" coords="132,107,232,133"/>
-</map>

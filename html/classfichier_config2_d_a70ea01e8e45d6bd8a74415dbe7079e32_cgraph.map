@@ -1,9 +1,0 @@
-<map id="fichierConfig2D::load" name="fichierConfig2D::load">
-<area shape="rect" id="node2" href="$class_c_a_builder2_d.html#a013a50b0ebd4313516febd015db293c2" title="Méthode statique de la classe CABuilder2D permettant de retourner un automate de la classe..." alt="" coords="217,5,388,32"/>
-<area shape="rect" id="node3" href="$class_c_a_builder2_d.html#a0d31f87b74b5058fc60edd47ec372828" title="Méthode de la classe CABuilder2D permettant de définir le voisinage selon Von Neumann d&#39;un automate 2..." alt="" coords="207,57,398,98"/>
-<area shape="rect" id="node4" href="$class_c_a_builder2_d.html#abafd86f26de9ab72100212edc23fc7fc" title="Méthode de la classe CABuilder2D permettant de définir le voisinage selon Moore d&#39;un automate 2D..." alt="" coords="207,122,398,163"/>
-<area shape="rect" id="node5" href="$class_c_a_builder2_d.html#ac8a0719a1a51bfbc40f017808b4c05ed" title="Méthode de la classe CABuilder2D permettant de définir la règle de transition d&#39;un automate 2D de typ..." alt="" coords="202,188,403,215"/>
-<area shape="rect" id="node6" href="$class_c_a_builder2_d.html#a71f988b3a445b18248661fc4c890a3a0" title="Méthode de la classe CABuilder2D permettant de définir la règle de transition d&#39;un automate 2D de typ..." alt="" coords="210,239,395,265"/>
-<area shape="rect" id="node7" href="$class_c_a_builder.html#a39da3ad55920be3648c8353f17d12bed" title="Accesseur en lecture de l&#39;attribut m_transitionRule de la classe abstraite CABuilder. " alt="" coords="207,289,398,316"/>
-<area shape="rect" id="node8" href="$class_c_a_builder.html#a1be1b3d758b2aa2f5798680a8264ca1e" title="Accesseur en lecture de l&#39;attribut m_voisinageDefinition de la classe abstraite CABuilder. " alt="" coords="193,340,412,367"/>
-</map>

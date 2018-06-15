@@ -23,7 +23,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "CelllularAutomata", "index.html", [
+  [ "CellularAutomata", "index.html", [
     [ "Liste des choses à faire", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Liste des classes", "annotated.html", "annotated_dup" ],

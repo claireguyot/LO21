@@ -1,5 +1,0 @@
-<map id="Etat::iterator" name="Etat::iterator">
-<area shape="rect" id="node3" href="$class_etat.html" title="Classe représentant un état de la grille de cellules. " alt="" coords="83,520,199,803"/>
-<area shape="rect" id="node4" href="$class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. " alt="" coords="164,175,293,443"/>
-<area shape="rect" id="node6" href="$class_generateur_etat.html" title="Classe abstraite permettant de générer des états. " alt="" coords="318,255,457,362"/>
-</map>

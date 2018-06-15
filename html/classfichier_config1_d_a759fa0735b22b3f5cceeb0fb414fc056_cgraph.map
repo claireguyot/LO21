@@ -1,8 +1,0 @@
-<map id="fichierConfig1D::save" name="fichierConfig1D::save">
-<area shape="rect" id="node2" href="$class_c_a_builder1_d.html#a92c5780ec0e58f2d56ee28971a50b134" title="Méthode statique de la classe CABuilder1D permettant de retourner un automate de la classe..." alt="" coords="220,5,391,32"/>
-<area shape="rect" id="node3" href="$class_c_a_builder.html#a1be1b3d758b2aa2f5798680a8264ca1e" title="Accesseur en lecture de l&#39;attribut m_voisinageDefinition de la classe abstraite CABuilder. " alt="" coords="196,56,415,83"/>
-<area shape="rect" id="node4" href="$class_c_a_builder.html#a39da3ad55920be3648c8353f17d12bed" title="Accesseur en lecture de l&#39;attribut m_transitionRule de la classe abstraite CABuilder. " alt="" coords="210,107,401,133"/>
-<area shape="rect" id="node5" href="$class_voisinage.html#ade78a9c47dedcf8ce3ee982e46a80bed" title="Méthode permettant de retourner le type de voisinage. " alt="" coords="239,157,372,184"/>
-<area shape="rect" id="node6" href="$class_voisinage.html#a4dfdfeec0e25902c830335f4139cc72e" title="Accesseur en lecture de l&#39;attribut m_ordre. " alt="" coords="235,208,375,235"/>
-<area shape="rect" id="node7" href="$class_transition_rule.html#ac16d0e3aa7f4c392155210831b40e5a6" title="Accesseur en lecture des attributs de la classe TransitionRule. " alt="" coords="212,259,399,285"/>
-</map>

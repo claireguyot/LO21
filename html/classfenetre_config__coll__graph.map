@@ -1,4 +1,0 @@
-<map id="fenetreConfig" name="fenetreConfig">
-<area shape="rect" id="node2" href="$class_sous_fenetre.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="5,132,129,253"/>
-<area shape="rect" id="node3" href="$class_q_widget.html" title="{QWidget\n||}" alt="" coords="31,5,104,83"/>
-</map>

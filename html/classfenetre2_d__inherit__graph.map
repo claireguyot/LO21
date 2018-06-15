@@ -1,5 +1,0 @@
-<map id="fenetre2D" name="fenetre2D">
-<area shape="rect" id="node2" href="$class_fenetre_automate.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="5,300,181,1037"/>
-<area shape="rect" id="node3" href="$class_sous_fenetre.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="31,131,155,252"/>
-<area shape="rect" id="node4" href="$class_q_widget.html" title="{QWidget\n||}" alt="" coords="57,5,130,83"/>
-</map>

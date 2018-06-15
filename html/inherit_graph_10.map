@@ -1,6 +1,0 @@
-<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. " alt="" coords="5,56,109,83"/>
-<area shape="rect" id="node2" href="$class_elementary_rule.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D..." alt="" coords="157,5,272,32"/>
-<area shape="rect" id="node3" href="$class_feu_foret.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 2D..." alt="" coords="177,56,252,83"/>
-<area shape="rect" id="node4" href="$class_game_of_life.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 2D..." alt="" coords="169,107,260,133"/>
-</map>

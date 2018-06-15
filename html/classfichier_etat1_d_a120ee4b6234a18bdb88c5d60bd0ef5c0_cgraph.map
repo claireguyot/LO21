@@ -1,7 +1,0 @@
-<map id="fichierEtat1D::save" name="fichierEtat1D::save">
-<area shape="rect" id="node2" href="$class_cellular_automata.html#a42291e2737e23c206e44f074d13323f7" title="Méthode de la classe CellularAutomata. " alt="" coords="184,5,355,32"/>
-<area shape="rect" id="node3" href="$class_etat.html#a6c67137de7313e23c40a77f10417c70e" title="Accesseur en lecture de l&#39;attribut m_largeur. " alt="" coords="210,56,329,83"/>
-<area shape="rect" id="node4" href="$class_etat.html#ac0ecddd03a3429934f91a0fb44ef071e" title="Accesseur en lecture de l&#39;attribut m_longueur. " alt="" coords="205,107,333,133"/>
-<area shape="rect" id="node5" href="$class_etat.html#acff1910bf647fb62c9f4d9e726be7290" title="Accesseur en lecture de l&#39;attribut m_cellules. " alt="" coords="212,157,327,184"/>
-<area shape="rect" id="node6" href="$class_cell.html#a7640093c787979958fbb772e4fccdffa" title="Accesseur en lecture de l&#39;attribut m_etat. " alt="" coords="221,208,318,235"/>
-</map>

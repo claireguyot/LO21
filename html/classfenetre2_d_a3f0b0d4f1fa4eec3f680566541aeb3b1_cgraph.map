@@ -1,7 +1,0 @@
-<map id="fenetre2D::UpdateInfo" name="fenetre2D::UpdateInfo">
-<area shape="rect" id="node2" href="$class_cellular_automata.html#a75397ff49dc3b2042d922c2da9d7bf85" title="Accesseur en lecture de l&#39;attribut m_rule. " alt="" coords="201,5,403,32"/>
-<area shape="rect" id="node3" href="$class_transition_rule.html#ac16d0e3aa7f4c392155210831b40e5a6" title="Accesseur en lecture des attributs de la classe TransitionRule. " alt="" coords="209,56,395,83"/>
-<area shape="rect" id="node4" href="$class_cellular_automata.html#a6b579ee2708d749ec4073950d3593083" title="Accesseur en lecture de l&#39;attribut m_voisinageDefinition. " alt="" coords="200,107,404,133"/>
-<area shape="rect" id="node5" href="$class_voisinage.html#ade78a9c47dedcf8ce3ee982e46a80bed" title="Méthode permettant de retourner le type de voisinage. " alt="" coords="235,157,369,184"/>
-<area shape="rect" id="node6" href="$class_voisinage.html#a4dfdfeec0e25902c830335f4139cc72e" title="Accesseur en lecture de l&#39;attribut m_ordre. " alt="" coords="232,208,372,235"/>
-</map>

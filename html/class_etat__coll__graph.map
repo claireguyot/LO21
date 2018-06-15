@@ -1,4 +1,0 @@
-<map id="Etat" name="Etat">
-<area shape="rect" id="node2" href="$class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. " alt="" coords="110,175,240,443"/>
-<area shape="rect" id="node5" href="$class_generateur_etat.html" title="Classe abstraite permettant de générer des états. " alt="" coords="264,255,403,362"/>
-</map>

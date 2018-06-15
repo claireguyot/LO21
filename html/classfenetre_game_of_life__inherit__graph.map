@@ -1,5 +1,0 @@
-<map id="fenetreGameOfLife" name="fenetreGameOfLife">
-<area shape="rect" id="node2" href="$classfenetre_config.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="5,300,175,465"/>
-<area shape="rect" id="node3" href="$class_sous_fenetre.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="28,131,152,252"/>
-<area shape="rect" id="node4" href="$class_q_widget.html" title="{QWidget\n||}" alt="" coords="53,5,127,83"/>
-</map>
