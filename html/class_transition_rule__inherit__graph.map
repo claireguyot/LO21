@@ -1,0 +1,5 @@
+<map id="TransitionRule" name="TransitionRule">
+<area shape="rect" id="node2" href="$class_elementary_rule.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 1D..." alt="" coords="5,189,148,340"/>
+<area shape="rect" id="node3" href="$class_feu_foret.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 2D..." alt="" coords="172,204,309,325"/>
+<area shape="rect" id="node4" href="$class_game_of_life.html" title="Classe héritant de TransitionRule représentant une règle de transition pour un état d&#39;un automate 2D..." alt="" coords="333,197,492,333"/>
+</map>

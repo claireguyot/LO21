@@ -1,0 +1,18 @@
+<map id="fenetre2D::saveContexte" name="fenetre2D::saveContexte">
+<area shape="rect" id="node2" href="$classfenetre_feu_foret.html#a16ef18f39c2af63c42ff5a67cc882abd" title="Méthode de la classe fenetreFeuForet. " alt="" coords="216,5,415,32"/>
+<area shape="rect" id="node3" href="$classfenetre_game_of_life.html#a051a43e416ea06cf302382a099f02e94" title="Méthode de la classe fenetreGameOfLife. " alt="" coords="247,57,384,98"/>
+<area shape="rect" id="node4" href="$class_cellular_automata.html#a28ebffd21b4b0f297a0ceea6f8648421" title="Accesseur en lecture de l&#39;attribut m_depart. " alt="" coords="230,122,401,163"/>
+<area shape="rect" id="node5" href="$classfichier_etat2_d.html#a0acba6c601772898383006d2c705a177" title="Méthode de la classe fichierEtat2D. " alt="" coords="250,188,381,215"/>
+<area shape="rect" id="node11" href="$classfichier_config2_d.html#ac91d6cd20fd9edc6ed71684b8d5a1b40" title="Méthode de la classe fichierConfig2D. " alt="" coords="244,416,387,443"/>
+<area shape="rect" id="node6" href="$class_cellular_automata.html#a42291e2737e23c206e44f074d13323f7" title="Méthode de la classe CellularAutomata. " alt="" coords="487,61,657,88"/>
+<area shape="rect" id="node7" href="$class_etat.html#a6c67137de7313e23c40a77f10417c70e" title="Accesseur en lecture de l&#39;attribut m_largeur. " alt="" coords="513,112,631,139"/>
+<area shape="rect" id="node8" href="$class_etat.html#ac0ecddd03a3429934f91a0fb44ef071e" title="Accesseur en lecture de l&#39;attribut m_longueur. " alt="" coords="508,163,636,189"/>
+<area shape="rect" id="node9" href="$class_etat.html#acff1910bf647fb62c9f4d9e726be7290" title="Accesseur en lecture de l&#39;attribut m_cellules. " alt="" coords="515,213,629,240"/>
+<area shape="rect" id="node10" href="$class_cell.html#a7640093c787979958fbb772e4fccdffa" title="Accesseur en lecture de l&#39;attribut m_etat. " alt="" coords="523,264,621,291"/>
+<area shape="rect" id="node12" href="$class_c_a_builder2_d.html#a013a50b0ebd4313516febd015db293c2" title="Méthode statique de la classe CABuilder2D permettant de retourner un automate de la classe..." alt="" coords="487,315,657,341"/>
+<area shape="rect" id="node13" href="$class_c_a_builder.html#a1be1b3d758b2aa2f5798680a8264ca1e" title="Accesseur en lecture de l&#39;attribut m_voisinageDefinition de la classe abstraite CABuilder. " alt="" coords="463,365,681,392"/>
+<area shape="rect" id="node14" href="$class_c_a_builder.html#a39da3ad55920be3648c8353f17d12bed" title="Accesseur en lecture de l&#39;attribut m_transitionRule de la classe abstraite CABuilder. " alt="" coords="477,416,667,443"/>
+<area shape="rect" id="node15" href="$class_voisinage.html#ade78a9c47dedcf8ce3ee982e46a80bed" title="Méthode permettant de retourner le type de voisinage. " alt="" coords="505,467,639,493"/>
+<area shape="rect" id="node16" href="$class_voisinage.html#a4dfdfeec0e25902c830335f4139cc72e" title="Accesseur en lecture de l&#39;attribut m_ordre. " alt="" coords="502,517,642,544"/>
+<area shape="rect" id="node17" href="$class_transition_rule.html#ac16d0e3aa7f4c392155210831b40e5a6" title="Accesseur en lecture des attributs de la classe TransitionRule. " alt="" coords="479,568,665,595"/>
+</map>

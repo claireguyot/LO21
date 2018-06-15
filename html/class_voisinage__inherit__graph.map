@@ -1,0 +1,5 @@
+<map id="Voisinage" name="Voisinage">
+<area shape="rect" id="node2" href="$class_moore.html" title="Classe représentant un voisinage en carré d&#39;une cellule de type Cell dans un automate cellulaire 2D..." alt="" coords="5,189,139,311"/>
+<area shape="rect" id="node3" href="$class_voisinage1_d.html" title="Classe représentant le voisinage d&#39;une cellule de type Cell dans un automate cellulaire 1D..." alt="" coords="163,189,296,311"/>
+<area shape="rect" id="node4" href="$class_von_neumann.html" title="Classe représentant un voisinage en croix d&#39;une cellule de type Cell dans un automate cellulaire 2D..." alt="" coords="320,189,453,311"/>
+</map>

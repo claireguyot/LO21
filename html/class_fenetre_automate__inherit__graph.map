@@ -1,0 +1,6 @@
+<map id="FenetreAutomate" name="FenetreAutomate">
+<area shape="rect" id="node4" href="$classfenetre1_d.html" title="Classe héritant de FenetreAutomate et permettant de sauvegarder le contexte de la fenêtre de simulati..." alt="" coords="5,1085,180,1412"/>
+<area shape="rect" id="node5" href="$classfenetre2_d.html" title="Classe héritant de FenetreAutomate et permettant de sauvegarder le contexte de la fenêtre de simulati..." alt="" coords="205,1093,367,1405"/>
+<area shape="rect" id="node2" href="$class_sous_fenetre.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="127,131,251,252"/>
+<area shape="rect" id="node3" href="$class_q_widget.html" title="{QWidget\n||}" alt="" coords="152,5,225,83"/>
+</map>

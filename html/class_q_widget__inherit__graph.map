@@ -1,0 +1,11 @@
+<map id="QWidget" name="QWidget">
+<area shape="rect" id="node2" href="$class_main_window.html" title="Classe représentant la fenetre principale de l&#39;interface. " alt="" coords="208,131,348,296"/>
+<area shape="rect" id="node3" href="$class_sous_fenetre.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="372,153,496,274"/>
+<area shape="rect" id="node4" href="$class_fenetre_automate.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="198,344,374,1081"/>
+<area shape="rect" id="node7" href="$classfenetre_config.html" title="Classe abstraite permettant de sauvegarder le contexte de toutes les fenêtres inclues dans MainWindow..." alt="" coords="497,630,667,795"/>
+<area shape="rect" id="node5" href="$classfenetre1_d.html" title="Classe héritant de FenetreAutomate et permettant de sauvegarder le contexte de la fenêtre de simulati..." alt="" coords="5,1129,180,1456"/>
+<area shape="rect" id="node6" href="$classfenetre2_d.html" title="Classe héritant de FenetreAutomate et permettant de sauvegarder le contexte de la fenêtre de simulati..." alt="" coords="205,1137,367,1449"/>
+<area shape="rect" id="node8" href="$classfenetre_elementary_rule.html" title="Classe permettant de sauvegarder le contexte de la fenêtre pour un automate 1D, inclue dans MainWindo..." alt="" coords="391,1181,573,1405"/>
+<area shape="rect" id="node9" href="$classfenetre_feu_foret.html" title="Classe permettant de sauvegarder le contexte de la fenêtre pour un automate 2D de type Feu de Forêt..." alt="" coords="597,1210,767,1375"/>
+<area shape="rect" id="node10" href="$classfenetre_game_of_life.html" title="Classe permettant de sauvegarder le contexte de la fenêtre pour un automate 2D de type Jeu de la Vie..." alt="" coords="791,1195,960,1390"/>
+</map>

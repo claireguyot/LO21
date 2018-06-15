@@ -1,0 +1,8 @@
+<map id="Moore::definirVoisinage" name="Moore::definirVoisinage">
+<area shape="rect" id="node2" href="$class_etat.html#a6c67137de7313e23c40a77f10417c70e" title="Accesseur en lecture de l&#39;attribut m_largeur. " alt="" coords="221,5,339,32"/>
+<area shape="rect" id="node3" href="$class_etat.html#ac0ecddd03a3429934f91a0fb44ef071e" title="Accesseur en lecture de l&#39;attribut m_longueur. " alt="" coords="216,56,344,83"/>
+<area shape="rect" id="node4" href="$class_etat.html#acff1910bf647fb62c9f4d9e726be7290" title="Accesseur en lecture de l&#39;attribut m_cellules. " alt="" coords="223,107,337,133"/>
+<area shape="rect" id="node5" href="$class_cell.html#a5c2a7b09dcb8afed0040ebdc4267408d" title="Accesseur en lecture de l&#39;attribut m_voisins. " alt="" coords="222,157,338,184"/>
+<area shape="rect" id="node6" href="$class_cell.html#a4f07be87bb04bdc457726c51f2c69bcc" title="Suppression du voisinage d&#39;une cellule. " alt="" coords="211,208,349,235"/>
+<area shape="rect" id="node7" href="$class_cell.html#aef5912d85e2ca3e034023fb0874896fa" title="Ajout d&#39;un voisin dans le voisinage de la cellule. " alt="" coords="215,259,345,285"/>
+</map>

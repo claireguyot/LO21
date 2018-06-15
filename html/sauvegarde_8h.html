@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CelllularAutomata: Référence du fichier LO21/AutoCell/sauvegarde.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CelllularAutomata
+   &#160;<span id="projectnumber">Projet de LO21 portant sur les automates cellulaires à 1 et 2 dimensions</span>
+   </div>
+   <div id="projectbrief">CARVALHO Philippe, GUYOT Claire, NOIZET Maxime</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('sauvegarde_8h.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier sauvegarde.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Déclaration des fonctions liées à la sauvegarde du contexte d'un automate.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;QObject&gt;</code><br />
+<code>#include &lt;QWidget&gt;</code><br />
+<code>#include &lt;QPushButton&gt;</code><br />
+<code>#include &lt;QHBoxLayout&gt;</code><br />
+<code>#include &lt;QVBoxLayout&gt;</code><br />
+<code>#include &lt;QLabel&gt;</code><br />
+<code>#include &lt;QLineEdit&gt;</code><br />
+<code>#include &lt;QFileDialog&gt;</code><br />
+<code>#include &lt;QMessageBox&gt;</code><br />
+<code>#include &lt;QString&gt;</code><br />
+<code>#include &quot;<a class="el" href="cellularautomata_8h_source.html">cellularautomata.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fichier_8h_source.html">fichier.h</a>&quot;</code><br />
+</div>
+<p><a href="sauvegarde_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:af4bf09862c0294e937b809406a59c306"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#af4bf09862c0294e937b809406a59c306">TypeFichier</a> { <b>ETAT</b>, 
+<b>CONFIG</b>
+ }</td></tr>
+<tr class="memdesc:af4bf09862c0294e937b809406a59c306"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type de sauvegarde de données.  <a href="sauvegarde_8h.html#af4bf09862c0294e937b809406a59c306">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af4bf09862c0294e937b809406a59c306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac723b01a0252e3ef0c19e62167fee796"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#ac723b01a0252e3ef0c19e62167fee796">DimType</a> { <b>_1D</b>, 
+<b>_2D</b>
+ }</td></tr>
+<tr class="memdesc:ac723b01a0252e3ef0c19e62167fee796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type de sauvegarde de données.  <a href="sauvegarde_8h.html#ac723b01a0252e3ef0c19e62167fee796">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac723b01a0252e3ef0c19e62167fee796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a9d16542dcc8a340e36e363d5a3fa1a88"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#a9d16542dcc8a340e36e363d5a3fa1a88">sauvegarde</a> (const <a class="el" href="class_cellular_automata.html">CellularAutomata</a> &amp;automate, <a class="el" href="sauvegarde_8h.html#af4bf09862c0294e937b809406a59c306">TypeFichier</a> t, <a class="el" href="sauvegarde_8h.html#ac723b01a0252e3ef0c19e62167fee796">DimType</a> d)</td></tr>
+<tr class="memdesc:a9d16542dcc8a340e36e363d5a3fa1a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction liée à la sauvegarde des données d'un automate 1D ou 2D.  <a href="#a9d16542dcc8a340e36e363d5a3fa1a88">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9d16542dcc8a340e36e363d5a3fa1a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1485a8038899cd83dc86ff5d04bee3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#ad1485a8038899cd83dc86ff5d04bee3a">chargement</a> (<a class="el" href="class_cellular_automata.html">CellularAutomata</a> *&amp;automate, <a class="el" href="sauvegarde_8h.html#af4bf09862c0294e937b809406a59c306">TypeFichier</a> t, <a class="el" href="sauvegarde_8h.html#ac723b01a0252e3ef0c19e62167fee796">DimType</a> d)</td></tr>
+<tr class="memdesc:ad1485a8038899cd83dc86ff5d04bee3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction liée au chargement des données d'un automate 1D ou 2D.  <a href="#ad1485a8038899cd83dc86ff5d04bee3a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad1485a8038899cd83dc86ff5d04bee3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Déclaration des fonctions liées à la sauvegarde du contexte d'un automate. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="sauvegarde_8h_source.html">sauvegarde.h</a>.</p>
+</div><h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="ac723b01a0252e3ef0c19e62167fee796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac723b01a0252e3ef0c19e62167fee796">&#9670;&nbsp;</a></span>DimType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="sauvegarde_8h.html#ac723b01a0252e3ef0c19e62167fee796">DimType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type de sauvegarde de données. </p>
+<p>Cette énumération défini le type d'automate sauvegardé : soit 1D, soit 2D. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="sauvegarde_8h_source.html#l00041">41</a> du fichier <a class="el" href="sauvegarde_8h_source.html">sauvegarde.h</a>.</p>
+
+</div>
+</div>
+<a id="af4bf09862c0294e937b809406a59c306"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4bf09862c0294e937b809406a59c306">&#9670;&nbsp;</a></span>TypeFichier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="sauvegarde_8h.html#af4bf09862c0294e937b809406a59c306">TypeFichier</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type de sauvegarde de données. </p>
+<p>Cette énumération défini le type de sauvegarde du fichier : soit un état, soit une configuration d'un automate 1D ou 2D. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="sauvegarde_8h_source.html#l00033">33</a> du fichier <a class="el" href="sauvegarde_8h_source.html">sauvegarde.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ad1485a8038899cd83dc86ff5d04bee3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1485a8038899cd83dc86ff5d04bee3a">&#9670;&nbsp;</a></span>chargement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool chargement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_cellular_automata.html">CellularAutomata</a> *&amp;&#160;</td>
+          <td class="paramname"><em>automate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sauvegarde_8h.html#af4bf09862c0294e937b809406a59c306">TypeFichier</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sauvegarde_8h.html#ac723b01a0252e3ef0c19e62167fee796">DimType</a>&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction liée au chargement des données d'un automate 1D ou 2D. </p>
+<p>Cette fonction permet de charger l'état ou la configuration d'un automate à partir d'un fichier <em></em>.bn ou <em></em>.csv. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="sauvegarde_8cpp_source.html#l00063">63</a> du fichier <a class="el" href="sauvegarde_8cpp_source.html">sauvegarde.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9d16542dcc8a340e36e363d5a3fa1a88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d16542dcc8a340e36e363d5a3fa1a88">&#9670;&nbsp;</a></span>sauvegarde()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sauvegarde </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_cellular_automata.html">CellularAutomata</a> &amp;&#160;</td>
+          <td class="paramname"><em>automate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sauvegarde_8h.html#af4bf09862c0294e937b809406a59c306">TypeFichier</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sauvegarde_8h.html#ac723b01a0252e3ef0c19e62167fee796">DimType</a>&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction liée à la sauvegarde des données d'un automate 1D ou 2D. </p>
+<p>Cette fonction permet de sauvegarder l'état ou la configuration d'un automate dans un fichier <em></em>.bn ou <em></em>.csv, avec un nom saisi par l'utilisateur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="sauvegarde_8cpp_source.html#l00011">11</a> du fichier <a class="el" href="sauvegarde_8cpp_source.html">sauvegarde.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_11684845be5129c24b955741ba11f96a.html">LO21</a></li><li class="navelem"><a class="el" href="dir_13e9405ba144b4e4026f5a1ba635726c.html">AutoCell</a></li><li class="navelem"><a class="el" href="sauvegarde_8h.html">sauvegarde.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

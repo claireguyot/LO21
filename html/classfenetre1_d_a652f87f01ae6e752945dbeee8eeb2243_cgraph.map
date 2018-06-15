@@ -1,0 +1,8 @@
+<map id="fenetre1D::UpdateInfo" name="fenetre1D::UpdateInfo">
+<area shape="rect" id="node2" href="$class_cellular_automata.html#a75397ff49dc3b2042d922c2da9d7bf85" title="Accesseur en lecture de l&#39;attribut m_rule. " alt="" coords="201,5,403,32"/>
+<area shape="rect" id="node3" href="$class_cellular_automata.html#a50fd8f8ee143b72c09107553d7ae04c8" title="Accesseur en lecture de l&#39;attribut m_nbEtats. " alt="" coords="205,57,399,98"/>
+<area shape="rect" id="node4" href="$class_elementary_rule.html#aa613ebf61f261d5e4d36d1133a975567" title="Accesseur en lecture de l&#39;attribut m_rule. " alt="" coords="217,123,387,149"/>
+<area shape="rect" id="node5" href="$class_cellular_automata.html#a6b579ee2708d749ec4073950d3593083" title="Accesseur en lecture de l&#39;attribut m_voisinageDefinition. " alt="" coords="200,173,404,200"/>
+<area shape="rect" id="node6" href="$class_voisinage.html#ade78a9c47dedcf8ce3ee982e46a80bed" title="Méthode permettant de retourner le type de voisinage. " alt="" coords="235,224,369,251"/>
+<area shape="rect" id="node7" href="$class_voisinage.html#a4dfdfeec0e25902c830335f4139cc72e" title="Accesseur en lecture de l&#39;attribut m_ordre. " alt="" coords="232,275,372,301"/>
+</map>

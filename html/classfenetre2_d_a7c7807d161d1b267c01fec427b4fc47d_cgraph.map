@@ -1,0 +1,5 @@
+<map id="fenetre2D::sauverAutomate" name="fenetre2D::sauverAutomate">
+<area shape="rect" id="node2" href="$class_fenetre_automate.html#aee20c4ab6a43b44e7fd122fce4fcf7d0" title="Méthode slot de la classe FenetreAutomate. " alt="" coords="232,5,397,32"/>
+<area shape="rect" id="node3" href="$sauvegarde_8cpp.html#a9d16542dcc8a340e36e363d5a3fa1a88" title="Fonction liée à la sauvegarde des données d&#39;un automate 1D ou 2D. " alt="" coords="271,56,358,83"/>
+<area shape="rect" id="node4" href="$classfichier.html#ac54bfc9ea8c980c0b46bb291d3abdef4" title="Méthode de la classe fichier. " alt="" coords="445,56,536,83"/>
+</map>

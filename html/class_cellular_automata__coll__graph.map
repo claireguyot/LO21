@@ -1,0 +1,7 @@
+<map id="CellularAutomata" name="CellularAutomata">
+<area shape="rect" id="node3" href="$class_voisinage.html" title="Classe abstraite représentant le voisinage d&#39;une cellule de type Cell. " alt="" coords="98,467,231,603"/>
+<area shape="rect" id="node5" href="$class_etat.html" title="Classe représentant un état de la grille de cellules. " alt="" coords="323,627,439,909"/>
+<area shape="rect" id="node6" href="$class_cell.html" title="Classe représentant une cellule qui est l&#39;élément de base du programme. " alt="" coords="345,175,475,443"/>
+<area shape="rect" id="node4" href="$class_transition_rule.html" title="Classe abstraite représentant une règle de transition pour un état. " alt="" coords="463,700,613,836"/>
+<area shape="rect" id="node8" href="$class_generateur_etat.html" title="Classe abstraite permettant de générer des états. " alt="" coords="499,255,638,362"/>
+</map>

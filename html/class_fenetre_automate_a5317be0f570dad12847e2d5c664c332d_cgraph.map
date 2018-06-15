@@ -1,0 +1,18 @@
+<map id="FenetreAutomate::play" name="FenetreAutomate::play">
+<area shape="rect" id="node2" href="$class_fenetre_automate.html#a1641261df0e833154ce104e7763d43c5" title="Méthode slot de la classe FenetreAutomate. " alt="" coords="208,107,399,149"/>
+<area shape="rect" id="node3" href="$class_cellular_automata.html#a75397ff49dc3b2042d922c2da9d7bf85" title="Accesseur en lecture de l&#39;attribut m_rule. " alt="" coords="447,5,649,32"/>
+<area shape="rect" id="node4" href="$class_fenetre_automate.html#aee20c4ab6a43b44e7fd122fce4fcf7d0" title="Méthode slot de la classe FenetreAutomate. " alt="" coords="465,56,631,83"/>
+<area shape="rect" id="node5" href="$class_cellular_automata.html#a28ebffd21b4b0f297a0ceea6f8648421" title="Accesseur en lecture de l&#39;attribut m_depart. " alt="" coords="463,107,633,149"/>
+<area shape="rect" id="node6" href="$class_cellular_automata.html#acfc9ced987c630324dcd70ceea348148" title="Méthode de la classe CellularAutomata. " alt="" coords="470,173,626,200"/>
+<area shape="rect" id="node17" href="$class_fenetre_automate.html#a1b435543cfb80e6f1364f79e2523424d" title="Méthode de la classe FenetreAutomate. " alt="" coords="463,225,633,266"/>
+<area shape="rect" id="node7" href="$class_cellular_automata.html#ad0c57645f11882d3290e6493f4773c3c" title="Méthode de la classe CellularAutomata. " alt="" coords="699,203,858,229"/>
+<area shape="rect" id="node15" href="$class_transition_rule.html#a8570188a32e648ce3c08e76065f88fb7" title="Méthode de la classe TransitionRule. " alt="" coords="697,137,860,178"/>
+<area shape="rect" id="node8" href="$class_etat.html#a6c67137de7313e23c40a77f10417c70e" title="Accesseur en lecture de l&#39;attribut m_largeur. " alt="" coords="938,195,1057,221"/>
+<area shape="rect" id="node9" href="$class_etat.html#ac0ecddd03a3429934f91a0fb44ef071e" title="Accesseur en lecture de l&#39;attribut m_longueur. " alt="" coords="933,144,1061,171"/>
+<area shape="rect" id="node10" href="$class_etat.html#a419cff1c3aa750391d0aa71fe0c84446" title="Constructeur de la classe Etat. " alt="" coords="958,296,1037,323"/>
+<area shape="rect" id="node14" href="$class_voisinage.html#ac12f70bf8e971cbc8eaf8394de270d07" title="Méthode de la classe Voisinage. " alt="" coords="908,245,1087,272"/>
+<area shape="rect" id="node11" href="$class_cell.html#a9aaedcce2daccb4aa070f870c1a207ed" title="Modification de la position de la cellule sur la ligne. " alt="" coords="1189,245,1268,272"/>
+<area shape="rect" id="node12" href="$class_cell.html#a48afb0c8c8d1ebe3409b9a166dcd507d" title="Modification de la position de la cellule sur la colonne. " alt="" coords="1188,296,1269,323"/>
+<area shape="rect" id="node13" href="$class_generateur_etat.html#a0698d6706e0aaa2e597bdaf280806835" title="Constructeur de la classe GenerateurEtat. " alt="" coords="1135,347,1323,373"/>
+<area shape="rect" id="node16" href="$class_etat.html#acff1910bf647fb62c9f4d9e726be7290" title="Accesseur en lecture de l&#39;attribut m_cellules. " alt="" coords="940,93,1055,120"/>
+</map>
