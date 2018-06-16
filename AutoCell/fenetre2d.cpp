@@ -236,6 +236,7 @@ void fenetre2D::chargerEtat()
             else
             {
                 m_longueur->setValue(m.GetEtatDepart()->GetLongueur());
+                m_largeur->setValue(m.GetEtatDepart()->GetLargeur());
 
                 buildGrille();
 
