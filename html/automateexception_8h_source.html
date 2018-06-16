@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CellularAutomata:  Fichier source de LO21/AutoCell/automateexception.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CellularAutomata
+   &#160;<span id="projectnumber">Projet de LO21 portant sur les automates cellulaires à 1 et 2 dimensions</span>
+   </div>
+   <div id="projectbrief">CARVALHO Philippe, GUYOT Claire, NOIZET Maxime</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('automateexception_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">automateexception.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="automateexception_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AUTOMATEEXCEPTION_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define AUTOMATEEXCEPTION_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_automate_exception.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_automate_exception.html">AutomateException</a> : <span class="keyword">public</span> std::exception {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_automate_exception.html#a324660f942b04229a4795cc80c3dbe82">   29</a></span>&#160;    <a class="code" href="class_automate_exception.html#a324660f942b04229a4795cc80c3dbe82">AutomateException</a>(<span class="keyword">const</span> std::string&amp; message) <span class="keywordflow">throw</span>() :info(message) {}</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_automate_exception.html#aec651fff04401e5d6eb3ee1804f1afcd">   38</a></span>&#160;    <span class="keywordtype">char</span> <span class="keyword">const</span>* <a class="code" href="class_automate_exception.html#aec651fff04401e5d6eb3ee1804f1afcd">what</a>() <span class="keyword">const</span> throw() { <span class="keywordflow">return</span> info.c_str(); }</div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_automate_exception.html#aac1e142017119bf9116fac7cdd6b0a07">   44</a></span>&#160;    <a class="code" href="class_automate_exception.html#aac1e142017119bf9116fac7cdd6b0a07">~AutomateException</a>() { }</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::string info;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif // AUTOMATEEXCEPTION_H</span></div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="ttc" id="class_automate_exception_html_a324660f942b04229a4795cc80c3dbe82"><div class="ttname"><a href="class_automate_exception.html#a324660f942b04229a4795cc80c3dbe82">AutomateException::AutomateException</a></div><div class="ttdeci">AutomateException(const std::string &amp;message)</div><div class="ttdoc">Constructeur de la classe AutomateException. </div><div class="ttdef"><b>Definition:</b> <a href="automateexception_8h_source.html#l00029">automateexception.h:29</a></div></div>
+<div class="ttc" id="class_automate_exception_html"><div class="ttname"><a href="class_automate_exception.html">AutomateException</a></div><div class="ttdoc">Classe de base des exceptions liees au projet qui est utilisee en cas d&amp;#39;erreur. </div><div class="ttdef"><b>Definition:</b> <a href="automateexception_8h_source.html#l00018">automateexception.h:18</a></div></div>
+<div class="ttc" id="class_automate_exception_html_aac1e142017119bf9116fac7cdd6b0a07"><div class="ttname"><a href="class_automate_exception.html#aac1e142017119bf9116fac7cdd6b0a07">AutomateException::~AutomateException</a></div><div class="ttdeci">~AutomateException()</div><div class="ttdoc">Destructeur de la classe AutomateException. </div><div class="ttdef"><b>Definition:</b> <a href="automateexception_8h_source.html#l00044">automateexception.h:44</a></div></div>
+<div class="ttc" id="class_automate_exception_html_aec651fff04401e5d6eb3ee1804f1afcd"><div class="ttname"><a href="class_automate_exception.html#aec651fff04401e5d6eb3ee1804f1afcd">AutomateException::what</a></div><div class="ttdeci">char const  * what() const</div><div class="ttdoc">Accesseur en lecture de l&amp;#39;attribut info de la classe AutomateException. </div><div class="ttdef"><b>Definition:</b> <a href="automateexception_8h_source.html#l00038">automateexception.h:38</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_11684845be5129c24b955741ba11f96a.html">LO21</a></li><li class="navelem"><a class="el" href="dir_13e9405ba144b4e4026f5a1ba635726c.html">AutoCell</a></li><li class="navelem"><a class="el" href="automateexception_8h.html">automateexception.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

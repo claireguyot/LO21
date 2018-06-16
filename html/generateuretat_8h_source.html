@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CellularAutomata:  Fichier source de LO21/AutoCell/generateuretat.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CellularAutomata
+   &#160;<span id="projectnumber">Projet de LO21 portant sur les automates cellulaires à 1 et 2 dimensions</span>
+   </div>
+   <div id="projectbrief">CARVALHO Philippe, GUYOT Claire, NOIZET Maxime</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('generateuretat_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">generateuretat.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="generateuretat_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GENERATEURETAT_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GENERATEURETAT_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="etat_8h.html">etat.h</a>&quot;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span><a class="code" href="class_etat.html">Etat</a>;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_generateur_etat.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_generateur_etat.html">GenerateurEtat</a></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_generateur_etat.html#a6ecebc169446d7f5fa40ed37af5abdaf">GenerateurEtat</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_generateur_etat.html#a0698d6706e0aaa2e597bdaf280806835">GenererEtat</a>(<span class="keywordtype">int</span> nbEtats, <a class="code" href="class_etat.html">Etat</a>&amp; grille) <span class="keyword">const</span> = 0;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_generateur_etat.html#a1ba21b5a12fa8855136363e338209d34">~GenerateurEtat</a>()= <span class="keywordflow">default</span>;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_generateur_random.html">   62</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_generateur_random.html">GenerateurRandom</a> : <span class="keyword">public</span> <a class="code" href="class_generateur_etat.html">GenerateurEtat</a></div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="class_generateur_random.html#a5c9892ae082709ff222116e7b8376885">GenerateurRandom</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_generateur_random.html#ab110072502487c78f0b7dc0c7f2241c7">GenererEtat</a>(<span class="keywordtype">int</span> nbEtats, <a class="code" href="class_etat.html">Etat</a>&amp; grille) <span class="keyword">const override</span>;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="class_generateur_random.html#a6e8465717258a90158700cd4120ce10b">~GenerateurRandom</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="class_generateur_symetrie_axe_vertical.html">   97</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_generateur_symetrie_axe_vertical.html">GenerateurSymetrieAxeVertical</a> : <span class="keyword">public</span> <a class="code" href="class_generateur_etat.html">GenerateurEtat</a></div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="class_generateur_symetrie_axe_vertical.html#a5e7ad0b4e452fe6a96ad75e5b54492f2">GenerateurSymetrieAxeVertical</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_generateur_symetrie_axe_vertical.html#ae782046a73fc7624212c3c5988de949f">GenererEtat</a>(<span class="keywordtype">int</span> nbEtats, <a class="code" href="class_etat.html">Etat</a>&amp; grille) <span class="keyword">const override</span>;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="class_generateur_symetrie_axe_vertical.html#ae2a3a066dba020c68a91739956fb01ac">~GenerateurSymetrieAxeVertical</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif // GENERATEURETAT_H</span></div><div class="ttc" id="etat_8h_html"><div class="ttname"><a href="etat_8h.html">etat.h</a></div><div class="ttdoc">Déclaration de la classe Etat et définition de ses méthodes inline. </div></div>
+<div class="ttc" id="class_generateur_etat_html_a0698d6706e0aaa2e597bdaf280806835"><div class="ttname"><a href="class_generateur_etat.html#a0698d6706e0aaa2e597bdaf280806835">GenerateurEtat::GenererEtat</a></div><div class="ttdeci">virtual void GenererEtat(int nbEtats, Etat &amp;grille) const =0</div><div class="ttdoc">Constructeur de la classe GenerateurEtat. </div></div>
+<div class="ttc" id="class_generateur_symetrie_axe_vertical_html_ae2a3a066dba020c68a91739956fb01ac"><div class="ttname"><a href="class_generateur_symetrie_axe_vertical.html#ae2a3a066dba020c68a91739956fb01ac">GenerateurSymetrieAxeVertical::~GenerateurSymetrieAxeVertical</a></div><div class="ttdeci">~GenerateurSymetrieAxeVertical()=default</div><div class="ttdoc">Destructeur de la classe GenerateurSymetrieAxeVertical. </div></div>
+<div class="ttc" id="class_generateur_etat_html"><div class="ttname"><a href="class_generateur_etat.html">GenerateurEtat</a></div><div class="ttdoc">Classe abstraite permettant de générer des états. </div><div class="ttdef"><b>Definition:</b> <a href="generateuretat_8h_source.html#l00031">generateuretat.h:31</a></div></div>
+<div class="ttc" id="class_generateur_random_html"><div class="ttname"><a href="class_generateur_random.html">GenerateurRandom</a></div><div class="ttdoc">Classe héritant de GenerateurEtat permettant de générer des états à partir d&amp;#39;un certain mode : aléato...</div><div class="ttdef"><b>Definition:</b> <a href="generateuretat_8h_source.html#l00062">generateuretat.h:62</a></div></div>
+<div class="ttc" id="class_generateur_random_html_ab110072502487c78f0b7dc0c7f2241c7"><div class="ttname"><a href="class_generateur_random.html#ab110072502487c78f0b7dc0c7f2241c7">GenerateurRandom::GenererEtat</a></div><div class="ttdeci">virtual void GenererEtat(int nbEtats, Etat &amp;grille) const override</div><div class="ttdoc">Constructeur de la classe GenerateurRandom. </div><div class="ttdef"><b>Definition:</b> <a href="generateuretat_8cpp_source.html#l00011">generateuretat.cpp:11</a></div></div>
+<div class="ttc" id="class_generateur_symetrie_axe_vertical_html"><div class="ttname"><a href="class_generateur_symetrie_axe_vertical.html">GenerateurSymetrieAxeVertical</a></div><div class="ttdoc">Classe héritant de GenerateurEtat permettant de générer des états à partir d&amp;#39;un certain mode : symétr...</div><div class="ttdef"><b>Definition:</b> <a href="generateuretat_8h_source.html#l00097">generateuretat.h:97</a></div></div>
+<div class="ttc" id="class_generateur_etat_html_a6ecebc169446d7f5fa40ed37af5abdaf"><div class="ttname"><a href="class_generateur_etat.html#a6ecebc169446d7f5fa40ed37af5abdaf">GenerateurEtat::GenerateurEtat</a></div><div class="ttdeci">GenerateurEtat()=default</div><div class="ttdoc">Constructeur de la classe GenerateurEtat. </div></div>
+<div class="ttc" id="class_generateur_random_html_a5c9892ae082709ff222116e7b8376885"><div class="ttname"><a href="class_generateur_random.html#a5c9892ae082709ff222116e7b8376885">GenerateurRandom::GenerateurRandom</a></div><div class="ttdeci">GenerateurRandom()=default</div><div class="ttdoc">Constructeur de la classe GenerateurRandom. </div></div>
+<div class="ttc" id="class_generateur_symetrie_axe_vertical_html_ae782046a73fc7624212c3c5988de949f"><div class="ttname"><a href="class_generateur_symetrie_axe_vertical.html#ae782046a73fc7624212c3c5988de949f">GenerateurSymetrieAxeVertical::GenererEtat</a></div><div class="ttdeci">virtual void GenererEtat(int nbEtats, Etat &amp;grille) const override</div><div class="ttdoc">Constructeur de la classe GenerateurSymetrieAxeVertical. </div><div class="ttdef"><b>Definition:</b> <a href="generateuretat_8cpp_source.html#l00026">generateuretat.cpp:26</a></div></div>
+<div class="ttc" id="class_generateur_random_html_a6e8465717258a90158700cd4120ce10b"><div class="ttname"><a href="class_generateur_random.html#a6e8465717258a90158700cd4120ce10b">GenerateurRandom::~GenerateurRandom</a></div><div class="ttdeci">~GenerateurRandom()=default</div><div class="ttdoc">Destructeur de la classe GenerateurRandom. </div></div>
+<div class="ttc" id="class_generateur_symetrie_axe_vertical_html_a5e7ad0b4e452fe6a96ad75e5b54492f2"><div class="ttname"><a href="class_generateur_symetrie_axe_vertical.html#a5e7ad0b4e452fe6a96ad75e5b54492f2">GenerateurSymetrieAxeVertical::GenerateurSymetrieAxeVertical</a></div><div class="ttdeci">GenerateurSymetrieAxeVertical()=default</div><div class="ttdoc">Constructeur de la classe GenerateurSymetrieAxeVertical. </div></div>
+<div class="ttc" id="class_etat_html"><div class="ttname"><a href="class_etat.html">Etat</a></div><div class="ttdoc">Classe représentant un état de la grille de cellules. </div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00023">etat.h:23</a></div></div>
+<div class="ttc" id="class_generateur_etat_html_a1ba21b5a12fa8855136363e338209d34"><div class="ttname"><a href="class_generateur_etat.html#a1ba21b5a12fa8855136363e338209d34">GenerateurEtat::~GenerateurEtat</a></div><div class="ttdeci">virtual ~GenerateurEtat()=default</div><div class="ttdoc">Destructeur de la classe GenerateurEtat. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_11684845be5129c24b955741ba11f96a.html">LO21</a></li><li class="navelem"><a class="el" href="dir_13e9405ba144b4e4026f5a1ba635726c.html">AutoCell</a></li><li class="navelem"><a class="el" href="generateuretat_8h.html">generateuretat.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

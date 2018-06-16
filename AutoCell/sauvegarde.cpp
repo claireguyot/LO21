@@ -1,6 +1,6 @@
 /*!
  * \file sauvegarde.cpp
- * \brief Implementation des methodes définies dans le fichier < em>"sauvegarde.h"< /em>
+ * \brief Implementation des fonctions définies dans le fichier < em>"sauvegarde.h"< /em>
  * \version 1.0
  * \sa sauvegarde.h
  */

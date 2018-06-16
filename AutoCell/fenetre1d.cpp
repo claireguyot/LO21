@@ -114,7 +114,7 @@ fenetre1D::fenetre1D(QWidget *parent) : FenetreAutomate(parent)
     m_automates->addWidget(m_configElementaryRule);
     m_automates->setCurrentIndex(0);
     m_choixAutomate = new QComboBox();
-    m_choixAutomate->addItem("automates élémentaires revisités");
+    m_choixAutomate->addItem("Automates élémentaires revisités");
 
     m_genererAutomate = new QPushButton("Générer automate");
     m_sauvegarderAutomate = new QPushButton("Sauvegarder automate");
@@ -302,8 +302,6 @@ void fenetre1D::cellActivation(const QModelIndex& index)
 
 void fenetre1D::buildGrille()
 {
-
-
     unsigned int tailleLongueur = m_grille->height()/m_longueur->value();
     unsigned int tailleLargeur = m_grille->width()/m_largeur->value();
 
@@ -322,14 +320,8 @@ void fenetre1D::buildGrille()
     }
 
 
-
-
-
-
-
     m_grille->setColumnCount(m_longueur->value());
     m_grille->setRowCount(m_largeur->value());
-
 
 
     for(unsigned int i=0;i<m_longueur->value();i++)
