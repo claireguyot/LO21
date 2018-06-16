@@ -237,7 +237,6 @@ void fenetre2D::chargerEtat()
             {
                 m_longueur->setValue(m.GetEtatDepart()->GetLongueur());
                 m_largeur->setValue(m.GetEtatDepart()->GetLargeur());
-
                 buildGrille();
 
                 afficherDernierEtat();
