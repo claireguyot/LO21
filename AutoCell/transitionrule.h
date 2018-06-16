@@ -198,7 +198,7 @@ private:
   * \sa Cell, Etat, TransitionRule
   * \details Cette classe héritant de TransitionRule permet d'associer une règle de transition à un état d'un automate 2D du Feu de Forêt.
   */
-class FeuForet : public TransitionRule //nombre d'Etats forcément = à 2 !!!!!!!!
+class FeuForet : public TransitionRule //nombre d'Etats forcément = à 4 !!!!!!!!
 {
 public:
         /*!
